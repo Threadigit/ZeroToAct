@@ -1340,27 +1340,42 @@ input, textarea { font-family: inherit; }
   letter-spacing: -0.01em;
 }
 
-.promise-meta {
+.promise-founder-meta {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  gap: 1rem;
+  text-align: left;
 }
 
-.promise-brand {
-  font-family: var(--ff-serif);
+.promise-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.promise-founder-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.promise-author {
   font-size: var(--fs-base);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--white-pure);
   letter-spacing: -0.01em;
 }
 
-.promise-tagline {
+.promise-title {
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--grey-600);
+  color: var(--grey-500);
 }
 
 /* ═══════════════════════════════════════════════════════
