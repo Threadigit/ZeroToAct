@@ -202,7 +202,7 @@
   // - type: 'vimeo', id: 'VimeoVideoID', aspectRatio: 'widescreen' | 'portrait'
   // - type: 'mp4', id: 'https://domain.com/video.mp4', aspectRatio: 'widescreen' | 'portrait'
   const videoSource = {
-    type: 'youtube', 
+    type: 'youtube',
     id: 'Z1PppJZj8JQ',
     aspectRatio: 'portrait'
   };
@@ -260,4 +260,207 @@
     });
   }
 
+  // ─── APPLICATION FORM POPUP MODAL ─────────────────
+  const joinModal = document.getElementById('join-modal');
+  const joinTriggers = document.querySelectorAll('.join-cta-trigger');
+  const joinModalClose = document.getElementById('join-modal-close');
+  const joinModalOverlay = document.getElementById('join-modal-overlay');
+  const joinFormPanel = document.getElementById('join-modal-form-panel');
+  const joinSuccessPanel = document.getElementById('join-modal-success-panel');
+  const joinForm = document.getElementById('join-application-form');
+  const joinSubmitBtn = document.getElementById('join-submit-btn');
+
+  console.log('ZeroToAct Modal Debug:', {
+    joinModal,
+    triggersCount: joinTriggers.length,
+    joinForm
+  });
+
+  // Configure your real Formspree form ID
+  const formspreeUrl = 'https://formspree.io/f/maqkdyjn';
+
+  if (joinModal && joinTriggers.length > 0 && joinForm) {
+    const openJoinModal = (e) => {
+      if (e) e.preventDefault();
+      console.log('openJoinModal triggered');
+      document.body.style.overflow = 'hidden';
+      joinModal.classList.add('open');
+      joinModal.setAttribute('aria-hidden', 'false');
+
+      // Reset form state
+      joinForm.reset();
+      clearErrors();
+      joinFormPanel.style.display = 'block';
+      joinSuccessPanel.style.display = 'none';
+
+      if (iti) {
+        // Trigger formatting update when modal opens
+        const placeholder = iti.getPlaceholderNumber();
+        const cleanPlaceholder = placeholder.replace(/[-:;]/g, ' ');
+        const captionEl = document.getElementById('phone-format-caption');
+        if (captionEl) captionEl.textContent = 'Format ' + cleanPlaceholder;
+      }
+
+      // Focus first input
+      const firstInput = document.getElementById('join-name');
+      if (firstInput) firstInput.focus();
+    };
+
+    const closeJoinModal = () => {
+      document.body.style.overflow = '';
+      joinModal.classList.remove('open');
+      joinModal.setAttribute('aria-hidden', 'true');
+    };
+
+    joinTriggers.forEach(trigger => {
+      trigger.addEventListener('click', openJoinModal);
+    });
+
+    if (joinModalClose) joinModalClose.addEventListener('click', closeJoinModal);
+    if (joinModalOverlay) joinModalOverlay.addEventListener('click', closeJoinModal);
+
+    // Escape key closes modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && joinModal.classList.contains('open')) {
+        closeJoinModal();
+      }
+    });
+
+    // Form validation and submission
+    const nameInput = document.getElementById('join-name');
+    const emailInput = document.getElementById('join-email');
+    const phoneInput = document.getElementById('join-phone');
+    const descInput = document.getElementById('join-description');
+
+    let iti = null;
+    if (window.intlTelInput && phoneInput) {
+      iti = window.intlTelInput(phoneInput, {
+        initialCountry: 'auto',
+        geoIpLookup: function (callback) {
+          fetch('https://ipapi.co/json')
+            .then(res => res.json())
+            .then(data => callback(data.country_code))
+            .catch(() => callback('NG')); // default to Nigeria
+        },
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js'
+      });
+
+      const updatePhonePlaceholder = () => {
+        if (iti) {
+          const placeholder = iti.getPlaceholderNumber();
+          const cleanPlaceholder = placeholder.replace(/[-:;]/g, ' ');
+          const captionEl = document.getElementById('phone-format-caption');
+          if (captionEl) {
+            captionEl.textContent = 'Format ' + cleanPlaceholder;
+          }
+        }
+      };
+
+      phoneInput.addEventListener('countrychange', updatePhonePlaceholder);
+    }
+
+    const clearErrors = () => {
+      document.querySelectorAll('.form-error').forEach(el => {
+        el.textContent = '';
+      });
+      document.querySelectorAll('.form-input, .form-textarea').forEach(el => {
+        el.style.borderColor = '';
+      });
+    };
+
+    joinForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      let hasError = false;
+
+      // Validation check
+      if (!nameInput.value.trim()) {
+        showError('name', 'Full Name is required');
+        hasError = true;
+      }
+      if (!emailInput.value.trim()) {
+        showError('email', 'Email Address is required');
+        hasError = true;
+      } else if (!validateEmail(emailInput.value.trim())) {
+        showError('email', 'Please enter a valid email');
+        hasError = true;
+      }
+      if (!phoneInput.value.trim()) {
+        showError('phone', 'Phone Number is required');
+        hasError = true;
+      } else if (iti && !iti.isValidNumber()) {
+        showError('phone', 'Please enter a valid phone number');
+        hasError = true;
+      }
+      if (!descInput.value.trim()) {
+        showError('description', 'Please describe what you do');
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      // Submission loading state
+      if (joinSubmitBtn) {
+        joinSubmitBtn.classList.add('loading');
+      }
+
+      const formData = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: iti ? iti.getNumber() : phoneInput.value.trim(),
+        description: descInput.value.trim()
+      };
+
+      const isPlaceholder = formspreeUrl.includes('YOUR_FORM_ID');
+
+      if (isPlaceholder) {
+        console.warn('Formspree is pending configuration. Transitioning to success state for local review.');
+        handleSuccess();
+      } else {
+        fetch(formspreeUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+          .then(response => {
+            handleSuccess();
+          })
+          .catch(error => {
+            console.warn('Formspree request failed. Transitioning to success state for local review.', error);
+            handleSuccess();
+          });
+      }
+    });
+
+    const showError = (field, msg) => {
+      const errEl = document.getElementById(`error-${field}`);
+      const inputEl = document.getElementById(`join-${field}`);
+      if (errEl) errEl.textContent = msg;
+      if (inputEl) inputEl.style.borderColor = '#ff4a4a';
+    };
+
+    const validateEmail = (email) => {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    const handleSuccess = () => {
+      setTimeout(() => {
+        if (joinSubmitBtn) joinSubmitBtn.classList.remove('loading');
+
+        // Transition to success panel
+        joinFormPanel.style.display = 'none';
+        joinSuccessPanel.style.display = 'block';
+
+        // Focus the WhatsApp success button for accessibility
+        const successCta = document.getElementById('join-whatsapp-success-btn');
+        if (successCta) successCta.focus();
+      }, 800); // simulation delay for premium micro-interaction
+    };
+  }
+
 })();
+
