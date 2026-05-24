@@ -190,4 +190,74 @@
     if (el) sectionObserver.observe(el);
   });
 
+  // ─── CINEMATIC VIDEO MODAL ─────────────────────────
+  const playBtn = document.getElementById('play-video-btn');
+  const videoModal = document.getElementById('video-modal');
+  const videoModalClose = document.getElementById('video-modal-close');
+  const videoModalOverlay = document.getElementById('video-modal-overlay');
+  const videoPlayerContainer = document.getElementById('video-player-container');
+
+  // Video source configuration. Can be configured to:
+  // - type: 'youtube', id: 'YouTubeVideoID', aspectRatio: 'widescreen' | 'portrait'
+  // - type: 'vimeo', id: 'VimeoVideoID', aspectRatio: 'widescreen' | 'portrait'
+  // - type: 'mp4', id: 'https://domain.com/video.mp4', aspectRatio: 'widescreen' | 'portrait'
+  const videoSource = {
+    type: 'youtube', 
+    id: 'Z1PppJZj8JQ',
+    aspectRatio: 'portrait'
+  };
+
+  if (playBtn && videoModal && videoPlayerContainer) {
+    const container = videoModal.querySelector('.video-modal-container');
+
+    const openModal = () => {
+      document.body.style.overflow = 'hidden';
+      videoModal.classList.add('open');
+      videoModal.setAttribute('aria-hidden', 'false');
+
+      // Adjust container layout class based on video aspect ratio
+      if (container) {
+        if (videoSource.aspectRatio === 'portrait') {
+          container.classList.add('video-modal-container--portrait');
+        } else {
+          container.classList.remove('video-modal-container--portrait');
+        }
+      }
+
+      // Inject the player iframe/video element to start loading only on demand
+      let playerHtml = '';
+      if (videoSource.type === 'youtube') {
+        playerHtml = `<iframe src="https://www.youtube-nocookie.com/embed/${videoSource.id}?autoplay=1&rel=0&modestbranding=1" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      } else if (videoSource.type === 'vimeo') {
+        playerHtml = `<iframe src="https://player.vimeo.com/video/${videoSource.id}?autoplay=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+      } else if (videoSource.type === 'mp4') {
+        playerHtml = `<video src="${videoSource.id}" autoplay controls playsinline></video>`;
+      }
+      videoPlayerContainer.innerHTML = playerHtml;
+
+      // Focus close button for accessibility
+      if (videoModalClose) videoModalClose.focus();
+    };
+
+    const closeModal = () => {
+      document.body.style.overflow = '';
+      videoModal.classList.remove('open');
+      videoModal.setAttribute('aria-hidden', 'true');
+      // Empty the container to immediately halt video playback and audio
+      videoPlayerContainer.innerHTML = '';
+      playBtn.focus();
+    };
+
+    playBtn.addEventListener('click', openModal);
+    if (videoModalClose) videoModalClose.addEventListener('click', closeModal);
+    if (videoModalOverlay) videoModalOverlay.addEventListener('click', closeModal);
+
+    // Escape key closes modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  }
+
 })();
