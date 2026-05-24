@@ -41,6 +41,65 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
   <link rel="stylesheet" href="style.css" />
   <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+
+  <!-- JSON-LD Structured Data Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://zerotoact.com/#organization",
+          "name": "ZeroToAct",
+          "url": "https://zerotoact.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://zerotoact.com/favicon.png",
+            "caption": "ZeroToAct Logo"
+          },
+          "sameAs": [
+            "https://instagram.com/zerotoact",
+            "https://adetuyi.com"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://zerotoact.com/#website",
+          "url": "https://zerotoact.com",
+          "name": "ZeroToAct",
+          "description": "ZeroToAct helps smart people stop overthinking and start executing with clear, practical playbooks. Weekly Intelligence, Annual Summit, and a Live Community.",
+          "publisher": {
+            "@id": "https://zerotoact.com/#organization"
+          }
+        },
+        {
+          "@type": "CreativeWorkSeries",
+          "@id": "https://zerotoact.com/#newsletter",
+          "name": "ZeroToAct Weekly Intelligence Brief",
+          "description": "Weekly economic, geopolitical, and tech breakdown translating complex shifts into execution roadmaps.",
+          "publisher": {
+            "@id": "https://zerotoact.com/#organization"
+          }
+        },
+        {
+          "@type": "Event",
+          "@id": "https://zerotoact.com/#event-2027",
+          "name": "ZeroToAct Annual Summit 2027",
+          "description": "A virtual summit gathering young global builders to assess global opportunities and develop personal 12-month execution plans.",
+          "startDate": "2027-01-01T09:00:00+00:00",
+          "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "VirtualLocation",
+            "url": "https://zerotoact.com/#summit-section"
+          },
+          "organizer": {
+            "@id": "https://zerotoact.com/#organization"
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
