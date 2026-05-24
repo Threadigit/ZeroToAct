@@ -25,6 +25,7 @@
 
   --ff-serif:   'Playfair Display', Georgia, serif;
   --ff-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --ff-mono:    SFMono-Regular, Menlo, Monaco, Consolas, "Fira Code", monospace;
 
   --fw-light:   300;
   --fw-normal:  400;
@@ -1048,54 +1049,58 @@ input, textarea { font-family: inherit; }
 
 .stack-card-3 {
   border-color: rgba(255,255,255,0.04);
-  background: rgba(255,255,255,0.02);
+  background: #080808;
   transform: rotate(4deg) scale(0.92);
 }
 
 .stack-card-2 {
-  border-color: rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+  background: #0f0f0f;
   transform: rotate(2deg) scale(0.96);
 }
 
 .stack-card-1 {
-  border-color: rgba(255,255,255,0.12);
-  background: var(--black-card);
+  border-color: rgba(255,255,255,0.18);
+  background: #121212;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 16px 16px, 100% 4px;
   transform: rotate(0deg) scale(1);
-  box-shadow: var(--shadow-elevated);
+  box-shadow: var(--shadow-elevated), inset 0 0 30px rgba(255, 255, 255, 0.02);
 }
 
 .stack-card-inner {
-  padding: 2rem;
+  padding: 1.5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 0.75rem;
+  justify-content: space-between;
 }
 
 .stack-tag {
-  font-size: var(--fs-xs);
+  font-family: var(--ff-mono);
+  font-size: 9px;
   font-weight: var(--fw-medium);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--grey-600);
+  color: var(--grey-500);
 }
 
 .stack-heading {
   font-family: var(--ff-serif);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-md);
   font-weight: 700;
   color: var(--white-pure);
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.02em;
 }
 
 .stack-sub {
-  font-size: var(--fs-sm);
+  font-size: 11px;
   font-weight: var(--fw-light);
   color: var(--grey-500);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .stack-label {
@@ -1106,6 +1111,169 @@ input, textarea { font-family: inherit; }
   color: var(--grey-600);
   border-top: 1px solid var(--black-border);
   padding-top: 0.75rem;
+}
+
+/* ── Operator / System Ledger Card Details ── */
+.card-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.card-access-id {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--white-pure);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tech-prefix {
+  color: rgba(255, 255, 255, 0.35);
+  margin-right: 2px;
+}
+
+.card-status-dot-container {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--ff-mono);
+  font-size: 8px;
+  letter-spacing: 0.05em;
+  color: #2ed573;
+  background: rgba(46, 213, 115, 0.06);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(46, 213, 115, 0.15);
+  position: relative;
+}
+
+.card-status-dot {
+  width: 5px;
+  height: 5px;
+  background-color: #2ed573;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.card-status-pulse {
+  position: absolute;
+  left: 8px;
+  width: 5px;
+  height: 5px;
+  background-color: #2ed573;
+  border-radius: 50%;
+  animation: statusPulse 2s infinite ease-in-out;
+  z-index: 1;
+}
+
+@keyframes statusPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.card-status-text {
+  font-weight: 600;
+}
+
+.card-system-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ff-mono);
+  font-size: 8px;
+  color: var(--grey-600);
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+}
+
+.card-divider-tech {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 15%, rgba(255,255,255,0.12) 85%, rgba(255,255,255,0) 100%);
+  margin-block: 0.5rem;
+  width: 100%;
+}
+
+.card-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-block: 0.25rem;
+}
+
+.card-main-content .card-eyebrow {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  color: var(--grey-600);
+  letter-spacing: 0.12em;
+}
+
+.card-technical-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--ff-mono);
+  font-size: 8px;
+  margin-block: 0.25rem;
+}
+
+.tech-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(255,255,255,0.03);
+  padding-bottom: 0.2rem;
+}
+
+.tech-row:last-child {
+  border-bottom: none;
+}
+
+.tech-label {
+  color: var(--grey-600);
+}
+
+.tech-val {
+  color: var(--grey-400);
+}
+
+.stack-card-inner .stack-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ff-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.35);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+.mono-hash {
+  color: rgba(255,255,255,0.2);
+}
+
+.summit-prereq-note {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--white-pure);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1218,7 +1386,8 @@ input, textarea { font-family: inherit; }
 .community-cta-action {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 0.75rem;
   flex-shrink: 0;
 }
@@ -1531,14 +1700,15 @@ input, textarea { font-family: inherit; }
 
   .summit-visual {
     order: -1;
-    max-height: 300px;
+    max-height: none;
+    margin-bottom: 2.5rem;
   }
 
   .summit-card-stack {
-    max-width: 260px;
-    max-height: 320px;
-    aspect-ratio: auto;
-    height: 300px;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 4/5;
+    height: auto;
   }
 
   .flow-inner {
@@ -1653,10 +1823,7 @@ input, textarea { font-family: inherit; }
     padding: 1.5rem;
   }
 
-  .summit-card-stack {
-    max-width: 260px;
-    height: 280px;
-  }
+
 
   .footer-nav {
     flex-direction: column;

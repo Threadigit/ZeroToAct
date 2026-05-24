@@ -293,6 +293,27 @@
       joinFormPanel.style.display = 'block';
       joinSuccessPanel.style.display = 'none';
 
+      // Dynamic text based on trigger button content
+      const triggerText = e && e.currentTarget ? e.currentTarget.textContent.trim() : '';
+      const modalTitle = joinFormPanel.querySelector('.join-modal-title');
+      const modalDesc = joinFormPanel.querySelector('.join-modal-desc');
+
+      if (modalTitle && modalDesc) {
+        if (triggerText.includes('Brief') || triggerText.includes('Subscribe')) {
+          modalTitle.textContent = 'Subscribe to the Brief';
+          modalDesc.textContent = 'Enter your details below to subscribe and request community access';
+        } else if (triggerText.includes('Summit') || triggerText.includes('Register')) {
+          modalTitle.textContent = 'Register for the Summit';
+          modalDesc.textContent = 'Enter your details below to register interest for the 2027 Summit';
+        } else if (triggerText.includes('Movement') || triggerText.includes('Join')) {
+          modalTitle.textContent = 'Join the Movement';
+          modalDesc.textContent = 'Enter your details below to request access to the community';
+        } else {
+          modalTitle.textContent = 'Access the Network';
+          modalDesc.textContent = 'Enter your details below to request access to the community';
+        }
+      }
+
       if (iti) {
         // Trigger formatting update when modal opens
         const placeholder = iti.getPlaceholderNumber();
