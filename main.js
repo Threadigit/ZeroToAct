@@ -366,7 +366,7 @@
             return 'NG';
           }
         },
-        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/20.0.0/js/utils.js'
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/js/utils.js'
       });
 
       const updatePhonePlaceholder = () => {
