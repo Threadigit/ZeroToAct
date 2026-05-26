@@ -314,9 +314,9 @@
         }
       }
 
-      if (iti) {
+      if (phoneInput) {
         // Trigger formatting update when modal opens
-        const placeholder = iti.getPlaceholderNumber();
+        const placeholder = phoneInput.placeholder || '';
         const cleanPlaceholder = placeholder.replace(/[-:;]/g, ' ');
         const captionEl = document.getElementById('phone-format-caption');
         if (captionEl) captionEl.textContent = 'Format ' + cleanPlaceholder;
@@ -357,18 +357,21 @@
     if (window.intlTelInput && phoneInput) {
       iti = window.intlTelInput(phoneInput, {
         initialCountry: 'auto',
-        geoIpLookup: function (callback) {
-          fetch('https://ipapi.co/json')
-            .then(res => res.json())
-            .then(data => callback(data.country_code))
-            .catch(() => callback('NG')); // default to Nigeria
+        initialCountryLookup: async () => {
+          try {
+            const response = await fetch('https://ipapi.co/json');
+            const data = await response.json();
+            return data.country_code;
+          } catch {
+            return 'NG';
+          }
         },
         utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/20.0.0/js/utils.js'
       });
 
       const updatePhonePlaceholder = () => {
-        if (iti) {
-          const placeholder = iti.getPlaceholderNumber();
+        if (phoneInput) {
+          const placeholder = phoneInput.placeholder || '';
           const cleanPlaceholder = placeholder.replace(/[-:;]/g, ' ');
           const captionEl = document.getElementById('phone-format-caption');
           if (captionEl) {
