@@ -363,7 +363,7 @@
             .then(data => callback(data.country_code))
             .catch(() => callback('NG')); // default to Nigeria
         },
-        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js'
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/20.0.0/js/utils.js'
       });
 
       const updatePhonePlaceholder = () => {
