@@ -146,7 +146,7 @@
   // - type: 'mp4', id: 'https://domain.com/video.mp4', aspectRatio: 'widescreen' | 'portrait'
   const videoSource = {
     type: 'youtube',
-    id: 'Z1PppJZj8JQ',
+    id: 'N4GSZjIPma4',
     aspectRatio: 'portrait'
   };
 
