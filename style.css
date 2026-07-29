@@ -1765,6 +1765,12 @@ input, textarea { font-family: inherit; }
    RESPONSIVE · MOBILE
 ═══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  .summit-visual {
+    order: 1;
+    margin-top: 3rem;
+    margin-bottom: 0;
+  }
+
   .hero-stat-row {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
