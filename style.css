@@ -272,17 +272,16 @@ input, textarea { font-family: inherit; }
 }
 
 .nav-logo {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-lg);
-  font-weight: 700;
-  color: var(--white-pure);
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.logo-zero { opacity: 0.9; }
-.logo-to   { opacity: 0.5; }
-.logo-act  { opacity: 0.9; }
+.nav-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+}
 
 .nav-links {
   display: flex;
@@ -1634,13 +1633,14 @@ input, textarea { font-family: inherit; }
 }
 
 .footer-logo {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  color: var(--white-pure);
-  letter-spacing: -0.02em;
-  display: block;
+  display: inline-flex;
   margin-bottom: 0.75rem;
+}
+
+.footer-logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
 }
 
 .footer-tagline {
