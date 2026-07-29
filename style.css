@@ -19,7 +19,7 @@
   --white:        #f5f5f5;
   --white-pure:   #ffffff;
   --grey-600:     #666666;
-  --grey-500:     #888888;
+  --grey-500:     #949494;
   --grey-400:     #aaaaaa;
   --grey-200:     #d4d4d4;
 
@@ -1928,6 +1928,19 @@ input, textarea { font-family: inherit; }
   .stat-desc {
     margin-top: 0;
     font-size: .72rem;
+  }
+
+  .hero-actions,
+  .community-cta-action {
+    width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost,
+  .community-cta-action .btn-whatsapp,
+  #summit-notify-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 

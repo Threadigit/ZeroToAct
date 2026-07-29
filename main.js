@@ -235,28 +235,35 @@
       activeIntent = e && e.currentTarget ? (e.currentTarget.dataset.intent || 'community') : 'community';
       const modalTitle = joinFormPanel.querySelector('.join-modal-title');
       const modalDesc = joinFormPanel.querySelector('.join-modal-desc');
+      const submitText = joinSubmitBtn ? joinSubmitBtn.querySelector('.btn-text') : null;
       const optionalFields = joinForm.querySelectorAll('[data-field="name"], [data-field="phone"], [data-field="description"]');
       const isBrief = activeIntent === 'brief';
+      const isSummit = activeIntent === 'summit';
+      const isLowFriction = isBrief || isSummit;
 
       optionalFields.forEach(field => {
-        field.hidden = isBrief;
+        field.hidden = isLowFriction;
         const input = field.querySelector('input, textarea');
-        if (input) input.required = !isBrief;
+        if (input) input.required = !isLowFriction;
       });
 
       if (modalTitle && modalDesc) {
-        if (isBrief || triggerText.includes('Brief') || triggerText.includes('Subscribe')) {
+        if (isBrief) {
           modalTitle.textContent = 'Get the Weekly Brief';
           modalDesc.textContent = 'One email is all it takes. Your first intelligence brief is next.';
-        } else if (triggerText.includes('Summit') || triggerText.includes('Register')) {
-          modalTitle.textContent = 'Register for the Summit';
-          modalDesc.textContent = 'Enter your details below to register interest for the 2027 Summit';
+          if (submitText) submitText.textContent = 'Subscribe Free';
+        } else if (isSummit) {
+          modalTitle.textContent = 'Join the Summit Waitlist';
+          modalDesc.textContent = 'Leave your email and we will send the 2027 Summit details when registration opens.';
+          if (submitText) submitText.textContent = 'Join the Waitlist';
         } else if (triggerText.includes('Movement') || triggerText.includes('Join')) {
           modalTitle.textContent = 'Join the Movement';
           modalDesc.textContent = 'Enter your details below to request access to the community';
+          if (submitText) submitText.textContent = 'Submit Application';
         } else {
-          modalTitle.textContent = 'Access the Network';
+          modalTitle.textContent = 'Apply to the Network';
           modalDesc.textContent = 'Enter your details below to request access to the community';
+          if (submitText) submitText.textContent = 'Submit Application';
         }
       }
 
@@ -269,7 +276,7 @@
       }
 
       // Focus first input
-      const firstInput = document.getElementById(isBrief ? 'join-email' : 'join-name');
+      const firstInput = document.getElementById(isLowFriction ? 'join-email' : 'join-name');
       if (firstInput) firstInput.focus();
     };
 
@@ -344,9 +351,11 @@
 
       let hasError = false;
       const isBrief = activeIntent === 'brief';
+      const isSummit = activeIntent === 'summit';
+      const isLowFriction = isBrief || isSummit;
 
       // Validation check
-      if (!isBrief && !nameInput.value.trim()) {
+      if (!isLowFriction && !nameInput.value.trim()) {
         showError('name', 'Full Name is required');
         hasError = true;
       }
@@ -357,14 +366,14 @@
         showError('email', 'Please enter a valid email');
         hasError = true;
       }
-      if (!isBrief && !phoneInput.value.trim()) {
+      if (!isLowFriction && !phoneInput.value.trim()) {
         showError('phone', 'Phone Number is required');
         hasError = true;
-      } else if (!isBrief && iti && !iti.isValidNumber()) {
+      } else if (!isLowFriction && iti && !iti.isValidNumber()) {
         showError('phone', 'Please enter a valid phone number');
         hasError = true;
       }
-      if (!isBrief && !descInput.value.trim()) {
+      if (!isLowFriction && !descInput.value.trim()) {
         showError('description', 'Please describe what you do');
         hasError = true;
       }
@@ -379,7 +388,7 @@
       const formData = {
         intent: activeIntent,
         email: emailInput.value.trim(),
-        ...(isBrief ? {} : {
+        ...(isLowFriction ? {} : {
           name: nameInput.value.trim(),
           phone: iti ? iti.getNumber() : phoneInput.value.trim(),
           description: descInput.value.trim()
@@ -440,6 +449,10 @@
         if (activeIntent === 'brief') {
           if (successTitle) successTitle.textContent = 'You’re on the list';
           if (successDesc) successDesc.textContent = 'Your first Weekly Intelligence Brief will be delivered by email.';
+          if (successCta) successCta.style.display = 'none';
+        } else if (activeIntent === 'summit') {
+          if (successTitle) successTitle.textContent = 'You’re on the Summit list';
+          if (successDesc) successDesc.textContent = 'We will email you when registration for the 2027 Summit opens.';
           if (successCta) successCta.style.display = 'none';
         } else {
           if (successTitle) successTitle.textContent = 'Application Submitted';
