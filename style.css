@@ -1737,12 +1737,32 @@ input, textarea { font-family: inherit; }
 
   .summit-inner {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .summit-content {
+    display: contents;
+  }
+
+  .summit-content > * {
+    grid-column: 1;
+  }
+
+  .summit-content > .section-eyebrow { order: 1; }
+  .summit-content > .section-heading { order: 2; }
+  .summit-content > .section-sub { order: 3; }
+  .summit-content > .summit-details { order: 4; }
+  .summit-content > .summit-outcomes { order: 6; }
+  .summit-content > .summit-tagline { order: 7; }
+  .summit-content > #summit-notify-btn {
+    order: 8;
+    justify-self: start;
   }
 
   .summit-visual {
-    order: -1;
+    order: 5;
     max-height: none;
-    margin-bottom: 2.5rem;
+    margin-block: 1.5rem 4rem;
   }
 
   .summit-card-stack {
@@ -1766,9 +1786,7 @@ input, textarea { font-family: inherit; }
 ═══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .summit-visual {
-    order: 1;
-    margin-top: 3rem;
-    margin-bottom: 0;
+    margin-block: 1rem 3.5rem;
   }
 
   .hero-stat-row {
