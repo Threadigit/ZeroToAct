@@ -25,21 +25,33 @@
   const mobileMenu = document.getElementById('mobile-menu');
 
   if (hamburger && mobileMenu) {
+    const closeMobileMenu = () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
     hamburger.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('active', isOpen);
       hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
       mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // close on mobile link click
     mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-      });
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+        hamburger.focus();
+      }
     });
   }
 
@@ -213,6 +225,7 @@
   const joinForm = document.getElementById('join-application-form');
   const joinSubmitBtn = document.getElementById('join-submit-btn');
   let activeIntent = 'community';
+  let lastJoinTrigger = null;
 
   // Configure your real Formspree form ID
   const formspreeUrl = 'https://formspree.io/f/maqkdyjn';
@@ -220,6 +233,7 @@
   if (joinModal && joinTriggers.length > 0 && joinForm) {
     const openJoinModal = (e) => {
       if (e) e.preventDefault();
+      lastJoinTrigger = e && e.currentTarget ? e.currentTarget : null;
       document.body.style.overflow = 'hidden';
       joinModal.classList.add('open');
       joinModal.setAttribute('aria-hidden', 'false');
@@ -284,6 +298,7 @@
       document.body.style.overflow = '';
       joinModal.classList.remove('open');
       joinModal.setAttribute('aria-hidden', 'true');
+      if (lastJoinTrigger) lastJoinTrigger.focus();
     };
 
     joinTriggers.forEach(trigger => {
@@ -450,10 +465,12 @@
           if (successTitle) successTitle.textContent = 'You’re on the list';
           if (successDesc) successDesc.textContent = 'Your first Weekly Intelligence Brief will be delivered by email.';
           if (successCta) successCta.style.display = 'none';
+          if (joinModalClose) joinModalClose.focus();
         } else if (activeIntent === 'summit') {
           if (successTitle) successTitle.textContent = 'You’re on the Summit list';
           if (successDesc) successDesc.textContent = 'We will email you when registration for the 2027 Summit opens.';
           if (successCta) successCta.style.display = 'none';
+          if (joinModalClose) joinModalClose.focus();
         } else {
           if (successTitle) successTitle.textContent = 'Application Submitted';
           if (successDesc) successDesc.textContent = 'Thank you for applying. A welcome email is on the way. You can join the community below.';

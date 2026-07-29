@@ -131,6 +131,7 @@ input, textarea { font-family: inherit; }
   letter-spacing: -0.02em;
   color: var(--white);
   margin-bottom: 1.25rem;
+  text-wrap: balance;
 }
 
 .section-heading--light {
@@ -143,6 +144,7 @@ input, textarea { font-family: inherit; }
   color: var(--grey-400);
   line-height: 1.7;
   max-width: 56ch;
+  text-wrap: pretty;
 }
 
 .section-sub--light {
@@ -473,6 +475,7 @@ input, textarea { font-family: inherit; }
   margin-bottom: 2rem;
   max-width: 18ch;
   transition-delay: 0.2s;
+  text-wrap: balance;
 }
 
 .hero-heading em {
@@ -1760,6 +1763,7 @@ input, textarea { font-family: inherit; }
   letter-spacing: -0.03em;
   color: var(--white-pure);
   margin-bottom: 1.25rem;
+  text-wrap: balance;
 }
 
 .final-cta-sub {
