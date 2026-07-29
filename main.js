@@ -118,7 +118,7 @@
   });
 
   // ─── ACTIVE NAV LINK ON SCROLL ────────────────────
-  const sections = ['content-section', 'summit-section', 'community-section'];
+  const sections = ['content-section', 'summit-section', 'community-section', 'instagram-section'];
   const navLinks = document.querySelectorAll('.nav-link');
 
   const sectionObserver = new IntersectionObserver(
@@ -128,7 +128,8 @@
           const id = entry.target.id;
           navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === `#${id}`) {
+            const linkedSection = link.dataset.section || (href && href.startsWith('#') ? href.slice(1) : '');
+            if (linkedSection === id) {
               link.style.color = 'var(--white)';
             } else {
               link.style.color = '';
