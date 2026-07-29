@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   ZEROTOACT — MAIN JS
+   ZEROTOACT · MAIN JS
    Scroll reveal · Nav state · Mobile menu · Forms
 ═══════════════════════════════════════════════════════ */
 
@@ -93,63 +93,6 @@
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
-
-  // ─── NEWSLETTER FORM ──────────────────────────────
-  const newsletterForm = document.getElementById('newsletter-form');
-
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      const emailInput = document.getElementById('email-input');
-      const submitBtn = document.getElementById('subscribe-submit-btn');
-
-      if (!emailInput || !emailInput.value.trim() || !emailInput.checkValidity()) {
-        e.preventDefault();
-        emailInput.focus();
-        emailInput.style.borderColor = 'rgba(255,255,255,0.5)';
-        setTimeout(() => {
-          emailInput.style.borderColor = '';
-        }, 2000);
-        return;
-      }
-
-      // Show loading state (form will submit to Beehiiv in new tab)
-      if (submitBtn) {
-        const textEl = submitBtn.querySelector('.btn-submit-text');
-        if (textEl) textEl.textContent = 'Opening Beehiiv…';
-      }
-
-      // Reset after brief delay
-      setTimeout(() => {
-        if (submitBtn) {
-          const textEl = submitBtn.querySelector('.btn-submit-text');
-          if (textEl) textEl.textContent = 'Subscribe — It\'s Free';
-        }
-      }, 3000);
-    });
-  }
-
-  // ─── COMMUNITY WAITLIST FORM ──────────────────────
-  const waitlistForm = document.getElementById('community-waitlist-form');
-
-  if (waitlistForm) {
-    waitlistForm.addEventListener('submit', (e) => {
-      const emailInput = document.getElementById('community-email-input');
-      const btn = document.getElementById('community-waitlist-btn');
-
-      if (!emailInput || !emailInput.value.trim() || !emailInput.checkValidity()) {
-        e.preventDefault();
-        emailInput.focus();
-        emailInput.style.borderColor = 'rgba(255,255,255,0.4)';
-        setTimeout(() => { emailInput.style.borderColor = ''; }, 2000);
-        return;
-      }
-
-      if (btn) {
-        btn.textContent = 'Redirecting…';
-        setTimeout(() => { btn.textContent = 'Join Waitlist'; }, 3000);
-      }
-    });
-  }
 
   // ─── STAGGERED REVEAL FOR GRID CHILDREN ───────────
   // Add delay to cards within grids for staggered entrance
@@ -269,12 +212,7 @@
   const joinSuccessPanel = document.getElementById('join-modal-success-panel');
   const joinForm = document.getElementById('join-application-form');
   const joinSubmitBtn = document.getElementById('join-submit-btn');
-
-  console.log('ZeroToAct Modal Debug:', {
-    joinModal,
-    triggersCount: joinTriggers.length,
-    joinForm
-  });
+  let activeIntent = 'community';
 
   // Configure your real Formspree form ID
   const formspreeUrl = 'https://formspree.io/f/maqkdyjn';
@@ -282,7 +220,6 @@
   if (joinModal && joinTriggers.length > 0 && joinForm) {
     const openJoinModal = (e) => {
       if (e) e.preventDefault();
-      console.log('openJoinModal triggered');
       document.body.style.overflow = 'hidden';
       joinModal.classList.add('open');
       joinModal.setAttribute('aria-hidden', 'false');
@@ -295,13 +232,22 @@
 
       // Dynamic text based on trigger button content
       const triggerText = e && e.currentTarget ? e.currentTarget.textContent.trim() : '';
+      activeIntent = e && e.currentTarget ? (e.currentTarget.dataset.intent || 'community') : 'community';
       const modalTitle = joinFormPanel.querySelector('.join-modal-title');
       const modalDesc = joinFormPanel.querySelector('.join-modal-desc');
+      const optionalFields = joinForm.querySelectorAll('[data-field="name"], [data-field="phone"], [data-field="description"]');
+      const isBrief = activeIntent === 'brief';
+
+      optionalFields.forEach(field => {
+        field.hidden = isBrief;
+        const input = field.querySelector('input, textarea');
+        if (input) input.required = !isBrief;
+      });
 
       if (modalTitle && modalDesc) {
-        if (triggerText.includes('Brief') || triggerText.includes('Subscribe')) {
-          modalTitle.textContent = 'Subscribe to the Brief';
-          modalDesc.textContent = 'Enter your details below to subscribe and request community access';
+        if (isBrief || triggerText.includes('Brief') || triggerText.includes('Subscribe')) {
+          modalTitle.textContent = 'Get the Weekly Brief';
+          modalDesc.textContent = 'One email is all it takes. Your first intelligence brief is next.';
         } else if (triggerText.includes('Summit') || triggerText.includes('Register')) {
           modalTitle.textContent = 'Register for the Summit';
           modalDesc.textContent = 'Enter your details below to register interest for the 2027 Summit';
@@ -323,7 +269,7 @@
       }
 
       // Focus first input
-      const firstInput = document.getElementById('join-name');
+      const firstInput = document.getElementById(isBrief ? 'join-email' : 'join-name');
       if (firstInput) firstInput.focus();
     };
 
@@ -397,9 +343,10 @@
       clearErrors();
 
       let hasError = false;
+      const isBrief = activeIntent === 'brief';
 
       // Validation check
-      if (!nameInput.value.trim()) {
+      if (!isBrief && !nameInput.value.trim()) {
         showError('name', 'Full Name is required');
         hasError = true;
       }
@@ -410,14 +357,14 @@
         showError('email', 'Please enter a valid email');
         hasError = true;
       }
-      if (!phoneInput.value.trim()) {
+      if (!isBrief && !phoneInput.value.trim()) {
         showError('phone', 'Phone Number is required');
         hasError = true;
-      } else if (iti && !iti.isValidNumber()) {
+      } else if (!isBrief && iti && !iti.isValidNumber()) {
         showError('phone', 'Please enter a valid phone number');
         hasError = true;
       }
-      if (!descInput.value.trim()) {
+      if (!isBrief && !descInput.value.trim()) {
         showError('description', 'Please describe what you do');
         hasError = true;
       }
@@ -430,10 +377,13 @@
       }
 
       const formData = {
-        name: nameInput.value.trim(),
+        intent: activeIntent,
         email: emailInput.value.trim(),
-        phone: iti ? iti.getNumber() : phoneInput.value.trim(),
-        description: descInput.value.trim()
+        ...(isBrief ? {} : {
+          name: nameInput.value.trim(),
+          phone: iti ? iti.getNumber() : phoneInput.value.trim(),
+          description: descInput.value.trim()
+        })
       };
 
       const isPlaceholder = formspreeUrl.includes('YOUR_FORM_ID');
@@ -451,11 +401,15 @@
           body: JSON.stringify(formData)
         })
           .then(response => {
+            if (!response.ok) {
+              throw new Error('Submission failed');
+            }
             handleSuccess();
           })
           .catch(error => {
-            console.warn('Formspree request failed. Transitioning to success state for local review.', error);
-            handleSuccess();
+            if (joinSubmitBtn) joinSubmitBtn.classList.remove('loading');
+            showError('email', 'We could not submit your application. Please try again.');
+            console.warn('Form submission failed.', error);
           });
       }
     });
@@ -478,13 +432,25 @@
         // Transition to success panel
         joinFormPanel.style.display = 'none';
         joinSuccessPanel.style.display = 'block';
+        const successTitle = joinSuccessPanel.querySelector('.join-modal-title');
+        const successDesc = joinSuccessPanel.querySelector('.join-modal-desc');
 
         // Focus the WhatsApp success button for accessibility
         const successCta = document.getElementById('join-whatsapp-success-btn');
-        if (successCta) successCta.focus();
+        if (activeIntent === 'brief') {
+          if (successTitle) successTitle.textContent = 'You’re on the list';
+          if (successDesc) successDesc.textContent = 'Your first Weekly Intelligence Brief will be delivered by email.';
+          if (successCta) successCta.style.display = 'none';
+        } else {
+          if (successTitle) successTitle.textContent = 'Application Submitted';
+          if (successDesc) successDesc.textContent = 'Thank you for applying. A welcome email is on the way. You can join the community below.';
+          if (successCta) {
+            successCta.style.display = '';
+            successCta.focus();
+          }
+        }
       }, 800); // simulation delay for premium micro-interaction
     };
   }
 
 })();
-

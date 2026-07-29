@@ -6,33 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZeroToAct | A Global Youth Execution Movement</title>
   <meta name="description"
-    content="ZeroToAct helps smart people stop overthinking and start executing with clear, practical playbooks. Weekly Intelligence, Annual Summit, and a Live Community." />
-  <meta name="keywords"
-    content="ZeroToAct, execution, global intelligence, newsletter, summit, community, builders, productivity, africa" />
-  <link rel="canonical" href="https://zerotoact.com" />
+    content="ZeroToAct turns global economic, geopolitical, and technology shifts into practical decisions for ambitious young builders." />
+  <link rel="canonical" href="https://zerotoact.com/" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="icon" type="image/png" href="favicon-v2.png" />
+  <link rel="apple-touch-icon" href="favicon-v2.png" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://zerotoact.com" />
+  <meta property="og:url" content="https://zerotoact.com/" />
   <meta property="og:title" content="ZeroToAct | A Global Youth Execution Movement" />
   <meta property="og:description"
-    content="Stop overthinking. Start executing. Join the movement for intelligence, summits, and community." />
-  <meta property="og:image" content="https://zerotoact.com/og-image.png" />
+    content="See what is shifting. Know what it means. Act before the crowd." />
+  <meta property="og:image" content="https://zerotoact.com/og-image-v2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ZeroToAct. See what's shifting. Act before the crowd." />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://zerotoact.com" />
+  <meta name="twitter:url" content="https://zerotoact.com/" />
   <meta name="twitter:title" content="ZeroToAct | A Global Youth Execution Movement" />
   <meta name="twitter:description"
-    content="Stop overthinking. Start executing. Practical playbooks for the globally aware." />
-  <meta name="twitter:image" content="https://zerotoact.com/og-image.png" />
+    content="See what is shifting. Know what it means. Act before the crowd." />
+  <meta name="twitter:image" content="https://zerotoact.com/og-image-v2.png" />
+  <meta name="twitter:image:alt" content="ZeroToAct. See what's shifting. Act before the crowd." />
 
   <!-- Robots -->
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="author" content="ZeroToAct" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -40,7 +44,6 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css" />
   <link rel="stylesheet" href="style.css" />
-  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 
   <!-- JSON-LD Structured Data Schema Markup -->
   <script type="application/ld+json">
@@ -51,10 +54,10 @@
           "@type": "Organization",
           "@id": "https://zerotoact.com/#organization",
           "name": "ZeroToAct",
-          "url": "https://zerotoact.com",
+          "url": "https://zerotoact.com/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://zerotoact.com/favicon.png",
+            "url": "https://zerotoact.com/favicon-v2.png",
             "caption": "ZeroToAct Logo"
           },
           "sameAs": [
@@ -65,9 +68,9 @@
         {
           "@type": "WebSite",
           "@id": "https://zerotoact.com/#website",
-          "url": "https://zerotoact.com",
+          "url": "https://zerotoact.com/",
           "name": "ZeroToAct",
-          "description": "ZeroToAct helps smart people stop overthinking and start executing with clear, practical playbooks. Weekly Intelligence, Annual Summit, and a Live Community.",
+          "description": "ZeroToAct turns global economic, geopolitical, and technology shifts into practical decisions for ambitious young builders.",
           "publisher": {
             "@id": "https://zerotoact.com/#organization"
           }
@@ -82,20 +85,34 @@
           }
         },
         {
-          "@type": "Event",
-          "@id": "https://zerotoact.com/#event-2027",
-          "name": "ZeroToAct Annual Summit 2027",
-          "description": "A virtual summit gathering young global builders to assess global opportunities and develop personal 12-month execution plans.",
-          "startDate": "2027-01-01T09:00:00+00:00",
-          "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-          "eventStatus": "https://schema.org/EventScheduled",
-          "location": {
-            "@type": "VirtualLocation",
-            "url": "https://zerotoact.com/#summit-section"
-          },
-          "organizer": {
-            "@id": "https://zerotoact.com/#organization"
-          }
+          "@type": "FAQPage",
+          "@id": "https://zerotoact.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is ZeroToAct?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ZeroToAct is a global execution movement combining a weekly intelligence brief, an annual virtual summit, and a live accountability community for ambitious young builders."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the Weekly Intelligence Brief free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The Weekly Intelligence Brief is free and delivered directly to subscribers by email."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is the ZeroToAct community for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The community is for active builders, founders, and professionals who want structured accountability and are prepared to execute on clear goals."
+              }
+            }
+          ]
         }
       ]
     }
@@ -118,8 +135,8 @@
         <li><a href="#community-section" class="nav-link">Community</a></li>
         <li><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="nav-link">Convener</a></li>
       </ul>
-      <button class="nav-cta join-cta-trigger" id="nav-subscribe-btn">Subscribe to the Brief</button>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <a class="nav-cta" href="#subscribe-section" id="nav-subscribe-btn">Get the Free Brief</a>
+      <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
     </div>
@@ -128,7 +145,7 @@
       <a href="#summit-section" class="mobile-link">Summit</a>
       <a href="#community-section" class="mobile-link">Community</a>
       <a href="https://adetuyi.com" class="mobile-link" target="_blank" rel="noopener noreferrer">Convener</a>
-      <button class="mobile-link mobile-link-cta join-cta-trigger">Subscribe to the Brief</button>
+      <a class="mobile-link mobile-link-cta" href="#subscribe-section">Get the Free Brief</a>
     </div>
   </nav>
 
@@ -140,43 +157,39 @@
     <section id="hero" class="hero" aria-labelledby="hero-heading">
       <div class="hero-inner">
         <h1 id="hero-heading" class="hero-heading reveal">
-          Own the Intelligence.<br />
-          <em>Execute</em> the <em>Future</em>.<br />
-          This is ZeroToAct.
+          See what’s shifting.<br />
+          Know what it means.<br />
+          <em>Act before the crowd.</em>
         </h1>
         <p class="hero-sub reveal">
-          Every week, we break down what's shifting in the global economy, geopolitics, and technology, and translate it
-          into clear, actionable intelligence for ambitious young people. Once a year, we gather. Every day, we
-          build.</p>
+          ZeroToAct turns shifts in the global economy, geopolitics, and technology into clear decisions for ambitious young builders.</p>
         <div class="hero-actions reveal">
-          <button class="btn-primary join-cta-trigger" id="hero-subscribe-btn">Join the Movement</button>
-          <button class="btn-ghost" id="play-video-btn">
+          <a class="btn-primary" href="#subscribe-section" id="hero-subscribe-btn">Get the Free Weekly Brief</a>
+          <button type="button" class="btn-ghost" id="play-video-btn">
             <svg class="play-icon" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
             Watch the Intro
           </button>
         </div>
+        <p class="hero-assurance reveal">Free forever <span>•</span> One sharp brief a week <span>•</span> Unsubscribe anytime</p>
         <div class="hero-stat-row reveal">
-          <div class="hero-stat">
-            <span class="stat-num">Weekly</span>
+          <a href="#content-section" class="hero-stat">
+            <span class="stat-topline"><span class="stat-num">Weekly</span><span class="stat-index">01</span></span>
             <span class="stat-label">Intelligence</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="hero-stat">
-            <span class="stat-num">Annual</span>
+            <span class="stat-desc">Global shifts decoded into decisions you can act on now.</span>
+          </a>
+          <a href="#summit-section" class="hero-stat">
+            <span class="stat-topline"><span class="stat-num">Annual</span><span class="stat-index">02</span></span>
             <span class="stat-label">Summit</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="hero-stat">
-            <span class="stat-num">Global</span>
+            <span class="stat-desc">One focused day to build your 12-month execution plan.</span>
+          </a>
+          <a href="#community-section" class="hero-stat">
+            <span class="stat-topline"><span class="stat-num">Global</span><span class="stat-index">03</span></span>
             <span class="stat-label">Community</span>
-          </div>
+            <span class="stat-desc">A committed network that keeps your plan moving.</span>
+          </a>
         </div>
-      </div>
-      <div class="hero-scroll-indicator" aria-hidden="true">
-        <div class="scroll-line"></div>
-        <span class="scroll-text">Scroll</span>
       </div>
     </section>
 
@@ -191,8 +204,7 @@
             From awareness<br />to execution.
           </h2>
           <p class="section-sub">
-            Three interconnected layers.<br class="hide-mobile" />
-            Together they form a complete journey.
+            Intelligence to see clearly. Structure to move decisively.
           </p>
         </div>
 
@@ -203,14 +215,13 @@
             <div class="pillar-tag">Intelligence</div>
             <h3 class="pillar-title">Weekly Intelligence</h3>
             <p class="pillar-desc">
-              A continuous pipeline of global insight. We decode the macro environment so you can spot the leverage points and act on them.
+              Global shifts decoded into practical decisions.
             </p>
             <ul class="pillar-list" aria-label="What Intelligence provides">
-              <li>Macro shifts made actionable</li>
-              <li>Foundation building, week by week</li>
-              <li>Your prerequisite for the 2027 Summit</li>
+              <li>One focused brief each week</li>
+              <li>Clear implications and next moves</li>
             </ul>
-            <a href="#content-section" class="pillar-link">Start the Brief →</a>
+            <a href="#content-section" class="pillar-link">Start the Brief</a>
           </article>
 
           <article class="pillar-card pillar-card--featured reveal" id="pillar-summit">
@@ -218,14 +229,13 @@
             <div class="pillar-tag">Summit</div>
             <h3 class="pillar-title">The Annual Summit</h3>
             <p class="pillar-desc">
-              The proving ground. Once a year we gather to synthesize the global outlook, map the immediate opportunities, and lock in a rigorous 12-month execution playbook.
+              Turn global context into a focused 12-month plan.
             </p>
             <ul class="pillar-list" aria-label="What the Summit provides">
-              <li>Hard data on global opportunities</li>
+              <li>Opportunity mapping</li>
               <li>A structured personal roadmap</li>
-              <li>Walk away equipped to build</li>
             </ul>
-            <a href="#summit-section" class="pillar-link">Explore the Summit →</a>
+            <a href="#summit-section" class="pillar-link">Explore the Summit</a>
           </article>
 
           <article class="pillar-card reveal" id="pillar-community">
@@ -233,56 +243,15 @@
             <div class="pillar-tag">Community</div>
             <h3 class="pillar-title">The Live Network</h3>
             <p class="pillar-desc">
-              Where the movement lives between events. You're placed in a cell of six that reviews your goals every two weeks, alongside a wider network of operators who ship.
+              A small accountability cell backed by a global network.
             </p>
             <ul class="pillar-list" aria-label="What the Community provides">
-              <li>A standing cell of six builders</li>
-              <li>Biweekly reviews of your Summit plan</li>
-              <li>Members screened by application</li>
+              <li>A standing cell of six</li>
+              <li>Biweekly execution reviews</li>
             </ul>
-            <a href="#community-section" class="pillar-link">Access the Network →</a>
+            <a href="#community-section" class="pillar-link">Access the Network</a>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         HOW THEY WORK TOGETHER
-    ═══════════════════════════════════════════ -->
-    <section class="flow-section" aria-labelledby="flow-heading">
-      <div class="container">
-        <div class="flow-inner reveal">
-          <div class="flow-left">
-            <p class="section-eyebrow">The Flow</p>
-            <h2 id="flow-heading" class="flow-heading">
-              Enter curious.<br />
-              Exit equipped,<br />
-              committed, connected.
-            </h2>
-          </div>
-          <div class="flow-right">
-            <div class="flow-step">
-              <div class="flow-step-num">01</div>
-              <div class="flow-step-content">
-                <strong>Intelligence</strong> builds awareness and global intelligence week by week.
-              </div>
-            </div>
-            <div class="flow-connector" aria-hidden="true"></div>
-            <div class="flow-step">
-              <div class="flow-step-num">02</div>
-              <div class="flow-step-content">
-                <strong>Summit</strong> converts that intelligence into personal commitment once a year.
-              </div>
-            </div>
-            <div class="flow-connector" aria-hidden="true"></div>
-            <div class="flow-step">
-              <div class="flow-step-num">03</div>
-              <div class="flow-step-content">
-                <strong>Community</strong> turns that commitment into sustained execution over time.
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -300,24 +269,20 @@
               for the globally aware.
             </h2>
             <p class="section-sub">
-              The foundational layer. The 2027 Summit demands sharp context, and the Weekly Intelligence Brief is how you build it, week by week.
+              One sharp read on the forces shaping your opportunities.
             </p>
             <ul class="newsletter-features" aria-label="Newsletter features">
               <li>
-                <span class="feature-icon" aria-hidden="true">→</span>
+                <span class="feature-icon" aria-hidden="true"></span>
                 Global economic and geopolitical breakdowns
               </li>
               <li>
-                <span class="feature-icon" aria-hidden="true">→</span>
+                <span class="feature-icon" aria-hidden="true"></span>
                 Complexity translated into clear, local relevance
               </li>
               <li>
-                <span class="feature-icon" aria-hidden="true">→</span>
-                Essential preparation for the 2027 Summit
-              </li>
-              <li>
-                <span class="feature-icon" aria-hidden="true">→</span>
-                Weekly delivery. No fluff. Cancel anytime.
+                <span class="feature-icon" aria-hidden="true"></span>
+                Weekly delivery. No noise.
               </li>
             </ul>
           </div>
@@ -327,26 +292,11 @@
               <div class="subscribe-card-header">
                 <span class="subscribe-label">The Weekly Brief</span>
                 <h3 class="subscribe-heading">Start where the<br />movement starts.</h3>
-                <p class="subscribe-sub">The Weekly Intelligence Brief sets the context for everything else. Get the
-                  global breakdown in your inbox and build the foundation for the 2027 Summit.</p>
+                <p class="subscribe-sub">Global context, local relevance, and a clear next move, delivered weekly.</p>
               </div>
-              <ul class="newsletter-features" aria-label="Brief features" style="margin-bottom: 2rem;">
-                <li>
-                  <span class="feature-icon" aria-hidden="true">→</span>
-                  Global economic and geopolitical breakdowns
-                </li>
-                <li>
-                  <span class="feature-icon" aria-hidden="true">→</span>
-                  Complexity translated into clear, local relevance
-                </li>
-                <li>
-                  <span class="feature-icon" aria-hidden="true">→</span>
-                  Weekly delivery. No fluff. Cancel anytime.
-                </li>
-              </ul>
-              <button class="btn-whatsapp join-cta-trigger" id="intelligence-whatsapp-btn"
+              <button type="button" class="btn-whatsapp join-cta-trigger" id="intelligence-whatsapp-btn" data-intent="brief"
                 style="display:inline-flex; width: 100%; justify-content: center;">
-                Access the Brief
+                Subscribe Free
               </button>
               <p class="community-cta-disclaimer" style="text-align:center; margin-top: 0.75rem;">Free. Straight to your inbox.</p>
             </div>
@@ -369,8 +319,7 @@
               of direction.
             </h2>
             <p class="section-sub section-sub--light">
-              The commitment layer. Once a year, the movement gathers to assess the global outlook, map the
-              opportunities, and produce a personal execution plan.
+              Assess the outlook, map the opportunities, and leave with a personal execution plan.
             </p>
             <div class="summit-details">
               <div class="summit-detail-item">
@@ -417,10 +366,7 @@
               </div>
             </div>
             <p class="summit-tagline">Understanding the World. Preparing Africa's Future.</p>
-            <p class="summit-prereq-note">
-              The Summit is where we synthesize the data. The Weekly Brief is how you prepare. Start building your foundation today.
-            </p>
-            <button class="btn-primary btn-primary--outline join-cta-trigger" id="summit-notify-btn">
+            <button type="button" class="btn-primary btn-primary--outline join-cta-trigger" id="summit-notify-btn">
               Register for the Summit
             </button>
           </div>
@@ -509,39 +455,34 @@
               Where the movement<br />lives between summits.
             </h2>
             <p class="section-sub">
-              The execution layer. You apply, you set your 12-month plan at the Summit, and a cell of six builders holds
-              you to it every two weeks for the rest of the year.
+              Six builders. One standing commitment. A review every two weeks.
             </p>
           </div>
           <div class="community-grid">
             <div class="community-card reveal">
               <div class="community-card-num" aria-hidden="true">01</div>
               <h3 class="community-card-title">You Apply</h3>
-              <p class="community-card-desc">Every member is screened. We admit builders, founders, and professionals
-                already in motion, not spectators looking for one more thing to read.</p>
+              <p class="community-card-desc">We screen for builders, founders, and professionals already in motion.</p>
             </div>
             <div class="community-card reveal">
               <div class="community-card-num" aria-hidden="true">02</div>
               <h3 class="community-card-title">You Set Goals at the Summit</h3>
-              <p class="community-card-desc">Goal-setting happens once a year, at the annual virtual gathering, where you
-                commit to a 12-month plan. Held privately until now, it opens to every member at the 2027 Summit.</p>
+              <p class="community-card-desc">At the Summit, you commit to a focused 12-month plan.</p>
             </div>
             <div class="community-card reveal">
               <div class="community-card-num" aria-hidden="true">03</div>
               <h3 class="community-card-title">Your Cell of Six Holds You To It</h3>
-              <p class="community-card-desc">You're placed in a standing group of six that reviews those goals biweekly.
-                You state what you'll ship, and two weeks later you report whether you shipped it.</p>
+              <p class="community-card-desc">Your cell reviews what you promised, what shipped, and what happens next.</p>
             </div>
           </div>
           <div class="community-cta reveal">
             <div class="community-cta-inner">
               <div class="community-cta-text">
                 <h3 class="community-cta-heading">The community is live.</h3>
-                <p class="community-cta-sub">Cells run on WhatsApp, where the wider network trades collaborations,
-                  resources, and opportunities between reviews. Applications are open now.</p>
+                <p class="community-cta-sub">Meet on WhatsApp, review progress, and exchange opportunities with the wider network.</p>
               </div>
               <div class="community-cta-action">
-                <button class="btn-whatsapp join-cta-trigger" id="whatsapp-join-btn">
+                <button type="button" class="btn-whatsapp join-cta-trigger" id="whatsapp-join-btn">
                   Access the Network
                 </button>
                 <p class="community-cta-disclaimer">Open to active builders.</p>
@@ -565,11 +506,41 @@
           </blockquote>
           <div class="promise-rule" aria-hidden="true"></div>
           <div class="promise-founder-meta">
-            <img src="tolu.png" alt="Tolu Adetuyi" class="promise-avatar" />
+            <img src="tolu-320.jpg" alt="Tolu Adetuyi" class="promise-avatar" width="320" height="266" loading="lazy" decoding="async" />
             <div class="promise-founder-details">
               <span class="promise-author">Tolu Adetuyi</span>
               <span class="promise-title">Convener, ZeroToAct</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-layout">
+          <div class="faq-intro reveal">
+            <p class="section-eyebrow">Before you join</p>
+            <h2 id="faq-heading" class="section-heading">Clear answers.<br />No fine print.</h2>
+            <p class="section-sub">Start with the free brief. Go deeper when you are ready to commit.</p>
+          </div>
+          <div class="faq-list reveal">
+            <details>
+              <summary>What exactly is ZeroToAct?</summary>
+              <p>A global execution movement with three connected layers: weekly intelligence, an annual virtual Summit, and a screened accountability community.</p>
+            </details>
+            <details>
+              <summary>Is the Weekly Intelligence Brief free?</summary>
+              <p>Yes. It is free and arrives by email once a week. Focused, practical, and designed to respect your time.</p>
+            </details>
+            <details>
+              <summary>Who is the community for?</summary>
+              <p>Active builders, founders, and professionals who are already in motion and want a small, consistent circle to hold them accountable.</p>
+            </details>
+            <details>
+              <summary>Do I need to join everything at once?</summary>
+              <p>No. The best starting point is the Weekly Brief. It builds the context you will later use at the Summit and inside the community.</p>
+            </details>
           </div>
         </div>
       </div>
@@ -586,11 +557,11 @@
             Start now.
           </h2>
           <p class="final-cta-sub">
-            Join a live community of young builders actively executing.
+            Get the context. Make your next move.
           </p>
-          <button class="btn-primary btn-primary--large join-cta-trigger" id="final-subscribe-btn">
-            Access the Network
-          </button>
+          <a class="btn-primary btn-primary--large" href="#subscribe-section" id="final-subscribe-btn">
+            Get the Free Weekly Brief
+          </a>
         </div>
       </div>
     </section>
@@ -616,6 +587,7 @@
             <a href="#content-section" class="footer-nav-link">Intelligence</a>
             <a href="#summit-section" class="footer-nav-link">Summit</a>
             <a href="#community-section" class="footer-nav-link">Community</a>
+            <a href="#faq" class="footer-nav-link">FAQ</a>
             <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Convener</a>
           </div>
         </nav>
@@ -638,10 +610,10 @@
   <!-- ═══════════════════════════════════════════
        CINEMATIC VIDEO MODAL
   ═══════════════════════════════════════════ -->
-  <div id="video-modal" class="video-modal" aria-hidden="true" role="dialog" aria-label="Intro Video Player">
+  <div id="video-modal" class="video-modal" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Intro Video Player">
     <div class="video-modal-overlay" id="video-modal-overlay"></div>
     <div class="video-modal-container">
-      <button class="video-modal-close" id="video-modal-close" aria-label="Close video player">×</button>
+      <button type="button" class="video-modal-close" id="video-modal-close" aria-label="Close video player">×</button>
       <div class="video-modal-ratio">
         <div id="video-player-container"></div>
       </div>
@@ -651,31 +623,31 @@
   <!-- ═══════════════════════════════════════════
        APPLICATION FORM MODAL
   ═══════════════════════════════════════════ -->
-  <div id="join-modal" class="join-modal" aria-hidden="true" role="dialog" aria-label="Join the Movement Application">
+  <div id="join-modal" class="join-modal" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Join ZeroToAct">
     <div class="join-modal-overlay" id="join-modal-overlay"></div>
     <div class="join-modal-container">
-      <button class="join-modal-close" id="join-modal-close" aria-label="Close application form">×</button>
+      <button type="button" class="join-modal-close" id="join-modal-close" aria-label="Close application form">×</button>
 
       <!-- Form Panel -->
       <div class="join-modal-content" id="join-modal-form-panel">
-        <h3 class="join-modal-title">Join the Movement</h3>
+        <h3 class="join-modal-title" id="join-modal-title">Join the Movement</h3>
         <p class="join-modal-desc">Fill in your details below to request access to the community</p>
 
         <form id="join-application-form" novalidate>
-          <div class="form-group">
+          <div class="form-group" data-field="name">
             <label for="join-name" class="form-label">Full Name</label>
             <input type="text" id="join-name" name="name" class="form-input" placeholder="Your full name" required />
             <span class="form-error" id="error-name"></span>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-field="email">
             <label for="join-email" class="form-label">Email Address</label>
             <input type="email" id="join-email" name="email" class="form-input" placeholder="Your email address"
               required />
             <span class="form-error" id="error-email"></span>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-field="phone">
             <label for="join-phone" class="form-label">Phone Number</label>
             <input type="tel" id="join-phone" name="phone" class="form-input" placeholder="Your phone number"
               required />
@@ -683,7 +655,7 @@
             <span class="form-error" id="error-phone"></span>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-field="description">
             <label for="join-description" class="form-label">What do you do</label>
             <textarea id="join-description" name="description" class="form-textarea"
               placeholder="A brief description of what you do" required></textarea>
