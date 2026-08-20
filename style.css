@@ -2168,6 +2168,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 
   .hero-stat:first-child {
     padding-left: 0;
+    margin-left: 0;
   }
 
   .hero-stat:last-child {
