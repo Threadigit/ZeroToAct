@@ -1,7 +1,12 @@
 {
   "meta": {
     "note": "Data source for the Signal archive. Edit this file, then run `node signals/build.mjs` to regenerate the index, per-edition pages, and feed.xml.",
-    "themes": ["Capital", "Policy", "Technology", "Macro"],
+    "themes": [
+      "Capital",
+      "Policy",
+      "Technology",
+      "Macro"
+    ],
     "fields": {
       "number": "Canonical Signal number. null = not yet confirmed by Tolu. Only Signal 6 (the Fed edition) is known.",
       "status": "'draft' shows the written body marked as pending review. 'published' renders it plainly.",
@@ -26,8 +31,14 @@
       ],
       "method": "Reviewed the composition of US services exports and the dollar's share of global payments and reserves to locate the structural source of US economic leverage, rather than reading dominance off headline GDP.",
       "sources": [
-        { "label": "Rwazi, Inside the trillion-dollar export powering US global dominance", "url": "https://blog.rwazi.com/inside-the-trillion-dollar-export-powering-u-s-global-dominance/" },
-        { "label": "Atlantic Council, Dollar Dominance Monitor", "url": "https://www.atlanticcouncil.org/issue/dollar-dominance/" }
+        {
+          "label": "Rwazi, Inside the trillion-dollar export powering US global dominance",
+          "url": "https://blog.rwazi.com/inside-the-trillion-dollar-export-powering-u-s-global-dominance/"
+        },
+        {
+          "label": "Atlantic Council, Dollar Dominance Monitor",
+          "url": "https://www.atlanticcouncil.org/issue/dollar-dominance/"
+        }
       ],
       "proveWrong": "The strongest rival read is de-dollarisation: the dollar's reserve share is slowly slipping and alternative rails, from BRICS settlement to stablecoins, are being built. If those scale faster than expected, owning incumbent infrastructure protects you less than this argues, because the rail itself can be displaced.",
       "nextMove": "Audit where you sit in your market's stack. If you are a product running on someone else's infrastructure, find the layer beneath you that everyone needs and is hard to replace, and move toward owning it."
@@ -37,7 +48,7 @@
       "slug": "dfis-stopped-writing-equity",
       "title": "DFIs Have Stopped Writing Equity Cheques in Africa",
       "videoId": "RDjUVb7cnmo",
-      "date": "2026-07-19",
+      "date": "2026-08-02",
       "theme": "Capital",
       "headlineClaim": "Development finance has stopped writing equity cheques in Africa. It is lending instead.",
       "status": "published",
@@ -49,8 +60,14 @@
       ],
       "method": "Compared DFI-linked debt and equity deployment into African startups in early 2026 against early 2025, by instrument and by share of total funding.",
       "sources": [
-        { "label": "Launch Base Africa, DFI retreat to debt: African funding themes in 2026", "url": "https://launchbaseafrica.com/2026/06/03/e-mobility-stablecoins-and-dfi-retreat-to-debt-african-funding-themes-take-shape-in-2026/" },
-        { "label": "AU-Startups, African startup funding Q1 2026: debt outpaces equity", "url": "https://au-startups.com/news/african-startup-funding-q1-2026-debt-drives-growth" }
+        {
+          "label": "Launch Base Africa, DFI retreat to debt: African funding themes in 2026",
+          "url": "https://launchbaseafrica.com/2026/06/03/e-mobility-stablecoins-and-dfi-retreat-to-debt-african-funding-themes-take-shape-in-2026/"
+        },
+        {
+          "label": "AU-Startups, African startup funding Q1 2026: debt outpaces equity",
+          "url": "https://au-startups.com/news/african-startup-funding-q1-2026-debt-drives-growth"
+        }
       ],
       "proveWrong": "The rival read is that this is a one-year rotation, not a regime change. If global rates fall and risk appetite returns, DFIs and funds could swing back to equity within a cycle, and a founder who structured everything around debt would be over-levered into the recovery.",
       "nextMove": "Before your next pitch, sort your ask by instrument: debt and mezzanine to the DFIs, growth equity to sovereign and Gulf pools. If you are pre-revenue, fix that before you raise, because the equity that used to carry early-stage companies has thinned."
@@ -58,9 +75,9 @@
     {
       "number": 6,
       "slug": "fed-might-hike-not-cut",
-      "title": "Signal 6: The Fed Might Hike on July 29, Not Cut",
+      "title": "The Fed Might Hike on July 29, Not Cut",
       "videoId": "PoPaiS81DNg",
-      "date": "2026-07-28",
+      "date": "2026-07-26",
       "theme": "Policy",
       "headlineClaim": "The Fed might hike on July 29, not cut. If the dollar tightens, every African founder's runway maths just changed.",
       "status": "published",
@@ -72,9 +89,18 @@
       ],
       "method": "Assessed ahead of the 29 July FOMC decision: the implied risk of a rate hike given the July oil move, Nigeria's reserve level, headline inflation and the central bank policy rate, and the first-half total and deal count for African startup funding.",
       "sources": [
-        { "label": "Federal Reserve, FOMC statement, 29 July 2026", "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm" },
-        { "label": "Nairametrics, Nigeria external reserves cross $52bn, surpass CBN 2026 forecast", "url": "https://nairametrics.com/2026/07/22/external-reserves-cross-52-billion-surpass-cbns-2026-forecast/" },
-        { "label": "Africa: The Big Deal, first-half 2026 African startup funding data", "url": "https://africathebigdeal.com/" }
+        {
+          "label": "Federal Reserve, FOMC statement, 29 July 2026",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm"
+        },
+        {
+          "label": "Nairametrics, Nigeria external reserves cross $52bn, surpass CBN 2026 forecast",
+          "url": "https://nairametrics.com/2026/07/22/external-reserves-cross-52-billion-surpass-cbns-2026-forecast/"
+        },
+        {
+          "label": "Africa: The Big Deal, first-half 2026 African startup funding data",
+          "url": "https://africathebigdeal.com/"
+        }
       ],
       "proveWrong": "The rival read is that the hike talk is noise. Oil spikes fade, the Fed holds or cuts, and the dollar softens, in which case a defensive FX-and-debt posture costs you the cheaper equity you could have raised. If Middle East tension de-escalates and crude rolls over, the case weakens quickly.",
       "nextMove": "Fix your FX exposure before 29 July, not after. Build your raise around revenue and debt rather than betting on an equity market writing fewer cheques. Pick a lane the crowd has left open, and move before the Fed does."
@@ -84,7 +110,7 @@
       "slug": "700-billion-compute-divide",
       "title": "The $700 Billion Compute Divide",
       "videoId": "V0gEUW2dQAU",
-      "date": "2026-08-02",
+      "date": "2026-08-16",
       "theme": "Technology",
       "headlineClaim": "US tech is preparing nearly $700 billion in capital spending. Africa's data-centre market is a fraction of it.",
       "status": "published",
@@ -96,8 +122,14 @@
       ],
       "method": "Compared 2026 US hyperscaler capital-spending guidance (Microsoft, Amazon, Alphabet, Meta, Oracle) against Africa's share of global data-centre capacity.",
       "sources": [
-        { "label": "Bloomberg, US Big Tech ratchets up AI spending past $700 billion this year", "url": "https://www.bloomberg.com/news/articles/2026-04-30/us-big-tech-ratchets-up-ai-spending-past-700-billion-this-year" },
-        { "label": "CNBC, Tech AI spending approaches $700 billion in 2026", "url": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html" }
+        {
+          "label": "Bloomberg, US Big Tech ratchets up AI spending past $700 billion this year",
+          "url": "https://www.bloomberg.com/news/articles/2026-04-30/us-big-tech-ratchets-up-ai-spending-past-700-billion-this-year"
+        },
+        {
+          "label": "CNBC, Tech AI spending approaches $700 billion in 2026",
+          "url": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html"
+        }
       ],
       "proveWrong": "The strongest rival read is that the AI capex cycle is a bubble that corrects, and hyperscalers pull back before the build-out reaches frontier markets at all. If spending stalls, betting a business on data-centre-adjacent demand in Africa could be early by years.",
       "nextMove": "If you are building in or around infrastructure, position on the inputs, power, cooling, land, connectivity, rather than on compute itself. Treat data-centre-adjacent capacity as the asset, and move while the continent's share is still being decided."
@@ -107,7 +139,7 @@
       "slug": "the-africa-window",
       "title": "The Africa Window",
       "videoId": "9eE792dtoG8",
-      "date": "2026-08-08",
+      "date": "2026-08-09",
       "theme": "Capital",
       "headlineClaim": "A cracked dollar just opened a financing window for Africa. Debt is carrying it, equity has thinned to a seven-year low.",
       "status": "published",
@@ -119,8 +151,14 @@
       ],
       "method": "Measured against July 2026: the US non-farm payroll print of -23,000 against the +83,000 consensus, the 103,000 combined downward revision to May and June, average hourly earnings growth at 3.2% year on year (its lowest since May 2021), the gold price, and the equity-versus-debt split of African startup funding for the month against the prior seven years.",
       "sources": [
-        { "label": "U.S. Bureau of Labor Statistics, The Employment Situation, July 2026", "url": "https://www.bls.gov/news.release/archives/empsit_08072026.htm" },
-        { "label": "Africa: The Big Deal, monthly African startup funding data (July 2026)", "url": "https://africathebigdeal.com/" }
+        {
+          "label": "U.S. Bureau of Labor Statistics, The Employment Situation, July 2026",
+          "url": "https://www.bls.gov/news.release/archives/empsit_08072026.htm"
+        },
+        {
+          "label": "Africa: The Big Deal, monthly African startup funding data (July 2026)",
+          "url": "https://africathebigdeal.com/"
+        }
       ],
       "proveWrong": "The strongest rival read is that this is one noisy print, not a turn. A single payroll miss with heavy revisions can reverse; if August prints hot and inflation firms, the Fed keeps its cover, the dollar rebounds, and the window shuts before most operators can act on it. The debt-heavy funding month would then read as risk-off caution, not opportunity, and pricing a debt raise into it would be a mistake.",
       "nextMove": "If you are raising in the second half, price a debt or local-currency instrument now, while the window is open, rather than waiting for the equity market to come back. Build the raise around revenue and repayment, not dilution. Hedge your dollar exposure before, not after, the next Fed decision."
@@ -130,7 +168,7 @@
       "slug": "the-demographic-shift",
       "title": "The Demographic Shift",
       "videoId": "PzTXiczPFHE",
-      "date": "2026-08-17",
+      "date": "2026-08-23",
       "theme": "Macro",
       "headlineClaim": "Africa's youth are the century's demographic engine. Position before the consensus does.",
       "status": "published",
@@ -142,8 +180,14 @@
       ],
       "method": "Compared UN and ISS African Futures projections for Africa's median age, youth share and working-age population in 2050 against other regions.",
       "sources": [
-        { "label": "UN Economic Commission for Africa, as Africa's population crosses 1.5 billion", "url": "https://www.uneca.org/stories/(blog)-as-africa%E2%80%99s-population-crosses-1.5-billion,-the-demographic-window-is-opening-getting" },
-        { "label": "ISS African Futures, demographic dividend", "url": "https://futures.issafrica.org/thematic/03-demographic-dividend/" }
+        {
+          "label": "UN Economic Commission for Africa, as Africa's population crosses 1.5 billion",
+          "url": "https://www.uneca.org/stories/(blog)-as-africa%E2%80%99s-population-crosses-1.5-billion,-the-demographic-window-is-opening-getting"
+        },
+        {
+          "label": "ISS African Futures, demographic dividend",
+          "url": "https://futures.issafrica.org/thematic/03-demographic-dividend/"
+        }
       ],
       "proveWrong": "The rival read is that a demographic dividend without jobs is a liability, not an asset. If formal job creation and institutional capacity keep lagging population growth, the same youth bulge produces unemployment and instability, and 'position for the workforce' becomes a bet on execution that most markets miss.",
       "nextMove": "Position for the workforce, not just the consumer. If you are building in Africa, weight toward sectors that employ and train at scale, and toward markets whose institutions can turn a young population into a productive one."
