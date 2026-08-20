@@ -34,6 +34,105 @@ const label = (s) => (s.number ? `Signal ${s.number}` : 'Signal');
 const citation = (s) =>
   `ZeroToAct, ${s.number ? `Signal ${s.number}, ` : ''}${s.title}, ${longDate(s.date)}, ${editionUrl(s)}`;
 
+// Shared site chrome, matched to index.html so every page navigates identically.
+const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="36" height="36" /></a>
+      <ul class="nav-links" role="list">
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Intelligence<span class="nav-caret" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-dropdown-panel" role="menu" aria-label="Intelligence products">
+            <a href="/signals/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Weekly Signals <span class="nav-dd-badge">Live</span></span>
+              <span class="nav-dd-desc">Global economic, geopolitical and capital-markets analysis, every week.</span>
+            </a>
+            <a href="/africa-opportunity-map/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Africa Opportunity Map</span>
+              <span class="nav-dd-desc">One country a week, all 54, as one comparable dataset.</span>
+            </a>
+            <a href="/annual-outlook/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Annual Outlook</span>
+              <span class="nav-dd-desc">Grades last year's calls, then sets where to position next.</span>
+            </a>
+            <a href="/nigeria-policy-tracker/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Nigeria Policy Tracker</span>
+              <span class="nav-dd-desc">Federal policy, what it means and what to do.</span>
+            </a>
+          </div>
+        </li>
+        <li><a href="/#summit-section" class="nav-link">Summit</a></li>
+        <li><a href="/#community-section" class="nav-link">Community</a></li>
+        <li><a href="https://instagram.com/zerotoact" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a></li>
+        <li><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="nav-link">Convener</a></li>
+      </ul>
+      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Get the Free Brief</button>
+      <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile-menu" id="mobile-menu" aria-hidden="true">
+      <span class="mobile-group-label">Intelligence</span>
+      <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
+      <a href="/africa-opportunity-map/" class="mobile-link mobile-sublink">Africa Opportunity Map</a>
+      <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
+      <a href="/nigeria-policy-tracker/" class="mobile-link mobile-sublink">Nigeria Policy Tracker</a>
+      <a href="/#summit-section" class="mobile-link">Summit</a>
+      <a href="/#community-section" class="mobile-link">Community</a>
+      <a href="https://instagram.com/zerotoact" class="mobile-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://adetuyi.com" class="mobile-link" target="_blank" rel="noopener noreferrer">Convener</a>
+      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Brief</button>
+    </div>
+  </nav>`;
+
+const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="48" height="48" loading="lazy" decoding="async" /></a>
+          <p class="footer-tagline">A weekly intelligence operation that moves operators<br />from knowing to doing.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">Platform</p>
+            <a href="/signals/" class="footer-nav-link">Weekly Signals</a>
+            <a href="/africa-opportunity-map/" class="footer-nav-link">Africa Opportunity Map</a>
+            <a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a>
+            <a href="/nigeria-policy-tracker/" class="footer-nav-link">Nigeria Policy Tracker</a>
+            <a href="/#summit-section" class="footer-nav-link">Summit</a>
+            <a href="/#community-section" class="footer-nav-link">Community</a>
+            <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Convener</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; ${new Date().getFullYear()} ZeroToAct. All rights reserved. Convened by <a href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer" class="footer-convener-link">${AUTHOR.name}</a>.</p>
+        <a href="https://instagram.com/zerotoact" class="footer-instagram" target="_blank" rel="noopener noreferrer" aria-label="ZeroToAct on Instagram"><svg class="footer-insta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>@zerotoact</a>
+      </div>
+    </div>
+  </footer>`;
+
+const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Join ZeroToAct">
+    <div class="join-modal-overlay" id="join-modal-overlay"></div>
+    <div class="join-modal-container">
+      <button type="button" class="join-modal-close" id="join-modal-close" aria-label="Close application form">&times;</button>
+      <div class="join-modal-content" id="join-modal-form-panel">
+        <h3 class="join-modal-title" id="join-modal-title">Get the Weekly Brief</h3>
+        <p class="join-modal-desc">One email is all it takes. Your first intelligence brief is next.</p>
+        <form id="join-application-form" novalidate>
+          <div class="form-group" data-field="name" hidden><label for="join-name" class="form-label">Full Name</label><input type="text" id="join-name" name="name" class="form-input" placeholder="Your full name" /><span class="form-error" id="error-name"></span></div>
+          <div class="form-group" data-field="email"><label for="join-email" class="form-label">Email Address</label><input type="email" id="join-email" name="email" class="form-input" placeholder="Your email address" required /><span class="form-error" id="error-email"></span></div>
+          <div class="form-group" data-field="phone" hidden><label for="join-phone" class="form-label">Phone Number</label><input type="tel" id="join-phone" name="phone" class="form-input" placeholder="Your phone number" /><span class="phone-format-caption" id="phone-format-caption">Format +1 201 555 0123</span><span class="form-error" id="error-phone"></span></div>
+          <div class="form-group" data-field="description" hidden><label for="join-description" class="form-label">What do you do</label><textarea id="join-description" name="description" class="form-textarea" placeholder="A brief description of what you do"></textarea><span class="form-error" id="error-description"></span></div>
+          <button type="submit" class="btn-submit" id="join-submit-btn"><span class="btn-text">Subscribe Free</span><span class="btn-spinner"></span></button>
+        </form>
+      </div>
+      <div class="join-modal-content join-success-panel" id="join-modal-success-panel" style="display: none;">
+        <div class="success-icon-container"><svg class="success-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <h3 class="join-modal-title">You&rsquo;re on the list</h3>
+        <p class="join-modal-desc">Your first Weekly Intelligence Brief will be delivered by email.</p>
+        <a href="https://chat.whatsapp.com/L6NcsuQXSAs0dpbKbhhsil" class="btn-whatsapp-success" id="join-whatsapp-success-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Join the Community</a>
+      </div>
+    </div>
+  </div>`;
+
 const shell = ({ title, desc, canonical, head = '', body }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,20 +160,11 @@ const shell = ({ title, desc, canonical, head = '', body }) => `<!DOCTYPE html>
   <link rel="stylesheet" href="/signals/signals.css" />
 ${head}</head>
 <body>
-  <nav class="sig-nav">
-    <div class="sig-nav-inner">
-      <a href="/" class="sig-nav-logo" aria-label="ZeroToAct home"><img src="/favicon-v2.png" alt="" width="32" height="32" /></a>
-      <a href="/intelligence/" class="sig-nav-label">Intelligence</a>
-      <a href="/#subscribe-section" class="sig-nav-cta">Get the Free Brief</a>
-    </div>
-  </nav>
+${SITE_NAV}
   ${body}
-  <footer class="sig-footer">
-    <div class="sig-wrap">
-      <p>A weekly intelligence operation that moves operators from knowing to doing.</p>
-      <p class="sig-footer-meta">&copy; ${new Date().getFullYear()} ZeroToAct. Convened by <a href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer">${AUTHOR.name}</a>. &middot; <a href="/signals/feed.xml">RSS</a></p>
-    </div>
-  </footer>
+${SITE_FOOTER}
+${JOIN_MODAL}
+  <script src="/main.js"></script>
 </body>
 </html>
 `;
@@ -238,7 +328,6 @@ ${items}
 function sitemap() {
   const urls = [
     { loc: `${BASE}/`, priority: '1.0', changefreq: 'weekly' },
-    { loc: `${BASE}/intelligence/`, priority: '0.9', changefreq: 'weekly' },
     { loc: `${BASE}/signals/`, priority: '0.9', changefreq: 'weekly' },
     ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
     { loc: `${BASE}/africa-opportunity-map/`, priority: '0.6', changefreq: 'monthly' },
@@ -257,69 +346,17 @@ ${body}
 `;
 }
 
-// ── Intelligence hub + research product pages ──
-const products = [
-  {
-    slug: 'signals', title: 'Weekly Signals', status: 'Live', href: '/signals/',
-    blurb: 'Global economic, geopolitical and capital-markets analysis every week, ported into a peer cell so you act on it, not just read it.',
-  },
-  {
-    slug: 'africa-opportunity-map', title: 'Africa Opportunity Map', status: 'Coming', href: '/africa-opportunity-map/',
-    blurb: 'One country a week, all 54, through 2027. Built as one comparable dataset, not 54 disconnected essays.',
-  },
-  {
-    slug: 'nigeria-policy-tracker', title: 'Nigeria Policy Tracker', status: 'Coming', href: '/nigeria-policy-tracker/',
-    blurb: 'Federal policy dissected for what it means and what to do, split by who it hits.',
-  },
-  {
-    slug: 'annual-outlook', title: 'Annual Outlook', status: 'Coming', href: '/annual-outlook/',
-    blurb: "Grades last year's calls before making new ones, then tells you where to position for the next.",
-  },
-];
-
+// ── Research product pages ──
+// Intelligence is expressed as a nav dropdown (see SITE_NAV), not a hub page.
 const briefCta = (label = 'Get the Free Brief') =>
-  `<a class="sig-cta-btn" href="/#subscribe-section">${esc(label)}</a>`;
-
-function hubPage() {
-  const cards = products.map((p) => `
-      <a class="hub-card${p.status === 'Live' ? ' hub-card--live' : ''}" href="${p.href}">
-        <span class="hub-card-status">${esc(p.status)}</span>
-        <h2 class="hub-card-title">${esc(p.title)}</h2>
-        <p class="hub-card-blurb">${esc(p.blurb)}</p>
-        <span class="hub-card-cta">${p.status === 'Live' ? 'Open' : 'Preview'} &rarr;</span>
-      </a>`).join('\n');
-
-  const body = `
-  <main class="sig-wrap sig-index">
-    <header class="sig-index-head">
-      <p class="sig-eyebrow">The research operation</p>
-      <h1 class="sig-index-title">Intelligence</h1>
-      <p class="sig-index-sub">Weekly Signals, an annual Outlook, and living maps of the markets that matter. One research operation, four products, each built to end in a decision.</p>
-    </header>
-    <div class="hub-grid">${cards}
-    </div>
-    <div class="sig-cta-band">
-      <div>
-        <h2>Start with the free weekly brief.</h2>
-        <p>The Signals are the entry point. One sharp read a week, no noise, unsubscribe anytime.</p>
-      </div>
-      ${briefCta()}
-    </div>
-  </main>`;
-
-  return shell({
-    title: 'Intelligence | ZeroToAct',
-    desc: 'ZeroToAct’s research operation: weekly Signals, the Africa Opportunity Map, the Nigeria Policy Tracker, and the Annual Outlook, for operators building in Africa and beyond.',
-    canonical: `${BASE}/intelligence/`, body,
-  });
-}
+  `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="brief">${esc(label)}</button>`;
 
 // Shared chrome for a single research-product page.
 function productShell({ slug, title, desc, status, claim, sections, cta }) {
   const url = `${BASE}/${slug}/`;
   const body = `
   <main class="sig-wrap sig-article">
-    <a href="/intelligence/" class="sig-back">&larr; Intelligence</a>
+    <a href="/" class="sig-back">&larr; ZeroToAct</a>
     <p class="sig-eyebrow">Intelligence &middot; ${esc(status)}</p>
     <h1 class="sig-title">${esc(title)}</h1>
     <p class="sig-claim">${esc(claim)}</p>
@@ -448,9 +485,8 @@ write('signals/feed.xml', feed());
 write('sitemap.xml', sitemap());
 for (const s of signals) write(`signals/${s.slug}/index.html`, editionPage(s));
 
-write('intelligence/index.html', hubPage());
 write('africa-opportunity-map/index.html', africaMapPage());
 write('nigeria-policy-tracker/index.html', nigeriaTrackerPage());
 write('annual-outlook/index.html', annualOutlookPage());
 
-console.log(`\nGenerated ${signals.length} editions, the Intelligence hub, and 3 product pages.`);
+console.log(`\nGenerated ${signals.length} editions and 3 product pages.`);

@@ -130,25 +130,49 @@
         <img src="favicon-v2.png" alt="" width="36" height="36" />
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="/intelligence/" class="nav-link">Intelligence</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Intelligence<span class="nav-caret" aria-hidden="true">▾</span></button>
+          <div class="nav-dropdown-panel" role="menu" aria-label="Intelligence products">
+            <a href="/signals/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Weekly Signals <span class="nav-dd-badge">Live</span></span>
+              <span class="nav-dd-desc">Global economic, geopolitical and capital-markets analysis, every week.</span>
+            </a>
+            <a href="/africa-opportunity-map/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Africa Opportunity Map</span>
+              <span class="nav-dd-desc">One country a week, all 54, as one comparable dataset.</span>
+            </a>
+            <a href="/annual-outlook/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Annual Outlook</span>
+              <span class="nav-dd-desc">Grades last year's calls, then sets where to position next.</span>
+            </a>
+            <a href="/nigeria-policy-tracker/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Nigeria Policy Tracker</span>
+              <span class="nav-dd-desc">Federal policy, what it means and what to do.</span>
+            </a>
+          </div>
+        </li>
         <li><a href="#summit-section" class="nav-link">Summit</a></li>
         <li><a href="#community-section" class="nav-link">Community</a></li>
         <li><a href="https://instagram.com/zerotoact" target="_blank" rel="noopener noreferrer" class="nav-link"
             data-section="instagram-section">Instagram</a></li>
         <li><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="nav-link">Convener</a></li>
       </ul>
-      <a class="nav-cta" href="#subscribe-section" id="nav-subscribe-btn">Get the Free Brief</a>
+      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief" id="nav-subscribe-btn">Get the Free Brief</button>
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile-menu" id="mobile-menu" aria-hidden="true">
-      <a href="/intelligence/" class="mobile-link">Intelligence</a>
+      <span class="mobile-group-label">Intelligence</span>
+      <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
+      <a href="/africa-opportunity-map/" class="mobile-link mobile-sublink">Africa Opportunity Map</a>
+      <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
+      <a href="/nigeria-policy-tracker/" class="mobile-link mobile-sublink">Nigeria Policy Tracker</a>
       <a href="#summit-section" class="mobile-link">Summit</a>
       <a href="#community-section" class="mobile-link">Community</a>
       <a href="https://instagram.com/zerotoact" class="mobile-link" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="https://adetuyi.com" class="mobile-link" target="_blank" rel="noopener noreferrer">Convener</a>
-      <a class="mobile-link mobile-link-cta" href="#subscribe-section">Get the Free Brief</a>
+      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Brief</button>
     </div>
   </nav>
 
@@ -618,8 +642,10 @@
         <nav class="footer-nav" aria-label="Footer navigation">
           <div class="footer-nav-group">
             <p class="footer-nav-label">Platform</p>
-            <a href="/intelligence/" class="footer-nav-link">Intelligence</a>
-            <a href="/signals/" class="footer-nav-link">Signals</a>
+            <a href="/signals/" class="footer-nav-link">Weekly Signals</a>
+            <a href="/africa-opportunity-map/" class="footer-nav-link">Africa Opportunity Map</a>
+            <a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a>
+            <a href="/nigeria-policy-tracker/" class="footer-nav-link">Nigeria Policy Tracker</a>
             <a href="#summit-section" class="footer-nav-link">Summit</a>
             <a href="#community-section" class="footer-nav-link">Community</a>
             <a href="#faq" class="footer-nav-link">FAQ</a>
