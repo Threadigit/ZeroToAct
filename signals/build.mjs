@@ -14,6 +14,33 @@ const BASE = 'https://zerotoact.com';
 const OG_IMAGE = `${BASE}/og-image-v2.png`;
 const AUTHOR = { name: 'Tolu Adetuyi', url: 'https://adetuyi.com' };
 
+// Reusable schema.org entities for structured data.
+const PERSON = {
+  '@type': 'Person',
+  '@id': `${AUTHOR.url}/#person`,
+  name: AUTHOR.name,
+  url: AUTHOR.url,
+  sameAs: [AUTHOR.url],
+  jobTitle: 'Convener',
+  worksFor: { '@id': `${BASE}/#organization` },
+};
+const PUBLISHER = {
+  '@type': 'Organization',
+  '@id': `${BASE}/#organization`,
+  name: 'ZeroToAct',
+  url: `${BASE}/`,
+  logo: { '@type': 'ImageObject', url: `${BASE}/favicon-v2.png` },
+};
+// Breadcrumb JSON-LD from an ordered list of [name, url] pairs.
+const breadcrumb = (items) => ({
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map(([name, url], i) => ({
+    '@type': 'ListItem', position: i + 1, name, item: url,
+  })),
+});
+const jsonLdScript = (obj) =>
+  `  <script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
+
 const data = JSON.parse(readFileSync(resolve(__dirname, 'signals.json'), 'utf8'));
 const signals = [...data.signals].sort((a, b) => b.date.localeCompare(a.date));
 const themes = data.meta.themes;
@@ -133,22 +160,31 @@ const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true"
     </div>
   </div>`;
 
-const shell = ({ title, desc, canonical, head = '', body }) => `<!DOCTYPE html>
+const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '' }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}" />
+${keywords ? `  <meta name="keywords" content="${esc(keywords)}" />\n` : ''}  <meta name="author" content="${esc(AUTHOR.name)}" />
   <link rel="canonical" href="${canonical}" />
+  <link rel="author" href="${AUTHOR.url}" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="icon" type="image/png" href="/favicon-v2.png" />
   <meta name="theme-color" content="#0a0a0a" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="${ogType}" />
+  <meta property="og:site_name" content="ZeroToAct" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="${canonical}" />
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(desc)}" />
   <meta property="og:image" content="${OG_IMAGE}" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+${articleMeta}  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@zerotoact" />
+  <meta name="twitter:creator" content="@zerotoact" />
   <meta name="twitter:title" content="${esc(title)}" />
   <meta name="twitter:description" content="${esc(desc)}" />
   <meta name="twitter:image" content="${OG_IMAGE}" />
@@ -199,21 +235,47 @@ function editionPage(s) {
   const nextMove = s.nextMove
     ? `<div class="sig-block sig-block--move"><h2>Next move</h2><p>${esc(s.nextMove)}</p></div>` : '';
 
+  const wordCount = (s.written || []).join(' ').split(/\s+/).filter(Boolean).length;
+  const kw = [s.theme, 'Africa', 'capital', 'geopolitics', 'markets', 'operators', 'ZeroToAct']
+    .filter(Boolean).join(', ');
+
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: s.title,
-    description: s.headlineClaim,
-    datePublished: s.date,
-    image: OG_IMAGE,
-    author: { '@type': 'Person', name: AUTHOR.name, url: AUTHOR.url },
-    publisher: {
-      '@type': 'Organization', name: 'ZeroToAct',
-      logo: { '@type': 'ImageObject', url: `${BASE}/favicon-v2.png` },
-    },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    isPartOf: { '@type': 'CreativeWorkSeries', name: 'ZeroToAct Weekly Signal' },
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': `${url}#article`,
+        headline: s.title,
+        name: s.title,
+        description: s.headlineClaim,
+        datePublished: s.date,
+        dateModified: s.date,
+        inLanguage: 'en',
+        image: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630 },
+        articleSection: s.theme,
+        keywords: kw,
+        ...(wordCount ? { wordCount } : {}),
+        author: PERSON,
+        publisher: PUBLISHER,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+        isPartOf: { '@type': 'CreativeWorkSeries', '@id': `${BASE}/#signals`, name: 'ZeroToAct Weekly Signal' },
+      },
+      breadcrumb([
+        ['Home', `${BASE}/`],
+        ['Signals', `${BASE}/signals/`],
+        [s.title, url],
+      ]),
+      PERSON,
+    ],
   };
+
+  const isoPub = new Date(s.date + 'T12:00:00Z').toISOString();
+  const articleMeta =
+    `  <meta property="article:published_time" content="${isoPub}" />\n` +
+    `  <meta property="article:modified_time" content="${isoPub}" />\n` +
+    `  <meta property="article:author" content="${AUTHOR.url}" />\n` +
+    `  <meta property="article:section" content="${esc(s.theme)}" />\n` +
+    `  <meta property="article:tag" content="${esc(s.theme)}" />\n`;
 
   const body = `
   <main class="sig-wrap sig-article">
@@ -241,10 +303,10 @@ function editionPage(s) {
     </div>
   </main>`;
 
-  const head = `  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n`;
   return shell({
     title: `${s.title} | ZeroToAct ${label(s)}`,
-    desc: s.headlineClaim, canonical: url, head, body,
+    desc: s.headlineClaim, canonical: url, head: jsonLdScript(jsonLd), body,
+    ogType: 'article', articleMeta, keywords: kw,
   });
 }
 
@@ -294,10 +356,35 @@ function indexPage() {
     }());
   </script>`;
 
+  const ld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${BASE}/signals/#collection`,
+        url: `${BASE}/signals/`,
+        name: 'The Signal Archive',
+        description: 'Every weekly ZeroToAct Signal, kept as a dated, citable record.',
+        inLanguage: 'en',
+        isPartOf: { '@id': `${BASE}/#website` },
+        publisher: PUBLISHER,
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListOrder: 'https://schema.org/ItemListOrderDescending',
+          numberOfItems: signals.length,
+          itemListElement: signals.map((s, i) => ({
+            '@type': 'ListItem', position: i + 1, url: editionUrl(s), name: s.title,
+          })),
+        },
+      },
+      breadcrumb([['Home', `${BASE}/`], ['Signals', `${BASE}/signals/`]]),
+    ],
+  };
   return shell({
     title: 'The Signal Archive | ZeroToAct',
     desc: 'Every weekly ZeroToAct Signal, kept as a dated, citable record of capital, policy, and global shifts for operators building in Africa and beyond.',
-    canonical: `${BASE}/signals/`, body,
+    canonical: `${BASE}/signals/`, body, head: jsonLdScript(ld),
+    keywords: 'ZeroToAct, Signals, Africa, capital, geopolitics, markets, weekly intelligence',
   });
 }
 
@@ -369,7 +456,22 @@ function productShell({ slug, title, desc, status, claim, sections, cta }) {
       ${briefCta(cta.label)}
     </div>
   </main>`;
-  return shell({ title: `${title} | ZeroToAct`, desc, canonical: url, body });
+  const ld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${url}#webpage`,
+        url, name: title, description: desc, inLanguage: 'en',
+        isPartOf: { '@id': `${BASE}/#website` },
+        about: { '@type': 'Thing', name: title },
+        publisher: PUBLISHER,
+        primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE },
+      },
+      breadcrumb([['Home', `${BASE}/`], [title, url]]),
+    ],
+  };
+  return shell({ title: `${title} | ZeroToAct`, desc, canonical: url, body, head: jsonLdScript(ld) });
 }
 
 function africaMapPage() {

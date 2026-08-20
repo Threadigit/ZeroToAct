@@ -15,6 +15,8 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ZeroToAct" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://zerotoact.com/" />
   <meta property="og:title" content="ZeroToAct | Intelligence and Accountability for Operators" />
   <meta property="og:description"
@@ -26,6 +28,8 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@zerotoact" />
+  <meta name="twitter:creator" content="@zerotoact" />
   <meta name="twitter:url" content="https://zerotoact.com/" />
   <meta name="twitter:title" content="ZeroToAct | Intelligence and Accountability for Operators" />
   <meta name="twitter:description"
@@ -33,10 +37,14 @@
   <meta name="twitter:image" content="https://zerotoact.com/og-image-v2.png" />
   <meta name="twitter:image:alt" content="ZeroToAct. See what's shifting. Act before the crowd." />
 
-  <!-- Robots -->
-  <meta name="robots" content="index, follow" />
+  <!-- Robots / SEO -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0a0a0a" />
-  <meta name="author" content="ZeroToAct" />
+  <meta name="author" content="Tolu Adetuyi" />
+  <meta name="publisher" content="ZeroToAct" />
+  <meta name="keywords"
+    content="ZeroToAct, weekly intelligence, capital markets, geopolitics, African markets, operators, founders, Tolu Adetuyi, Annual Outlook, Africa Opportunity Map, Nigeria Policy Tracker" />
+  <link rel="author" href="https://adetuyi.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -55,15 +63,37 @@
           "@id": "https://zerotoact.com/#organization",
           "name": "ZeroToAct",
           "url": "https://zerotoact.com/",
+          "description": "A weekly intelligence operation on capital, policy, and global markets, paired with an annual summit and a peer accountability community, for operators and founders building in Africa and beyond.",
           "logo": {
             "@type": "ImageObject",
             "url": "https://zerotoact.com/favicon-v2.png",
             "caption": "ZeroToAct Logo"
           },
+          "founder": { "@id": "https://adetuyi.com/#person" },
           "sameAs": [
             "https://instagram.com/zerotoact",
             "https://adetuyi.com"
           ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://adetuyi.com/#person",
+          "name": "Tolu Adetuyi",
+          "url": "https://adetuyi.com",
+          "sameAs": ["https://adetuyi.com"],
+          "jobTitle": "Convener",
+          "worksFor": { "@id": "https://zerotoact.com/#organization" }
+        },
+        {
+          "@type": "Event",
+          "@id": "https://zerotoact.com/#summit",
+          "name": "ZeroToAct New Year Summit",
+          "description": "A one-day virtual summit where operators, founders, and anyone navigating what is next turn the Annual Outlook into a personal 12-month execution plan.",
+          "startDate": "2027",
+          "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": { "@type": "VirtualLocation", "url": "https://zerotoact.com/#summit-section" },
+          "organizer": { "@id": "https://zerotoact.com/#organization" }
         },
         {
           "@type": "WebSite",
