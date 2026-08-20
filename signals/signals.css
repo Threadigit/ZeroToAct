@@ -113,6 +113,8 @@
 .sig-block p { font-size: var(--fs-base); line-height: 1.7; color: var(--grey-200); }
 .sig-block--move p { color: var(--white); }
 .sig-flag { color: #f5c451; font-family: var(--ff-mono); font-size: var(--fs-xs); }
+.sig-sources { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.sig-sources li { font-size: var(--fs-base); line-height: 1.6; color: var(--grey-200); }
 
 .sig-cite { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 2rem; }
 .sig-cite h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }

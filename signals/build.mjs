@@ -95,10 +95,15 @@ function editionPage(s) {
 
   const method = s.method
     ? `<div class="sig-block"><h2>Method</h2><p>${esc(s.method)}</p></div>` : '';
-  const source = `<div class="sig-block"><h2>Source</h2><p>${
-    s.sourceUrl ? `<a href="${esc(s.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(s.sourceLabel || s.sourceUrl)}</a>`
-      : (s.sourceLabel ? `${esc(s.sourceLabel)} <span class="sig-flag">(link pending)</span>` : `<span class="sig-flag">Source link pending.</span>`)
-  }</p></div>`;
+  const sources = s.sources || [];
+  const source = s.written
+    ? `<div class="sig-block"><h2>Source</h2>${
+        sources.length
+          ? `<ul class="sig-sources">${sources.map((src) =>
+              `<li><a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.label)}</a></li>`).join('')}</ul>`
+          : `<p><span class="sig-flag">Source link pending.</span></p>`
+      }</div>`
+    : '';
   const proveWrong = s.proveWrong
     ? `<div class="sig-block"><h2>What would prove this wrong</h2><p>${esc(s.proveWrong)}</p></div>` : '';
   const nextMove = s.nextMove
