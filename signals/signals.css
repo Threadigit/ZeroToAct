@@ -1,0 +1,131 @@
+/* Signal archive styles. Loaded after style.css, reuses its tokens. */
+
+.sig-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Nav ── */
+.sig-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--black-border);
+}
+.sig-nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0.9rem var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.sig-nav-logo { display: inline-flex; }
+.sig-nav-logo img { display: block; border-radius: var(--radius-sm); }
+.sig-nav-label {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-md);
+  color: var(--white-pure);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.sig-nav-cta {
+  margin-left: auto;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--black);
+  background: var(--white);
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+.sig-nav-cta:hover { background: var(--white-pure); transform: translateY(-1px); }
+
+/* ── Shared type ── */
+.sig-eyebrow {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+}
+
+/* ── Archive index ── */
+.sig-index { padding-top: 3.5rem; padding-bottom: 5rem; }
+.sig-index-head { margin-bottom: 2.5rem; }
+.sig-index-title {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-4xl);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--white-pure);
+  margin: 0.5rem 0 1rem;
+}
+.sig-index-sub { color: var(--grey-400); font-size: var(--fs-md); line-height: 1.6; max-width: 60ch; }
+.sig-index-sub a, .sig-body a, .sig-block a, .sig-byline a, .sig-footer a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-600); }
+.sig-index-sub a:hover, .sig-body a:hover, .sig-block a:hover { text-decoration-color: var(--white); }
+
+.sig-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.sig-filter {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-sm);
+  color: var(--grey-400);
+  background: transparent;
+  border: 1px solid var(--black-border);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+.sig-filter:hover { color: var(--white); border-color: var(--grey-600); }
+.sig-filter.is-active { color: var(--black); background: var(--white); border-color: var(--white); }
+
+.sig-grid { display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-lg); overflow: hidden; }
+.sig-card { background: var(--black); transition: background var(--transition-fast); }
+.sig-card:hover { background: var(--black-card); }
+.sig-card-link { display: block; padding: 1.75rem; }
+.sig-card-meta { display: flex; justify-content: space-between; align-items: center; font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.06em; color: var(--grey-500); margin-bottom: 0.75rem; }
+.sig-card-theme { color: var(--grey-600); text-transform: uppercase; }
+.sig-card-title { font-family: var(--ff-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--white-pure); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+.sig-card-claim { color: var(--grey-400); font-size: var(--fs-base); line-height: 1.55; margin-bottom: 1rem; }
+.sig-card-cta { font-size: var(--fs-sm); font-weight: 500; color: var(--white); }
+
+/* ── Article ── */
+.sig-article { padding-top: 2.5rem; padding-bottom: 5rem; }
+.sig-back { display: inline-block; font-size: var(--fs-sm); color: var(--grey-400); margin-bottom: 2rem; }
+.sig-back:hover { color: var(--white); }
+.sig-title { font-family: var(--ff-serif); font-size: var(--fs-4xl); font-weight: 700; line-height: 1.06; letter-spacing: -0.02em; color: var(--white-pure); margin: 0.75rem 0 1rem; }
+.sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-xl); line-height: 1.4; color: var(--grey-200); margin-bottom: 2rem; }
+.sig-draft-note { display: inline-block; font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: #f5c451; background: rgba(245, 196, 81, 0.08); border: 1px solid rgba(245, 196, 81, 0.25); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); margin-bottom: 2rem; }
+
+.sig-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--black-border); margin-bottom: 2.5rem; background: var(--black-soft); }
+.sig-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.sig-body p { font-size: var(--fs-md); line-height: 1.75; color: var(--grey-200); margin-bottom: 1.25rem; }
+.sig-pending { color: var(--grey-400); font-style: italic; }
+
+.sig-block { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 1.5rem; }
+.sig-block h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
+.sig-block p { font-size: var(--fs-base); line-height: 1.7; color: var(--grey-200); }
+.sig-block--move p { color: var(--white); }
+.sig-flag { color: #f5c451; font-family: var(--ff-mono); font-size: var(--fs-xs); }
+
+.sig-cite { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 2rem; }
+.sig-cite h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
+.sig-cite-text { font-family: var(--ff-mono); font-size: var(--fs-sm); line-height: 1.6; color: var(--grey-400); background: var(--black-soft); border: 1px solid var(--black-border); border-radius: var(--radius-md); padding: 0.9rem 1.1rem; word-break: break-word; }
+
+.sig-byline { margin-top: 2rem; font-size: var(--fs-sm); color: var(--grey-500); }
+
+/* ── Footer ── */
+.sig-footer { border-top: 1px solid var(--black-border); padding: 2.5rem 0; margin-top: 2rem; }
+.sig-footer p { color: var(--grey-500); font-size: var(--fs-sm); line-height: 1.6; }
+.sig-footer-meta { margin-top: 0.5rem; color: var(--grey-600); }
+
+@media (max-width: 640px) {
+  .sig-title, .sig-index-title { font-size: var(--fs-3xl); }
+  .sig-card-link { padding: 1.35rem; }
+}

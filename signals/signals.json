@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "note": "Data source for the Signal archive. Edit this file, then run `node signals/build.mjs` to regenerate the index, per-edition pages, and feed.xml.",
+    "themes": ["Capital", "Policy", "Technology", "Macro"],
+    "fields": {
+      "number": "Canonical Signal number. null = not yet confirmed by Tolu. Only Signal 6 (the Fed edition) is known.",
+      "status": "'draft' shows the written body marked as pending review. 'published' renders it plainly.",
+      "sourceUrl": "Link to the underlying data. null renders a 'link pending' note."
+    }
+  },
+  "signals": [
+    {
+      "number": null,
+      "slug": "us-economy-service-power",
+      "title": "The US Economy Dominating Through Service",
+      "videoId": "N4GSZjIPma4",
+      "date": "2026-07-19",
+      "theme": "Macro",
+      "headlineClaim": "US power is a service system. It profits by being irreplaceable to everyone else's success.",
+      "status": "draft",
+      "written": null,
+      "method": null,
+      "sourceLabel": null,
+      "sourceUrl": null,
+      "proveWrong": null,
+      "nextMove": null
+    },
+    {
+      "number": null,
+      "slug": "dfis-stopped-writing-equity",
+      "title": "DFIs Have Stopped Writing Equity Cheques in Africa",
+      "videoId": "RDjUVb7cnmo",
+      "date": "2026-07-19",
+      "theme": "Capital",
+      "headlineClaim": "Development finance has stopped writing equity cheques in Africa. It is lending instead.",
+      "status": "draft",
+      "written": null,
+      "method": null,
+      "sourceLabel": null,
+      "sourceUrl": null,
+      "proveWrong": null,
+      "nextMove": null
+    },
+    {
+      "number": 6,
+      "slug": "fed-might-hike-not-cut",
+      "title": "Signal 6: The Fed Might Hike on July 29, Not Cut",
+      "videoId": "PoPaiS81DNg",
+      "date": "2026-07-28",
+      "theme": "Policy",
+      "headlineClaim": "The Fed might hike on July 29, not cut. If the dollar tightens, every African founder's runway maths just changed.",
+      "status": "draft",
+      "written": null,
+      "method": null,
+      "sourceLabel": null,
+      "sourceUrl": null,
+      "proveWrong": null,
+      "nextMove": null
+    },
+    {
+      "number": null,
+      "slug": "700-billion-compute-divide",
+      "title": "The $700 Billion Compute Divide",
+      "videoId": "V0gEUW2dQAU",
+      "date": "2026-08-02",
+      "theme": "Technology",
+      "headlineClaim": "US tech is preparing nearly $700 billion in capital spending. Africa's data-centre market is a fraction of it.",
+      "status": "draft",
+      "written": null,
+      "method": null,
+      "sourceLabel": null,
+      "sourceUrl": null,
+      "proveWrong": null,
+      "nextMove": null
+    },
+    {
+      "number": null,
+      "slug": "the-africa-window",
+      "title": "The Africa Window",
+      "videoId": "9eE792dtoG8",
+      "date": "2026-08-08",
+      "theme": "Capital",
+      "headlineClaim": "A cracked dollar just opened a financing window for Africa. Debt is carrying it, equity has thinned to a seven-year low.",
+      "status": "draft",
+      "written": [
+        "America was supposed to add 83,000 jobs last month. It lost 23,000. May and June were revised down by another 103,000 between them, and wages are growing at their slowest pace in five years. The labour market did not soften. It rolled over. That left the Federal Reserve with no cover to hold.",
+        "So the dollar cracked. Gold ran to $4,350. Emerging-market local-currency debt became the best-performing asset on earth for the period, on currency alone, before you count a single coupon. When the world's reserve currency weakens, capital that was parked in dollars goes looking for yield, and frontier risk that looked untouchable a quarter ago starts to price.",
+        "That is the window, and it opens onto Africa. A weaker dollar means cheaper debt service on hard-currency obligations, better import maths for anyone buying in dollars and selling locally, and more appetite from allocators for exactly the frontier risk African operators represent.",
+        "Here is the part nobody is saying out loud. African startups raised $102m in July. Only $25m of it was equity, the lowest equity month in seven years. Seventy-four percent was debt. Seed has effectively disappeared. The window is real, but it is a debt window, not an equity one. The capital that is available wants to be paid back on a schedule, not to own a slice of your upside."
+      ],
+      "method": "Measured against July: the US non-farm payroll print (actual versus the +83,000 consensus) and the May and June revisions, US wage-growth rate versus its five-year trend, the gold price, relative performance of emerging-market local-currency debt, and the equity-versus-debt split of African startup funding for the month against the prior seven years.",
+      "sourceLabel": "US Bureau of Labor Statistics employment report (July); African startup funding tracker",
+      "sourceUrl": null,
+      "proveWrong": "The strongest rival read is that this is one noisy print, not a turn. A single payroll miss with heavy revisions can reverse; if August prints hot and inflation firms, the Fed keeps its cover, the dollar rebounds, and the window shuts before most operators can act on it. The debt-heavy funding month would then read as risk-off caution, not opportunity, and pricing a debt raise into it would be a mistake.",
+      "nextMove": "If you are raising in the second half, price a debt or local-currency instrument now, while the window is open, rather than waiting for the equity market to come back. Build the raise around revenue and repayment, not dilution. Hedge your dollar exposure before, not after, the next Fed decision."
+    },
+    {
+      "number": null,
+      "slug": "the-demographic-shift",
+      "title": "The Demographic Shift",
+      "videoId": "PzTXiczPFHE",
+      "date": "2026-08-17",
+      "theme": "Macro",
+      "headlineClaim": "Africa's youth are the century's demographic engine. Position before the consensus does.",
+      "status": "draft",
+      "written": null,
+      "method": null,
+      "sourceLabel": null,
+      "sourceUrl": null,
+      "proveWrong": null,
+      "nextMove": null
+    }
+  ]
+}
