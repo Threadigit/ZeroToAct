@@ -383,12 +383,13 @@ function africaMapPage() {
     ['Policy and regulation', 'The rules that help or block an operator, and the reforms that just changed them.'],
     ['Sectors in play', 'Where the near-term opportunity concentrates, and where it does not.'],
     ['Risks', 'Currency, political, liquidity, and capital-repatriation risk, stated plainly.'],
+    ['For investors, local and global', 'What the opportunity looks like to naira capital and to dollar capital, side by side, and where the entry window sits.'],
     ['The move', 'How an operator should position in this market now, not in five years.'],
   ].map(([h, p]) => `<li><strong>${esc(h)}.</strong> ${esc(p)}</li>`).join('\n        ');
 
   const sections = `
     <div class="sig-body">
-      <p>Every week we publish one country file, working through all 54 by the end of 2027. Because every file carries the same fields in the same order, you can line countries up against each other and compare, instead of reading 54 disconnected essays.</p>
+      <p>Every week we publish one country file, working through all 54 by the end of 2027. Each file is built for the people who move on a market: operators deciding where to build, and investors, local and global, deciding where to allocate. And because every file carries the same fields in the same order, you can line countries up against each other and compare, instead of reading 54 disconnected essays.</p>
     </div>
     <div class="sig-block">
       <h2>What every country file carries</h2>
@@ -405,31 +406,42 @@ function africaMapPage() {
   return productShell({
     slug: 'africa-opportunity-map',
     title: 'The Africa Opportunity Map',
-    desc: 'One African country a week, all 54 through 2027, as one comparable dataset for operators deciding where to build.',
+    desc: 'One African country a week, all 54 through 2027: the case for each market, as one comparable dataset for local and global investors and the operators deciding where to build.',
     status: 'Coming',
-    claim: 'One country a week, all 54, through 2027. A comparable dataset, not 54 essays.',
+    claim: 'One country a week, all 54, through 2027. The case for every African market, for operators and investors alike.',
     sections,
     cta: { heading: 'Get on the list.', sub: 'The weekly brief is where the Map ships first. Subscribe and you will not miss a country.', label: 'Join the waitlist' },
   });
 }
 
 function nigeriaTrackerPage() {
-  const segs = [
+  const li = ([h, p]) => `<li><strong>${esc(h)}.</strong> ${esc(p)}</li>`;
+  const households = [
     ['Upper income', 'What the policy does to capital, assets, tax exposure and cross-border options, and how to protect and position.'],
     ['Middle income', 'What it means for salaries, savings, credit and small-business costs, and the moves that still make sense.'],
     ['Base of the pyramid', 'What it changes in prices, transport, informal income and everyday costs, and where relief or pressure lands.'],
-  ].map(([h, p]) => `<li><strong>${esc(h)}.</strong> ${esc(p)}</li>`).join('\n        ');
+  ].map(li).join('\n        ');
+  const investors = [
+    ['Local investor', 'What it changes for naira-denominated capital: yields, entry points, and the sectors to lean into or step back from.'],
+    ['Global investor', 'What it changes for dollar-denominated capital: FX and repatriation risk, hedged returns, and whether the entry window widens or narrows.'],
+  ].map(li).join('\n        ');
 
   const sections = `
     <div class="sig-body">
       <p>We take each significant federal policy move, a subsidy, an FX rule, a tax change, a rate decision, and translate it into what it means and what to do about it. No press-release summaries. What changed, who it hits, and the move.</p>
     </div>
     <div class="sig-block">
-      <h2>Every read, split three ways</h2>
+      <h2>For households, by income band</h2>
       <ul class="sig-fields">
-        ${segs}
+        ${households}
       </ul>
-      <p class="sig-note">Because the same policy is an opportunity for one household and a squeeze for another, every read is segmented by income band.</p>
+    </div>
+    <div class="sig-block">
+      <h2>For investors, local and global</h2>
+      <ul class="sig-fields">
+        ${investors}
+      </ul>
+      <p class="sig-note">The same policy is an opportunity for one reader and a squeeze for another. Every read is broken down by income band and by investor.</p>
     </div>
     <div class="sig-block">
       <h2>Cadence</h2>
@@ -439,9 +451,9 @@ function nigeriaTrackerPage() {
   return productShell({
     slug: 'nigeria-policy-tracker',
     title: 'The Nigeria Policy Tracker',
-    desc: 'Federal policy dissected for what it means and what to do, segmented by upper income, middle income and base of the pyramid.',
+    desc: 'Federal policy dissected for what it means and what to do, for households by income band and for local and global investors.',
     status: 'Coming',
-    claim: 'Federal policy, dissected for what it means and what to do, split by who it hits.',
+    claim: 'Federal policy, dissected for what it means and what to do, for every household and every investor.',
     sections,
     cta: { heading: 'Get on the list.', sub: 'The Tracker ships to brief subscribers first. Subscribe to be there when it opens.', label: 'Join the waitlist' },
   });
