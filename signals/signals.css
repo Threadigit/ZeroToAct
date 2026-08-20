@@ -54,7 +54,7 @@
 }
 
 /* ── Archive index ── */
-.sig-index { padding-top: 3.5rem; padding-bottom: 5rem; }
+.sig-index { padding-top: 7rem; padding-bottom: 5rem; }
 .sig-index-head { margin-bottom: 2.5rem; }
 .sig-index-title {
   font-family: var(--ff-serif);
@@ -95,7 +95,7 @@
 .sig-card-cta { font-size: var(--fs-sm); font-weight: 500; color: var(--white); }
 
 /* ── Article ── */
-.sig-article { padding-top: 2.5rem; padding-bottom: 5rem; }
+.sig-article { padding-top: 6rem; padding-bottom: 5rem; }
 .sig-back { display: inline-block; font-size: var(--fs-sm); color: var(--grey-400); margin-bottom: 2rem; }
 .sig-back:hover { color: var(--white); }
 .sig-title { font-family: var(--ff-serif); font-size: var(--fs-4xl); font-weight: 700; line-height: 1.06; letter-spacing: -0.02em; color: var(--white-pure); margin: 0.75rem 0 1rem; }

@@ -93,11 +93,15 @@
   }
 
   // ─── SMOOTH SCROLL FOR ANCHOR LINKS ───────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // Handles both "#section" and "/#section": smooth-scrolls when the target
+  // is on the current page, otherwise lets the browser navigate (e.g. a
+  // sub-page linking back to a homepage section).
+  document.querySelectorAll('a[href*="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-      const target = document.querySelector(targetId);
+      let url;
+      try { url = new URL(anchor.href, window.location.href); } catch { return; }
+      if (url.pathname !== window.location.pathname || !url.hash || url.hash === '#') return;
+      const target = document.querySelector(url.hash);
       if (!target) return;
       e.preventDefault();
       const navHeight = nav ? nav.offsetHeight : 0;
@@ -105,6 +109,22 @@
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
+  // ─── INTELLIGENCE DROPDOWN ────────────────────────
+  const ddToggle = document.querySelector('.nav-dropdown-toggle');
+  if (ddToggle) {
+    const setDd = (open) => ddToggle.setAttribute('aria-expanded', String(open));
+    ddToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setDd(ddToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) setDd(false);
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setDd(false);
+    });
+  }
 
   // ─── STAGGERED REVEAL FOR GRID CHILDREN ───────────
   // Add delay to cards within grids for staggered entrance
