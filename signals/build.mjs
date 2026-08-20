@@ -28,7 +28,8 @@ const longDate = (iso) =>
   });
 
 const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
-const editionUrl = (s) => `${BASE}/signals/${s.slug}/`;
+const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
+const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canonical/OG/RSS/sitemap/citation
 const label = (s) => (s.number ? `Signal ${s.number}` : 'Signal');
 const citation = (s) =>
   `ZeroToAct, ${s.number ? `Signal ${s.number}, ` : ''}${s.title}, ${longDate(s.date)}, ${editionUrl(s)}`;
@@ -160,7 +161,7 @@ function indexPage() {
 
   const cards = signals.map((s) => `
       <article class="sig-card" data-theme="${esc(s.theme)}">
-        <a class="sig-card-link" href="${editionUrl(s)}">
+        <a class="sig-card-link" href="${editionPath(s)}">
           <div class="sig-card-meta"><span>${s.number ? `Signal ${s.number} &middot; ` : ''}${esc(longDate(s.date))}</span><span class="sig-card-theme">${esc(s.theme)}</span></div>
           <h2 class="sig-card-title">${esc(s.title)}</h2>
           <p class="sig-card-claim">${esc(s.headlineClaim)}</p>
