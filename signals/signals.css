@@ -122,6 +122,33 @@
 
 .sig-byline { margin-top: 2rem; font-size: var(--fs-sm); color: var(--grey-500); }
 
+/* ── Intelligence hub ── */
+.hub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3rem; }
+.hub-card { display: flex; flex-direction: column; gap: 0.6rem; background: var(--black); padding: 1.9rem; transition: background var(--transition-fast); }
+.hub-card:hover { background: var(--black-card); }
+.hub-card-status { align-self: flex-start; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); border: 1px solid var(--black-border); border-radius: var(--radius-full); padding: 0.2rem 0.6rem; }
+.hub-card--live .hub-card-status { color: #2ed573; border-color: rgba(46, 213, 115, 0.3); }
+.hub-card-title { font-family: var(--ff-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--white-pure); line-height: 1.2; letter-spacing: -0.01em; }
+.hub-card-blurb { color: var(--grey-400); font-size: var(--fs-base); line-height: 1.55; flex: 1; }
+.hub-card-cta { font-size: var(--fs-sm); font-weight: 500; color: var(--white); }
+
+/* ── Research product pages ── */
+.sig-fields { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-top: 0.25rem; }
+.sig-fields li { font-size: var(--fs-base); line-height: 1.6; color: var(--grey-200); padding-left: 1rem; border-left: 2px solid var(--black-border); }
+.sig-fields strong { color: var(--white-pure); font-weight: 600; }
+.sig-note { margin-top: 1.1rem; font-size: var(--fs-sm); color: var(--grey-500); font-style: italic; }
+
+.sig-cta-band { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem; padding: 2rem; background: var(--black-soft); border: 1px solid var(--black-border); border-radius: var(--radius-lg); }
+.sig-cta-band h2 { font-family: var(--ff-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--white-pure); letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+.sig-cta-band p { color: var(--grey-400); font-size: var(--fs-sm); line-height: 1.5; max-width: 46ch; }
+.sig-cta-btn { flex-shrink: 0; font-size: var(--fs-sm); font-weight: 500; color: var(--black); background: var(--white); padding: 0.7rem 1.4rem; border-radius: var(--radius-full); transition: transform var(--transition-fast), background var(--transition-fast); }
+.sig-cta-btn:hover { background: var(--white-pure); transform: translateY(-1px); }
+
+@media (max-width: 640px) {
+  .hub-grid { grid-template-columns: 1fr; }
+  .sig-cta-band { flex-direction: column; align-items: flex-start; }
+}
+
 /* ── Footer ── */
 .sig-footer { border-top: 1px solid var(--black-border); padding: 2.5rem 0; margin-top: 2rem; }
 .sig-footer p { color: var(--grey-500); font-size: var(--fs-sm); line-height: 1.6; }
