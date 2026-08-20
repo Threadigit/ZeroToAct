@@ -618,7 +618,9 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   transition: background var(--transition-base), border-color var(--transition-base);
 }
 
-.hero-stat:first-child { padding-left: 0; }
+/* Keep the text flush with the hero copy above, but give the hover highlight
+   a little breathing room on the left instead of running to the very edge. */
+.hero-stat:first-child { padding-left: 1rem; margin-left: -1rem; }
 .hero-stat:last-child { border-right: 0; }
 
 .hero-stat:hover {
