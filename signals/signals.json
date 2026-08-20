@@ -5,7 +5,7 @@
     "fields": {
       "number": "Canonical Signal number. null = not yet confirmed by Tolu. Only Signal 6 (the Fed edition) is known.",
       "status": "'draft' shows the written body marked as pending review. 'published' renders it plainly.",
-      "sourceUrl": "Link to the underlying data. null renders a 'link pending' note."
+      "sources": "Array of {label, url} pointing at the underlying data. Empty renders a 'link pending' note."
     }
   },
   "signals": [
@@ -17,13 +17,20 @@
       "date": "2026-07-19",
       "theme": "Macro",
       "headlineClaim": "US power is a service system. It profits by being irreplaceable to everyone else's success.",
-      "status": "draft",
-      "written": null,
-      "method": null,
-      "sourceLabel": null,
-      "sourceUrl": null,
-      "proveWrong": null,
-      "nextMove": null
+      "status": "published",
+      "written": [
+        "Ask why the US economy stays on top and the easy answer is size. The truer answer is that it sells services the rest of the world cannot easily replace. US services exports reached about $1.11 trillion, and nearly 70% of that came from four things: travel, financial services, professional consulting, and intellectual property.",
+        "The deepest of these is financial infrastructure. The dollar is not just a currency, it is the plumbing. It clears more than 40% of global payments and sits underneath most cross-border credit and trade. Every rival system that gets announced is still tiny next to the rails already in use.",
+        "The lesson for an operator is not patriotic, it is structural. Durable power comes from being the layer other people build on, the thing they cannot route around. The US monetised that position at the scale of a whole economy. The question is which layer you can occupy in your own market.",
+        "For African builders, the openings are the local equivalents: payment rails, identity, settlement, the infrastructure other businesses have to use. Owning a rail beats owning a product that runs on someone else's rail."
+      ],
+      "method": "Reviewed the composition of US services exports and the dollar's share of global payments and reserves to locate the structural source of US economic leverage, rather than reading dominance off headline GDP.",
+      "sources": [
+        { "label": "Rwazi, Inside the trillion-dollar export powering US global dominance", "url": "https://blog.rwazi.com/inside-the-trillion-dollar-export-powering-u-s-global-dominance/" },
+        { "label": "Atlantic Council, Dollar Dominance Monitor", "url": "https://www.atlanticcouncil.org/issue/dollar-dominance/" }
+      ],
+      "proveWrong": "The strongest rival read is de-dollarisation: the dollar's reserve share is slowly slipping and alternative rails, from BRICS settlement to stablecoins, are being built. If those scale faster than expected, owning incumbent infrastructure protects you less than this argues, because the rail itself can be displaced.",
+      "nextMove": "Audit where you sit in your market's stack. If you are a product running on someone else's infrastructure, find the layer beneath you that everyone needs and is hard to replace, and move toward owning it."
     },
     {
       "number": null,
@@ -33,13 +40,20 @@
       "date": "2026-07-19",
       "theme": "Capital",
       "headlineClaim": "Development finance has stopped writing equity cheques in Africa. It is lending instead.",
-      "status": "draft",
-      "written": null,
-      "method": null,
-      "sourceLabel": null,
-      "sourceUrl": null,
-      "proveWrong": null,
-      "nextMove": null
+      "status": "published",
+      "written": [
+        "Development finance used to be Africa's equity backstop. In 2026 it stopped writing those cheques and started lending instead. DFI-linked debt into African startups rose about 165%, from roughly $105m to $278m, while the equity these same institutions once anchored fell by more than a third.",
+        "This is not a retreat, it is a change of instrument. A DFI mandate can accommodate a loan when equity appetite has gone, so the money still arrives, just structured differently. British International Investment wrote a $15m mezzanine facility into commercial solar; the IFC anchored rounds it would once have taken as equity.",
+        "What it means if you are raising, especially for energy, infrastructure or climate: the door marked equity at the DFI is mostly shut, and the door marked debt and mezzanine is wide open. Walk into the right one. Take your growth-equity ask to sovereign wealth and Gulf capital, and take your project and working-capital needs to the DFIs as debt.",
+        "The risk is a barbell. Capital is abundant for a few bankable, debt-ready projects and dangerously thin for early-stage equity. If your business cannot yet service a loan, this market is harder than the headline funding totals make it look."
+      ],
+      "method": "Compared DFI-linked debt and equity deployment into African startups in early 2026 against early 2025, by instrument and by share of total funding.",
+      "sources": [
+        { "label": "Launch Base Africa, DFI retreat to debt: African funding themes in 2026", "url": "https://launchbaseafrica.com/2026/06/03/e-mobility-stablecoins-and-dfi-retreat-to-debt-african-funding-themes-take-shape-in-2026/" },
+        { "label": "AU-Startups, African startup funding Q1 2026: debt outpaces equity", "url": "https://au-startups.com/news/african-startup-funding-q1-2026-debt-drives-growth" }
+      ],
+      "proveWrong": "The rival read is that this is a one-year rotation, not a regime change. If global rates fall and risk appetite returns, DFIs and funds could swing back to equity within a cycle, and a founder who structured everything around debt would be over-levered into the recovery.",
+      "nextMove": "Before your next pitch, sort your ask by instrument: debt and mezzanine to the DFIs, growth equity to sovereign and Gulf pools. If you are pre-revenue, fix that before you raise, because the equity that used to carry early-stage companies has thinned."
     },
     {
       "number": 6,
@@ -49,13 +63,21 @@
       "date": "2026-07-28",
       "theme": "Policy",
       "headlineClaim": "The Fed might hike on July 29, not cut. If the dollar tightens, every African founder's runway maths just changed.",
-      "status": "draft",
-      "written": null,
-      "method": null,
-      "sourceLabel": null,
-      "sourceUrl": null,
-      "proveWrong": null,
-      "nextMove": null
+      "status": "published",
+      "written": [
+        "The consensus says the Fed's next move is a cut. Watch the 29 July meeting for the opposite. Oil has run higher on Middle East tension, the Fed has held for five meetings straight, and a live minority on the committee wants to move up, not down. Put the odds of a hike at roughly one in three. That is not the base case, but it is far too high to ignore if you are pricing dollars.",
+        "Why it matters here: when the dollar tightens, every African founder's runway maths changes overnight. Hard-currency costs rise, import bills climb, and the dollar-denominated slice of any raise gets more expensive to service.",
+        "Nigeria looks strong on the surface and fragile underneath. Reserves sit at a 17-year high above $52.5bn, inflation has eased toward 15%, and the central bank has held its policy rate at 26.5%. That is stability bought with very high rates, and it holds only while oil revenue and inflows hold.",
+        "The funding picture confirms the caution. African startups raised about $1.4bn in the first half, but the deal count nearly halved, from 252 to 146. Capital is concentrating into fewer, larger cheques. Equity is selective, not dead."
+      ],
+      "method": "Assessed ahead of the 29 July FOMC decision: the implied risk of a rate hike given the July oil move, Nigeria's reserve level, headline inflation and the central bank policy rate, and the first-half total and deal count for African startup funding.",
+      "sources": [
+        { "label": "Federal Reserve, FOMC statement, 29 July 2026", "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm" },
+        { "label": "Nairametrics, Nigeria external reserves cross $52bn, surpass CBN 2026 forecast", "url": "https://nairametrics.com/2026/07/22/external-reserves-cross-52-billion-surpass-cbns-2026-forecast/" },
+        { "label": "Africa: The Big Deal, first-half 2026 African startup funding data", "url": "https://africathebigdeal.com/" }
+      ],
+      "proveWrong": "The rival read is that the hike talk is noise. Oil spikes fade, the Fed holds or cuts, and the dollar softens, in which case a defensive FX-and-debt posture costs you the cheaper equity you could have raised. If Middle East tension de-escalates and crude rolls over, the case weakens quickly.",
+      "nextMove": "Fix your FX exposure before 29 July, not after. Build your raise around revenue and debt rather than betting on an equity market writing fewer cheques. Pick a lane the crowd has left open, and move before the Fed does."
     },
     {
       "number": null,
@@ -65,13 +87,20 @@
       "date": "2026-08-02",
       "theme": "Technology",
       "headlineClaim": "US tech is preparing nearly $700 billion in capital spending. Africa's data-centre market is a fraction of it.",
-      "status": "draft",
-      "written": null,
-      "method": null,
-      "sourceLabel": null,
-      "sourceUrl": null,
-      "proveWrong": null,
-      "nextMove": null
+      "status": "published",
+      "written": [
+        "American technology companies are committing close to $700 billion in capital spending this year, most of it aimed at AI infrastructure. That is not a product cycle, it is a build-out of the physical layer the next economy will run on, and it is roughly double what the same firms spent in 2025.",
+        "Africa's data-centre market is a rounding error against that number. The continent holds a tiny share of global capacity, and most AI workloads that touch African users are still served from outside the continent.",
+        "The read for operators: compute is infrastructure now, and infrastructure is geopolitics. The scarce inputs are not models, they are power, cooling and land near it. Whoever controls those controls where the AI economy can physically run.",
+        "The opportunity is not to out-spend hyperscalers on chips. It is to own the layers they need locally: reliable power, cooling, connectivity, and the sites that combine them. That is a build an African operator can actually finance and deliver, and its value rises as the continent's share of capacity gets decided."
+      ],
+      "method": "Compared 2026 US hyperscaler capital-spending guidance (Microsoft, Amazon, Alphabet, Meta, Oracle) against Africa's share of global data-centre capacity.",
+      "sources": [
+        { "label": "Bloomberg, US Big Tech ratchets up AI spending past $700 billion this year", "url": "https://www.bloomberg.com/news/articles/2026-04-30/us-big-tech-ratchets-up-ai-spending-past-700-billion-this-year" },
+        { "label": "CNBC, Tech AI spending approaches $700 billion in 2026", "url": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html" }
+      ],
+      "proveWrong": "The strongest rival read is that the AI capex cycle is a bubble that corrects, and hyperscalers pull back before the build-out reaches frontier markets at all. If spending stalls, betting a business on data-centre-adjacent demand in Africa could be early by years.",
+      "nextMove": "If you are building in or around infrastructure, position on the inputs, power, cooling, land, connectivity, rather than on compute itself. Treat data-centre-adjacent capacity as the asset, and move while the continent's share is still being decided."
     },
     {
       "number": null,
@@ -104,13 +133,20 @@
       "date": "2026-08-17",
       "theme": "Macro",
       "headlineClaim": "Africa's youth are the century's demographic engine. Position before the consensus does.",
-      "status": "draft",
-      "written": null,
-      "method": null,
-      "sourceLabel": null,
-      "sourceUrl": null,
-      "proveWrong": null,
-      "nextMove": null
+      "status": "published",
+      "written": [
+        "The rest of the world is ageing. Africa is not. By 2050 the continent's median age will be about 25, against 46 in Europe and 42 in East Asia, and one in every three young people on earth will be African. The population has already crossed 1.5 billion.",
+        "The number that should move an operator is the workforce. Africa's working-age population grows from about 883 million today to roughly 1.6 billion by 2050, close to a quarter of all the working-age people on the planet. That is the century's largest new pool of labour, consumers and talent.",
+        "The catch is that demographics are potential, not destiny. A young population pays a dividend only where there are jobs, education and institutions to absorb it. Where there are not, the same numbers become pressure. The dividend is earned, not given.",
+        "For a builder, that is the whole opportunity. The businesses that create formal jobs, train the workforce and serve a young consumer base sit on the right side of the biggest demographic trend of the century, provided they build where the institutions can carry it."
+      ],
+      "method": "Compared UN and ISS African Futures projections for Africa's median age, youth share and working-age population in 2050 against other regions.",
+      "sources": [
+        { "label": "UN Economic Commission for Africa, as Africa's population crosses 1.5 billion", "url": "https://www.uneca.org/stories/(blog)-as-africa%E2%80%99s-population-crosses-1.5-billion,-the-demographic-window-is-opening-getting" },
+        { "label": "ISS African Futures, demographic dividend", "url": "https://futures.issafrica.org/thematic/03-demographic-dividend/" }
+      ],
+      "proveWrong": "The rival read is that a demographic dividend without jobs is a liability, not an asset. If formal job creation and institutional capacity keep lagging population growth, the same youth bulge produces unemployment and instability, and 'position for the workforce' becomes a bet on execution that most markets miss.",
+      "nextMove": "Position for the workforce, not just the consumer. If you are building in Africa, weight toward sectors that employ and train at scale, and toward markets whose institutions can turn a young population into a productive one."
     }
   ]
 }
