@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>ZeroToAct Signals</title>
+    <link>https://zerotoact.com/signals/</link>
+    <description>Weekly intelligence on capital, policy, and global markets for operators building in Africa and beyond.</description>
+    <language>en</language>
+    <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://zerotoact.com/signals/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Demographic Shift</title>
+      <link>https://zerotoact.com/signals/the-demographic-shift/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/the-demographic-shift/</guid>
+      <pubDate>Mon, 17 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Africa&#39;s youth are the century&#39;s demographic engine. Position before the consensus does.</description>
+    </item>
+    <item>
+      <title>The Africa Window</title>
+      <link>https://zerotoact.com/signals/the-africa-window/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/the-africa-window/</guid>
+      <pubDate>Sat, 08 Aug 2026 12:00:00 GMT</pubDate>
+      <description>A cracked dollar just opened a financing window for Africa. Debt is carrying it, equity has thinned to a seven-year low.</description>
+    </item>
+    <item>
+      <title>The $700 Billion Compute Divide</title>
+      <link>https://zerotoact.com/signals/700-billion-compute-divide/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/700-billion-compute-divide/</guid>
+      <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
+      <description>US tech is preparing nearly $700 billion in capital spending. Africa&#39;s data-centre market is a fraction of it.</description>
+    </item>
+    <item>
+      <title>Signal 6: The Fed Might Hike on July 29, Not Cut</title>
+      <link>https://zerotoact.com/signals/fed-might-hike-not-cut/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/fed-might-hike-not-cut/</guid>
+      <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
+      <description>The Fed might hike on July 29, not cut. If the dollar tightens, every African founder&#39;s runway maths just changed.</description>
+    </item>
+    <item>
+      <title>The US Economy Dominating Through Service</title>
+      <link>https://zerotoact.com/signals/us-economy-service-power/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/us-economy-service-power/</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 GMT</pubDate>
+      <description>US power is a service system. It profits by being irreplaceable to everyone else&#39;s success.</description>
+    </item>
+    <item>
+      <title>DFIs Have Stopped Writing Equity Cheques in Africa</title>
+      <link>https://zerotoact.com/signals/dfis-stopped-writing-equity/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/dfis-stopped-writing-equity/</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Development finance has stopped writing equity cheques in Africa. It is lending instead.</description>
+    </item>
+  </channel>
+</rss>
