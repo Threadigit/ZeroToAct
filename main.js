@@ -284,15 +284,15 @@
 
       if (modalTitle && modalDesc) {
         if (isBrief) {
-          modalTitle.textContent = 'Get the Weekly Brief';
-          modalDesc.textContent = 'One email is all it takes. Your first intelligence brief is next.';
+          modalTitle.textContent = 'Get the Free Signal';
+          modalDesc.textContent = 'One email is all it takes. Your first Weekly Signal is next.';
           if (submitText) submitText.textContent = 'Subscribe Free';
         } else if (isSummit) {
           modalTitle.textContent = 'Join the Summit Waitlist';
-          modalDesc.textContent = 'Leave your email and we will send the 2027 Summit details when registration opens.';
+          modalDesc.textContent = 'Leave your email and we will send the Summit details when registration opens.';
           if (submitText) submitText.textContent = 'Join the Waitlist';
         } else if (triggerText.includes('Movement') || triggerText.includes('Join')) {
-          modalTitle.textContent = 'Join the Movement';
+          modalTitle.textContent = 'Apply to the Community';
           modalDesc.textContent = 'Enter your details below to request access to the community';
           if (submitText) submitText.textContent = 'Submit Application';
         } else {
@@ -484,12 +484,12 @@
         const successCta = document.getElementById('join-whatsapp-success-btn');
         if (activeIntent === 'brief') {
           if (successTitle) successTitle.textContent = 'You’re on the list';
-          if (successDesc) successDesc.textContent = 'Your first Weekly Intelligence Brief will be delivered by email.';
+          if (successDesc) successDesc.textContent = 'Your first Weekly Signal will be delivered by email.';
           if (successCta) successCta.style.display = 'none';
           if (joinModalClose) joinModalClose.focus();
         } else if (activeIntent === 'summit') {
           if (successTitle) successTitle.textContent = 'You’re on the Summit list';
-          if (successDesc) successDesc.textContent = 'We will email you when registration for the 2027 Summit opens.';
+          if (successDesc) successDesc.textContent = 'We will email you when registration for the Summit opens.';
           if (successCta) successCta.style.display = 'none';
           if (joinModalClose) joinModalClose.focus();
         } else {

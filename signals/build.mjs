@@ -90,7 +90,7 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
         <li><a href="/#summit-section" class="nav-link">Summit</a></li>
         <li><a href="/#community-section" class="nav-link">Community</a></li>
       </ul>
-      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Get the Free Brief</button>
+      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav-mobile-menu" id="mobile-menu" aria-hidden="true">
@@ -101,7 +101,7 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
       <a href="/nigeria-policy-tracker/" class="mobile-link mobile-sublink">Nigeria Policy Tracker</a>
       <a href="/#summit-section" class="mobile-link">Summit</a>
       <a href="/#community-section" class="mobile-link">Community</a>
-      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Brief</button>
+      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
     </div>
   </nav>`;
 
@@ -141,8 +141,8 @@ const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true"
     <div class="join-modal-container">
       <button type="button" class="join-modal-close" id="join-modal-close" aria-label="Close application form">&times;</button>
       <div class="join-modal-content" id="join-modal-form-panel">
-        <h3 class="join-modal-title" id="join-modal-title">Get the Weekly Brief</h3>
-        <p class="join-modal-desc">One email is all it takes. Your first intelligence brief is next.</p>
+        <h3 class="join-modal-title" id="join-modal-title">Get the Free Signal</h3>
+        <p class="join-modal-desc">One email is all it takes. Your first Weekly Signal is next.</p>
         <form id="join-application-form" novalidate>
           <div class="form-group" data-field="name" hidden><label for="join-name" class="form-label">Full Name</label><input type="text" id="join-name" name="name" class="form-input" placeholder="Your full name" /><span class="form-error" id="error-name"></span></div>
           <div class="form-group" data-field="email"><label for="join-email" class="form-label">Email Address</label><input type="email" id="join-email" name="email" class="form-input" placeholder="Your email address" required /><span class="form-error" id="error-email"></span></div>
@@ -154,7 +154,7 @@ const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true"
       <div class="join-modal-content join-success-panel" id="join-modal-success-panel" style="display: none;">
         <div class="success-icon-container"><svg class="success-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         <h3 class="join-modal-title">You&rsquo;re on the list</h3>
-        <p class="join-modal-desc">Your first Weekly Intelligence Brief will be delivered by email.</p>
+        <p class="join-modal-desc">Your first Weekly Signal will be delivered by email.</p>
         <a href="https://chat.whatsapp.com/L6NcsuQXSAs0dpbKbhhsil" class="btn-whatsapp-success" id="join-whatsapp-success-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Join the Community</a>
       </div>
     </div>
@@ -213,7 +213,7 @@ function editionPage(s) {
 
   const article = s.written
     ? s.written.map((p) => `<p>${esc(p)}</p>`).join('\n        ')
-    : `<p class="sig-pending">The written brief for this Signal is being prepared from the video above. Watch the Signal in the meantime, or <a href="/#subscribe-section">get the weekly brief by email</a>.</p>`;
+    : `<p class="sig-pending">The written analysis for this Signal is being prepared from the video above. Watch the Signal in the meantime, or <a href="/#subscribe-section">get Weekly Signals by email</a>.</p>`;
 
   const draftBanner = s.status === 'draft' && s.written
     ? `<p class="sig-draft-note" role="note">Draft for review. Not yet published.</p>`
@@ -329,7 +329,7 @@ function indexPage() {
   const body = `
   <main class="sig-wrap sig-index">
     <header class="sig-index-head">
-      <p class="sig-eyebrow">Weekly intelligence, on the record</p>
+      <p class="sig-eyebrow">Weekly Signals, on the record</p>
       <h1 class="sig-index-title">The Signal Archive</h1>
       <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. Capital, policy, technology, and the global shifts that change what an operator should do next. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
     </header>
@@ -435,7 +435,7 @@ ${body}
 
 // ── Research product pages ──
 // Intelligence is expressed as a nav dropdown (see SITE_NAV), not a hub page.
-const briefCta = (label = 'Get the Free Brief') =>
+const briefCta = (label = 'Get the Free Signal') =>
   `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="brief">${esc(label)}</button>`;
 
 // Shared chrome for a single research-product page.
@@ -508,7 +508,7 @@ function africaMapPage() {
     status: 'Coming',
     claim: 'One country a week, all 54, through 2027. The case for every African market, for operators and investors alike.',
     sections,
-    cta: { heading: 'Get on the list.', sub: 'The weekly brief is where the Map ships first. Subscribe and you will not miss a country.', label: 'Join the waitlist' },
+    cta: { heading: 'Get on the list.', sub: 'Weekly Signals is where the Map ships first. Subscribe and you will not miss a country.', label: 'Join the waitlist' },
   });
 }
 
@@ -553,7 +553,7 @@ function nigeriaTrackerPage() {
     status: 'Coming',
     claim: 'Federal policy, dissected for what it means and what to do, for every household and every investor.',
     sections,
-    cta: { heading: 'Get on the list.', sub: 'The Tracker ships to brief subscribers first. Subscribe to be there when it opens.', label: 'Join the waitlist' },
+    cta: { heading: 'Get on the list.', sub: 'The Tracker ships to Weekly Signals subscribers first. Subscribe to be there when it opens.', label: 'Join the waitlist' },
   });
 }
 
@@ -582,7 +582,7 @@ function annualOutlookPage() {
     status: 'Annual',
     claim: "One publication a year that grades last year's calls, then tells you where to position for the next.",
     sections,
-    cta: { heading: 'Be there for the first one.', sub: 'The first Annual Outlook lands with the New Year Summit. Subscribe to the brief to get it.', label: 'Get the Free Brief' },
+    cta: { heading: 'Be there for the first one.', sub: 'The first Annual Outlook lands with the New Year Summit. Subscribe to Weekly Signals to get it.', label: 'Get the Free Signal' },
   });
 }
 

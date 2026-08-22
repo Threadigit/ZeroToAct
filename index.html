@@ -107,9 +107,10 @@
         },
         {
           "@type": "CreativeWorkSeries",
-          "@id": "https://zerotoact.com/#newsletter",
-          "name": "ZeroToAct Weekly Intelligence Brief",
-          "description": "Weekly economic, geopolitical, and tech breakdown translating complex shifts into execution roadmaps.",
+          "@id": "https://zerotoact.com/#signals",
+          "name": "ZeroToAct Weekly Signals",
+          "description": "A weekly signal on capital, policy, and global markets, translating complex shifts into clear decisions. Free by email and archived at zerotoact.com/signals.",
+          "url": "https://zerotoact.com/signals/",
           "publisher": {
             "@id": "https://zerotoact.com/#organization"
           }
@@ -120,18 +121,26 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What is ZeroToAct?",
+              "name": "What exactly is ZeroToAct?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "ZeroToAct is a weekly intelligence operation on capital, policy, and global markets, paired with an annual virtual summit and a screened peer accountability community for operators, founders, and professionals already building."
+                "text": "A weekly intelligence operation with three connected layers: Weekly Signals, an annual virtual Summit, and a screened accountability community."
               }
             },
             {
               "@type": "Question",
-              "name": "Is the Weekly Intelligence Brief free?",
+              "name": "Are Weekly Signals free?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. The Weekly Intelligence Brief is free and delivered directly to subscribers by email."
+                "text": "Yes. A sharp Signal arrives by email once a week, free, and every past edition stays archived at zerotoact.com/signals."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What else does ZeroToAct publish?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Alongside Weekly Signals: the Africa Opportunity Map, one country a week; the Nigeria Policy Tracker; and the Annual Outlook, which grades the year's calls before making new ones."
               }
             },
             {
@@ -139,7 +148,15 @@
               "name": "Who is the ZeroToAct community for?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The community is for active builders, founders, and professionals who want structured accountability and are prepared to execute on clear goals."
+                "text": "Builders, founders, and professionals already in motion who want a small, consistent cell of six to hold them accountable."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to join everything at once?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Start with the free Weekly Signals. They build the context you will use at the Summit and inside the community."
               }
             }
           ]
@@ -184,7 +201,7 @@
         <li><a href="#summit-section" class="nav-link">Summit</a></li>
         <li><a href="#community-section" class="nav-link">Community</a></li>
       </ul>
-      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief" id="nav-subscribe-btn">Get the Free Brief</button>
+      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief" id="nav-subscribe-btn">Get the Free Signal</button>
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
@@ -197,7 +214,7 @@
       <a href="/nigeria-policy-tracker/" class="mobile-link mobile-sublink">Nigeria Policy Tracker</a>
       <a href="#summit-section" class="mobile-link">Summit</a>
       <a href="#community-section" class="mobile-link">Community</a>
-      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Brief</button>
+      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
     </div>
   </nav>
 
@@ -216,7 +233,7 @@
         <p class="hero-sub reveal">
           ZeroToAct turns shifts in capital, policy, and the global economy into clear decisions, for operators, founders, and knowledge workers already building, with an African stake and a global view.</p>
         <div class="hero-actions reveal">
-          <a class="btn-primary" href="#subscribe-section" id="hero-subscribe-btn">Get the Free Brief</a>
+          <a class="btn-primary" href="#subscribe-section" id="hero-subscribe-btn">Get the Free Signal</a>
           <button type="button" class="btn-ghost" id="play-video-btn">
             <svg class="play-icon" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
@@ -224,7 +241,7 @@
             Watch the Intro
           </button>
         </div>
-        <p class="hero-assurance reveal">Free forever <span>•</span> One sharp brief a week <span>•</span> Unsubscribe anytime</p>
+        <p class="hero-assurance reveal">Free forever <span>•</span> One sharp signal a week <span>•</span> Unsubscribe anytime</p>
         <div class="hero-stat-row reveal">
           <a href="#content-section" class="hero-stat">
             <span class="stat-topline"><span class="stat-num">Weekly</span><span class="stat-index">01</span></span>
@@ -265,15 +282,15 @@
           <article class="pillar-card reveal" id="pillar-content">
             <div class="pillar-number">01</div>
             <div class="pillar-tag">Intelligence</div>
-            <h3 class="pillar-title">Weekly Intelligence</h3>
+            <h3 class="pillar-title">Weekly Signals</h3>
             <p class="pillar-desc">
               Global shifts decoded into practical decisions.
             </p>
             <ul class="pillar-list" aria-label="What Intelligence provides">
-              <li>One focused brief each week</li>
+              <li>One sharp signal each week</li>
               <li>Clear implications and next moves</li>
             </ul>
-            <a href="#content-section" class="pillar-link">Start the Brief</a>
+            <a href="#content-section" class="pillar-link">Start with Signals</a>
           </article>
 
           <article class="pillar-card pillar-card--featured reveal" id="pillar-summit">
@@ -317,7 +334,7 @@
           <div class="newsletter-left reveal">
             <p class="section-eyebrow">01 · Intelligence</p>
             <h2 id="newsletter-heading" class="section-heading">
-              Weekly intelligence<br />
+              Weekly Signals<br />
               for the globally aware.
             </h2>
             <p class="section-sub">
@@ -334,7 +351,7 @@
               </li>
               <li>
                 <span class="feature-icon" aria-hidden="true"></span>
-                One brief a week. Concrete moves, no noise.
+                One signal a week. Concrete moves, no noise.
               </li>
             </ul>
           </div>
@@ -342,13 +359,13 @@
           <div id="subscribe-section" class="newsletter-right reveal">
             <div class="subscribe-card">
               <div class="subscribe-card-header">
-                <span class="subscribe-label">The Weekly Brief</span>
+                <span class="subscribe-label">Weekly Signals</span>
                 <h3 class="subscribe-heading">Read it before<br />the crowd does.</h3>
                 <p class="subscribe-sub">Global context, local relevance, and a clear next move, delivered weekly.</p>
               </div>
               <button type="button" class="btn-whatsapp join-cta-trigger" id="intelligence-whatsapp-btn" data-intent="brief"
                 style="display:inline-flex; width: 100%; justify-content: center;">
-                Get the Free Brief
+                Get the Free Signal
               </button>
               <p class="community-cta-disclaimer" style="text-align:center; margin-top: 0.75rem;">Free. Straight to your inbox.</p>
             </div>
@@ -398,7 +415,7 @@
                   <dl class="stack-details">
                     <div class="stack-detail"><dt>Date</dt><dd>2027</dd></div>
                     <div class="stack-detail"><dt>Format</dt><dd>One-Day Virtual Summit</dd></div>
-                    <div class="stack-detail"><dt>Audience</dt><dd>Operators, founders, and anyone navigating what's next</dd></div>
+                    <div class="stack-detail"><dt>Audience</dt><dd>Operators, founders, knowledge workers, and investors</dd></div>
                     <div class="stack-detail"><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="convener-link">Tolu Adetuyi</a></dd></div>
                   </dl>
                 </div>
@@ -418,7 +435,7 @@
           <div class="community-top reveal">
             <p class="section-eyebrow">03 · Community</p>
             <h2 id="community-heading" class="section-heading">
-              Where the movement<br />lives between summits.
+              Where execution lives<br />between summits.
             </h2>
             <p class="section-sub">
               Six builders. One standing commitment. A review every two weeks.
@@ -432,8 +449,8 @@
             </div>
             <div class="community-card reveal">
               <div class="community-card-num" aria-hidden="true">02</div>
-              <h3 class="community-card-title">You Set Goals at the Summit</h3>
-              <p class="community-card-desc">At the Summit, you commit to a focused 12-month plan.</p>
+              <h3 class="community-card-title">You Set Your Goals</h3>
+              <p class="community-card-desc">Join now and your cell starts right away. The annual Summit is where you lock a focused 12-month plan.</p>
             </div>
             <div class="community-card reveal">
               <div class="community-card-num" aria-hidden="true">03</div>
@@ -492,9 +509,9 @@
               </svg>
               <span>@zerotoact</span>
             </div>
-            <p class="section-eyebrow">Follow the movement</p>
+            <p class="section-eyebrow">Follow along</p>
             <h2 id="instagram-heading" class="section-heading">
-              The brief continues<br />on Instagram.
+              Weekly Signals continue<br />on Instagram.
             </h2>
             <p class="section-sub">
               Fast global context, practical execution prompts, and stories from builders already in motion.
@@ -553,24 +570,28 @@
           <div class="faq-intro reveal">
             <p class="section-eyebrow">Before you join</p>
             <h2 id="faq-heading" class="section-heading">Clear answers.<br />No fine print.</h2>
-            <p class="section-sub">Start with the free brief. Go deeper when you are ready to commit.</p>
+            <p class="section-sub">Start with the free Signal. Go deeper when you are ready to commit.</p>
           </div>
           <div class="faq-list reveal">
             <details>
               <summary>What exactly is ZeroToAct?</summary>
-              <p>A global execution movement with three connected layers: weekly intelligence, an annual virtual Summit, and a screened accountability community.</p>
+              <p>A weekly intelligence operation with three connected layers: Weekly Signals, an annual virtual Summit, and a screened accountability community.</p>
             </details>
             <details>
-              <summary>Is the Weekly Intelligence Brief free?</summary>
-              <p>Yes. It is free and arrives by email once a week. Focused, practical, and designed to respect your time.</p>
+              <summary>Are Weekly Signals free?</summary>
+              <p>Yes. A sharp Signal arrives by email once a week, free, and every past edition stays archived at zerotoact.com/signals.</p>
+            </details>
+            <details>
+              <summary>What else do you publish?</summary>
+              <p>Alongside Weekly Signals: the Africa Opportunity Map, one country a week; the Nigeria Policy Tracker; and the Annual Outlook, which grades the year's calls before making new ones.</p>
             </details>
             <details>
               <summary>Who is the community for?</summary>
-              <p>Active builders, founders, and professionals who are already in motion and want a small, consistent circle to hold them accountable.</p>
+              <p>Builders, founders, and professionals already in motion who want a small, consistent cell of six to hold them accountable.</p>
             </details>
             <details>
               <summary>Do I need to join everything at once?</summary>
-              <p>No. The best starting point is the Weekly Brief. It builds the context you will later use at the Summit and inside the community.</p>
+              <p>No. Start with the free Weekly Signals. They build the context you will use at the Summit and inside the community.</p>
             </details>
           </div>
         </div>
@@ -591,7 +612,7 @@
             Get the context. Make your next move.
           </p>
           <a class="btn-primary btn-primary--large" href="#subscribe-section" id="final-subscribe-btn">
-            Get the Free Brief
+            Get the Free Signal
           </a>
         </div>
       </div>
@@ -669,7 +690,7 @@
 
       <!-- Form Panel -->
       <div class="join-modal-content" id="join-modal-form-panel">
-        <h3 class="join-modal-title" id="join-modal-title">Join the Movement</h3>
+        <h3 class="join-modal-title" id="join-modal-title">Apply to the Community</h3>
         <p class="join-modal-desc">Fill in your details below to request access to the community</p>
 
         <form id="join-application-form" novalidate>
