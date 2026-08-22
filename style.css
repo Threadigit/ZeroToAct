@@ -1162,6 +1162,42 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   justify-content: space-between;
 }
 
+/* Front summit card carrying the details */
+.stack-card-inner--details {
+  justify-content: flex-start;
+  gap: 0.9rem;
+}
+.stack-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.25rem;
+}
+.stack-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.stack-detail:last-child { border-bottom: none; }
+.stack-detail dt {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  flex-shrink: 0;
+}
+.stack-detail dd {
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  color: var(--white-pure);
+  text-align: right;
+  line-height: 1.4;
+}
+.stack-detail dd a { color: var(--white-pure); text-decoration: underline; text-underline-offset: 2px; }
+
 .stack-tag {
   font-family: var(--ff-mono);
   font-size: 9px;
@@ -1363,6 +1399,11 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 /* ── Summit: skill-to-business framework ── */
 .summit-framework {
   margin: 1.5rem 0 2rem;
+}
+.summit-framework-intro {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
 }
 .summit-paths {
   list-style: none;
@@ -2028,9 +2069,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   .summit-content > .section-eyebrow { order: 1; }
   .summit-content > .section-heading { order: 2; }
   .summit-content > .section-sub { order: 3; }
-  .summit-content > .summit-details { order: 4; }
-  .summit-content > .summit-outcomes { order: 6; }
-  .summit-content > .summit-tagline { order: 7; }
+  .summit-content > .summit-framework { order: 4; }
   .summit-content > #summit-notify-btn {
     order: 8;
     justify-self: start;
