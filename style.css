@@ -1360,6 +1360,49 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   border-left: 3px solid var(--white-pure);
 }
 
+/* ── Summit: skill-to-business framework ── */
+.summit-framework {
+  margin: 1.75rem 0 2.25rem;
+}
+.summit-framework-lead {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-lg);
+  font-style: italic;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+.summit-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--black-border);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.summit-path {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.4rem;
+}
+.summit-path-tag {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-pure);
+  margin-bottom: 0.6rem;
+}
+.summit-path p {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+}
+@media (max-width: 600px) {
+  .summit-paths { grid-template-columns: 1fr; }
+}
+
 /* ═══════════════════════════════════════════════════════
    COMMUNITY SECTION
 ═══════════════════════════════════════════════════════ */
