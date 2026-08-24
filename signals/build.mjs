@@ -83,7 +83,7 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
             </a>
             <a href="/policy-tracker/" class="nav-dd-item" role="menuitem">
               <span class="nav-dd-title">Policy Tracker</span>
-              <span class="nav-dd-desc">Government decisions, what they mean and what to do. Starting with Nigeria.</span>
+              <span class="nav-dd-desc">Government decisions, what they mean and what to do. Starting with the US and Nigeria.</span>
             </a>
           </div>
         </li>
@@ -518,17 +518,17 @@ function policyTrackerPage() {
   const households = [
     ['Upper income', 'What the policy does to capital, assets, tax exposure and cross-border options, and how to protect and position.'],
     ['Middle income', 'What it means for salaries, savings, credit and small-business costs, and the moves that still make sense.'],
-    ['Base of the pyramid', 'What it changes in prices, transport, informal income and everyday costs, and where relief or pressure lands.'],
+    ['Lower income', 'What it changes in prices, transport, informal income and everyday costs, and where relief or pressure lands.'],
   ].map(li).join('\n        ');
   const investors = [
-    ['Local investor', 'What it changes for naira-denominated capital: yields, entry points, and the sectors to lean into or step back from.'],
-    ['Global investor', 'What it changes for dollar-denominated capital: FX and repatriation risk, hedged returns, and whether the entry window widens or narrows.'],
+    ['Local investor', 'What it changes for capital already inside that market: yields, entry points, and the sectors to lean into or step back from.'],
+    ['Global investor', 'What it changes for capital coming from outside: FX and repatriation risk, hedged returns, and whether the entry window widens or narrows.'],
   ].map(li).join('\n        ');
 
   const sections = `
     <div class="sig-body">
       <p>We take each significant policy move, a subsidy, an FX rule, a tax change, a rate decision, and translate it into what it means and what to do about it. No press-release summaries. What changed, who it hits, and the move.</p>
-      <p>We start with Nigeria, where the decisions land hardest and the analysis is thinnest, and add markets from there.</p>
+      <p>We start with two: the United States, whose decisions set the weather for everyone else, and Nigeria, where they land hardest and the analysis is thinnest. Other markets follow.</p>
     </div>
     <div class="sig-block">
       <h2>For households, by income band</h2>
@@ -551,9 +551,9 @@ function policyTrackerPage() {
   return productShell({
     slug: 'policy-tracker',
     title: 'The Policy Tracker',
-    desc: 'Government decisions dissected for what they mean and what to do, for households by income band and for local and global investors. Starting with Nigeria.',
+    desc: 'Government decisions dissected for what they mean and what to do, for households by income band and for local and global investors. Starting with the United States and Nigeria.',
     status: 'Coming',
-    claim: 'Government decisions, dissected for what they mean and what to do, for every household and every investor. Starting with Nigeria.',
+    claim: 'Government decisions, dissected for what they mean and what to do, for every household and every investor. Starting with the United States and Nigeria.',
     sections,
     cta: { heading: 'Get on the list.', sub: 'The Tracker ships to Weekly Signals subscribers first. Subscribe to be there when it opens.', label: 'Join the waitlist' },
   });
