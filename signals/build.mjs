@@ -300,7 +300,7 @@ function editionPage(s) {
       <p class="sig-cite-text">${esc(citation(s))}</p>
     </div>
     <div class="sig-author-note">
-      <p><a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a> is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>. He convenes ZeroToAct.</p>
+      <p><a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a> is Co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>. He convenes ZeroToAct.</p>
     </div>
   </main>`;
 
