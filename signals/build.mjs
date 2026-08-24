@@ -236,7 +236,7 @@ function editionPage(s) {
     ? `<div class="sig-block sig-block--move"><h2>Next move</h2><p>${esc(s.nextMove)}</p></div>` : '';
 
   const wordCount = (s.written || []).join(' ').split(/\s+/).filter(Boolean).length;
-  const kw = [s.theme, 'Africa', 'capital', 'geopolitics', 'markets', 'operators', 'ZeroToAct']
+  const kw = [s.theme, 'Africa', 'capital', 'geopolitics', 'markets', 'ZeroToAct']
     .filter(Boolean).join(', ');
 
   const jsonLd = {
@@ -331,7 +331,7 @@ function indexPage() {
     <header class="sig-index-head">
       <p class="sig-eyebrow">Weekly Signals, on the record</p>
       <h1 class="sig-index-title">The Signal Archive</h1>
-      <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. Capital, policy, technology, and the global shifts that change what an operator should do next. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
+      <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. Money, government policy, technology, and the world-economy shifts that change your next move. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
     </header>
     <div class="sig-filters" role="group" aria-label="Filter by theme">
         ${filters}
@@ -382,7 +382,7 @@ function indexPage() {
   };
   return shell({
     title: 'The Signal Archive | ZeroToAct',
-    desc: 'Every weekly ZeroToAct Signal, kept as a dated, citable record of capital, policy, and global shifts for operators building in Africa and beyond.',
+    desc: 'Every weekly ZeroToAct Signal, kept as a dated, citable record of the shifts in money, government policy and the world economy that change your next move.',
     canonical: `${BASE}/signals/`, body, head: jsonLdScript(ld),
     keywords: 'ZeroToAct, Signals, Africa, capital, geopolitics, markets, weekly intelligence',
   });
@@ -402,7 +402,7 @@ function feed() {
   <channel>
     <title>ZeroToAct Signals</title>
     <link>${BASE}/signals/</link>
-    <description>Weekly intelligence on capital, policy, and global markets for operators building in Africa and beyond.</description>
+    <description>One read a week on the shifts in money, government policy and the world economy that change your next move.</description>
     <language>en</language>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="${BASE}/signals/feed.xml" rel="self" type="application/rss+xml" />
 ${items}
