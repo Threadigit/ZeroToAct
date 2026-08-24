@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/nigeria-policy-tracker",
+      "destination": "/policy-tracker/",
+      "permanent": true
+    },
+    {
+      "source": "/nigeria-policy-tracker/:path*",
+      "destination": "/policy-tracker/:path*",
+      "permanent": true
+    }
+  ]
+}
