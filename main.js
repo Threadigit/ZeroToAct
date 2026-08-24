@@ -410,7 +410,7 @@
         hasError = true;
       }
       if (!isLowFriction && !descInput.value.trim()) {
-        showError('description', 'Please describe what you do');
+        showError('description', 'Please describe what you do and what stage you are at');
         hasError = true;
       }
 

@@ -478,16 +478,16 @@ function africaMapPage() {
   const fields = [
     ['Macro snapshot', 'GDP, growth, inflation, and the currency regime, on one comparable scale.'],
     ['Capital access', 'Where equity, debt and DFI money is actually flowing, and which investors are active.'],
-    ['Policy and regulation', 'The rules that help or block an operator, and the reforms that just changed them.'],
+    ['Policy and regulation', 'The rules that help or block a business, and the reforms that just changed them.'],
     ['Sectors in play', 'Where the near-term opportunity concentrates, and where it does not.'],
     ['Risks', 'Currency, political, liquidity, and capital-repatriation risk, stated plainly.'],
     ['For investors, local and global', 'What the opportunity looks like to naira capital and to dollar capital, side by side, and where the entry window sits.'],
-    ['The move', 'How an operator should position in this market now, not in five years.'],
+    ['The move', 'How to position in this market now, not in five years.'],
   ].map(([h, p]) => `<li><strong>${esc(h)}.</strong> ${esc(p)}</li>`).join('\n        ');
 
   const sections = `
     <div class="sig-body">
-      <p>Every week we publish one country file, working through all 54 by the end of 2027. Each file is built for the people who move on a market: operators deciding where to build, and investors, local and global, deciding where to allocate. And because every file carries the same fields in the same order, you can line countries up against each other and compare, instead of reading 54 disconnected essays.</p>
+      <p>Every week we publish one country file, working through all 54 by the end of 2027. Each file is built for the people who move on a market: anyone deciding where to build, and investors, local and global, deciding where to allocate. And because every file carries the same fields in the same order, you can line countries up against each other and compare, instead of reading 54 disconnected essays.</p>
     </div>
     <div class="sig-block">
       <h2>What every country file carries</h2>
@@ -504,9 +504,9 @@ function africaMapPage() {
   return productShell({
     slug: 'africa-opportunity-map',
     title: 'The Africa Opportunity Map',
-    desc: 'One African country a week, all 54 through 2027: the case for each market, as one comparable dataset for local and global investors and the operators deciding where to build.',
+    desc: 'One African country a week, all 54 through 2027: the case for each market, as one comparable dataset for anyone deciding where to build and for investors deciding where to allocate.',
     status: 'Coming',
-    claim: 'One country a week, all 54, through 2027. The case for every African market, for operators and investors alike.',
+    claim: 'One country a week, all 54, through 2027. The case for every African market, for anyone building in one and anyone investing in one.',
     sections,
     cta: { heading: 'Get on the list.', sub: 'Weekly Signals is where the Map ships first. Subscribe and you will not miss a country.', label: 'Join the waitlist' },
   });
