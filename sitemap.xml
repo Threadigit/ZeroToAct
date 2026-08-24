@@ -47,6 +47,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://zerotoact.com/why/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://zerotoact.com/africa-opportunity-map/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

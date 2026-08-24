@@ -66,6 +66,7 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="36" height="36" /></a>
       <ul class="nav-links" role="list">
+        <li><a href="/why/" class="nav-link">Why</a></li>
         <li class="nav-dropdown">
           <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Intelligence<span class="nav-caret" aria-hidden="true">&#9662;</span></button>
           <div class="nav-dropdown-panel" role="menu" aria-label="Intelligence products">
@@ -94,6 +95,7 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav-mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="/why/" class="mobile-link">Why</a>
       <span class="mobile-group-label">Intelligence</span>
       <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
       <a href="/africa-opportunity-map/" class="mobile-link mobile-sublink">Africa Opportunity Map</a>
@@ -122,6 +124,7 @@ const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
           </div>
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>
+            <a href="/why/" class="footer-nav-link">Why</a>
             <a href="/#summit-section" class="footer-nav-link">Summit</a>
             <a href="/#community-section" class="footer-nav-link">Community</a>
             <a href="/#faq" class="footer-nav-link">FAQ</a>
@@ -418,6 +421,7 @@ function sitemap() {
     { loc: `${BASE}/`, priority: '1.0', changefreq: 'weekly' },
     { loc: `${BASE}/signals/`, priority: '0.9', changefreq: 'weekly' },
     ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
+    { loc: `${BASE}/why/`, priority: '0.8', changefreq: 'yearly' },
     { loc: `${BASE}/africa-opportunity-map/`, priority: '0.6', changefreq: 'monthly' },
     { loc: `${BASE}/policy-tracker/`, priority: '0.6', changefreq: 'monthly' },
     { loc: `${BASE}/annual-outlook/`, priority: '0.6', changefreq: 'monthly' },
@@ -559,6 +563,100 @@ function policyTrackerPage() {
   });
 }
 
+// ── Why page ──
+// Long-form argument. One column, no cards, short lines left to stand alone.
+function whyPage() {
+  const url = `${BASE}/why/`;
+  const title = 'Why ZeroToAct exists | The chain that decides what your work is worth';
+  const desc = 'One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. This is the chain that does it.';
+
+  const body = `
+  <main class="sig-wrap why-page">
+    <a href="/" class="sig-back">&larr; ZeroToAct</a>
+    <h1 class="sig-eyebrow why-eyebrow">Why we exist</h1>
+
+    <p class="why-lead">Fuel gets expensive.</p>
+
+    <p>It might start with a war, a production cut, a damaged pipeline or a shipping route nobody can use. Nothing about it was decided anywhere near you.</p>
+    <p>Fuel moves everything else, because everything else has to be moved. Transport costs rise, then food, then rent. Prices climb, so the people who set interest rates push them higher to cool things down. Borrowing, which used to be cheap, becomes expensive.</p>
+
+    <p class="why-turn">Now watch that one event land three times.</p>
+
+    <p>A company drops the two year project it had been funding. The loan behind it costs far more now, and the project no longer earns enough to be worth doing. The team that would have built it is never hired.</p>
+    <p>Someone who spent a year learning the exact skill that project needed finds fewer people asking for it, and takes less for the work. Nothing about their skill got worse.</p>
+    <p>Someone with money to put to work changes their mind. When borrowing is cheap you can afford to wait years for a payoff. When it is expensive you want something that pays soon. So money leaves anything slow and moves to anything quick. Companies that looked valuable last quarter are suddenly worth less, and nothing inside them changed.</p>
+    <p>None of the three did anything wrong. Each of them was reading their own level.</p>
+
+    <h2>Read it backwards</h2>
+    <p>Most of us learn one thing well and stay close to it. At the beginning, the work itself is the world.</p>
+    <p>Then you notice that being good at your work does not decide how far that work travels. Skilled people stay invisible. Good ideas never find a way to make money. Useful products never get funded. Strong companies get knocked back by a currency swing or a government decision that had nothing to do with them.</p>
+    <p>Read the order backwards and you can see why.</p>
+
+    <ol class="why-chain">
+      <li>Power writes the rules.</li>
+      <li>The rules decide what is allowed and what it costs.</li>
+      <li>That decides how easy it is to get money.</li>
+      <li>How easy money is decides what businesses can afford to build.</li>
+      <li>What they build decides which products and which jobs exist.</li>
+      <li>And that decides what your skill is worth, what your business can charge, and what the money you put in comes back as.</li>
+    </ol>
+
+    <p>Your skill sits near the bottom of that chain. So does your business. So does whatever money you have put to work. What each is worth gets decided several levels above where you sit, by people you may never meet, in rooms you may never enter.</p>
+    <p class="why-turn">That is not a reason to feel small. It is the reason to look up.</p>
+
+    <h2>How far are you from the room</h2>
+    <p>Some people sit close to where the rules get written. Their currency is the one everyone else holds. Their central bank moves and the rest of the world adjusts. For them the chain is short and most of it is visible from home.</p>
+    <p>Most of us sit further out. What your country sells, what borrowing costs, what your currency is worth and whether foreign money turns up are largely settled somewhere else. The decision at home often comes second, as a response to something already decided.</p>
+    <p>That distance is not something you can remove. It is something you can either see across or be surprised by.</p>
+    <p>Which is why reading only local news leaves you a step behind on your own life, wherever you are standing.</p>
+
+    <h2>So this is what we publish</h2>
+    <p>Every week we take one thing that moved near the top of the chain and follow it down, step by step, until it reaches your work, your business or your money. That is the <a href="/signals/"><strong>Weekly Signal</strong></a>. It is free and it stays free, because the read should not be the part that is rationed.</p>
+    <p>The chain runs differently in every country, so we are mapping it. One African country a week, all 54, covered the same way each time, so you can hold two markets next to each other and see the difference instead of guessing. That is the <a href="/africa-opportunity-map/"><strong>Africa Opportunity Map</strong></a>.</p>
+    <p>Rules are the layer where power turns into everyday costs, and they are usually written badly. So we take each major government decision, starting with the United States and Nigeria, and write out what changed, who it lands on, and what to do. The same policy is an opening for one household and a squeeze for another, so we say which. That is the <a href="/policy-tracker/"><strong>Policy Tracker</strong></a>.</p>
+    <p>And once a year we publish how our own calls actually turned out before we make new ones. A forecast nobody grades is entertainment. That is the <a href="/annual-outlook/"><strong>Annual Outlook</strong></a>.</p>
+
+    <h2>The harder half</h2>
+    <p>Most people who understand the chain still do nothing with it.</p>
+    <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires.</p>
+    <p class="why-turn">So we built the other half.</p>
+    <p>Five people, matched to your stage, meeting every two weeks. You say what you are going to do. The same four people ask you about it next time. Matching matters, because a founder raising money and four first year students in one room helps nobody. The cells are peer run. You own the outcome.</p>
+    <p>Once a year, at the <a href="/#summit-section">Summit</a>, a year of reading becomes one written plan for the next twelve months with your name on it.</p>
+    <p>That is the whole design. See the chain clearly, then sit in a room where somebody expects you to move on it.</p>
+
+    <h2>Who is behind this</h2>
+    <p>ZeroToAct is led by <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a>, who builds identity and cross border payments infrastructure and has consulted for companies across North America, the UK and Africa. Policy, currency and the cost of credit are line items he manages, not topics he covers. He writes on all of it in TechCabal, BusinessDay and The Guardian.</p>
+    <p>Everyone behind a Signal is building something of their own. What we publish is the read we needed before our own decisions. You get it before you make yours.</p>
+
+    <h2>Start</h2>
+    <p>The Signal is free, weekly, and the same intelligence everyone here gets.</p>
+    <p class="why-turn">A year from now you will either have watched the chain move or you will have moved with it.</p>
+
+    <div class="why-cta">${briefCta('Get the Free Signal')}</div>
+  </main>`;
+
+  const ld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': `${url}#webpage`,
+        url, name: title, description: desc, inLanguage: 'en',
+        isPartOf: { '@id': `${BASE}/#website` },
+        about: { '@type': 'Thing', name: 'Why ZeroToAct exists' },
+        publisher: PUBLISHER,
+        primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE },
+      },
+      breadcrumb([['Home', `${BASE}/`], ['Why', url]]),
+    ],
+  };
+
+  return shell({
+    title, desc, canonical: url, body, head: jsonLdScript(ld),
+    keywords: 'ZeroToAct, why, capital, policy, interest rates, global economy, Tolu Adetuyi',
+  });
+}
+
 function annualOutlookPage() {
   const sections = `
     <div class="sig-body">
@@ -603,6 +701,7 @@ for (const s of signals) write(`signals/${s.slug}/index.html`, editionPage(s));
 
 write('africa-opportunity-map/index.html', africaMapPage());
 write('policy-tracker/index.html', policyTrackerPage());
+write('why/index.html', whyPage());
 write('annual-outlook/index.html', annualOutlookPage());
 
-console.log(`\nGenerated ${signals.length} editions and 3 product pages.`);
+console.log(`\nGenerated ${signals.length} editions and 4 standalone pages.`);
