@@ -283,6 +283,7 @@ function editionPage(s) {
     <p class="sig-eyebrow">${eyebrowBits.map(esc).join(' &middot; ')}</p>
     <h1 class="sig-title">${esc(s.title)}</h1>
     <p class="sig-claim">${esc(s.headlineClaim)}</p>
+    <p class="sig-byline sig-byline--top">By <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a></p>
     ${draftBanner}
     <div class="sig-video">
       <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -298,8 +299,8 @@ function editionPage(s) {
       <h2>Cite this Signal</h2>
       <p class="sig-cite-text">${esc(citation(s))}</p>
     </div>
-    <div class="sig-byline">
-      <span>By <a href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer">${AUTHOR.name}</a>, Convener, ZeroToAct</span>
+    <div class="sig-author-note">
+      <p><a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a> is the Convener of ZeroToAct.</p>
     </div>
   </main>`;
 
