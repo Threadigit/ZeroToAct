@@ -71,19 +71,19 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
           <div class="nav-dropdown-panel" role="menu" aria-label="Intelligence products">
             <a href="/signals/" class="nav-dd-item" role="menuitem">
               <span class="nav-dd-title">Weekly Signals <span class="nav-dd-badge">Live</span></span>
-              <span class="nav-dd-desc">Global economic, geopolitical and capital-markets analysis, every week.</span>
+              <span class="nav-dd-desc">One read a week on what is shifting and what it changes for you.</span>
             </a>
             <a href="/africa-opportunity-map/" class="nav-dd-item" role="menuitem">
               <span class="nav-dd-title">Africa Opportunity Map</span>
-              <span class="nav-dd-desc">One country a week, all 54, as one comparable dataset.</span>
+              <span class="nav-dd-desc">One country a week, all 54, covered the same way.</span>
             </a>
             <a href="/annual-outlook/" class="nav-dd-item" role="menuitem">
               <span class="nav-dd-title">Annual Outlook</span>
-              <span class="nav-dd-desc">Grades last year's calls, then sets where to position next.</span>
+              <span class="nav-dd-desc">Grades last year's calls, then says where to position next.</span>
             </a>
-            <a href="/nigeria-policy-tracker/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Nigeria Policy Tracker</span>
-              <span class="nav-dd-desc">Federal policy, what it means and what to do.</span>
+            <a href="/policy-tracker/" class="nav-dd-item" role="menuitem">
+              <span class="nav-dd-title">Policy Tracker</span>
+              <span class="nav-dd-desc">Government decisions, what they mean and what to do. Starting with Nigeria.</span>
             </a>
           </div>
         </li>
@@ -98,7 +98,7 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
       <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
       <a href="/africa-opportunity-map/" class="mobile-link mobile-sublink">Africa Opportunity Map</a>
       <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
-      <a href="/nigeria-policy-tracker/" class="mobile-link mobile-sublink">Nigeria Policy Tracker</a>
+      <a href="/policy-tracker/" class="mobile-link mobile-sublink">Policy Tracker</a>
       <a href="/#summit-section" class="mobile-link">Summit</a>
       <a href="/#community-section" class="mobile-link">Community</a>
       <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
@@ -118,7 +118,7 @@ const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
             <a href="/signals/" class="footer-nav-link">Weekly Signals</a>
             <a href="/africa-opportunity-map/" class="footer-nav-link">Africa Opportunity Map</a>
             <a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a>
-            <a href="/nigeria-policy-tracker/" class="footer-nav-link">Nigeria Policy Tracker</a>
+            <a href="/policy-tracker/" class="footer-nav-link">Policy Tracker</a>
           </div>
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>
@@ -418,7 +418,7 @@ function sitemap() {
     { loc: `${BASE}/signals/`, priority: '0.9', changefreq: 'weekly' },
     ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
     { loc: `${BASE}/africa-opportunity-map/`, priority: '0.6', changefreq: 'monthly' },
-    { loc: `${BASE}/nigeria-policy-tracker/`, priority: '0.6', changefreq: 'monthly' },
+    { loc: `${BASE}/policy-tracker/`, priority: '0.6', changefreq: 'monthly' },
     { loc: `${BASE}/annual-outlook/`, priority: '0.6', changefreq: 'monthly' },
   ];
   const body = urls.map((u) => `  <url>
@@ -512,7 +512,7 @@ function africaMapPage() {
   });
 }
 
-function nigeriaTrackerPage() {
+function policyTrackerPage() {
   const li = ([h, p]) => `<li><strong>${esc(h)}.</strong> ${esc(p)}</li>`;
   const households = [
     ['Upper income', 'What the policy does to capital, assets, tax exposure and cross-border options, and how to protect and position.'],
@@ -526,7 +526,8 @@ function nigeriaTrackerPage() {
 
   const sections = `
     <div class="sig-body">
-      <p>We take each significant federal policy move, a subsidy, an FX rule, a tax change, a rate decision, and translate it into what it means and what to do about it. No press-release summaries. What changed, who it hits, and the move.</p>
+      <p>We take each significant policy move, a subsidy, an FX rule, a tax change, a rate decision, and translate it into what it means and what to do about it. No press-release summaries. What changed, who it hits, and the move.</p>
+      <p>We start with Nigeria, where the decisions land hardest and the analysis is thinnest, and add markets from there.</p>
     </div>
     <div class="sig-block">
       <h2>For households, by income band</h2>
@@ -543,15 +544,15 @@ function nigeriaTrackerPage() {
     </div>
     <div class="sig-block">
       <h2>Cadence</h2>
-      <p>Published with each major federal policy move, with a standing monthly round-up. Final cadence to be confirmed.</p>
+      <p>Published with each major policy move, with a standing monthly round-up. Final cadence to be confirmed.</p>
     </div>`;
 
   return productShell({
-    slug: 'nigeria-policy-tracker',
-    title: 'The Nigeria Policy Tracker',
-    desc: 'Federal policy dissected for what it means and what to do, for households by income band and for local and global investors.',
+    slug: 'policy-tracker',
+    title: 'The Policy Tracker',
+    desc: 'Government decisions dissected for what they mean and what to do, for households by income band and for local and global investors. Starting with Nigeria.',
     status: 'Coming',
-    claim: 'Federal policy, dissected for what it means and what to do, for every household and every investor.',
+    claim: 'Government decisions, dissected for what they mean and what to do, for every household and every investor. Starting with Nigeria.',
     sections,
     cta: { heading: 'Get on the list.', sub: 'The Tracker ships to Weekly Signals subscribers first. Subscribe to be there when it opens.', label: 'Join the waitlist' },
   });
@@ -600,7 +601,7 @@ write('sitemap.xml', sitemap());
 for (const s of signals) write(`signals/${s.slug}/index.html`, editionPage(s));
 
 write('africa-opportunity-map/index.html', africaMapPage());
-write('nigeria-policy-tracker/index.html', nigeriaTrackerPage());
+write('policy-tracker/index.html', policyTrackerPage());
 write('annual-outlook/index.html', annualOutlookPage());
 
 console.log(`\nGenerated ${signals.length} editions and 3 product pages.`);
