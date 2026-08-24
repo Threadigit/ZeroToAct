@@ -26,7 +26,7 @@
       "written": [
         "Ask why the US economy stays on top and the easy answer is size. The truer answer is that it sells services the rest of the world cannot easily replace. US services exports reached about $1.11 trillion, and nearly 70% of that came from four things: travel, financial services, professional consulting, and intellectual property.",
         "The deepest of these is financial infrastructure. The dollar is not just a currency, it is the plumbing. It clears more than 40% of global payments and sits underneath most cross-border credit and trade. Every rival system that gets announced is still tiny next to the rails already in use.",
-        "The lesson for an operator is not patriotic, it is structural. Durable power comes from being the layer other people build on, the thing they cannot route around. The US monetised that position at the scale of a whole economy. The question is which layer you can occupy in your own market.",
+        "The lesson here is not patriotic, it is structural. Durable power comes from being the layer other people build on, the thing they cannot route around. The US monetised that position at the scale of a whole economy. The question is which layer you can occupy in your own market.",
         "For African builders, the openings are the local equivalents: payment rails, identity, settlement, the infrastructure other businesses have to use. Owning a rail beats owning a product that runs on someone else's rail."
       ],
       "method": "Reviewed the composition of US services exports and the dollar's share of global payments and reserves to locate the structural source of US economic leverage, rather than reading dominance off headline GDP.",
@@ -117,8 +117,8 @@
       "written": [
         "American technology companies are committing close to $700 billion in capital spending this year, most of it aimed at AI infrastructure. That is not a product cycle, it is a build-out of the physical layer the next economy will run on, and it is roughly double what the same firms spent in 2025.",
         "Africa's data-centre market is a rounding error against that number. The continent holds a tiny share of global capacity, and most AI workloads that touch African users are still served from outside the continent.",
-        "The read for operators: compute is infrastructure now, and infrastructure is geopolitics. The scarce inputs are not models, they are power, cooling and land near it. Whoever controls those controls where the AI economy can physically run.",
-        "The opportunity is not to out-spend hyperscalers on chips. It is to own the layers they need locally: reliable power, cooling, connectivity, and the sites that combine them. That is a build an African operator can actually finance and deliver, and its value rises as the continent's share of capacity gets decided."
+        "The read: compute is infrastructure now, and infrastructure is geopolitics. The scarce inputs are not models, they are power, cooling and land near it. Whoever controls those controls where the AI economy can physically run.",
+        "The opportunity is not to out-spend hyperscalers on chips. It is to own the layers they need locally: reliable power, cooling, connectivity, and the sites that combine them. That is a build an African business can actually finance and deliver, and its value rises as the continent's share of capacity gets decided."
       ],
       "method": "Compared 2026 US hyperscaler capital-spending guidance (Microsoft, Amazon, Alphabet, Meta, Oracle) against Africa's share of global data-centre capacity.",
       "sources": [
@@ -146,7 +146,7 @@
       "written": [
         "America was supposed to add 83,000 jobs last month. It lost 23,000. May and June were revised down by another 103,000 between them, and wages are growing at their slowest pace in five years. The labour market did not soften. It rolled over. That left the Federal Reserve with no cover to hold.",
         "So the dollar cracked. Gold ran to $4,350. Emerging-market local-currency debt became the best-performing asset on earth for the period, on currency alone, before you count a single coupon. When the world's reserve currency weakens, capital that was parked in dollars goes looking for yield, and frontier risk that looked untouchable a quarter ago starts to price.",
-        "That is the window, and it opens onto Africa. A weaker dollar means cheaper debt service on hard-currency obligations, better import maths for anyone buying in dollars and selling locally, and more appetite from allocators for exactly the frontier risk African operators represent.",
+        "That is the window, and it opens onto Africa. A weaker dollar means cheaper debt service on hard-currency obligations, better import maths for anyone buying in dollars and selling locally, and more appetite from allocators for exactly the frontier risk African businesses represent.",
         "Here is the part nobody is saying out loud. African startups raised $102m in July. Only $25m of it was equity, the lowest equity month in seven years. Seventy-four percent was debt. Seed has effectively disappeared. The window is real, but it is a debt window, not an equity one. The capital that is available wants to be paid back on a schedule, not to own a slice of your upside."
       ],
       "method": "Measured against July 2026: the US non-farm payroll print of -23,000 against the +83,000 consensus, the 103,000 combined downward revision to May and June, average hourly earnings growth at 3.2% year on year (its lowest since May 2021), the gold price, and the equity-versus-debt split of African startup funding for the month against the prior seven years.",
@@ -160,7 +160,7 @@
           "url": "https://africathebigdeal.com/"
         }
       ],
-      "proveWrong": "The strongest rival read is that this is one noisy print, not a turn. A single payroll miss with heavy revisions can reverse; if August prints hot and inflation firms, the Fed keeps its cover, the dollar rebounds, and the window shuts before most operators can act on it. The debt-heavy funding month would then read as risk-off caution, not opportunity, and pricing a debt raise into it would be a mistake.",
+      "proveWrong": "The strongest rival read is that this is one noisy print, not a turn. A single payroll miss with heavy revisions can reverse; if August prints hot and inflation firms, the Fed keeps its cover, the dollar rebounds, and the window shuts before most people can act on it. The debt-heavy funding month would then read as risk-off caution, not opportunity, and pricing a debt raise into it would be a mistake.",
       "nextMove": "If you are raising in the second half, price a debt or local-currency instrument now, while the window is open, rather than waiting for the equity market to come back. Build the raise around revenue and repayment, not dilution. Hedge your dollar exposure before, not after, the next Fed decision."
     },
     {
@@ -174,7 +174,7 @@
       "status": "published",
       "written": [
         "The rest of the world is ageing. Africa is not. By 2050 the continent's median age will be about 25, against 46 in Europe and 42 in East Asia, and one in every three young people on earth will be African. The population has already crossed 1.5 billion.",
-        "The number that should move an operator is the workforce. Africa's working-age population grows from about 883 million today to roughly 1.6 billion by 2050, close to a quarter of all the working-age people on the planet. That is the century's largest new pool of labour, consumers and talent.",
+        "The number that should move you is the workforce. Africa's working-age population grows from about 883 million today to roughly 1.6 billion by 2050, close to a quarter of all the working-age people on the planet. That is the century's largest new pool of labour, consumers and talent.",
         "The catch is that demographics are potential, not destiny. A young population pays a dividend only where there are jobs, education and institutions to absorb it. Where there are not, the same numbers become pressure. The dividend is earned, not given.",
         "For a builder, that is the whole opportunity. The businesses that create formal jobs, train the workforce and serve a young consumer base sit on the right side of the biggest demographic trend of the century, provided they build where the institutions can carry it."
       ],
