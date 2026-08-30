@@ -214,8 +214,12 @@ function editionPage(s) {
   const eyebrowBits = [s.theme, longDate(s.date)];
   if (s.number) eyebrowBits.unshift(`Signal ${s.number}`);
 
+  // A written item is a paragraph (string) or a section subheading ({ h: '...' }).
+  const renderBlock = (item) =>
+    typeof item === 'string' ? `<p>${esc(item)}</p>`
+      : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>` : '';
   const article = s.written
-    ? s.written.map((p) => `<p>${esc(p)}</p>`).join('\n        ')
+    ? s.written.map(renderBlock).join('\n        ')
     : `<p class="sig-pending">The written analysis for this Signal is being prepared from the video above. Watch the Signal in the meantime, or <a href="/#subscribe-section">get Weekly Signals by email</a>.</p>`;
 
   const draftBanner = s.status === 'draft' && s.written
@@ -235,10 +239,16 @@ function editionPage(s) {
     : '';
   const proveWrong = s.proveWrong
     ? `<div class="sig-block"><h2>What would prove this wrong</h2><p>${esc(s.proveWrong)}</p></div>` : '';
+  // Next move is either one paragraph, or per-audience actions [{ who, do }].
   const nextMove = s.nextMove
-    ? `<div class="sig-block sig-block--move"><h2>Next move</h2><p>${esc(s.nextMove)}</p></div>` : '';
+    ? `<div class="sig-block sig-block--move"><h2>Next move</h2>${
+        Array.isArray(s.nextMove)
+          ? `<ul class="sig-moves">${s.nextMove.map((m) =>
+              `<li><strong>${esc(m.who)}.</strong> ${esc(m.do)}</li>`).join('')}</ul>`
+          : `<p>${esc(s.nextMove)}</p>`
+      }</div>` : '';
 
-  const wordCount = (s.written || []).join(' ').split(/\s+/).filter(Boolean).length;
+  const wordCount = (s.written || []).filter((x) => typeof x === 'string').join(' ').split(/\s+/).filter(Boolean).length;
   const kw = [s.theme, 'Africa', 'capital', 'geopolitics', 'markets', 'ZeroToAct']
     .filter(Boolean).join(', ');
 
