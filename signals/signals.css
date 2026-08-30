@@ -115,9 +115,10 @@
 .sig-block p { font-size: var(--fs-base); line-height: 1.7; color: var(--grey-200); }
 .sig-block--move p { color: var(--white); }
 .sig-flag { color: #f5c451; font-family: var(--ff-mono); font-size: var(--fs-xs); }
-.sig-moves { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
-.sig-moves li { font-size: var(--fs-base); line-height: 1.65; color: var(--white); padding-left: 1rem; border-left: 2px solid var(--black-border); }
-.sig-moves li strong { color: var(--white-pure); font-weight: 600; }
+.sig-moves { list-style: none; display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-md); overflow: hidden; }
+.sig-moves li { display: flex; flex-direction: column; gap: 0.45rem; padding: 1.15rem 1.25rem; background: var(--black); }
+.sig-move-who { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-pure); }
+.sig-move-do { font-size: var(--fs-base); line-height: 1.65; color: var(--grey-200); }
 .sig-sources { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 .sig-sources li { font-size: var(--fs-base); line-height: 1.6; color: var(--grey-200); }
 

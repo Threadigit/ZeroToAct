@@ -244,7 +244,7 @@ function editionPage(s) {
     ? `<div class="sig-block sig-block--move"><h2>Next move</h2>${
         Array.isArray(s.nextMove)
           ? `<ul class="sig-moves">${s.nextMove.map((m) =>
-              `<li><strong>${esc(m.who)}.</strong> ${esc(m.do)}</li>`).join('')}</ul>`
+              `<li><span class="sig-move-who">${esc(m.who)}</span><span class="sig-move-do">${esc(m.do)}</span></li>`).join('')}</ul>`
           : `<p>${esc(s.nextMove)}</p>`
       }</div>` : '';
 
@@ -305,9 +305,9 @@ function editionPage(s) {
         ${article}
     </div>
     ${method}
-    ${source}
     ${proveWrong}
     ${nextMove}
+    ${source}
     <div class="sig-cite">
       <h2>Cite this Signal</h2>
       <p class="sig-cite-text">${esc(citation(s))}</p>
