@@ -16,6 +16,66 @@
   "signals": [
     {
       "number": null,
+      "slug": "the-stablecoin-rulebook",
+      "title": "The Stablecoin Rulebook",
+      "videoId": "oT6wE8OkkyA",
+      "date": "2026-08-30",
+      "theme": "Policy",
+      "headlineClaim": "Jackson Hole made payments its theme, but the stablecoin rulebook is being drafted in comment files, not on a stage. The continent with the most operating evidence is not in the room.",
+      "status": "published",
+      "written": [
+        "For the first time in its history, the world's most important central banking gathering made payments its organising subject. The Chair then used his keynote to talk about inflation instead. That gap tells you where the stablecoin rulebook is actually being written, and it is not on a podium in Wyoming.",
+        { "h": "The thing that moved" },
+        "The Kansas City Fed convened its 49th Jackson Hole symposium from 27 to 29 August under the theme \"Financial Innovation: Implications for Payments and Policy.\" Forty-nine years of this symposium have been about inflation, labour markets and the shape of the curve. This year the plumbing got the main stage. When payments becomes the frame a central banking establishment argues inside, the rails stop being a technology question and become a monetary policy question.",
+        { "h": "What the Chair did not say" },
+        "Kevin Warsh, sworn in on 22 May, delivered his first keynote on 28 August. He did not discuss stablecoins or payments infrastructure. He spent the address on inflation, on rejecting forward guidance, and on artificial intelligence and productivity. His numbers were blunt: PCE inflation at 3.7 percent over twelve months and 4.1 percent over six, against a 2 percent target he called firm, with 54 percent of the PCE basket rising more than 3 percent over the year. He put responsibility for 65 months of sustained elevated inflation squarely on the central bank.",
+        "Read the omission, not the speech. The Chair did not claim the payments question because it does not sit with him. It sits with Treasury, the OCC and the comment files. The GENIUS Act gave the United States a stablecoin statute, not finished rules. Reserve composition, redemption timing, custody standards, who counts as a payment stablecoin issuer, what a foreign issuer must do to reach a US person: that detail is being settled in open dockets right now. Institutional money has already moved onto these rails, with JPMorgan's dollar deposit token live on a public blockchain since last year and stablecoin float running into the hundreds of billions.",
+        { "h": "Who has the practice, and who has the pen" },
+        "Africa has the operating history. The IMF's Article IV work found Nigeria accounts for roughly 60 percent of stablecoin inflows into sub-Saharan Africa, on data covering July 2023 to June 2024. Lagos, Nairobi and Johannesburg have run dollar settlement at retail scale for years, through devaluation, through capital controls, through weekends when correspondent banking is closed.",
+        "None of that operating history is in the comment files. The practice is on one continent and the pen is on another. The point cuts the same way in reverse: if you are writing, funding or complying with these rules from New York, London or Brussels, the largest live dataset on how dollar stablecoins behave under real monetary stress sits in markets absent from your consultation record. You are drafting from theory while the evidence trades elsewhere.",
+        { "h": "Why the window is closing" },
+        "Rules written without you arrive as cost. Rules written with you arrive as advantage, because you already run the thing being described. The pressure comes from the other side of Warsh's speech: inflation at 3.7 percent, with three regional Fed presidents already dissenting in favour of a hike, means dollar funding does not get cheaper this year. The thirty-year Treasury touched 5.33 percent on 18 August, a nineteen-year high. If your revenue is in naira, shillings or cedis and your obligations are in dollars, the rails you settle on are not a product decision. They are a balance sheet decision.",
+        "Note the domestic picture, because the easy read is wrong. Nigerian headline inflation fell to 15.43 percent in July, but the CBN has held its policy rate at 26.5 percent since a single 50 basis point cut in February. Nominal rates flat against falling inflation means the real policy rate is rising. Domestic credit is getting more expensive in real terms while global capital also gets dearer. That is a squeeze, not a gap to trade.",
+        { "h": "The bottom line" },
+        "The advantage this week is not knowing that stablecoins matter. Everyone knows that now, including the 49th Jackson Hole. The advantage is knowing the rules are being drafted in a comment file rather than announced from a stage, that the people with the most operating evidence are not in that file, and that the door closes at the speed of an administrative calendar rather than a news cycle."
+      ],
+      "method": "Measured against the week of 28 August 2026: the framing of the 49th Jackson Hole symposium, Chair Warsh's keynote and PCE inflation figures, the GENIUS Act rulemaking status at the OCC and Treasury, stablecoin float and adoption data (IMF Nigeria Article IV, YouGov), the CBN second sandbox window, and long-end Treasury yields against Fed and ECB policy rates.",
+      "sources": [
+        { "label": "Kansas City Fed, Jackson Hole 2026 announcement", "url": "https://www.kansascityfed.org/newsroom/2026-news-releases/kansas-city-fed-to-host-annual-jackson-hole-economic-policy-symposium-2026/" },
+        { "label": "Chairman Warsh, Jackson Hole keynote, 28 August 2026", "url": "https://www.federalreserve.gov/newsevents/speech/warsh20260828a.htm" },
+        { "label": "Federal Reserve Board, Warsh takes oath of office", "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm" },
+        { "label": "OCC, GENIUS Act proposed rulemaking bulletin", "url": "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-3.html" },
+        { "label": "US Treasury, GENIUS Act proposed rulemaking comment request", "url": "https://home.treasury.gov/news/press-releases/sb0605" },
+        { "label": "J.P. Morgan, first bank USD deposit token on a public blockchain", "url": "https://www.jpmorgan.com/payments/newsroom/jpm-coin-usd-deposit-token-institutional-clients" },
+        { "label": "StableCoin.com, total stablecoin market cap", "url": "https://stablecoin.com/market-cap/" },
+        { "label": "IMF, Stablecoins in Nigeria", "url": "https://www.imf.org/en/news/articles/2026/06/16/stablecoins-in-nigeria" },
+        { "label": "The Cable, IMF on Nigeria's 60% share of SSA stablecoin inflows", "url": "https://www.thecable.ng/imf-nigeria-accounts-for-60-of-stablecoin-inflows-in-sub-saharan-africa/" },
+        { "label": "The Guardian Nigeria, CBN Regulatory Sandbox cohort 2", "url": "https://guardian.ng/business-services/2nd-cohort-of-cbn-regulatory-sandbox-for-vasps-digital-finance-opens/" },
+        { "label": "CBN Regulatory Sandbox portal", "url": "https://sandbox.cbn.gov.ng" },
+        { "label": "CNBC, 30-year Treasury yield tops 5.33%", "url": "https://www.cnbc.com/2026/08/18/treasury-yields-.html" },
+        { "label": "Fox Business, July 2026 FOMC decision and dissents", "url": "https://www.foxbusiness.com/economy/federal-reserve-interest-rate-decision-july-29-2026" },
+        { "label": "CBN, monetary policy decisions", "url": "https://www.cbn.gov.ng/MonetaryPolicy/decisions.html" },
+        { "label": "BusinessDay, Nigeria July 2026 inflation", "url": "https://businessday.ng/business-economy/article/nigerias-inflation-eases-for-second-straight-month-to-15-43/" },
+        { "label": "CNBC Africa, Africa's Eurobond comeback", "url": "https://www.cnbcafrica.com/2026/africas-eurobond-comeback-misses-the-real-question-debt-for-what" }
+      ],
+      "proveWrong": "The easy read is that this is a US regulatory story with no African stake, or that falling Nigerian headline inflation means domestic credit is loosening. Both miss it: nominal rates held at 26.5 percent against falling inflation means the real policy rate is rising, and the text drafted in US comment files is what regional regulators will borrow within eighteen months. The thesis weakens if the GENIUS rulemaking stalls or fragments, or if African regulators write independently rather than borrowing the US template, or if long-end dollar funding costs fall back and remove the balance-sheet pressure.",
+      "nextMove": [
+        {
+          "who": "If you are building a career",
+          "do": "You work in payments, compliance, treasury or risk, and you hold operating knowledge that is about to be codified by people who do not have it. Document it this quarter: a comment on the open OCC and Treasury dockets, a technical note, or a submission to your own regulator. The people who document the practice before the rules land become the people the rules get explained by. Everyone else becomes the people the rules get explained to."
+        },
+        {
+          "who": "If you run a business or operate",
+          "do": "The CBN's second sandbox cohort closes on 31 August at sandbox.cbn.gov.ng. The VASP track covers virtual assets, stablecoins, payments, settlement, custody and wallets. Participation is not a licence, so treat it as access rather than approval: it puts your operating reality in front of the people drafting the Nigerian rulebook, and the region reads that rulebook next. If you settle in dollars, price your rails as a balance sheet decision this quarter, not a product one."
+        },
+        {
+          "who": "If you invest",
+          "do": "Dollar borrowing costs are set at the long end and the long end is not cooperating. For the next twelve months the question on African credit is not growth, it is whether the issuer's revenue currency and its debt currency match, and what happens at the next refinancing if they do not. Read the OCC and Treasury proposed rules before you price anything exposed to payment rails, because that text is what Nigerian, Kenyan and South African regulators will borrow from inside eighteen months."
+        }
+      ]
+    },
+    {
+      "number": null,
       "slug": "us-economy-service-power",
       "title": "The US Economy Dominating Through Service",
       "videoId": "N4GSZjIPma4",
