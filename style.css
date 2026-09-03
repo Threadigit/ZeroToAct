@@ -500,15 +500,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   overflow: hidden;
 }
 
-.hero-assurance {
-  margin-top: 1rem;
-  color: var(--grey-500);
-  font-size: .76rem;
-  letter-spacing: .025em;
-}
-
-.hero-assurance span { margin-inline: .45rem; color: var(--grey-600); }
-
 .hero::before {
   content: '';
   position: absolute;
