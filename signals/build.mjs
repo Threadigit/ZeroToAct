@@ -619,10 +619,11 @@ function whyPage() {
     <p>Most of us sit further out. What your country sells, what borrowing costs, what your currency is worth and whether foreign money turns up are largely settled somewhere else. The decision at home often comes second, as a response to something already decided.</p>
     <p>That distance is not something you can remove. It is something you can either see across or be surprised by.</p>
     <p>Which is why reading only local news leaves you a step behind on your own life, wherever you are standing.</p>
+    <p class="why-turn">Seen early, a shift is a decision you get to make. Seen late, it is something that happened to you.</p>
 
     <h2>So this is what we publish</h2>
     <p>Every week we take one thing that moved near the top of the chain and follow it down, step by step, until it reaches your work, your business or your money. That is the <a href="/signals/"><strong>Weekly Signal</strong></a>. It is free and it stays free, because the read should not be the part that is rationed.</p>
-    <p>The chain runs differently in every country, so the openings in one look nothing like the openings in the next. We are working through all fifty-four, one a week, setting out what is actually open in each: the sectors with room in them, who each opening suits, and what it takes to move on it. Every entry is checked before it goes in, so you are reading a shortlist rather than a directory. That is the <a href="/africa-opportunity-map/"><strong>Africa Opportunity Map</strong></a>.</p>
+    <p>The chain runs differently in every country, so the openings in one look nothing like the openings in the next. We are working through all fifty-four, one a week. In each one we set out the sectors with room in them, who each opening suits, and what it takes to move on it. Every entry is checked before it goes in, so you are reading a shortlist rather than a directory. That is the <a href="/africa-opportunity-map/"><strong>Africa Opportunity Map</strong></a>.</p>
     <p>Rules are the layer where power turns into everyday costs, and they are usually written badly. So we take each major government decision, starting with the United States and Nigeria, and write out what changed, who it lands on, and what to do. The same policy is an opening for one household and a squeeze for another, so we say which. That is the <a href="/policy-tracker/"><strong>Policy Tracker</strong></a>.</p>
     <p>And once a year we set out where the next twelve months are heading and where to position for them. Before any of that, we publish how last year's calls actually turned out, because a forecast nobody grades is entertainment. That is the <a href="/annual-outlook/"><strong>Annual Outlook</strong></a>.</p>
 
@@ -639,7 +640,7 @@ function whyPage() {
     <p>Everyone behind a Signal is building something of their own. What we publish is the read we needed before our own decisions. You get it before you make yours.</p>
 
     <h2>Start</h2>
-    <p>The Signal is free, weekly, and the same intelligence everyone here gets.</p>
+    <p>The Signal is free and weekly, and there is no paid tier that gets a better one.</p>
     <p class="why-turn">A year from now you will either have watched the chain move or you will have moved with it.</p>
 
     <div class="why-cta">${briefCta('Get the Free Signal')}</div>
