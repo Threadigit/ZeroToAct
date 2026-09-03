@@ -588,19 +588,19 @@ function whyPage() {
     <p class="why-lead">Fuel gets expensive.</p>
 
     <p>It might start with a war, a production cut, a damaged pipeline or a shipping route nobody can use. Nothing about it was decided anywhere near you.</p>
-    <p>Fuel moves everything else, because everything else has to be moved. Transport costs rise, then food, then rent. Prices climb, so the people who set interest rates push them higher to cool things down. Borrowing, which used to be cheap, becomes expensive.</p>
+    <p>Fuel moves everything else, because everything else has to be moved. Transport costs rise, then food, then rent. Prices climb, so the people who set interest rates push those rates higher to cool things down. Borrowing, which used to be cheap, becomes expensive.</p>
 
     <p class="why-turn">Now watch that one event land three times.</p>
 
     <p>A company drops the two year project it had been funding. The loan behind it costs far more now, and the project no longer earns enough to be worth doing. The team that would have built it is never hired.</p>
     <p>Someone who spent a year learning the exact skill that project needed finds fewer people asking for it, and takes less for the work. Nothing about their skill got worse.</p>
     <p>Someone with money to put to work changes their mind. When borrowing is cheap you can afford to wait years for a payoff. When it is expensive you want something that pays soon. So money leaves anything slow and moves to anything quick. Companies that looked valuable last quarter are suddenly worth less, and nothing inside them changed.</p>
-    <p>None of the three did anything wrong. Each of them was reading their own level.</p>
+    <p>None of the three did anything wrong. Not one of them could see the thing that moved them.</p>
 
     <h2>Read it backwards</h2>
     <p>Most of us learn one thing well and stay close to it. At the beginning, the work itself is the world.</p>
     <p>Then you notice that being good at your work does not decide how far that work travels. Skilled people stay invisible. Good ideas never find a way to make money. Useful products never get funded. Strong companies get knocked back by a currency swing or a government decision that had nothing to do with them.</p>
-    <p>Read the order backwards and you can see why.</p>
+    <p>You have been reading this from the bottom, starting with your own work. Start at the top instead.</p>
 
     <ol class="why-chain">
       <li>Power writes the rules.</li>
@@ -615,7 +615,7 @@ function whyPage() {
     <p class="why-turn">That is not a reason to feel small. It is the reason to look up.</p>
 
     <h2>How far are you from the room</h2>
-    <p>Some people sit close to where the rules get written. Their currency is the one everyone else holds. Their central bank moves and the rest of the world adjusts. For them the chain is short and most of it is visible from home.</p>
+    <p>Some people sit close to where the rules get written. Their currency, the dollar, is the one everyone else holds. Their central bank moves and the rest of the world adjusts. For them the chain is short and most of it is visible from home.</p>
     <p>Most of us sit further out. What your country sells, what borrowing costs, what your currency is worth and whether foreign money turns up are largely settled somewhere else. The decision at home often comes second, as a response to something already decided.</p>
     <p>That distance is not something you can remove. It is something you can either see across or be surprised by.</p>
     <p>Which is why reading only local news leaves you a step behind on your own life, wherever you are standing.</p>
@@ -630,7 +630,7 @@ function whyPage() {
     <p>Most people who understand the chain still do nothing with it.</p>
     <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires.</p>
     <p class="why-turn">So we built the other half.</p>
-    <p>Five people, matched to your stage, meeting every two weeks. You say what you are going to do. The same four people ask you about it next time. Matching matters, because a founder raising money and four first year students in one room helps nobody. The cells are peer run. You own the outcome.</p>
+    <p>A cell of five, matched to your stage, meeting every two weeks. You say what you are going to do. The other four ask you about it next time. Matching matters, because a founder raising money and four first year students in one room helps nobody. The cells are peer run, so nobody chairs them for you. You own the outcome.</p>
     <p>Once a year, at the <a href="/#summit-section">Summit</a>, a year of reading becomes one written plan for the next twelve months with your name on it.</p>
     <p>That is the whole design. See the chain clearly, then sit in a room where somebody expects you to move on it.</p>
 
