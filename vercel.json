@@ -10,6 +10,16 @@
       "source": "/nigeria-policy-tracker/:path*",
       "destination": "/policy-tracker/:path*",
       "permanent": true
+    },
+    {
+      "source": "/signals/the-currency-your-income-is-in",
+      "destination": "/signals/three-prices-all-in-dollars/",
+      "permanent": true
+    },
+    {
+      "source": "/signals/the-currency-your-income-is-in/:path*",
+      "destination": "/signals/three-prices-all-in-dollars/:path*",
+      "permanent": true
     }
   ]
 }
