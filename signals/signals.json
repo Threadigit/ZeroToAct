@@ -16,6 +16,86 @@
   "signals": [
     {
       "number": null,
+      "slug": "the-currency-your-income-is-in",
+      "title": "The Currency Your Income Is In",
+      "videoId": "JFDDP8fVo_U",
+      "date": "2026-09-06",
+      "theme": "Macro",
+      "headlineClaim": "Access to America got cheaper, energy got dearer, and money is about to cost more. All three prices are set in dollars. If none of your income is, that gap is now your largest exposure.",
+      "status": "published",
+      "written": [
+        "Three prices moved this week and every one of them is set in dollars. Access to the American market got cheaper for two more years. Energy got dearer. Money itself is about to cost more. If you earn in naira or shillings and spend in naira or shillings, none of those decisions were yours and all of them reach you.",
+        {
+          "h": "Access got cheaper, and the clock is short"
+        },
+        "Congress cleared a two-year extension of the African Growth and Opportunity Act, the Senate 90 to 6 in August and the House 370 to 48 on 1 September, carried inside the continuing resolution. Duty-free access for eligible sub-Saharan countries now runs to 31 December 2028, and the third-country fabric rule survives, so a factory in Kenya can keep importing Asian cloth and still ship duty-free. Fifteen years of lobbying bought two years of certainty. Take the access. Do not build a decade on it.",
+        "One correction worth carrying, because it changes what you should do. The retroactive duty refunds cover the lapse that began on 30 September 2025 and came from the February 2026 reauthorisation, not from this one. If you shipped during that gap and have not claimed, that is an old window you may still be standing in front of. This extension is about 2027 and 2028.",
+        {
+          "h": "Energy got dearer, and the strait is not closed"
+        },
+        "Renewed US-Iran strikes pushed Brent to about $96, roughly 8 percent up on the week, after Iran fired missiles at Kuwait and traffic through the Strait of Hormuz became a weekly question. The strait is not closed. The US Energy Secretary put 17 million barrels through it on Monday under military protection, a wartime record. What has changed is not supply. It is the risk premium sitting on top of every barrel, and it can unwind as fast as it arrived.",
+        "Nigeria sits on both sides of that. Brent near $96 is roughly $31 above the $64.85 benchmark in the 2026 budget, which fills the treasury. But the country imports its refined fuel, so the same barrel empties household wallets. Headline inflation eased to 15.43 percent in July while food inflation rose to 20.31 percent, its highest in ten months. A household does not buy the headline. It buys food.",
+        {
+          "h": "Money is about to cost more, probably"
+        },
+        "The FOMC meets on 15 and 16 September. Fed funds futures put a 25 basis point hike near 56 to 58 percent, prediction markets somewhat lower, and the August jobs report on 4 September came in soft enough to argue the other way. Treat it as a coin weighted towards a hike, not a settled fact. The direction is what matters. A Fed that is hiking rather than cutting means a stronger dollar and costlier dollar debt for everyone outside America, and that is the third dollar-denominated price in a week of three.",
+        {
+          "h": "What this actually means for your money"
+        },
+        "Your costs are in naira. If your income is too, you carry the full weight of every currency move. Getting even a third of your earnings in dollars, through a remote contract or a retainer, means part of your life is insulated. Start with one client, not a career change.",
+        "The mechanic is worth stating plainly, because this is a hedge and not a pay rise. Rent, food and transport are priced locally. When the dollar strengthens against your currency, the portion of your income arriving in dollars buys more of that life. Nothing about your work changed. Your exposure did.",
+        "Three frictions, because the slogan version of this advice helps nobody. Dollar income is genuinely hard to come by and is not open to everyone, rationed by skill, network and timing. Receiving it carries its own costs, meaning domiciliary accounts, remittance fees and whatever the CBN rules say that quarter. And the hedge cuts both ways, because a weakening dollar reverses the benefit. The point is not to bet on the dollar. It is to stop being fully exposed to one currency.",
+        "\"Hire from Nigeria\", launched on 31 August through NATEP, exists to make the first of those frictions smaller. It targets a million export-linked jobs by 2030 and goes in front of global employers at the UN General Assembly on 24 September. Whether it works is a 2030 question. Whether you use it is a this-quarter question."
+      ],
+      "method": "Measured against the week of 4 September 2026. Four claims in the working brief were corrected before publication. The AGOA extension was cleared by Congress, not signed into law as of writing. The Strait of Hormuz is not closed; transit hit a wartime record on 31 August under US military protection. Market-implied odds of a September hike are near 56 to 58 percent on fed funds futures rather than 65 percent, and the 4 September jobs report cut against a hike. The retroactive duty-refund provision belongs to the February 2026 reauthorisation, not to this extension. Nigerian inflation figures are NBS July prints. Unverified figures in the working brief, including fuel import totals, reserves, the Kenyan PMI and startup funding, were left out rather than published unchecked.",
+      "sources": [
+        {
+          "label": "Textile World, Congress passes two-year AGOA extension",
+          "url": "https://www.textileworld.com/textile-world/knitting-apparel/2026/09/aafa-applauds-congressional-passage-of-two-year-extension-of-agoa-and-haiti-hope-help-programs/"
+        },
+        {
+          "label": "CRS, African Growth and Opportunity Act in brief",
+          "url": "https://www.congress.gov/crs-product/IF10149"
+        },
+        {
+          "label": "CNBC, Brent above $96 after Iran fires missiles at Kuwait",
+          "url": "https://www.cnbc.com/2026/09/03/oil-price-today-iran-war-strait-hormuz.html"
+        },
+        {
+          "label": "CNBC, September Fed decision now a coin flip",
+          "url": "https://www.cnbc.com/2026/08/28/-september-fed-decision-now-a-coin-flip-as-rate-hike-odds-increase.html"
+        },
+        {
+          "label": "BusinessDay, Nigeria inflation eases to 15.43% in July",
+          "url": "https://businessday.ng/business-economy/article/nigerias-inflation-eases-for-second-straight-month-to-15-43/"
+        },
+        {
+          "label": "Nairametrics, food inflation hits 20.31% in July",
+          "url": "http://nairametrics.com/2026/08/18/food-inflation-hits-20-31-in-july-highest-in-10-months/"
+        },
+        {
+          "label": "Federal Ministry of Information, Hire from Nigeria launch",
+          "url": "https://fmino.gov.ng/fg-launches-hire-from-nigeria-campaign-targets-one-million-export-linked-jobs-by-2030/"
+        }
+      ],
+      "proveWrong": "The easy read is that dollar income is a universal answer. It is not. It is rationed by skill and network, it costs something to receive, and it reverses when the dollar weakens. The thesis weakens if the Fed holds on 16 September and the August jobs print marks a turn rather than a wobble, if the Hormuz risk premium unwinds and Brent falls back towards the budget benchmark, or if the naira's recent firmness holds through the quarter. Watch the 16 September decision and the next NBS food print. If both go the other way the urgency drops, though the exposure does not.",
+      "nextMove": [
+        {
+          "who": "Career",
+          "do": "Do not change careers this quarter. Change your currency mix. Target one contract, retainer or engagement that pays in dollars, and take the smallest version that is real, because one client is a hedge and an intention is not. If your employer already earns FX, ask for a dollar-linked component before you look outside. Check what receiving dollars will actually cost you first, meaning the domiciliary account, the remittance fees and the current CBN rules, so the hedge is not eaten by the plumbing. And if you work in an AGOA-exposed sector, apparel, agro-processing, logistics or trade finance, the hiring cycle now runs to December 2028 and starts now, so position in September rather than in 2027."
+        },
+        {
+          "who": "Business owners and operators",
+          "do": "Three checks before 16 September. Start with cash. If you import inputs or carry dollar liabilities, price a hike in rather than hope past it, and know today what 25 basis points does to your next repayment. Then energy. Your January model assumed cheaper fuel than $96 Brent, so rebuild unit economics before you quote another contract, and remember the risk premium can unwind as quickly as it arrived. Then market. If anything you make qualifies under AGOA, start documentation and buyer qualification this quarter, because both take months and the window shuts on 31 December 2028. If you sell services rather than goods, \"Hire from Nigeria\" is a distribution channel for your firm and not only for individuals."
+        },
+        {
+          "who": "Investors",
+          "do": "Know your real return, not your coupon. A local-currency yield that looks strong is a different number after a dollar move, so take one holding this week and convert it to see what it actually returned. A hiking Fed hurts long duration, and local and global rates are not moving together, so do not read a local rally as information about the dollar leg. The energy shock splits equities cleanly, with upstream oil benefiting while import-heavy manufacturers and consumer names absorb the cost. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
+        }
+      ]
+    },
+    {
+      "number": null,
       "slug": "the-stablecoin-rulebook",
       "title": "The Stablecoin Rulebook",
       "videoId": "oT6wE8OkkyA",
