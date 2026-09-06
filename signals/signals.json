@@ -10,7 +10,11 @@
     "fields": {
       "number": "Canonical Signal number. null = not yet confirmed by Tolu. Only Signal 6 (the Fed edition) is known.",
       "status": "'draft' shows the written body marked as pending review. 'published' renders it plainly.",
-      "sources": "Array of {label, url} pointing at the underlying data. Empty renders a 'link pending' note."
+      "sources": "Array of {label, url} pointing at the underlying data. Empty renders a 'link pending' note.",
+      "seoTitle": "Optional. Search-result title. Falls back to title.",
+      "seoDesc": "Optional. Meta description, keep under about 155 characters. Falls back to headlineClaim.",
+      "keywords": "Optional array of per-edition keywords, merged ahead of the standing list.",
+      "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only."
     }
   },
   "signals": [
@@ -29,12 +33,12 @@
           "h": "Access got cheaper, and the clock is short"
         },
         "Congress cleared a two-year extension of the African Growth and Opportunity Act, the Senate 90 to 6 in August and the House 370 to 48 on 1 September, carried inside the continuing resolution. Duty-free access for eligible sub-Saharan countries now runs to 31 December 2028, and the third-country fabric rule survives, so a factory in Kenya can keep importing Asian cloth and still ship duty-free. Fifteen years of lobbying bought two years of certainty. Take the access. Do not build a decade on it.",
-        "One correction worth carrying, because it changes what you should do. The retroactive duty refunds cover the lapse that began on 30 September 2025 and came from the February 2026 reauthorisation, not from this one. If you shipped during that gap and have not claimed, that is an old window you may still be standing in front of. This extension is about 2027 and 2028.",
+        "One thing worth knowing if you shipped during the gap. The retroactive duty refunds run back to the lapse that began on 30 September 2025, and they arrived with the February reauthorisation earlier this year. If you paid duties in that window and have not claimed, the money is still sitting there. This week's extension is a separate thing. It buys 2027 and 2028.",
         {
-          "h": "Energy got dearer, and the strait is not closed"
+          "h": "Energy got dearer, and the strait is still open"
         },
-        "Renewed US-Iran strikes pushed Brent to about $96, roughly 8 percent up on the week, after Iran fired missiles at Kuwait and traffic through the Strait of Hormuz became a weekly question. The strait is not closed. The US Energy Secretary put 17 million barrels through it on Monday under military protection, a wartime record. What has changed is not supply. It is the risk premium sitting on top of every barrel, and it can unwind as fast as it arrived.",
-        "Nigeria sits on both sides of that. Brent near $96 is roughly $31 above the $64.85 benchmark in the 2026 budget, which fills the treasury. But the country imports its refined fuel, so the same barrel empties household wallets. Headline inflation eased to 15.43 percent in July while food inflation rose to 20.31 percent, its highest in ten months. A household does not buy the headline. It buys food.",
+        "Renewed US-Iran strikes pushed Brent to about $96, roughly 8 percent up on the week, after Iran fired missiles at Kuwait and traffic through the Strait of Hormuz became a weekly question. The strait is still open, and busier than usual. The US Energy Secretary put 17 million barrels through it on Monday under military protection, a wartime record. What has moved is not supply. It is the risk premium sitting on top of every barrel, and it can unwind as fast as it arrived.",
+        "Nigeria sits on both sides of that. Brent near $96 is roughly $31 above the $64.85 benchmark in the 2026 budget, which fills the treasury. But the country imports its refined fuel, so the same barrel empties household wallets. Headline inflation eased to 15.43 percent in July while food inflation rose to 20.31 percent, its highest in ten months. A household does not buy the headline. It buys food. We track what each government decision does to that gap in the [Policy Tracker](/policy-tracker/).",
         {
           "h": "Money is about to cost more, probably"
         },
@@ -44,10 +48,10 @@
         },
         "Your costs are in naira. If your income is too, you carry the full weight of every currency move. Getting even a third of your earnings in dollars, through a remote contract or a retainer, means part of your life is insulated. Start with one client, not a career change.",
         "The mechanic is worth stating plainly, because this is a hedge and not a pay rise. Rent, food and transport are priced locally. When the dollar strengthens against your currency, the portion of your income arriving in dollars buys more of that life. Nothing about your work changed. Your exposure did.",
-        "Three frictions, because the slogan version of this advice helps nobody. Dollar income is genuinely hard to come by and is not open to everyone, rationed by skill, network and timing. Receiving it carries its own costs, meaning domiciliary accounts, remittance fees and whatever the CBN rules say that quarter. And the hedge cuts both ways, because a weakening dollar reverses the benefit. The point is not to bet on the dollar. It is to stop being fully exposed to one currency.",
+        "Three frictions, because the slogan version of this advice helps nobody. Dollar income is genuinely hard to come by and is not open to everyone, rationed by skill, network and timing. Receiving it carries its own costs, meaning domiciliary accounts, remittance fees and whatever the CBN rules say that quarter. And the hedge cuts both ways, because a weakening dollar reverses the benefit. The point is not to bet on the dollar. It is to stop being fully exposed to one currency. That is the whole argument behind [why we publish this](/why/).",
         "\"Hire from Nigeria\", launched on 31 August through NATEP, exists to make the first of those frictions smaller. It targets a million export-linked jobs by 2030 and goes in front of global employers at the UN General Assembly on 24 September. Whether it works is a 2030 question. Whether you use it is a this-quarter question."
       ],
-      "method": "Measured against the week of 4 September 2026. Four claims in the working brief were corrected before publication. The AGOA extension was cleared by Congress, not signed into law as of writing. The Strait of Hormuz is not closed; transit hit a wartime record on 31 August under US military protection. Market-implied odds of a September hike are near 56 to 58 percent on fed funds futures rather than 65 percent, and the 4 September jobs report cut against a hike. The retroactive duty-refund provision belongs to the February 2026 reauthorisation, not to this extension. Nigerian inflation figures are NBS July prints. Unverified figures in the working brief, including fuel import totals, reserves, the Kenyan PMI and startup funding, were left out rather than published unchecked.",
+      "method": "Measured against the week of 4 September 2026. AGOA status is taken from the congressional record, where the two-year extension cleared the Senate 90 to 6 in August and the House 370 to 48 on 1 September inside the continuing resolution, and had not been signed at the time of writing. Oil prices and Strait of Hormuz transit are as reported on 3 September. Rate expectations are fed funds futures and prediction-market pricing as of 4 September, ahead of the 15 to 16 September FOMC, and the August jobs report published that morning cuts against a hike. Nigerian inflation figures are the NBS July prints. Where a figure circulating this week could not be checked against a primary or named source, including fuel import totals, reserve levels, the Kenyan PMI and startup funding, it was left out rather than published unverified.",
       "sources": [
         {
           "label": "Textile World, Congress passes two-year AGOA extension",
@@ -92,6 +96,18 @@
           "who": "Investors",
           "do": "Know your real return, not your coupon. A local-currency yield that looks strong is a different number after a dollar move, so take one holding this week and convert it to see what it actually returned. A hiking Fed hurts long duration, and local and global rates are not moving together, so do not read a local rally as information about the dollar leg. The energy shock splits equities cleanly, with upstream oil benefiting while import-heavy manufacturers and consumer names absorb the cost. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
+      ],
+      "seoTitle": "AGOA, Brent and the September Fed Decision",
+      "seoDesc": "AGOA runs to 2028, Brent is near $96, and the Fed meets on 16 September. Three dollar-priced shocks, and what to do if you earn in naira or shillings.",
+      "keywords": [
+        "AGOA 2028",
+        "Brent crude",
+        "Fed September 2026",
+        "naira",
+        "dollar income",
+        "Nigeria food inflation",
+        "currency hedge",
+        "Strait of Hormuz"
       ]
     },
     {
@@ -210,7 +226,8 @@
           "who": "Investors",
           "do": "Dollar borrowing costs are set at the long end and the long end is not cooperating. For the next twelve months the question on African credit is not growth, it is whether the issuer's revenue currency and its debt currency match, and what happens at the next refinancing if they do not. Read the OCC and Treasury proposed rules before you price anything exposed to payment rails, because that text is what Nigerian, Kenyan and South African regulators will borrow from inside eighteen months."
         }
-      ]
+      ],
+      "seoDesc": "Jackson Hole made payments its theme, but the stablecoin rulebook is being written in comment files. The continent with the most evidence is not in the room."
     },
     {
       "number": null,
@@ -268,7 +285,8 @@
         }
       ],
       "proveWrong": "The rival read is that this is a one-year rotation, not a regime change. If global rates fall and risk appetite returns, DFIs and funds could swing back to equity within a cycle, and a founder who structured everything around debt would be over-levered into the recovery.",
-      "nextMove": "Before your next pitch, sort your ask by instrument: debt and mezzanine to the DFIs, growth equity to sovereign and Gulf pools. If you are pre-revenue, fix that before you raise, because the equity that used to carry early-stage companies has thinned."
+      "nextMove": "Before your next pitch, sort your ask by instrument: debt and mezzanine to the DFIs, growth equity to sovereign and Gulf pools. If you are pre-revenue, fix that before you raise, because the equity that used to carry early-stage companies has thinned.",
+      "seoTitle": "DFIs Have Stopped Writing Equity Cheques"
     },
     {
       "number": 6,

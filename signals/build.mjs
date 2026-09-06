@@ -215,8 +215,12 @@ function editionPage(s) {
   if (s.number) eyebrowBits.unshift(`Signal ${s.number}`);
 
   // A written item is a paragraph (string) or a section subheading ({ h: '...' }).
+  // [text](/path) becomes an internal link. Applied after escaping, and the path is
+  // restricted to site-relative, so neither the text nor the href can inject markup.
+  const linkify = (html) =>
+    html.replace(/\[([^\]]+)\]\((\/[A-Za-z0-9\-._~\/#]*)\)/g, '<a href="$2">$1</a>');
   const renderBlock = (item) =>
-    typeof item === 'string' ? `<p>${esc(item)}</p>`
+    typeof item === 'string' ? `<p>${linkify(esc(item))}</p>`
       : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>` : '';
   const article = s.written
     ? s.written.map(renderBlock).join('\n        ')
@@ -249,7 +253,7 @@ function editionPage(s) {
       }</div>` : '';
 
   const wordCount = (s.written || []).filter((x) => typeof x === 'string').join(' ').split(/\s+/).filter(Boolean).length;
-  const kw = [s.theme, 'Africa', 'capital', 'geopolitics', 'markets', 'ZeroToAct']
+  const kw = [s.theme, ...(s.keywords || []), 'Africa', 'capital', 'geopolitics', 'markets', 'ZeroToAct']
     .filter(Boolean).join(', ');
 
   const jsonLd = {
@@ -318,8 +322,8 @@ function editionPage(s) {
   </main>`;
 
   return shell({
-    title: `${s.title} | ZeroToAct ${label(s)}`,
-    desc: s.headlineClaim, canonical: url, head: jsonLdScript(jsonLd), body,
+    title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
+    desc: s.seoDesc || s.headlineClaim, canonical: url, head: jsonLdScript(jsonLd), body,
     ogType: 'article', articleMeta, keywords: kw,
   });
 }
