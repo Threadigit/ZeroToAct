@@ -58,8 +58,10 @@ const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
 const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
 const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canonical/OG/RSS/sitemap/citation
 const label = (s) => (s.number ? `Signal ${s.number}` : 'Signal');
+// Titles may end in a full stop, which would read as "Nigeria., 13 September" in a citation.
+const citeTitle = (s) => s.title.replace(/\.$/, '');
 const citation = (s) =>
-  `ZeroToAct, ${s.number ? `Signal ${s.number}, ` : ''}${s.title}, ${longDate(s.date)}, ${editionUrl(s)}`;
+  `ZeroToAct, ${s.number ? `Signal ${s.number}, ` : ''}${citeTitle(s)}, ${longDate(s.date)}, ${editionUrl(s)}`;
 
 // Shared site chrome, matched to index.html so every page navigates identically.
 const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation">
@@ -315,9 +317,6 @@ function editionPage(s) {
     <div class="sig-cite">
       <h2>Cite this Signal</h2>
       <p class="sig-cite-text">${esc(citation(s))}</p>
-    </div>
-    <div class="sig-author-note">
-      <p><a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a> is Co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, so read that as an interest to weigh as well as a credential.</p>
     </div>
   </main>`;
 
