@@ -22,7 +22,7 @@
       "number": null,
       "slug": "money-got-more-expensive-except-in-nigeria",
       "title": "Money Got More Expensive Everywhere. Except in Nigeria.",
-      "seoTitle": "Nigeria T-Bills Fall While the Fed Hikes",
+      "seoTitle": "Money Got More Expensive. Except in Nigeria",
       "seoDesc": "Nigerian treasury bills cleared at 16.62 percent while the ECB hiked and the Fed meets on 16 September. What the carry trade means for your money.",
       "keywords": [
         "Nigeria treasury bills",
@@ -117,7 +117,9 @@
           "who": "Investors",
           "do": "Say out loud whether you own an asset or a carry trade, because most people holding this paper have not asked. A 16.62 percent naira instrument and an 8 percent dollar instrument from the same sovereign are not two versions of one bet. The gap between them is the market's price on devaluation, and the thing currently holding devaluation off is the same flow that gets paid to leave when the spread narrows. Work out your return after an assumed currency move rather than before one, and do that on one holding this week. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
-      ]
+      ],
+      "revised": "2026-09-13",
+      "revisionNote": "Retitled and moved to this address on the day of publication. Analysis unchanged, and the previous address still resolves here."
     },
     {
       "number": null,
@@ -198,7 +200,6 @@
           "do": "Know your real return, not your coupon. A local-currency yield that looks strong is a different number after a dollar move, so take one holding this week and convert it to see what it actually returned. A hiking Fed hurts long duration, and local and global rates are not moving together, so do not read a local rally as information about the dollar leg. The energy shock splits equities cleanly, with upstream oil benefiting while import-heavy manufacturers and consumer names absorb the cost. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
       ],
-      "seoTitle": "AGOA, Brent and the September Fed Decision",
       "seoDesc": "AGOA runs to 2028, Brent is near $96, and the Fed meets on 16 September. Three dollar-priced shocks, and what to do if you earn in naira or shillings.",
       "keywords": [
         "AGOA 2028",
@@ -209,7 +210,9 @@
         "Nigeria food inflation",
         "currency hedge",
         "Strait of Hormuz"
-      ]
+      ],
+      "revised": "2026-09-14",
+      "revisionNote": "Editorial framing tightened. Figures, sources and call unchanged."
     },
     {
       "number": null,
@@ -328,7 +331,9 @@
           "do": "Dollar borrowing costs are set at the long end and the long end is not cooperating. For the next twelve months the question on African credit is not growth, it is whether the issuer's revenue currency and its debt currency match, and what happens at the next refinancing if they do not. Read the OCC and Treasury proposed rules before you price anything exposed to payment rails, because that text is what Nigerian, Kenyan and South African regulators will borrow from inside eighteen months."
         }
       ],
-      "seoDesc": "Jackson Hole made payments its theme, but the stablecoin rulebook is being written in comment files. The continent with the most evidence is not in the room."
+      "seoDesc": "Jackson Hole made payments its theme, but the stablecoin rulebook is being written in comment files. The continent with the most evidence is not in the room.",
+      "revised": "2026-09-14",
+      "revisionNote": "Punctuation only. No change to analysis, figures or sources."
     },
     {
       "number": null,
@@ -392,7 +397,6 @@
           "do": "Be sceptical of anything pitched as infrastructure that is really a product with a long sales cycle. The test is simple. Does it get more valuable when someone else's volume grows, or only when its own does. Infrastructure positions earn slowly and defend well, so underwrite them on the patience you actually have rather than the patience the deck assumes. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
       ],
-      "seoTitle": "What US Services Exports Teach Builders",
       "seoDesc": "US services exports hit $1.235 trillion in 2025. The lesson is not to own a rail. It is to own the point where other people settle between systems.",
       "keywords": [
         "US services exports",
@@ -401,12 +405,14 @@
         "PAPSS",
         "interoperability",
         "African fintech"
-      ]
+      ],
+      "revised": "2026-09-14",
+      "revisionNote": "Analysis expanded, sources upgraded to BEA primary data, and the 2025 services export figure corrected from $1.11 trillion to $1,234.9 billion. Conclusion changed."
     },
     {
       "number": null,
       "slug": "dfis-stopped-writing-equity",
-      "title": "DFIs Have Stopped Writing Equity Cheques in Africa",
+      "title": "DFIs Have Stopped Writing Equity Cheques",
       "videoId": "RDjUVb7cnmo",
       "date": "2026-08-02",
       "theme": "Capital",
@@ -466,7 +472,6 @@
           "do": "The gap this opens is the opportunity. If patient equity has left early-stage African companies while the businesses themselves have not got worse, the price of that risk has moved without the risk moving as much. That is either mispricing or a correct read on exits, and which one it is depends entirely on your view of exit paths over five years. Underwrite the exit, not the entry. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
       ],
-      "seoTitle": "DFIs Swapped Equity for Debt in Africa",
       "seoDesc": "DFI-linked debt into African startups rose about 165 percent while their equity fell by more than a third. The instrument changed, and so did who gets funded.",
       "keywords": [
         "DFI Africa",
@@ -475,7 +480,9 @@
         "mezzanine finance",
         "African startup funding",
         "BII IFC"
-      ]
+      ],
+      "revised": "2026-09-14",
+      "revisionNote": "Analysis expanded, sources upgraded. Call unchanged."
     },
     {
       "number": 6,
@@ -514,10 +521,19 @@
         {
           "h": "What to watch on Wednesday"
         },
-        "The decision matters less than the vote and the language. A hold with multiple dissents in favour of a hike tells you the minority is growing and prices the next meeting. A unanimous hold tells you this call was early. Read the dissent count first."
+        "The decision matters less than the vote and the language. A hold with multiple dissents in favour of a hike tells you the minority is growing and prices the next meeting. A unanimous hold tells you this call was early. Read the dissent count first.",
+        {
+          "h": "Where this landed, added on revision"
+        },
+        "The call above was made on 26 July and is left as written. The outcome, recorded here on 14 September, is that the committee held on 29 July at 3.50 to 3.75 percent on a 9 to 3 vote. Beth Hammack, Neel Kashkari and Lorie Logan each dissented in favour of a 25 basis point increase.",
+        "So the hike did not happen and the one-in-three estimate did not pay. What did land was the reasoning underneath it. This Signal said the tell would be the dissent count, and three voting members breaking for a hike is the largest hawkish minority of this cycle. A reader who fixed their FX exposure before that meeting was not wrong to, and a reader who read the hold as the end of the argument missed what the vote said about the next one."
       ],
-      "method": "Assessed on 26 July 2026, three days ahead of the FOMC decision, and deliberately written without knowledge of the outcome. Inputs are the July oil move, the run of consecutive holds and the public positions of committee members, Nigeria's reserve level, headline inflation and policy rate, and first-half African startup funding by total and deal count. The one-in-three figure is this publication's own estimate rather than a market-implied probability, and is stated as an estimate.",
+      "method": "The call was assessed on 26 July 2026, three days ahead of the FOMC decision, and was made without knowledge of the outcome. Inputs were the July oil move, the run of consecutive holds and the public positions of committee members, Nigeria's reserve level, headline inflation and policy rate, and first-half African startup funding by total and deal count. The one-in-three figure was this publication's own estimate rather than market-implied pricing. The outcome section at the foot was added on 14 September and is the only part of this edition written with hindsight.",
       "sources": [
+        {
+          "label": "Federal Reserve, FOMC statement, 29 July 2026",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm"
+        },
         {
           "label": "Federal Reserve, FOMC meeting calendar and statements",
           "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
@@ -531,7 +547,7 @@
           "url": "https://insights.techcabal.com/will-h1-2026-cross-the-1b-mark-funding-hits-887m-despite-deal-slump/"
         }
       ],
-      "proveWrong": "The rival read is that hike talk is noise. Oil spikes fade, the committee holds or cuts, the dollar softens, and a defensive posture costs you the cheaper equity you could have raised while waiting. If Middle East tension de-escalates and crude rolls over, this weakens quickly. The tell is the dissent count on Wednesday. A unanimous hold means this call was early, and we will say so rather than quietly moving on.",
+      "proveWrong": "Stated on 26 July, the rival read was that hike talk is noise, that oil spikes fade and the committee holds or cuts, and that a defensive posture costs you cheaper equity while you wait. That read was half right. The committee held, so the defensive call was early on the rate itself. It was not noise on the direction, because three voting members dissented for a hike. The tell named here was the dissent count, and it is recorded at the foot rather than quietly dropped.",
       "nextMove": [
         {
           "who": "Career",
@@ -546,7 +562,6 @@
           "do": "If your thesis assumes a cutting cycle, price the other branch before Wednesday rather than reacting to it. Long duration and anything valued on distant cash flows are the first to reprice on a hawkish surprise, and frontier positions carry that plus a currency leg. Ask what you own that only works if rates fall, because that is your concentrated bet whether or not you meant to make it. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
       ],
-      "seoTitle": "The Fed Might Hike on 29 July, Not Cut",
       "seoDesc": "Consensus says the next Fed move is a cut. The case for a hike on 29 July is about one in three, and that is high enough to change how you price dollars.",
       "keywords": [
         "FOMC July 2026",
@@ -555,7 +570,9 @@
         "Nigeria reserves",
         "startup runway",
         "African startup funding"
-      ]
+      ],
+      "revised": "2026-09-14",
+      "revisionNote": "Analysis expanded and sources upgraded. The call and its one-in-three estimate are unchanged. The outcome has been added at the foot as a graded result."
     },
     {
       "number": null,
@@ -629,7 +646,6 @@
           "do": "Treat data centre exposure as a power and real assets position, because that is what it is underneath. Underwrite the grid connection, the tariff and the offtake before the technology story, and ask what the asset is worth if the AI demand arrives five years later than the deck assumes. Concentration inside Africa matters too, since three markets hold most of the capacity and that is where the comparable transactions are. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
       ],
-      "seoTitle": "Africa Has 0.6 Percent of Global Compute",
       "seoDesc": "US tech is spending close to $700 billion on AI infrastructure. Africa holds about 360MW against roughly 122GW globally. The constraint is power, not capital.",
       "keywords": [
         "AI infrastructure",
@@ -638,7 +654,9 @@
         "compute capacity",
         "power generation Africa",
         "colocation"
-      ]
+      ],
+      "revised": "2026-09-14",
+      "revisionNote": "Analysis expanded, the missing African capacity figure added, and a paywalled source replaced. Call unchanged."
     },
     {
       "number": null,
@@ -705,7 +723,6 @@
           "do": "Ask whether you are being paid for the asset or for the currency move that made it look good. Emerging-market local debt outperforming on currency alone means the return came from the dollar leg rather than from credit improving, and those unwind differently. If you are allocating into this window, size it as a position on the Fed rather than a position on Africa, because right now that is what it is. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
       ],
-      "seoTitle": "A Weak Dollar Opened a Debt Window",
       "seoDesc": "US payrolls fell 23,000 in July and the dollar cracked. The financing window that opened is a debt window, and it selects for who already has revenue.",
       "keywords": [
         "US payrolls July 2026",
@@ -714,12 +731,14 @@
         "African startup funding July",
         "venture debt",
         "seed funding Africa"
-      ]
+      ],
+      "revised": "2026-09-14",
+      "revisionNote": "Analysis expanded, sources upgraded, and an unsourced gold price removed. Call unchanged."
     },
     {
       "number": null,
       "slug": "the-demographic-shift",
-      "title": "The Demographic Shift",
+      "title": "The Demographic Dividend Is Not Automatic",
       "videoId": "PzTXiczPFHE",
       "date": "2026-08-23",
       "theme": "Macro",
@@ -783,7 +802,6 @@
           "do": "Stop underwriting the population projection, which is in every price already, and start underwriting absorption. The differentiator between two markets with similar demographics is formal job creation, schooling quality and the institutions that convert a young population into a productive one. Those vary enormously across the continent and are not reflected in a continental headline. Ask what a company does to the employment ratio in its market, not just what it does to its own revenue. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
         }
       ],
-      "seoTitle": "The Demographic Dividend Is Not Automatic",
       "seoDesc": "Africa's youth bulge is the most agreed-upon idea in African macro. That is the risk. The dividend is earned, and this month's inflation shows the bill.",
       "keywords": [
         "demographic dividend",
@@ -792,7 +810,9 @@
         "job creation Africa",
         "youth unemployment",
         "UNECA"
-      ]
+      ],
+      "revised": "2026-09-14",
+      "revisionNote": "Rewritten. The original claimed to position ahead of a consensus that has held since 2010, which was wrong. The thesis now argues against that consensus."
     }
   ]
 }

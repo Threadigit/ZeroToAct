@@ -129,6 +129,7 @@
 .sig-byline { margin-top: 2rem; font-size: var(--fs-sm); color: var(--grey-500); }
 /* Top byline sits with the headline group: pulls up against .sig-claim's 2rem bottom margin. */
 .sig-byline--top { margin-top: -1.25rem; margin-bottom: 2.5rem; }
+.sig-revised { margin: -1.5rem 0 2.5rem; font-size: var(--fs-sm); line-height: 1.55; color: var(--grey-500); border-left: 2px solid var(--black-border); padding-left: 0.9rem; }
 
 /* ── Intelligence hub ── */
 .hub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3rem; }
@@ -232,3 +233,7 @@
   .why-page h2 { margin-top: 3rem; }
   .why-chain li { padding-left: 2rem; }
 }
+.sig-disclosure { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 2rem; }
+.sig-disclosure h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
+.sig-disclosure p { font-size: var(--fs-sm); line-height: 1.6; color: var(--grey-500); }
+.sig-disclosure a { color: var(--grey-400); text-decoration: underline; text-underline-offset: 2px; }
