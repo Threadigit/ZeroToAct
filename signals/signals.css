@@ -95,7 +95,7 @@
 .sig-card-cta { font-size: var(--fs-sm); font-weight: 500; color: var(--white); }
 
 /* ── Article ── */
-.sig-article { padding-top: 6rem; padding-bottom: 5rem; }
+.sig-article { padding-top: 6rem; padding-bottom: 5rem; max-width: 700px; }
 .sig-back { display: inline-block; font-size: var(--fs-sm); color: var(--grey-400); margin-bottom: 2rem; }
 .sig-back:hover { color: var(--white); }
 .sig-title { font-family: var(--ff-serif); font-size: var(--fs-4xl); font-weight: 700; line-height: 1.06; letter-spacing: -0.02em; color: var(--white-pure); margin: 0.75rem 0 1rem; }
@@ -115,7 +115,7 @@
 
 .sig-block { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 1.5rem; }
 .sig-block h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
-.sig-block p { font-size: var(--fs-base); line-height: 1.7; color: var(--grey-200); }
+.sig-block p { font-size: var(--fs-md); line-height: 1.7; color: var(--grey-200); }
 .sig-block--move p { color: var(--white); }
 .sig-flag { color: #f5c451; font-family: var(--ff-mono); font-size: var(--fs-xs); }
 .sig-moves { list-style: none; display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-md); overflow: hidden; }
@@ -246,3 +246,12 @@
 .sig-lasttime-verdict { margin-top: 0.7rem; color: var(--white); }
 .sig-lasttime-verdict strong { color: var(--white-pure); }
 .sig-lasttime a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--grey-600); }
+
+/* Reading progress. A long read should show how much of it is left. */
+.sig-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 60; background: var(--white); transition: width 90ms linear; }
+@media (prefers-reduced-motion: reduce) { .sig-progress { transition: none; } }
+
+/* Latest marker on the archive */
+.sig-card-latest { display: inline-block; margin-right: 0.6rem; padding: 0.1rem 0.45rem; border: 1px solid var(--black-border); border-radius: var(--radius-full); color: var(--white); letter-spacing: 0.08em; }
+.sig-card--latest .sig-card-title { font-size: var(--fs-2xl); }
+@media (max-width: 640px) { .sig-card--latest .sig-card-title { font-size: var(--fs-xl); } }

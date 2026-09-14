@@ -88,7 +88,7 @@
   
   <main class="sig-wrap sig-article">
     <a href="/signals/" class="sig-back">&larr; The Signal Archive</a>
-    <p class="sig-eyebrow">Signal 6 &middot; Policy &middot; 26 July 2026</p>
+    <p class="sig-eyebrow">Signal 6 &middot; Policy &middot; 26 July 2026 &middot; 6 min read</p>
     <h1 class="sig-title">The Fed Might Hike on July 29, Not Cut</h1>
     <p class="sig-claim">Consensus says the Fed&#39;s next move is a cut. Put the odds of a hike on 29 July at roughly one in three. That is not the base case, and it is far too high to ignore if you are pricing dollars.</p>
     <p class="sig-byline sig-byline--top">By <a href="https://adetuyi.com" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a></p>
@@ -136,6 +136,22 @@
       <p>Tolu Adetuyi is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
   </main>
+  <div class="sig-progress" id="sig-progress" role="presentation"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('sig-progress');
+      var article = document.querySelector('.sig-article');
+      if (!bar || !article) return;
+      var tick = function () {
+        var span = article.offsetHeight - window.innerHeight;
+        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
+        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+      };
+      addEventListener('scroll', tick, { passive: true });
+      addEventListener('resize', tick);
+      tick();
+    }());
+  </script>
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">

@@ -58,6 +58,12 @@ const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
 const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
 const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canonical/OG/RSS/sitemap/citation
 const label = (s) => (s.number ? `Signal ${s.number}` : 'Signal');
+// Counts the prose a reader actually reads, at 230 wpm, rounded to the nearest minute.
+const readMinutes = (s) => {
+  const parts = [...(s.written || []).map((x) => (typeof x === 'string' ? x : x.h || '')),
+                 s.method || '', s.proveWrong || '', ...(s.nextMove || []).map((m) => m.do)];
+  return Math.max(1, Math.round(parts.join(' ').trim().split(/\s+/).length / 230));
+};
 // Titles may end in a full stop, which would read as "Nigeria., 13 September" in a citation.
 const citeTitle = (s) => s.title.replace(/\.$/, '');
 const citation = (s) =>
@@ -226,7 +232,7 @@ const videoWatch = (s) => `https://www.youtube.com/watch?v=${s.videoId}`;
 // ── Per-edition page ──
 function editionPage(s) {
   const url = editionUrl(s);
-  const eyebrowBits = [s.theme, longDate(s.date)];
+  const eyebrowBits = [s.theme, longDate(s.date), `${readMinutes(s)} min read`];
   if (s.number) eyebrowBits.unshift(`Signal ${s.number}`);
 
   // A written item is a paragraph (string) or a section subheading ({ h: '...' }).
@@ -363,7 +369,23 @@ function editionPage(s) {
       <h2>Disclosure</h2>
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
-  </main>`;
+  </main>
+  <div class="sig-progress" id="sig-progress" role="presentation"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('sig-progress');
+      var article = document.querySelector('.sig-article');
+      if (!bar || !article) return;
+      var tick = function () {
+        var span = article.offsetHeight - window.innerHeight;
+        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
+        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+      };
+      addEventListener('scroll', tick, { passive: true });
+      addEventListener('resize', tick);
+      tick();
+    }());
+  </script>`;
 
   return shell({
     title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
@@ -378,10 +400,10 @@ function indexPage() {
     .concat(themes.map((t) => `<button class="sig-filter" data-theme="${esc(t)}" type="button">${esc(t)}</button>`))
     .join('\n        ');
 
-  const cards = signals.map((s) => `
-      <article class="sig-card" data-theme="${esc(s.theme)}">
+  const cards = signals.map((s, i) => `
+      <article class="sig-card${i === 0 ? ' sig-card--latest' : ''}" data-theme="${esc(s.theme)}">
         <a class="sig-card-link" href="${editionPath(s)}">
-          <div class="sig-card-meta"><span>${s.number ? `Signal ${s.number} &middot; ` : ''}${esc(longDate(s.date))}</span><span class="sig-card-theme">${esc(s.theme)}</span></div>
+          <div class="sig-card-meta"><span>${i === 0 ? '<span class="sig-card-latest">Latest</span>' : ''}${s.number ? `Signal ${s.number} &middot; ` : ''}${esc(longDate(s.date))} &middot; ${readMinutes(s)} min</span><span class="sig-card-theme">${esc(s.theme)}</span></div>
           <h2 class="sig-card-title">${esc(s.title)}</h2>
           <p class="sig-card-claim">${esc(s.headlineClaim)}</p>
           <span class="sig-card-cta">Read the Signal &rarr;</span>

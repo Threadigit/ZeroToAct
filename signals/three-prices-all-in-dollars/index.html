@@ -88,7 +88,7 @@
   
   <main class="sig-wrap sig-article">
     <a href="/signals/" class="sig-back">&larr; The Signal Archive</a>
-    <p class="sig-eyebrow">Macro &middot; 6 September 2026</p>
+    <p class="sig-eyebrow">Macro &middot; 6 September 2026 &middot; 6 min read</p>
     <h1 class="sig-title">Three Prices Moved. All of Them in Dollars.</h1>
     <p class="sig-claim">Access to America got cheaper, energy got dearer, and money is about to cost more. All three prices are set in dollars. If none of your income is, that gap is now your largest exposure.</p>
     <p class="sig-byline sig-byline--top">By <a href="https://adetuyi.com" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a></p>
@@ -129,6 +129,22 @@
       <p>Tolu Adetuyi is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
   </main>
+  <div class="sig-progress" id="sig-progress" role="presentation"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('sig-progress');
+      var article = document.querySelector('.sig-article');
+      if (!bar || !article) return;
+      var tick = function () {
+        var span = article.offsetHeight - window.innerHeight;
+        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
+        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+      };
+      addEventListener('scroll', tick, { passive: true });
+      addEventListener('resize', tick);
+      tick();
+    }());
+  </script>
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
