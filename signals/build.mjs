@@ -210,6 +210,19 @@ ${JOIN_MODAL}
 </html>
 `;
 
+// [text](/path) becomes an internal link. Applied after escaping, and the path is
+// restricted to site-relative, so neither the text nor the href can inject markup.
+const linkify = (html) =>
+  html.replace(/\[([^\]]+)\]\((\/[A-Za-z0-9\-._~\/#]*)\)/g, '<a href="$2">$1</a>');
+const renderBlock = (item) =>
+  typeof item === 'string' ? `<p>${linkify(esc(item))}</p>`
+    : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>` : '';
+
+// Absolute media URLs for the edition's video, used by both the page schema and the feed.
+const videoThumb = (s) => `https://i.ytimg.com/vi/${s.videoId}/maxresdefault.jpg`;
+const videoEmbed = (s) => `https://www.youtube-nocookie.com/embed/${s.videoId}`;
+const videoWatch = (s) => `https://www.youtube.com/watch?v=${s.videoId}`;
+
 // ── Per-edition page ──
 function editionPage(s) {
   const url = editionUrl(s);
@@ -217,13 +230,6 @@ function editionPage(s) {
   if (s.number) eyebrowBits.unshift(`Signal ${s.number}`);
 
   // A written item is a paragraph (string) or a section subheading ({ h: '...' }).
-  // [text](/path) becomes an internal link. Applied after escaping, and the path is
-  // restricted to site-relative, so neither the text nor the href can inject markup.
-  const linkify = (html) =>
-    html.replace(/\[([^\]]+)\]\((\/[A-Za-z0-9\-._~\/#]*)\)/g, '<a href="$2">$1</a>');
-  const renderBlock = (item) =>
-    typeof item === 'string' ? `<p>${linkify(esc(item))}</p>`
-      : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>` : '';
   const article = s.written
     ? s.written.map(renderBlock).join('\n        ')
     : `<p class="sig-pending">The written analysis for this Signal is being prepared from the video above. Watch the Signal in the meantime, or <a href="/#subscribe-section">get Weekly Signals by email</a>.</p>`;
@@ -258,6 +264,7 @@ function editionPage(s) {
   const kw = [s.theme, ...(s.keywords || []), 'Africa', 'capital', 'geopolitics', 'markets', 'ZeroToAct']
     .filter(Boolean).join(', ');
 
+  const isoPub = new Date(s.date + 'T12:00:00Z').toISOString();
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -278,7 +285,23 @@ function editionPage(s) {
         publisher: PUBLISHER,
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
         isPartOf: { '@type': 'CreativeWorkSeries', '@id': `${BASE}/#signals`, name: 'ZeroToAct Weekly Signal' },
+        ...(s.videoId ? { video: { '@id': `${url}#video` } } : {}),
       },
+      // Every edition leads with a video, so declare it. Duration is omitted rather
+      // than guessed, since a wrong one is worse than an absent one.
+      ...(s.videoId ? [{
+        '@type': 'VideoObject',
+        '@id': `${url}#video`,
+        name: s.title,
+        description: s.headlineClaim,
+        thumbnailUrl: videoThumb(s),
+        uploadDate: isoPub,
+        embedUrl: videoEmbed(s),
+        contentUrl: videoWatch(s),
+        publisher: PUBLISHER,
+        inLanguage: 'en',
+        isPartOf: { '@id': `${url}#article` },
+      }] : []),
       breadcrumb([
         ['Home', `${BASE}/`],
         ['Signals', `${BASE}/signals/`],
@@ -288,7 +311,6 @@ function editionPage(s) {
     ],
   };
 
-  const isoPub = new Date(s.date + 'T12:00:00Z').toISOString();
   const articleMeta =
     `  <meta property="article:published_time" content="${isoPub}" />\n` +
     `  <meta property="article:modified_time" content="${isoPub}" />\n` +
@@ -407,21 +429,42 @@ function indexPage() {
 
 // ── RSS ──
 function feed() {
+  // Feed readers get the whole edition, not a teaser. CDATA carries the markup;
+  // the guard keeps a stray terminator from closing the section early.
+  const fullHtml = (s) => {
+    const body = (s.written || []).map(renderBlock).join('\n');
+    const moves = (s.nextMove || []).map((m) =>
+      `<h3>${esc(m.who)}</h3>\n<p>${linkify(esc(m.do))}</p>`).join('\n');
+    const html = `${body}\n<h2>Next move</h2>\n${moves}`;
+    return html.split(']]>').join(']]&gt;');
+  };
   const items = signals.map((s) => `    <item>
       <title>${esc(s.title)}</title>
       <link>${editionUrl(s)}</link>
       <guid isPermaLink="true">${editionUrl(s)}</guid>
       <pubDate>${rfc822(s.date)}</pubDate>
+      <dc:creator>${esc(AUTHOR.name)}</dc:creator>
+      <category>${esc(s.theme)}</category>
       <description>${esc(s.headlineClaim)}</description>
+      <content:encoded><![CDATA[${fullHtml(s)}]]></content:encoded>
     </item>`).join('\n');
+  const newest = signals[0];
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>ZeroToAct Signals</title>
     <link>${BASE}/signals/</link>
     <description>One read a week on the shifts in money, government policy and the world economy that change your next move.</description>
     <language>en</language>
-    <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="${BASE}/signals/feed.xml" rel="self" type="application/rss+xml" />
+    <copyright>ZeroToAct</copyright>
+    <lastBuildDate>${rfc822(newest.date)}</lastBuildDate>
+    <pubDate>${rfc822(newest.date)}</pubDate>
+    <image>
+      <url>${OG_IMAGE}</url>
+      <title>ZeroToAct Signals</title>
+      <link>${BASE}/signals/</link>
+    </image>
+    <atom:link href="${BASE}/signals/feed.xml" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>
@@ -431,8 +474,8 @@ ${items}
 // ── Sitemap (home + archive + editions) ──
 function sitemap() {
   const urls = [
-    { loc: `${BASE}/`, priority: '1.0', changefreq: 'weekly' },
-    { loc: `${BASE}/signals/`, priority: '0.9', changefreq: 'weekly' },
+    { loc: `${BASE}/`, priority: '1.0', changefreq: 'weekly', lastmod: signals[0].date },
+    { loc: `${BASE}/signals/`, priority: '0.9', changefreq: 'weekly', lastmod: signals[0].date },
     ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
     { loc: `${BASE}/why/`, priority: '0.8', changefreq: 'yearly' },
     { loc: `${BASE}/africa-opportunity-map/`, priority: '0.6', changefreq: 'monthly' },
