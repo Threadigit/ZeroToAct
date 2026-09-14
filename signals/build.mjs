@@ -571,7 +571,7 @@ function africaMapPage() {
 
   const sections = `
     <div class="sig-body">
-      <p>Every week we publish one country file, working through all 54 by the end of 2027. Each file is built for the people who move on a market: anyone deciding where to build, and investors, local and global, deciding where to allocate. And because every file carries the same fields in the same order, you can line countries up against each other and compare, instead of reading 54 disconnected essays.</p>
+      <p>Every week we publish one country file, working through all 54 by the end of 2027. Each file is built for the people who move on a market, meaning anyone deciding where to build and investors, local and global, deciding where to allocate. And because every file carries the same fields in the same order, you can line countries up against each other and compare, instead of reading 54 disconnected essays.</p>
     </div>
     <div class="sig-block">
       <h2>What every country file carries</h2>
@@ -588,7 +588,7 @@ function africaMapPage() {
   return productShell({
     slug: 'africa-opportunity-map',
     title: 'The Africa Opportunity Map',
-    desc: 'One African country a week, all 54 through 2027: the case for each market, as one comparable dataset for anyone deciding where to build and for investors deciding where to allocate.',
+    desc: 'One African country a week, all 54 through 2027. What is actually open in each market, for anyone deciding where to build and where to allocate.',
     status: 'Coming',
     claim: 'One country a week, all 54, through 2027. The case for every African market, for anyone building in one and anyone investing in one.',
     sections,
@@ -604,14 +604,14 @@ function policyTrackerPage() {
     ['Lower income', 'What it changes in prices, transport, informal income and everyday costs, and where relief or pressure lands.'],
   ].map(li).join('\n        ');
   const investors = [
-    ['Local investor', 'What it changes for capital already inside that market: yields, entry points, and the sectors to lean into or step back from.'],
-    ['Global investor', 'What it changes for capital coming from outside: FX and repatriation risk, hedged returns, and whether the entry window widens or narrows.'],
+    ['Local investor', 'What it changes for capital already inside that market, meaning yields, entry points, and the sectors to lean into or step back from.'],
+    ['Global investor', 'What it changes for capital coming from outside, meaning FX and repatriation risk, hedged returns, and whether the entry window widens or narrows.'],
   ].map(li).join('\n        ');
 
   const sections = `
     <div class="sig-body">
       <p>We take each significant policy move, a subsidy, an FX rule, a tax change, a rate decision, and translate it into what it means and what to do about it. No press-release summaries. What changed, who it hits, and the move.</p>
-      <p>We start with two: the United States, whose decisions set the weather for everyone else, and Nigeria, where they land hardest and the analysis is thinnest. Other markets follow.</p>
+      <p>We start with two. The United States, whose decisions set the weather for everyone else, and Nigeria, where they land hardest and the analysis is thinnest. Other markets follow.</p>
     </div>
     <div class="sig-block">
       <h2>For households, by income band</h2>
@@ -634,7 +634,7 @@ function policyTrackerPage() {
   return productShell({
     slug: 'policy-tracker',
     title: 'The Policy Tracker',
-    desc: 'Government decisions dissected for what they mean and what to do, for households by income band and for local and global investors. Starting with the United States and Nigeria.',
+    desc: 'Government decisions dissected for what they mean and what to do, for households by income band and for investors. Starting with the US and Nigeria.',
     status: 'Coming',
     claim: 'Government decisions, dissected for what they mean and what to do, for every household and every investor. Starting with the United States and Nigeria.',
     sections,
@@ -646,7 +646,7 @@ function policyTrackerPage() {
 // Long-form argument. One column, no cards, short lines left to stand alone.
 function whyPage() {
   const url = `${BASE}/why/`;
-  const title = 'Why ZeroToAct exists | The chain that decides what your work is worth';
+  const title = 'Why ZeroToAct exists | What decides what your work is worth';
   const desc = 'One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. This is the chain that does it.';
 
   const body = `
