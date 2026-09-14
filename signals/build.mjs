@@ -317,7 +317,7 @@ function editionPage(s) {
       <p class="sig-cite-text">${esc(citation(s))}</p>
     </div>
     <div class="sig-author-note">
-      <p><a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a> is Co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>.</p>
+      <p><a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a> is Co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, so read that as an interest to weigh as well as a credential.</p>
     </div>
   </main>`;
 
