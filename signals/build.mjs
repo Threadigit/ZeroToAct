@@ -234,6 +234,18 @@ function editionPage(s) {
     ? s.written.map(renderBlock).join('\n        ')
     : `<p class="sig-pending">The written analysis for this Signal is being prepared from the video above. Watch the Signal in the meantime, or <a href="/#subscribe-section">get Weekly Signals by email</a>.</p>`;
 
+  // Grades the previous call before making a new one. `of` is the slug being graded,
+  // so the block also links back to it.
+  const prior = s.lastTime && signals.find((x) => x.slug === s.lastTime.of);
+  const lastTime = s.lastTime
+    ? `<div class="sig-lasttime">
+      <h2>Last time we said</h2>
+      <p>${linkify(esc(s.lastTime.said))}</p>
+      <p class="sig-lasttime-verdict"><strong>${esc(s.lastTime.verdict)}.</strong> ${linkify(esc(s.lastTime.landed))}${
+        prior ? ` <a href="/signals/${prior.slug}/">Read the original call</a>.` : ''}</p>
+    </div>`
+    : '';
+
   const draftBanner = s.status === 'draft' && s.written
     ? `<p class="sig-draft-note" role="note">Draft for review. Not yet published.</p>`
     : '';
@@ -334,6 +346,7 @@ function editionPage(s) {
       </div>
       ${s.videoPredatesRevision && s.revised ? `<figcaption class="sig-video-note">This video is the edition as first published on ${longDate(s.date)}. The written analysis was revised on ${longDate(s.revised)} and now differs from it.</figcaption>` : ''}
     </figure>
+    ${lastTime}
     <div class="sig-body">
         ${article}
     </div>

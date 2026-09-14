@@ -240,3 +240,10 @@
 .sig-disclosure h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
 .sig-disclosure p { font-size: var(--fs-sm); line-height: 1.6; color: var(--grey-500); }
 .sig-disclosure a { color: var(--grey-400); text-decoration: underline; text-underline-offset: 2px; }
+/* Last time we said. The scorecard that makes a weekly call worth trusting. */
+.sig-lasttime { border: 1px solid var(--black-border); border-radius: var(--radius-md); padding: 1.25rem 1.4rem; margin-bottom: 2.5rem; background: var(--black-soft); }
+.sig-lasttime h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.7rem; }
+.sig-lasttime p { font-size: var(--fs-base); line-height: 1.65; color: var(--grey-300); }
+.sig-lasttime-verdict { margin-top: 0.7rem; color: var(--white); }
+.sig-lasttime-verdict strong { color: var(--white-pure); }
+.sig-lasttime a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--grey-600); }
