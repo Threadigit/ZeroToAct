@@ -265,6 +265,7 @@ function editionPage(s) {
     .filter(Boolean).join(', ');
 
   const isoPub = new Date(s.date + 'T12:00:00Z').toISOString();
+  const isoMod = new Date((s.revised || s.date) + 'T12:00:00Z').toISOString();
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -275,7 +276,7 @@ function editionPage(s) {
         name: s.title,
         description: s.headlineClaim,
         datePublished: s.date,
-        dateModified: s.date,
+        dateModified: s.revised || s.date,
         inLanguage: 'en',
         image: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630 },
         articleSection: s.theme,
@@ -313,7 +314,7 @@ function editionPage(s) {
 
   const articleMeta =
     `  <meta property="article:published_time" content="${isoPub}" />\n` +
-    `  <meta property="article:modified_time" content="${isoPub}" />\n` +
+    `  <meta property="article:modified_time" content="${isoMod}" />\n` +
     `  <meta property="article:author" content="${AUTHOR.url}" />\n` +
     `  <meta property="article:section" content="${esc(s.theme)}" />\n` +
     `  <meta property="article:tag" content="${esc(s.theme)}" />\n`;
@@ -325,6 +326,7 @@ function editionPage(s) {
     <h1 class="sig-title">${esc(s.title)}</h1>
     <p class="sig-claim">${esc(s.headlineClaim)}</p>
     <p class="sig-byline sig-byline--top">By <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a></p>
+    ${s.revised ? `<p class="sig-revised" role="note">Revised ${longDate(s.revised)}. Originally published ${longDate(s.date)}. ${esc(s.revisionNote || '')}</p>` : ''}
     ${draftBanner}
     <div class="sig-video">
       <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -339,6 +341,10 @@ function editionPage(s) {
     <div class="sig-cite">
       <h2>Cite this Signal</h2>
       <p class="sig-cite-text">${esc(citation(s))}</p>
+    </div>
+    <div class="sig-disclosure">
+      <h2>Disclosure</h2>
+      <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
   </main>`;
 
