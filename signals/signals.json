@@ -14,7 +14,10 @@
       "seoTitle": "Optional. Search-result title. Falls back to title.",
       "seoDesc": "Optional. Meta description, keep under about 155 characters. Falls back to headlineClaim.",
       "keywords": "Optional array of per-edition keywords, merged ahead of the standing list.",
-      "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only."
+      "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only.",
+      "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time.",
+      "revisionNote": "One sentence on what changed. Shown in the revision notice.",
+      "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition."
     }
   },
   "signals": [
@@ -407,7 +410,8 @@
         "African fintech"
       ],
       "revised": "2026-09-14",
-      "revisionNote": "Analysis expanded, sources upgraded to BEA primary data, and the 2025 services export figure corrected from $1.11 trillion to $1,234.9 billion. Conclusion changed."
+      "revisionNote": "Analysis expanded, sources upgraded to BEA primary data, and the 2025 services export figure corrected from $1.11 trillion to $1,234.9 billion. Conclusion changed.",
+      "videoPredatesRevision": true
     },
     {
       "number": null,
@@ -482,7 +486,8 @@
         "BII IFC"
       ],
       "revised": "2026-09-14",
-      "revisionNote": "Analysis expanded, sources upgraded. Call unchanged."
+      "revisionNote": "Analysis expanded, sources upgraded. Call unchanged.",
+      "videoPredatesRevision": true
     },
     {
       "number": 6,
@@ -572,7 +577,8 @@
         "African startup funding"
       ],
       "revised": "2026-09-14",
-      "revisionNote": "Analysis expanded and sources upgraded. The call and its one-in-three estimate are unchanged. The outcome has been added at the foot as a graded result."
+      "revisionNote": "Analysis expanded and sources upgraded. The call and its one-in-three estimate are unchanged. The outcome has been added at the foot as a graded result.",
+      "videoPredatesRevision": true
     },
     {
       "number": null,
@@ -656,7 +662,8 @@
         "colocation"
       ],
       "revised": "2026-09-14",
-      "revisionNote": "Analysis expanded, the missing African capacity figure added, and a paywalled source replaced. Call unchanged."
+      "revisionNote": "Analysis expanded, the missing African capacity figure added, and a paywalled source replaced. Call unchanged.",
+      "videoPredatesRevision": true
     },
     {
       "number": null,
@@ -733,7 +740,8 @@
         "seed funding Africa"
       ],
       "revised": "2026-09-14",
-      "revisionNote": "Analysis expanded, sources upgraded, and an unsourced gold price removed. Call unchanged."
+      "revisionNote": "Analysis expanded, sources upgraded, and an unsourced gold price removed. Call unchanged.",
+      "videoPredatesRevision": true
     },
     {
       "number": null,
@@ -812,7 +820,8 @@
         "UNECA"
       ],
       "revised": "2026-09-14",
-      "revisionNote": "Rewritten. The original claimed to position ahead of a consensus that has held since 2010, which was wrong. The thesis now argues against that consensus."
+      "revisionNote": "Rewritten. The original claimed to position ahead of a consensus that has held since 2010, which was wrong. The thesis now argues against that consensus.",
+      "videoPredatesRevision": true
     }
   ]
 }

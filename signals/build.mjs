@@ -328,9 +328,12 @@ function editionPage(s) {
     <p class="sig-byline sig-byline--top">By <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a></p>
     ${s.revised ? `<p class="sig-revised" role="note">Revised ${longDate(s.revised)}. Originally published ${longDate(s.date)}. ${esc(s.revisionNote || '')}</p>` : ''}
     ${draftBanner}
-    <div class="sig-video">
-      <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+    <figure class="sig-video">
+      <div class="sig-video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      ${s.videoPredatesRevision && s.revised ? `<figcaption class="sig-video-note">This video is the edition as first published on ${longDate(s.date)}. The written analysis was revised on ${longDate(s.revised)} and now differs from it.</figcaption>` : ''}
+    </figure>
     <div class="sig-body">
         ${article}
     </div>
