@@ -17,7 +17,8 @@
       "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only.",
       "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time.",
       "revisionNote": "One sentence on what changed. Shown in the revision notice.",
-      "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition."
+      "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition.",
+      "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed."
     }
   },
   "signals": [
