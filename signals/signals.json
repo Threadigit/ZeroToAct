@@ -15,7 +15,7 @@
       "seoDesc": "Optional. Meta description, keep under about 155 characters. Falls back to headlineClaim.",
       "keywords": "Optional array of per-edition keywords, merged ahead of the standing list.",
       "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only.",
-      "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time. A revision on the publication date carries no notice, since a same-day fix is part of publishing.",
+      "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time. Set it only when the substance changed, meaning a claim, figure, source or conclusion. Prose-only edits and same-day fixes are not revisions and carry no notice.",
       "revisionNote": "One short clause on what changed. Keep it to a line; the notice is a caption, not a changelog.",
       "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition.",
       "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed."
@@ -214,9 +214,7 @@
         "Nigeria food inflation",
         "currency hedge",
         "Strait of Hormuz"
-      ],
-      "revised": "2026-09-14",
-      "revisionNote": "Framing tightened. Figures unchanged."
+      ]
     },
     {
       "number": null,
@@ -335,9 +333,7 @@
           "do": "Dollar borrowing costs are set at the long end and the long end is not cooperating. For the next twelve months the question on African credit is not growth, it is whether the issuer's revenue currency and its debt currency match, and what happens at the next refinancing if they do not. Read the OCC and Treasury proposed rules before you price anything exposed to payment rails, because that text is what Nigerian, Kenyan and South African regulators will borrow from inside eighteen months."
         }
       ],
-      "seoDesc": "Jackson Hole made payments its theme, but the stablecoin rulebook is being written in comment files. The continent with the most evidence is not in the room.",
-      "revised": "2026-09-14",
-      "revisionNote": "Punctuation only."
+      "seoDesc": "Jackson Hole made payments its theme, but the stablecoin rulebook is being written in comment files. The continent with the most evidence is not in the room."
     },
     {
       "number": null,
