@@ -343,9 +343,8 @@ function editionPage(s) {
       <div class="sig-video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
-      ${s.revised ? `<figcaption class="sig-revised" role="note">Revised ${longDate(s.revised)}${
-        s.revised === s.date ? '' : `, first published ${
-          s.revised.slice(0, 4) === s.date.slice(0, 4) ? longDate(s.date).replace(/ \d{4}$/, '') : longDate(s.date)}`
+      ${s.revised && s.revised !== s.date ? `<figcaption class="sig-revised" role="note">Revised ${longDate(s.revised)}, first published ${
+        s.revised.slice(0, 4) === s.date.slice(0, 4) ? longDate(s.date).replace(/ \d{4}$/, '') : longDate(s.date)
       }. ${esc(s.revisionNote || '')}${s.videoPredatesRevision ? ' Video is the original edition.' : ''}</figcaption>` : ''}
     </figure>
     ${lastTime}

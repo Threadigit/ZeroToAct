@@ -15,7 +15,7 @@
       "seoDesc": "Optional. Meta description, keep under about 155 characters. Falls back to headlineClaim.",
       "keywords": "Optional array of per-edition keywords, merged ahead of the standing list.",
       "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only.",
-      "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time.",
+      "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time. A revision on the publication date carries no notice, since a same-day fix is part of publishing.",
       "revisionNote": "One short clause on what changed. Keep it to a line; the notice is a caption, not a changelog.",
       "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition.",
       "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed."
