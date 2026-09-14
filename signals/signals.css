@@ -106,7 +106,7 @@
 .sig-video { margin: 0 0 2.5rem; }
 .sig-video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--black-border); background: var(--black-soft); }
 .sig-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.sig-video-note { margin-top: 0.75rem; font-size: var(--fs-sm); line-height: 1.55; color: var(--grey-500); }
+.sig-revised { margin-top: 0.85rem; font-size: var(--fs-sm); line-height: 1.55; color: var(--grey-500); border-left: 2px solid var(--black-border); padding-left: 0.9rem; }
 
 .sig-body p { font-size: var(--fs-md); line-height: 1.75; color: var(--grey-200); margin-bottom: 1.25rem; }
 .sig-body .sig-subhead { font-family: var(--ff-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--white-pure); line-height: 1.25; letter-spacing: -0.01em; margin: 2.25rem 0 0.85rem; }
@@ -132,7 +132,6 @@
 .sig-byline { margin-top: 2rem; font-size: var(--fs-sm); color: var(--grey-500); }
 /* Top byline sits with the headline group: pulls up against .sig-claim's 2rem bottom margin. */
 .sig-byline--top { margin-top: -1.25rem; margin-bottom: 2.5rem; }
-.sig-revised { margin: -1.5rem 0 2.5rem; font-size: var(--fs-sm); line-height: 1.55; color: var(--grey-500); border-left: 2px solid var(--black-border); padding-left: 0.9rem; }
 
 /* ── Intelligence hub ── */
 .hub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3rem; }
