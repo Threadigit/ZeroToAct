@@ -3,12 +3,32 @@
   "redirects": [
     {
       "source": "/nigeria-policy-tracker",
-      "destination": "/policy-tracker/",
+      "destination": "/signals/",
       "permanent": true
     },
     {
       "source": "/nigeria-policy-tracker/:path*",
-      "destination": "/policy-tracker/:path*",
+      "destination": "/signals/",
+      "permanent": true
+    },
+    {
+      "source": "/policy-tracker",
+      "destination": "/signals/",
+      "permanent": true
+    },
+    {
+      "source": "/policy-tracker/:path*",
+      "destination": "/signals/",
+      "permanent": true
+    },
+    {
+      "source": "/africa-opportunity-map",
+      "destination": "/signals/",
+      "permanent": true
+    },
+    {
+      "source": "/africa-opportunity-map/:path*",
+      "destination": "/signals/",
       "permanent": true
     },
     {
