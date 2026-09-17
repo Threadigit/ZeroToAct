@@ -53,17 +53,9 @@
               <span class="nav-dd-title">Weekly Signals <span class="nav-dd-badge">Live</span></span>
               <span class="nav-dd-desc">One read a week on what is shifting and what it changes for you.</span>
             </a>
-            <a href="/africa-opportunity-map/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Africa Opportunity Map</span>
-              <span class="nav-dd-desc">One country a week, all 54, covered the same way.</span>
-            </a>
             <a href="/annual-outlook/" class="nav-dd-item" role="menuitem">
               <span class="nav-dd-title">Annual Outlook</span>
               <span class="nav-dd-desc">Grades last year's calls, then says where to position next.</span>
-            </a>
-            <a href="/policy-tracker/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Policy Tracker</span>
-              <span class="nav-dd-desc">Government decisions, what they mean and what to do. Starting with the US and Nigeria.</span>
             </a>
           </div>
         </li>
@@ -77,9 +69,7 @@
       <a href="/why/" class="mobile-link">Why</a>
       <span class="mobile-group-label">Intelligence</span>
       <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
-      <a href="/africa-opportunity-map/" class="mobile-link mobile-sublink">Africa Opportunity Map</a>
       <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
-      <a href="/policy-tracker/" class="mobile-link mobile-sublink">Policy Tracker</a>
       <a href="/#summit-section" class="mobile-link">Summit</a>
       <a href="/#community-section" class="mobile-link">Community</a>
       <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
@@ -88,7 +78,7 @@
   
   <main class="sig-wrap sig-article">
     <a href="/signals/" class="sig-back">&larr; The Signal Archive</a>
-    <p class="sig-eyebrow">Policy &middot; 30 August 2026</p>
+    <p class="sig-eyebrow">Policy &middot; 30 August 2026 &middot; 5 min read</p>
     <h1 class="sig-title">The Stablecoin Rulebook</h1>
     <p class="sig-claim">Jackson Hole made payments its theme, but the stablecoin rulebook is being drafted in comment files, not on a stage. The continent with the most operating evidence is not in the room.</p>
     <p class="sig-byline sig-byline--top">By <a href="https://adetuyi.com" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a></p>
@@ -129,6 +119,22 @@
       <p>Tolu Adetuyi is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
   </main>
+  <div class="sig-progress" id="sig-progress" role="presentation"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('sig-progress');
+      var article = document.querySelector('.sig-article');
+      if (!bar || !article) return;
+      var tick = function () {
+        var span = article.offsetHeight - window.innerHeight;
+        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
+        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+      };
+      addEventListener('scroll', tick, { passive: true });
+      addEventListener('resize', tick);
+      tick();
+    }());
+  </script>
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
@@ -140,9 +146,7 @@
           <div class="footer-nav-group">
             <p class="footer-nav-label">Intelligence</p>
             <a href="/signals/" class="footer-nav-link">Weekly Signals</a>
-            <a href="/africa-opportunity-map/" class="footer-nav-link">Africa Opportunity Map</a>
             <a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a>
-            <a href="/policy-tracker/" class="footer-nav-link">Policy Tracker</a>
           </div>
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>

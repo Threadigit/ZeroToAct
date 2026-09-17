@@ -58,6 +58,12 @@ const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
 const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
 const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canonical/OG/RSS/sitemap/citation
 const label = (s) => (s.number ? `Signal ${s.number}` : 'Signal');
+// Counts the prose a reader actually reads, at 230 wpm, rounded to the nearest minute.
+const readMinutes = (s) => {
+  const parts = [...(s.written || []).map((x) => (typeof x === 'string' ? x : x.h || '')),
+                 s.method || '', s.proveWrong || '', ...(s.nextMove || []).map((m) => m.do)];
+  return Math.max(1, Math.round(parts.join(' ').trim().split(/\s+/).length / 230));
+};
 // Titles may end in a full stop, which would read as "Nigeria., 13 September" in a citation.
 const citeTitle = (s) => s.title.replace(/\.$/, '');
 const citation = (s) =>
@@ -76,17 +82,9 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
               <span class="nav-dd-title">Weekly Signals <span class="nav-dd-badge">Live</span></span>
               <span class="nav-dd-desc">One read a week on what is shifting and what it changes for you.</span>
             </a>
-            <a href="/africa-opportunity-map/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Africa Opportunity Map</span>
-              <span class="nav-dd-desc">One country a week, all 54, covered the same way.</span>
-            </a>
             <a href="/annual-outlook/" class="nav-dd-item" role="menuitem">
               <span class="nav-dd-title">Annual Outlook</span>
               <span class="nav-dd-desc">Grades last year's calls, then says where to position next.</span>
-            </a>
-            <a href="/policy-tracker/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Policy Tracker</span>
-              <span class="nav-dd-desc">Government decisions, what they mean and what to do. Starting with the US and Nigeria.</span>
             </a>
           </div>
         </li>
@@ -100,9 +98,7 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
       <a href="/why/" class="mobile-link">Why</a>
       <span class="mobile-group-label">Intelligence</span>
       <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
-      <a href="/africa-opportunity-map/" class="mobile-link mobile-sublink">Africa Opportunity Map</a>
       <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
-      <a href="/policy-tracker/" class="mobile-link mobile-sublink">Policy Tracker</a>
       <a href="/#summit-section" class="mobile-link">Summit</a>
       <a href="/#community-section" class="mobile-link">Community</a>
       <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
@@ -120,9 +116,7 @@ const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
           <div class="footer-nav-group">
             <p class="footer-nav-label">Intelligence</p>
             <a href="/signals/" class="footer-nav-link">Weekly Signals</a>
-            <a href="/africa-opportunity-map/" class="footer-nav-link">Africa Opportunity Map</a>
             <a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a>
-            <a href="/policy-tracker/" class="footer-nav-link">Policy Tracker</a>
           </div>
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>
@@ -226,7 +220,7 @@ const videoWatch = (s) => `https://www.youtube.com/watch?v=${s.videoId}`;
 // ── Per-edition page ──
 function editionPage(s) {
   const url = editionUrl(s);
-  const eyebrowBits = [s.theme, longDate(s.date)];
+  const eyebrowBits = [s.theme, longDate(s.date), `${readMinutes(s)} min read`];
   if (s.number) eyebrowBits.unshift(`Signal ${s.number}`);
 
   // A written item is a paragraph (string) or a section subheading ({ h: '...' }).
@@ -363,7 +357,23 @@ function editionPage(s) {
       <h2>Disclosure</h2>
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
-  </main>`;
+  </main>
+  <div class="sig-progress" id="sig-progress" role="presentation"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('sig-progress');
+      var article = document.querySelector('.sig-article');
+      if (!bar || !article) return;
+      var tick = function () {
+        var span = article.offsetHeight - window.innerHeight;
+        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
+        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+      };
+      addEventListener('scroll', tick, { passive: true });
+      addEventListener('resize', tick);
+      tick();
+    }());
+  </script>`;
 
   return shell({
     title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
@@ -378,10 +388,10 @@ function indexPage() {
     .concat(themes.map((t) => `<button class="sig-filter" data-theme="${esc(t)}" type="button">${esc(t)}</button>`))
     .join('\n        ');
 
-  const cards = signals.map((s) => `
-      <article class="sig-card" data-theme="${esc(s.theme)}">
+  const cards = signals.map((s, i) => `
+      <article class="sig-card${i === 0 ? ' sig-card--latest' : ''}" data-theme="${esc(s.theme)}">
         <a class="sig-card-link" href="${editionPath(s)}">
-          <div class="sig-card-meta"><span>${s.number ? `Signal ${s.number} &middot; ` : ''}${esc(longDate(s.date))}</span><span class="sig-card-theme">${esc(s.theme)}</span></div>
+          <div class="sig-card-meta"><span>${i === 0 ? '<span class="sig-card-latest">Latest</span>' : ''}${s.number ? `Signal ${s.number} &middot; ` : ''}${esc(longDate(s.date))} &middot; ${readMinutes(s)} min</span><span class="sig-card-theme">${esc(s.theme)}</span></div>
           <h2 class="sig-card-title">${esc(s.title)}</h2>
           <p class="sig-card-claim">${esc(s.headlineClaim)}</p>
           <span class="sig-card-cta">Read the Signal &rarr;</span>
@@ -501,8 +511,6 @@ function sitemap() {
     { loc: `${BASE}/signals/`, priority: '0.9', changefreq: 'weekly', lastmod: signals[0].date },
     ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
     { loc: `${BASE}/why/`, priority: '0.8', changefreq: 'yearly' },
-    { loc: `${BASE}/africa-opportunity-map/`, priority: '0.6', changefreq: 'monthly' },
-    { loc: `${BASE}/policy-tracker/`, priority: '0.6', changefreq: 'monthly' },
     { loc: `${BASE}/annual-outlook/`, priority: '0.6', changefreq: 'monthly' },
   ];
   const body = urls.map((u) => `  <url>
@@ -558,90 +566,6 @@ function productShell({ slug, title, desc, status, claim, sections, cta }) {
   return shell({ title: `${title} | ZeroToAct`, desc, canonical: url, body, head: jsonLdScript(ld) });
 }
 
-function africaMapPage() {
-  const fields = [
-    ['Macro snapshot', 'GDP, growth, inflation, and the currency regime, on one comparable scale.'],
-    ['Capital access', 'Where equity, debt and DFI money is actually flowing, and which investors are active.'],
-    ['Policy and regulation', 'The rules that help or block a business, and the reforms that just changed them.'],
-    ['Sectors in play', 'Where the near-term opportunity concentrates, and where it does not.'],
-    ['Risks', 'Currency, political, liquidity, and capital-repatriation risk, stated plainly.'],
-    ['For investors, local and global', 'What the opportunity looks like to naira capital and to dollar capital, side by side, and where the entry window sits.'],
-    ['The move', 'How to position in this market now, not in five years.'],
-  ].map(([h, p]) => `<li><strong>${esc(h)}.</strong> ${esc(p)}</li>`).join('\n        ');
-
-  const sections = `
-    <div class="sig-body">
-      <p>Every week we publish one country file, working through all 54 by the end of 2027. Each file is built for the people who move on a market, meaning anyone deciding where to build and investors, local and global, deciding where to allocate. And because every file carries the same fields in the same order, you can line countries up against each other and compare, instead of reading 54 disconnected essays.</p>
-    </div>
-    <div class="sig-block">
-      <h2>What every country file carries</h2>
-      <ul class="sig-fields">
-        ${fields}
-      </ul>
-      <p class="sig-note">Working field set, being finalised. Tell us what a country file must answer for your decisions and it goes in.</p>
-    </div>
-    <div class="sig-block">
-      <h2>Cadence</h2>
-      <p>One country a week, in public, until all 54 are covered by the end of 2027.</p>
-    </div>`;
-
-  return productShell({
-    slug: 'africa-opportunity-map',
-    title: 'The Africa Opportunity Map',
-    desc: 'One African country a week, all 54 through 2027. What is actually open in each market, for anyone deciding where to build and where to allocate.',
-    status: 'Coming',
-    claim: 'One country a week, all 54, through 2027. The case for every African market, for anyone building in one and anyone investing in one.',
-    sections,
-    cta: { heading: 'Get on the list.', sub: 'Weekly Signals is where the Map ships first. Subscribe and you will not miss a country.', label: 'Join the waitlist' },
-  });
-}
-
-function policyTrackerPage() {
-  const li = ([h, p]) => `<li><strong>${esc(h)}.</strong> ${esc(p)}</li>`;
-  const households = [
-    ['Upper income', 'What the policy does to capital, assets, tax exposure and cross-border options, and how to protect and position.'],
-    ['Middle income', 'What it means for salaries, savings, credit and small-business costs, and the moves that still make sense.'],
-    ['Lower income', 'What it changes in prices, transport, informal income and everyday costs, and where relief or pressure lands.'],
-  ].map(li).join('\n        ');
-  const investors = [
-    ['Local investor', 'What it changes for capital already inside that market, meaning yields, entry points, and the sectors to lean into or step back from.'],
-    ['Global investor', 'What it changes for capital coming from outside, meaning FX and repatriation risk, hedged returns, and whether the entry window widens or narrows.'],
-  ].map(li).join('\n        ');
-
-  const sections = `
-    <div class="sig-body">
-      <p>We take each significant policy move, a subsidy, an FX rule, a tax change, a rate decision, and translate it into what it means and what to do about it. No press-release summaries. What changed, who it hits, and the move.</p>
-      <p>We start with two. The United States, whose decisions set the weather for everyone else, and Nigeria, where they land hardest and the analysis is thinnest. Other markets follow.</p>
-    </div>
-    <div class="sig-block">
-      <h2>For households, by income band</h2>
-      <ul class="sig-fields">
-        ${households}
-      </ul>
-    </div>
-    <div class="sig-block">
-      <h2>For investors, local and global</h2>
-      <ul class="sig-fields">
-        ${investors}
-      </ul>
-      <p class="sig-note">The same policy is an opportunity for one reader and a squeeze for another. Every read is broken down by income band and by investor.</p>
-    </div>
-    <div class="sig-block">
-      <h2>Cadence</h2>
-      <p>Published with each major policy move, with a standing monthly round-up. Final cadence to be confirmed.</p>
-    </div>`;
-
-  return productShell({
-    slug: 'policy-tracker',
-    title: 'The Policy Tracker',
-    desc: 'Government decisions dissected for what they mean and what to do, for households by income band and for investors. Starting with the US and Nigeria.',
-    status: 'Coming',
-    claim: 'Government decisions, dissected for what they mean and what to do, for every household and every investor. Starting with the United States and Nigeria.',
-    sections,
-    cta: { heading: 'Get on the list.', sub: 'The Tracker ships to Weekly Signals subscribers first. Subscribe to be there when it opens.', label: 'Join the waitlist' },
-  });
-}
-
 // ── Why page ──
 // Long-form argument. One column, no cards, short lines left to stand alone.
 function whyPage() {
@@ -692,9 +616,7 @@ function whyPage() {
 
     <h2>So this is what we publish</h2>
     <p>Every week we take one thing that moved near the top of the chain and follow it down, step by step, until it reaches your work, your business or your money. That is the <a href="/signals/"><strong>Weekly Signal</strong></a>. It is free and it stays free, because the read should not be the part that is rationed.</p>
-    <p>The chain runs differently in every country, so the openings in one look nothing like the openings in the next. We are working through all fifty-four, one a week. Each file says where money is flowing and who is putting it there, which sectors have room and which are crowded, what the rules allow, what could go wrong, and what to do about it. Nothing goes in that we have not checked, so you are reading a shortlist rather than a directory. That is the <a href="/africa-opportunity-map/"><strong>Africa Opportunity Map</strong></a>.</p>
-    <p>Rules are the layer where power turns into everyday costs, and they are usually written badly. So we take each major government decision, starting with the United States and Nigeria, and write out what changed, who it lands on, and what to do. The same policy is an opening for one household and a squeeze for another, so we say which. That is the <a href="/policy-tracker/"><strong>Policy Tracker</strong></a>.</p>
-    <p>And once a year we set out where the next twelve months are heading and where to position for them. Before any of that, we publish how last year's calls actually turned out, because a forecast nobody grades is entertainment. That is the <a href="/annual-outlook/"><strong>Annual Outlook</strong></a>.</p>
+    <p>Then once a year we set out where the next twelve months are heading and where to position for them. Before any of that, we publish how last year's calls actually turned out, because a forecast nobody grades is entertainment. That is the <a href="/annual-outlook/"><strong>Annual Outlook</strong></a>.</p>
 
     <h2>The harder half</h2>
     <p>Most people who understand the chain still do nothing with it.</p>
@@ -758,7 +680,7 @@ function annualOutlookPage() {
   return productShell({
     slug: 'annual-outlook',
     title: 'The Annual Outlook',
-    desc: 'The year-ahead publication that grades last year’s calls before making new ones, built from the year’s Signals, cell outcomes and country files.',
+    desc: 'The year-ahead publication that grades last year’s calls before making new ones, built from the year’s Signals and the outcomes recorded inside the cells.',
     status: 'Annual',
     claim: "One publication a year that grades last year's calls, then tells you where to position for the next.",
     sections,
@@ -779,8 +701,6 @@ write('signals/feed.xml', feed());
 write('sitemap.xml', sitemap());
 for (const s of signals) write(`signals/${s.slug}/index.html`, editionPage(s));
 
-write('africa-opportunity-map/index.html', africaMapPage());
-write('policy-tracker/index.html', policyTrackerPage());
 write('why/index.html', whyPage());
 write('annual-outlook/index.html', annualOutlookPage());
 
