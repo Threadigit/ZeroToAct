@@ -24,6 +24,120 @@
   "signals": [
     {
       "number": null,
+      "slug": "read-the-corridor-not-the-cut",
+      "title": "Read the Corridor, Not the Cut",
+      "seoTitle": "Read the Corridor, Not the Cut",
+      "seoDesc": "The Fed raised rates while Nigeria cut 350 basis points. The corridor shows who benefits now, who waits, and what could reverse the trade.",
+      "keywords": [
+        "CBN MPR September 2026",
+        "Federal Reserve rate hike",
+        "Nigeria interest rates",
+        "CBN standing facilities corridor",
+        "Nigeria treasury bills",
+        "Nigeria public debt",
+        "African markets"
+      ],
+      "videoId": "MuLn_ohEhx8",
+      "date": "2026-09-27",
+      "theme": "Macro",
+      "headlineClaim": "Two central banks moved in opposite directions inside six days. The Fed raised rates for the first time since 2023. Nigeria then cut by 350 basis points. One move is what it looks like. The other is not.",
+      "status": "published",
+      "lastTime": {
+        "of": "money-got-more-expensive-except-in-nigeria",
+        "said": "Money was getting more expensive everywhere except Nigeria, and a strong naira and the carry trade were the same event described twice.",
+        "verdict": "Right on direction, early on timing",
+        "landed": "The Fed raised rates two meetings later while Nigeria cut by 350 basis points, widening the nominal policy-rate gap to 1,900 basis points."
+      },
+      "written": [
+        "On 16 September in Washington, the Federal Open Market Committee raised the federal funds target by 25 basis points to 3.75 to 4.00 percent. It was the first increase since July 2023 and the vote was unanimous. Six days later in Abuja, the Central Bank of Nigeria cut its monetary policy rate from 26.5 to 23 percent, the largest reduction since the MPR was introduced.",
+        "The easy headline is divergence. The useful signal is more precise: the Fed tightened the price and supply of money. The CBN reduced the headline price without expanding the supply. That distinction decides who feels the Nigerian cut, how quickly they feel it, and whether it changes a business decision today.",
+        {
+          "h": "The two moves"
+        },
+        "The Federal Reserve's decision was a conventional tightening. Chair Kevin Warsh said inflation remained too high, and the accompanying projections showed 16 of 18 participants expecting at least one further increase this year. Four expected two. Core PCE inflation was projected at 3.4 percent for 2026, still well above the target.",
+        "Nigeria's move was described differently. The CBN called it an operational realignment intended to strengthen policy transmission, not a change in stance. It followed a 50 basis point cut in February and holds in May and July. The language matters because the rest of the decision supports it.",
+        "The Fed is tightening. Nigeria eased the price of money without easing the supply of it.",
+        {
+          "h": "Read the corridor"
+        },
+        "Before the meeting, the CBN's lending ceiling was 27 percent, the policy rate was 26.5 percent and the deposit floor was 22 percent. After it, those rates were 23.5, 23 and 20 percent. The lending ceiling and policy rate fell by 350 basis points. The deposit floor fell by only 200. The corridor narrowed from plus 50 and minus 450 basis points to plus 50 and minus 300.",
+        "Cash reserve requirements did not move: 45 percent for deposit money banks, 16 percent for merchant banks and 75 percent on non-TSA public sector deposits. Banks still cannot lend more of each naira they hold. This is a repair to the price signal, not an expansion of lendable money.",
+        "Naira securities feel the reduction quickly because the policy rate anchors their curve. A business borrower is likely to feel a fraction of it, and later. Ask for the actual repriced facility before rebuilding a plan around the headline cut.",
+        "There is a credible rival read. Nigerian banks placed about ₦511 trillion at the CBN's standing deposit facility in the first half of 2026, against ₦68.94 trillion a year earlier. Cutting the floor makes that parking trade less rewarding and may push banks towards lending. The unchanged reserve ratio limits the effect. December credit data will show which force won.",
+        {
+          "h": "The divergence is now 1,900 basis points"
+        },
+        "Nigeria's policy rate is 23 percent. The top of the US range is 4 percent. The nominal gap is now 1,900 basis points, but the real-rate story is the more revealing one.",
+        "Nigeria's headline inflation eased to 15.39 percent in August from 15.43 percent in July, its third consecutive decline. That leaves the real policy rate near 7.6 percent. Against the Fed's 3.4 percent core PCE projection, the real US policy rate is close to zero. Both central banks can therefore claim to be restrictive while moving in opposite directions.",
+        "Food inflation also eased, to 19.57 percent from 20.31 percent, its first decline in six months. It remains more than four percentage points above headline inflation. One better print is a data point, not a household trend.",
+        {
+          "h": "What the cut is being asked to finance"
+        },
+        "Nigeria's public debt stood at ₦166.79 trillion on 30 June, up ₦7.44 trillion in one quarter and ₦14.39 trillion in a year. Domestic debt accounts for ₦91.59 trillion, or 54.91 percent, including ₦64.84 trillion in federal government bonds. Lower benchmark rates reduce the cost of rolling that stock even if private borrowers see little immediate relief. The fiscal benefit arrives first.",
+        "The productive side is less comfortable. Nigeria's agricultural trade balance moved from a ₦740.27 billion surplus in the first half of 2025 to a ₦56.13 billion deficit in the first half of 2026. Agricultural exports fell by roughly ₦980 billion while imports were broadly flat.",
+        "At the same time, raw material exports rose 181 percent in the second quarter to ₦2.31 trillion. Urea alone contributed ₦1.07 trillion, much of it going to the United States. Nigeria is shipping more agricultural input and less food. That is an export result, but not yet the value-add story the continent keeps promising itself.",
+        {
+          "h": "Where the previous call landed"
+        },
+        "On 26 July, this publication put the probability of a Fed hike near one third while the consensus was still leaning towards a cut. The Fed held at that meeting, so the timing was early. Two meetings later, the direction arrived unanimously. On 13 September, [the last Signal](/signals/money-got-more-expensive-except-in-nigeria/) argued that money was becoming more expensive everywhere except Nigeria. The two central bank decisions have now made that divergence explicit. The remaining question is how much of the Nigerian move reaches the private economy.",
+        {
+          "h": "The bottom line"
+        },
+        "Do not trade the headline cut. Trade the transmission path. The fastest repricing should appear in naira fixed income and the government's refinancing cost. Bank borrowers may wait. Deposit rates should compress, but the unchanged reserve ratio means money has not suddenly become abundant. The corridor, not the cut, tells you who gets paid first."
+      ],
+      "method": "Written on 27 September 2026 from primary releases: the CBN MPC communiqué of 22 September, the Federal Reserve's FOMC statement of 16 September and its Summary of Economic Projections, the DMO public debt report released 25 September, and NBS Foreign Trade in Goods Statistics for the first and second quarters of 2026. Corridor arithmetic is our own. Real-rate figures use Nigeria's August headline inflation and the FOMC's 2026 core PCE projection. An earlier draft contained figures that could not be reconciled to primary releases; they were removed rather than carried into publication.",
+      "sources": [
+        {
+          "label": "CBN, monetary policy decisions",
+          "url": "https://www.cbn.gov.ng/MonetaryPolicy/decisions.html"
+        },
+        {
+          "label": "Federal Reserve, FOMC statement, 16 September 2026",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+        },
+        {
+          "label": "Federal Reserve, September 2026 economic projections",
+          "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260916.pdf"
+        },
+        {
+          "label": "DMO, Nigeria's total public debt at 30 June 2026",
+          "url": "https://www.dmo.gov.ng/6080-nigeria-s-total-public-debt-as-at-june-30-2026"
+        },
+        {
+          "label": "NBS, official statistics portal",
+          "url": "https://www.nigerianstat.gov.ng/"
+        },
+        {
+          "label": "Nairametrics, Nigeria's public debt rises to ₦166.79tn",
+          "url": "https://nairametrics.com/2026/09/26/nigerias-public-debt-rises-to-n166-79-trillion-in-june-2026/"
+        },
+        {
+          "label": "Nairametrics, agricultural trade balance turns negative",
+          "url": "https://nairametrics.com/2026/09/26/nigerias-agricultural-trade-balance-turns-negative-in-h1-2026/"
+        }
+      ],
+      "proveWrong": "This reading is wrong if commercial lending rates fall by something close to 350 basis points within two quarters, which would show the transmission was faster than the corridor and reserve settings imply. It also weakens if the CBN cuts the cash reserve ratio in November and turns one operational adjustment into an easing cycle. For the market call, watch the next two treasury-bill auctions. If stop rates hold flat or rise, the expected compression in naira fixed-income yields is wrong. In the United States, another Fed increase would confirm an active hiking cycle; a pause would leave September as a single insurance move rather than a new path.",
+      "nextMove": [
+        {
+          "who": "Career",
+          "do": "Position around the rule change few people have read. In Lagos, that means treasury, fixed income and monetary transmission work. In the United States and United Kingdom, it means credit risk, restructuring and workouts as money stays expensive. In Kenya, local-content and benefit-sharing rules around extraction are creating a similar need for people who can translate policy into execution."
+        },
+        {
+          "who": "Founders and operators",
+          "do": "Do not rebuild your plan around a 350 basis point headline. Ask your bank for the actual new rate on your facility and model that number. If you hold long deposits, compare today's yield with what is likely to be available in December. The larger operating opportunity remains processing capacity near cocoa, sesame, cashew and soya supply, where the trade data shows value leaking out before conversion. US and UK businesses should price 2027 plans for higher funding costs."
+        },
+        {
+          "who": "Investors",
+          "do": "The clearest near-term call is lower yields along the naira curve. Compare duration before rates reset further, and remember the precedent: ahead of February's 50 basis point cut, the 364-day bill stop rate had already fallen 148 basis points and the auction drew ₦4.07 trillion in subscriptions. The risks are a reversal in food inflation and a carry advantage that shrinks faster than expected. Watch the foreign direct investment share in the next capital-importation release. None of this is investment advice. Check your own numbers and speak to a licensed adviser before moving money."
+        },
+        {
+          "who": "Dollar and sterling holders",
+          "do": "Cash and short-duration instruments pay again when developed-market rates rise. Keep duration deliberate and watch whether emerging-market stress begins to decouple through year-end rather than assuming every market will move with the Fed."
+        }
+      ]
+    },
+    {
+      "number": null,
       "slug": "one-pipeline-four-currencies",
       "title": "One Pipeline. Four Currencies.",
       "seoTitle": "One Pipeline, Four Currencies",
