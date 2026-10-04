@@ -356,7 +356,7 @@ function editionPage(s) {
     <div class="sig-disclosure">
       <h2>Disclosure</h2>
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
-    </div>
+${s.disclosure ? `      <p>${esc(s.disclosure)}</p>\n` : ''}    </div>
   </main>
   <div class="sig-progress" id="sig-progress" role="presentation"></div>
   <script>

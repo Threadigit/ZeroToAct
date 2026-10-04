@@ -18,10 +18,141 @@
       "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time. Set it only when the substance changed, meaning a claim, figure, source or conclusion. Prose-only edits and same-day fixes are not revisions and carry no notice.",
       "revisionNote": "One short clause on what changed. Keep it to a line; the notice is a caption, not a changelog.",
       "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition.",
-      "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed."
+      "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed.",
+      "disclosure": "Optional. An extra paragraph appended to the standing disclosure, for a conflict specific to this edition. Use it when the author or Prembly has a direct commercial stake in the subject, beyond the general overlap the standing note already covers."
     }
   },
   "signals": [
+    {
+      "number": null,
+      "slug": "the-exit-was-already-written",
+      "title": "The Exit Was Already Written",
+      "seoTitle": "The Exit Was Already Written",
+      "seoDesc": "Airtel Money lists in London on 14 October and the business gets none of the $800 million. Underneath it, almost every large Nigerian fintech bought a bank.",
+      "keywords": [
+        "Airtel Money IPO",
+        "London Stock Exchange listing",
+        "African fintech exits",
+        "Nigerian fintech banking licence",
+        "microfinance bank licence",
+        "Moniepoint",
+        "Flutterwave Bank",
+        "African startup funding H1 2026"
+      ],
+      "videoId": "HY6ZU7uJuYw",
+      "date": "2026-10-04",
+      "theme": "Capital",
+      "headlineClaim": "Africa's largest mobile money business lists in London on 14 October and will not receive a dollar of it, because the exit was contracted five years ago. Underneath it, almost every large Nigerian fintech spent this year buying a bank.",
+      "status": "published",
+      "lastTime": {
+        "of": "one-pipeline-four-currencies",
+        "said": "That Nigeria's bond market had priced an easing the central bank had not agreed to, with the monetary policy committee sitting the next day.",
+        "verdict": "Wrong",
+        "landed": "The committee cut 350 basis points on 22 September, from 26.5 to 23 percent, the largest reduction since the rate was introduced. The market was not ahead of the central bank. It was reading it correctly and we were not. The following week's Signal covered the cut without grading this call, so it is graded here."
+      },
+      "written": [
+        "On 23 September, the Dutch-registered company that owns Airtel Money announced its intention to float on the Main Market of the London Stock Exchange. On 1 October it priced at £1.96 a share, valuing the business at about £5.3 billion, or roughly $7 billion. Admission is expected on 14 October, in what would be London's largest listing in five years.",
+        "The offer raises around $800 million. None of it goes to Airtel Money. This is a secondary offer, so existing shareholders are selling and the business receives nothing.",
+        {
+          "h": "The exit was contracted in 2021"
+        },
+        "In 2021 four investors put roughly $550 million into the mobile money arm at a $2.65 billion valuation. Two of them, TPG's Rise Fund and Mastercard, negotiated put options, meaning that if the business had not listed by an agreed date they could require Airtel Africa to buy their stakes back. Airtel Africa carried those puts as a $515 million liability in its results for the year to March 2026, down from $542 million.",
+        "That date has moved repeatedly. It was deferred by twelve months in August 2025, then deferred again, by the Rise Fund in August of this year and by Mastercard in September. So the sequence is not growth, then demand, then listing. It is an obligation written into the cap table in 2021 that has been renegotiated three times and is now being discharged through a public market.",
+        "And it is being discharged at a discount. The $7 billion pricing sits below the $8 to $9 billion indicated when the float was announced, and the offer was trimmed before launch. About 16.5 percent of the shares will sit in public hands, rising to 17.5 percent if the over-allotment is taken up.",
+        "Where you read this from changes what it means. In London it is a test of whether the exchange's reforms are working. In the United States it sets the first public comparable for African mobile money, a category that has only ever been priced privately. In Kenya, where Airtel Money competes with M-Pesa, a rival's valuation becomes a number on a screen every day. In Nigeria it is the clearest available statement about where exits now come from.",
+        {
+          "h": "Underneath it, almost all of them became banks"
+        },
+        "While the largest exit on the continent was being arranged in London, the firms below it were doing something that looks unrelated and is not.",
+        "In January the Central Bank of Nigeria upgraded OPay, Moniepoint, Kuda and PalmPay to national microfinance bank status, which carries a ₦5 billion capital requirement. That same month Paystack acquired Ladder Microfinance Bank and relaunched it as Paystack Microfinance Bank, a separately regulated entity able to take deposits and lend. In April Flutterwave secured a national microfinance banking licence of its own. Moniepoint is now pursuing a full commercial licence.",
+        "Why all at once, after a decade of not doing it? Because a payments company earns a fee on flow and a bank earns a spread on a balance, and the fee business is being commoditised. Moniepoint processed ₦412 trillion in 2025 and disbursed over ₦1 trillion in credit to around 70,000 businesses. The lending is where the margin went.",
+        "The regulator is watching the same door. Licences effective 1 July were revoked for 46 microfinance banks, on grounds including never commencing operations, ceasing to intermediate, and capital impaired by losses. Holding the paper is not the same as running the institution, and the central bank has now demonstrated it will say so.",
+        {
+          "h": "The funding data says it too"
+        },
+        "African startups raised $1.44 billion in the first half of 2026 against $1.42 billion a year earlier. Flat. The deal count was not flat. It fell 42 percent, from 252 to 146.",
+        "Equity accounted for $818 million, debt for $614 million, and grants for $9 million. Debt is now about 43 percent of everything raised. Acquisitions nearly doubled, from 33 to 63, the busiest half year for African tech consolidation on record.",
+        "Fewer rounds. More debt. More acquisitions. And at the top of the market, an exit a lawyer drafted five years ago. None of that is a venture capital story. It is what happens when an asset class starts being financed and valued the way the rest of finance is.",
+        {
+          "h": "Two stories, one movement"
+        },
+        "The money and the value in African fintech are both moving onto balance sheets. Upstairs, the return comes from a contract signed in 2021 rather than from a buyer competing to get in. Downstairs, the margin comes from a loan book rather than from a fee on a transaction. Both are the same trade, which is that a claim on a balance sheet now prices better than a claim on a flow."
+      ],
+      "method": "Written on 4 October 2026. Listing details are Airtel Money's intention to float of 23 September, its pricing announcement of 1 October, and the regulatory filings around them. The put options, the deferrals and the $515 million liability are from Airtel Africa's results for the year to March 2026 and the company's deferral announcements, as reported by Forbes and the EastAfrican. Funding figures are The State of Tech in Africa H1 2026 from TechCabal Insights. Africa: The Big Deal reports a lower total on a different threshold, so both are cited rather than averaged. Licence and acquisition details are from the companies' and the central bank's own announcements. Three claims in the draft were left out because they could not be stood up against a primary or named source. A reported designation of six named fintechs as systemically relevant could not be verified and is not asserted here. Nor is the claim that about half of first-half funding went to seven companies, though the concentration itself is well documented. The number of markets Airtel Money operates in is also left unstated. Separately, the characterisation of the 46 revoked licences as charters bought as regulatory shortcuts is an inference, so the central bank's stated grounds are given instead.",
+      "sources": [
+        {
+          "label": "Airtel Money, announcement of offer price, 1 October 2026",
+          "url": "https://www.investegate.co.uk/announcement/rns/airtel-africa--aaf/airtel-money-announcement-of-offer-price/9801247"
+        },
+        {
+          "label": "Forbes, one of London's biggest IPOs in years is an African mobile wallet",
+          "url": "https://www.forbes.com/sites/zennonkapron/2026/09/29/one-of-londons-biggest-ipos-in-years-is-an-african-mobile-wallet-airtel-money-will-not-receive-a-dollar-of-the-800-million/"
+        },
+        {
+          "label": "Bloomberg, Airtel Money plans London IPO",
+          "url": "https://www.bloomberg.com/news/articles/2026-09-23/mobile-payments-firm-airtel-money-announces-plans-for-london-ipo"
+        },
+        {
+          "label": "The EastAfrican, can Airtel list the mobile money unit and avoid the $515m liability",
+          "url": "https://www.theeastafrican.co.ke/tea/business-tech/can-airtel-list-mobile-money-unit-on-lse-in-six-weeks-5493124"
+        },
+        {
+          "label": "tech-ish, Airtel Money will list in London and the IPO raises no new money",
+          "url": "https://tech-ish.com/2026/09/24/airtel-money-will-list-in-london-and-the-ipo-raises-no-new-money-for-the-business/"
+        },
+        {
+          "label": "TechCabal, Airtel Money targets a $7 billion valuation",
+          "url": "https://techcabal.com/2026/10/01/airtel-money-ipo-7-billion-valuation-london/"
+        },
+        {
+          "label": "TechCabal Insights, The State of Tech in Africa H1 2026",
+          "url": "https://insights.techcabal.com/1-44-billion-raised-in-the-first-half-of-2026/"
+        },
+        {
+          "label": "bne IntelliNews, African startup funding steadies at $1.44bn",
+          "url": "https://www.intellinews.com/african-startup-funding-steadies-at-1-44bn-as-debt-climate-tech-and-consolidation-reshape-market-report-457073/"
+        },
+        {
+          "label": "Vanguard, CBN upgrades OPay, Moniepoint and others to national licences",
+          "url": "https://www.vanguardngr.com/2026/01/cbn-upgrades-opay-moniepoint-others-to-national-licenses/"
+        },
+        {
+          "label": "Nairametrics, Paystack enters banking with the Ladder Microfinance Bank acquisition",
+          "url": "https://nairametrics.com/2026/01/14/paystack-enters-banking-with-acquisition-of-ladder-microfinance-bank/"
+        },
+        {
+          "label": "TechCabal, Flutterwave secures a Nigerian banking licence",
+          "url": "https://techcabal.com/2026/04/02/flutterwave-mfb/"
+        },
+        {
+          "label": "TheCable, CBN revokes the licences of 46 microfinance banks",
+          "url": "https://www.thecable.ng/breaking-cbn-revokes-licences-of-46-microfinance-banks/"
+        },
+        {
+          "label": "BusinessDay, Moniepoint processes ₦412trn in payments",
+          "url": "https://businessday.ng/technology/article/moniepoint-processes-n412trn-in-payments-underlining-dominance-in-nigerias-retail-transactions/"
+        },
+        {
+          "label": "African Business, Nigerian fintechs march into banks' territory",
+          "url": "https://african.business/2026/05/long-reads/nigerian-fintechs-march-into-banks-territory"
+        }
+      ],
+      "proveWrong": "The clean test arrives on 14 October. We expect a soft debut, because the business priced below its own indicated range and the sellers are partly discharging an obligation rather than meeting demand. If the shares trade meaningfully above £1.96 in the first week, the discount reflected sizing rather than appetite and this read is too pessimistic. The second test is second-half funding. If early stage deal counts recover towards 2025 levels when the full year numbers publish in January, the concentration is cyclical rather than structural. The third takes longer, because debt above 40 percent of continental funding looks like maturity only while the loan books perform, and restructuring or default news among the asset backed borrowers through 2027 would mean it was leverage wearing maturity's clothes. The fourth concerns the licences. We read the bank acquisitions as a durable repricing of the business model. If the next enforcement round catches a named fintech microfinance bank rather than dormant charters, or if any of these firms quietly folds its banking subsidiary back into the payments entity, the licence was an option rather than a strategy and we were reading a land grab as a transformation.",
+      "nextMove": [
+        {
+          "who": "Career",
+          "do": "This is the clearest hiring signal in Nigerian tech in a decade and almost nobody is positioning for it. Most of the country's largest fintechs took on banking licences inside twelve months, and a payments company that becomes a bank cannot run on the team that built the payments company. It needs treasury and asset liability management, prudential reporting, credit risk and collections, an internal audit function independent of the product organisation, and a compliance team that can survive a regulatory examination rather than a customer complaint. Three openings follow. Anyone with real bank treasury or prudential reporting experience is now worth more inside a fintech than inside a commercial bank, and that transfer barely existed two years ago. Regulatory experience is the scarcest input in the market, which is why Flutterwave put a former central bank director in its Nigerian bank's chair. And if you are early and technical, the bridge role between a product engineering team and a regulated banking function is close to unstaffed, because it is far easier to learn banking regulation on top of engineering than the reverse."
+        },
+        {
+          "who": "Business owners and operators",
+          "do": "The round count fell 42 percent while the money stayed flat, which means the money went somewhere other than you. Build a plan that does not need a seed round to survive the next twelve months, and do that arithmetic this month rather than when the runway is short. If you own a narrow piece of infrastructure, the buyer pool is now more active than the investor pool, with 63 acquisitions against a collapsing early stage market. Open the acquirer conversation before you need it, because the terms you get when you have a year of cash are not the terms you get when you have a quarter. Mono's shareholders got liquidity in a year when very few did, and they got it by being bought rather than by raising."
+        },
+        {
+          "who": "Investors",
+          "do": "Two things. From 14 October this sector has something it has never had, which is a daily public mark on African mobile money. Use it as a comparable before underwriting anything private in payments, and be honest that private African fintech marks have never had to survive a public test. Second, debt at about 43 percent of continental funding means asset backed lending into African mobility, energy and loan books is a real allocation rather than a niche. It prices off collateral rather than narrative, which is a feature, provided you actually inspect the collateral. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
+        }
+      ]
+    },
     {
       "number": null,
       "slug": "read-the-corridor-not-the-cut",
