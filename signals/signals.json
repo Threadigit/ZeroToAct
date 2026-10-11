@@ -18,11 +18,146 @@
       "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time. Set it only when the substance changed, meaning a claim, figure, source or conclusion. Prose-only edits and same-day fixes are not revisions and carry no notice.",
       "revisionNote": "One short clause on what changed. Keep it to a line; the notice is a caption, not a changelog.",
       "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition.",
-      "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed.",
-      "disclosure": "Optional. An extra paragraph appended to the standing disclosure, for a conflict specific to this edition. Use it when the author or Prembly has a direct commercial stake in the subject, beyond the general overlap the standing note already covers."
+      "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed."
     }
   },
   "signals": [
+    {
+      "number": null,
+      "slug": "nobody-is-being-paid-to-wait",
+      "title": "Nobody Is Being Paid to Wait",
+      "seoTitle": "Nobody Is Being Paid to Wait",
+      "seoDesc": "Lagos pays five basis points for six extra months and money piles in anyway. Nairobi turned down 9 percent for a year to take 8.76 for three months.",
+      "keywords": [
+        "term premium",
+        "Nigeria treasury bills",
+        "flat yield curve",
+        "Kenya treasury bills",
+        "CBK Central Bank Rate",
+        "US 10-year yield",
+        "Airtel Money listing",
+        "African fixed income"
+      ],
+      "videoId": "xgojGTzbPRk",
+      "date": "2026-10-11",
+      "theme": "Macro",
+      "headlineClaim": "In Lagos, lending the government money for a year pays five basis points more than lending it for six months, and the money piles in anyway. In Nairobi, investors turned down 9 percent for a year and queued for 8.76 percent for three months. The price of waiting is broken in four markets at once, and not in the same direction.",
+      "status": "published",
+      "lastTime": {
+        "of": "the-exit-was-already-written",
+        "said": "That Airtel Money would have a soft debut, because it priced below its own indicated range and the sellers were partly discharging an obligation rather than meeting demand.",
+        "verdict": "Right so far",
+        "landed": "Conditional dealings opened on 9 October and the shares traded below the £1.96 offer. Reuters called the debut muted, and the sale raised around £582 million rather than the $800 million first targeted. Unconditional dealings on 14 October are the full test, so this is not settled."
+      },
+      "written": [
+        "Four markets moved in the same week, and each said something about the same price, which is what you get paid for committing money over time. In none of them is that price doing its job. It is not breaking the same way in each, and the differences are the useful part.",
+        {
+          "h": "Lagos competed the term premium away"
+        },
+        "At the 7 October Treasury bill auction the Debt Management Office offered ₦900 billion and allotted ₦968.47 billion, taking 7.6 percent more than it advertised against ₦1.77 trillion of bids. The curve that came out of it is almost flat. The 91-day cleared at 15.50 percent, the 182-day at 15.80 and the 364-day at 15.85. Thirty-five basis points separates three months from twelve, and five basis points separates six months from twelve.",
+        "The obvious reading is that investors have stopped going long. The composition says the opposite. Of that ₦1.77 trillion, roughly ₦1.68 trillion chased the 364-day. The 91-day and the 182-day together drew ₦86.29 billion against ₦200 billion offered, so both were undersubscribed. Two weeks earlier the same shape was starker still, with ₦4.23 trillion of total bids and ₦4.09 trillion of it, about 97 percent, going into the one-year.",
+        "So nobody in Lagos is refusing duration. They are stampeding into it, and that is precisely why it has stopped paying. In August the one-year paid 17.59 percent. It now pays 15.85, and it pays almost nothing over the six-month, because the people taking the risk competed away their own compensation for it.",
+        {
+          "h": "Nairobi refused to supply one"
+        },
+        "Kenya's Monetary Policy Committee held the Central Bank Rate at 8.75 percent on 7 October, a fourth consecutive hold and eight months since the February cut. September inflation came in at 6.8 percent against 6.6 in August, with core rising to 4.0 from 3.4 while non-core eased to 14.0 from 14.7. The Committee called the stance appropriate.",
+        "The auction the next day said something the hold did not. Bids reached KSh75.4 billion against KSh28 billion offered, a performance rate of 269.3 percent. The 91-day alone drew KSh50.2 billion against an KSh8 billion offer, its heaviest bid since 2017, and the central bank took KSh20.4 billion of it at an average 8.762 percent. The 364-day drew KSh9.6 billion against KSh10 billion offered, undersubscribed, at 9.035 percent.",
+        "Read those two lines together. Kenyan investors turned down 9.035 percent for a year and queued for 8.762 percent for three months, surrendering about 27 basis points to stay liquid. Meanwhile the central bank is in the market with KSh50 billion of reopened thirty-year bonds carrying coupons of 12.5 and 12.9 percent, with bidding open to 14 October. Investors want three months. The government needs thirty years.",
+        {
+          "h": "Washington is demanding a bigger one"
+        },
+        "September payrolls came in at 29,000 against a forecast near 84,000, in a report published on 2 October, just before this week. Unemployment rose to 4.2 percent from 4.1, July was revised to a loss of 10,000 and August down to 133,000. An October hike came off the table.",
+        "Weak employment and a fading near-term hike should pull long yields down. They went the other way. The ten-year ticked higher on the day of the report, then reached roughly 5.37 percent on 7 October, its highest in about 24 years, before easing to around 5.24 percent by Friday, which left it a few basis points lower on the week. A yield at a 24-year high in a week of soft labour data is not a policy story. It is a term premium story, meaning investors demanding more to hold duration because of heavy issuance and competition for capital. The central bank can pause and the long end can still sell off.",
+        {
+          "h": "London declined to pay up"
+        },
+        "Airtel Money began conditional dealings on 9 October under the ticker AMC, offered at £1.96 and valued near £5.3 billion. The shares touched £2.00 early and settled below the offer, at around £1.93 on Reuters' reading, in what the wires called a muted debut. The sale was 270 million existing shares from minority holders, with Mastercard making up to 27 million more available, and the IFC taking 34,285,714 shares for £67.2 million. It raised about £582 million, or roughly $703 million. Airtel Africa sold nothing and remains the majority holder. A 180-day lock-up runs from admission, and unconditional dealings are expected on 14 October.",
+        "There is a rhyme worth noticing. When Airtel Africa listed in London in 2019 it priced at 80p, the bottom of its range, and fell as much as 15 percent on debut. Seven years on, the subsidiary priced below its indicated valuation and closed below its offer. A five-year private hold converting into public stock found no bid that would pay up for it.",
+        {
+          "h": "One price, broken four ways"
+        },
+        "Lagos competed its term premium to nothing. Nairobi would not supply one at the price offered. Washington is demanding a bigger one in the face of weak data. London would not pay for a claim that had already been held for five years.",
+        "Lagos and Nairobi are moving in opposite directions on duration, and that is the point rather than a problem with it. The flow is not the signal. The price is. In none of these four is the reward for committing and waiting doing the work it is meant to do, in local currency or hard currency, in frontier markets or the deepest market on earth, inside one week."
+      ],
+      "method": "Written on 11 October 2026, covering the week of 5 to 10 October. Nigerian auction figures are the DMO's 7 October Treasury bill results and the 23 September results, as reported by Nairametrics, Business Post and the FMDA post-auction analysis; the tenor-by-tenor composition is from those auction breakdowns rather than the headline totals. Kenyan policy figures are the Central Bank of Kenya's MPC release of 7 October and the 8 October auction as reported by Business Today Kenya and People Daily. US labour figures are the September employment report, which was published on 2 October and so sits just outside the week covered, with yields from the week's market reports. The Airtel Money detail is the company's final offer announcement and reporting around the 9 October open. Two things are worth flagging about the numbers. Reported levels for Airtel Money's first conditional session differ by source, from about £1.93 on Reuters to a steeper fall in one newspaper account, so the figure here is attributed rather than stated flat, and the point that matters is that it closed below the offer. And the ten-year's weekly direction depends on which day you measure, because it set a 24-year high midweek and then eased, so both the high and the Friday level are given rather than a single weekly move. Three figures in circulation were left out because they could not be checked against a primary or named source. A reported KSh15.5 billion bid for the Kenyan 182-day is one, so the 364-day is given instead, where the figure is sourced. Weekly closes for the dollar index and gold are another, and the ones circulating do not match the market reports for the week. Sources also disagree on the size of the 23 September Nigerian offer, between ₦500 billion and ₦750 billion, so only the bid and allotment figures are used. The 2019 Airtel Africa debut is included as a parallel, not an equivalent transaction. The 14 October admission, the Kenyan bond close and the September CPI release are scheduled events and may move.",
+      "sources": [
+        {
+          "label": "Nairametrics, DMO raises ₦968.47bn as the 364-day stop rate falls to 15.85%",
+          "url": "https://nairametrics.com/2026/10/07/dmo-raises-n968-47-billion-as-364-day-stop-rate-falls-to-15-85-despite-strong-demand/"
+        },
+        {
+          "label": "Business Post, 364-day Treasury bill stop rate moderates to 15.85%",
+          "url": "https://businesspost.ng/economy/364-day-nigerian-treasury-bills-stop-rate-moderates-to-15-85/"
+        },
+        {
+          "label": "Nairametrics, CBN offers ₦900bn at the first Q4 2026 Treasury bill auction",
+          "url": "https://nairametrics.com/2026/10/06/cbn-offers-n900-billion-at-first-treasury-bills-auction-of-fourth-quarter-2026/"
+        },
+        {
+          "label": "FMDA, Treasury bills post-auction analysis, 23 September 2026",
+          "url": "https://fmda.com.ng/primary-market-watch-treasury-bills-post-auction-analysis-23-september-2026/"
+        },
+        {
+          "label": "Central Bank of Kenya, Treasury bills",
+          "url": "https://www.centralbank.go.ke/bills-bonds/treasury-bills/"
+        },
+        {
+          "label": "Business Today Kenya, CBK records a surge in demand for government paper",
+          "url": "https://businesstoday.co.ke/cbk-records-a-surge-in-demand-for-govt-paper/"
+        },
+        {
+          "label": "People Daily, CBK accepts KSh33.35bn as the 91-day bill attracts the highest demand",
+          "url": "https://peopledaily.digital/business/cbk-accepts-ksh33-35b-in-treasury-bills-as-91-day-bill-attracts-highest-demand"
+        },
+        {
+          "label": "CNBC, jobs report September 2026",
+          "url": "https://www.cnbc.com/2026/10/02/jobs-report-september-2026.html"
+        },
+        {
+          "label": "ETF Database, Treasury yields snapshot, 9 October 2026",
+          "url": "https://etfdb.com/fixed-income-content-hub/treasury-yields-snapshot-october-9-2026/"
+        },
+        {
+          "label": "CNBC, 10-year yield ticks higher despite a weaker-than-expected jobs report",
+          "url": "https://www.cnbc.com/2026/10/02/treasury-yields-bonds-nonfarm-payrolls.html"
+        },
+        {
+          "label": "CNBC Africa, Airtel Money makes a muted London trading debut",
+          "url": "https://www.cnbcafrica.com/2026/airtel-money-makes-muted-london-trading-debut"
+        },
+        {
+          "label": "CNN, the US economy added just 29,000 jobs and unemployment ticked up to 4.2%",
+          "url": "https://www.cnn.com/2026/10/02/economy/us-jobs-report-september-final"
+        },
+        {
+          "label": "Airtel Money, announcement of final offer details",
+          "url": "https://www.investegate.co.uk/announcement/rns/amur-minerals-corporation-npv--amc/airtel-money-announcement-of-final-offer-details/9814566"
+        },
+        {
+          "label": "The Industry Spread, Airtel Money starts conditional London trading",
+          "url": "https://theindustryspread.com/airtel-money-starts-conditional-london-trading/"
+        },
+        {
+          "label": "Business Standard, Airtel Africa's London debut, June 2019",
+          "url": "https://www.business-standard.com/article/companies/airtel-africa-london-stock-exchange-debut-lacklustre-stock-falls-15-119062801509_1.html"
+        }
+      ],
+      "proveWrong": "The easy read is that a flat curve is always a recession signal. It is not, and in Lagos it is the opposite, being the footprint of a crowd rather than a forecast. Four things would weaken this. If the 14 October unconditional open takes Airtel Money meaningfully above £1.96 and it holds, the first session was conditional-dealing thinness rather than real demand. If Kenya's thirty-year reopening clears at or near coupon on 14 October with solid cover, Kenyan investors will go long at the right price and the rush into the 91-day was a liquidity artefact rather than a verdict on duration. If the next two Nigerian auctions reopen the gap between the 182-day and the 364-day beyond roughly 50 basis points, the flattening was temporary. And if the ten-year falls back below 5.10 percent on continued soft data, the term premium reading is weaker than it looks. The Treasury supply mid-month and the September CPI print on 14 October are the near-term tests.",
+      "nextMove": [
+        {
+          "who": "Career",
+          "do": "For two months a Nigerian treasury desk could make money doing the obvious thing, which was to buy the one-year, roll it and watch it compress. That is finished, and the crowd that made it work is the reason. A flat curve rewards relative value, credit selection and liability management, which are different skills from directional carry, and this is the quarter where that difference becomes visible to whoever reviews you. The same shift is under way in Nairobi, where a desk that has spent the year sitting in 91-day paper is not building anything transferable. More broadly, the term premium is the most interesting question in rates right now, and almost nobody covering African markets can speak credibly to both the frontier and the dollar end of it. That combination is rare and it is hireable in London and New York as much as in Lagos."
+        },
+        {
+          "who": "Business owners and operators",
+          "do": "In Nigeria this is the window and it is narrowing. Naira borrowing costs have fallen from 17.59 percent in August to 15.85, commercial paper prices off that curve, and the compression has visibly stalled, so waiting for more is now a bet rather than patience. If you have been planning to issue, refinance or term out short-dated debt, get indicative pricing this week rather than next quarter. In Kenya the Central Bank Rate has not moved in eight months, so do not build a plan around relief arriving; build it around competing for the credit growth the Committee says is already happening. And if you borrow in dollars anywhere, a ten-year above 5 percent means your cost of capital is still rising even while the Fed pauses."
+        },
+        {
+          "who": "Investors",
+          "do": "At five basis points over the six-month, a Nigerian one-year bill is not paying you for a year of inflation and currency risk, however many other people are buying it. Shorten, or take risk somewhere you are actually compensated. In Kenya the thirty-year auction closing on 14 October is the cleaner read on what long Kenyan duration is worth, and the record 91-day bid tells you what most of the market has already concluded. In dollars and sterling the same instruction arrives from the other side, because cash pays, the long end is being repriced, and the compensation for extending has not caught up with the risk. On Airtel Money, wait for 14 October and for the 180-day lock-up to pass before concluding anything about what African mobile money is worth in public markets. A first week is a price, not a valuation. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money."
+        }
+      ]
+    },
     {
       "number": null,
       "slug": "the-exit-was-already-written",
@@ -34,7 +169,6 @@
         "London Stock Exchange listing",
         "African fintech exits",
         "Nigerian fintech banking licence",
-        "microfinance bank licence",
         "Moniepoint",
         "Flutterwave Bank",
         "African startup funding H1 2026"

@@ -334,9 +334,9 @@ function editionPage(s) {
     <p class="sig-byline sig-byline--top">By <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a></p>
     ${draftBanner}
     <figure class="sig-video">
-      <div class="sig-video-frame">
+      ${s.videoId ? `<div class="sig-video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+      </div>` : ''}
       ${s.revised && s.revised !== s.date ? `<figcaption class="sig-revised" role="note">Revised ${longDate(s.revised)}, first published ${
         s.revised.slice(0, 4) === s.date.slice(0, 4) ? longDate(s.date).replace(/ \d{4}$/, '') : longDate(s.date)
       }. ${esc(s.revisionNote || '')}${s.videoPredatesRevision ? ' Video is the original edition.' : ''}</figcaption>` : ''}
@@ -356,7 +356,7 @@ function editionPage(s) {
     <div class="sig-disclosure">
       <h2>Disclosure</h2>
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
-${s.disclosure ? `      <p>${esc(s.disclosure)}</p>\n` : ''}    </div>
+    </div>
   </main>
   <div class="sig-progress" id="sig-progress" role="presentation"></div>
   <script>

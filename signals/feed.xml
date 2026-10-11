@@ -6,14 +6,48 @@
     <description>One read a week on the shifts in money, government policy and the world economy that change your next move.</description>
     <language>en</language>
     <copyright>ZeroToAct</copyright>
-    <lastBuildDate>Sun, 04 Oct 2026 12:00:00 GMT</lastBuildDate>
-    <pubDate>Sun, 04 Oct 2026 12:00:00 GMT</pubDate>
+    <lastBuildDate>Sun, 11 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
     <image>
       <url>https://zerotoact.com/og-image-v2.png</url>
       <title>ZeroToAct Signals</title>
       <link>https://zerotoact.com/signals/</link>
     </image>
     <atom:link href="https://zerotoact.com/signals/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nobody Is Being Paid to Wait</title>
+      <link>https://zerotoact.com/signals/nobody-is-being-paid-to-wait/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/nobody-is-being-paid-to-wait/</guid>
+      <pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Tolu Adetuyi</dc:creator>
+      <category>Macro</category>
+      <description>In Lagos, lending the government money for a year pays five basis points more than lending it for six months, and the money piles in anyway. In Nairobi, investors turned down 9 percent for a year and queued for 8.76 percent for three months. The price of waiting is broken in four markets at once, and not in the same direction.</description>
+      <content:encoded><![CDATA[<p>Four markets moved in the same week, and each said something about the same price, which is what you get paid for committing money over time. In none of them is that price doing its job. It is not breaking the same way in each, and the differences are the useful part.</p>
+<h2 class="sig-subhead">Lagos competed the term premium away</h2>
+<p>At the 7 October Treasury bill auction the Debt Management Office offered ₦900 billion and allotted ₦968.47 billion, taking 7.6 percent more than it advertised against ₦1.77 trillion of bids. The curve that came out of it is almost flat. The 91-day cleared at 15.50 percent, the 182-day at 15.80 and the 364-day at 15.85. Thirty-five basis points separates three months from twelve, and five basis points separates six months from twelve.</p>
+<p>The obvious reading is that investors have stopped going long. The composition says the opposite. Of that ₦1.77 trillion, roughly ₦1.68 trillion chased the 364-day. The 91-day and the 182-day together drew ₦86.29 billion against ₦200 billion offered, so both were undersubscribed. Two weeks earlier the same shape was starker still, with ₦4.23 trillion of total bids and ₦4.09 trillion of it, about 97 percent, going into the one-year.</p>
+<p>So nobody in Lagos is refusing duration. They are stampeding into it, and that is precisely why it has stopped paying. In August the one-year paid 17.59 percent. It now pays 15.85, and it pays almost nothing over the six-month, because the people taking the risk competed away their own compensation for it.</p>
+<h2 class="sig-subhead">Nairobi refused to supply one</h2>
+<p>Kenya&#39;s Monetary Policy Committee held the Central Bank Rate at 8.75 percent on 7 October, a fourth consecutive hold and eight months since the February cut. September inflation came in at 6.8 percent against 6.6 in August, with core rising to 4.0 from 3.4 while non-core eased to 14.0 from 14.7. The Committee called the stance appropriate.</p>
+<p>The auction the next day said something the hold did not. Bids reached KSh75.4 billion against KSh28 billion offered, a performance rate of 269.3 percent. The 91-day alone drew KSh50.2 billion against an KSh8 billion offer, its heaviest bid since 2017, and the central bank took KSh20.4 billion of it at an average 8.762 percent. The 364-day drew KSh9.6 billion against KSh10 billion offered, undersubscribed, at 9.035 percent.</p>
+<p>Read those two lines together. Kenyan investors turned down 9.035 percent for a year and queued for 8.762 percent for three months, surrendering about 27 basis points to stay liquid. Meanwhile the central bank is in the market with KSh50 billion of reopened thirty-year bonds carrying coupons of 12.5 and 12.9 percent, with bidding open to 14 October. Investors want three months. The government needs thirty years.</p>
+<h2 class="sig-subhead">Washington is demanding a bigger one</h2>
+<p>September payrolls came in at 29,000 against a forecast near 84,000, in a report published on 2 October, just before this week. Unemployment rose to 4.2 percent from 4.1, July was revised to a loss of 10,000 and August down to 133,000. An October hike came off the table.</p>
+<p>Weak employment and a fading near-term hike should pull long yields down. They went the other way. The ten-year ticked higher on the day of the report, then reached roughly 5.37 percent on 7 October, its highest in about 24 years, before easing to around 5.24 percent by Friday, which left it a few basis points lower on the week. A yield at a 24-year high in a week of soft labour data is not a policy story. It is a term premium story, meaning investors demanding more to hold duration because of heavy issuance and competition for capital. The central bank can pause and the long end can still sell off.</p>
+<h2 class="sig-subhead">London declined to pay up</h2>
+<p>Airtel Money began conditional dealings on 9 October under the ticker AMC, offered at £1.96 and valued near £5.3 billion. The shares touched £2.00 early and settled below the offer, at around £1.93 on Reuters&#39; reading, in what the wires called a muted debut. The sale was 270 million existing shares from minority holders, with Mastercard making up to 27 million more available, and the IFC taking 34,285,714 shares for £67.2 million. It raised about £582 million, or roughly $703 million. Airtel Africa sold nothing and remains the majority holder. A 180-day lock-up runs from admission, and unconditional dealings are expected on 14 October.</p>
+<p>There is a rhyme worth noticing. When Airtel Africa listed in London in 2019 it priced at 80p, the bottom of its range, and fell as much as 15 percent on debut. Seven years on, the subsidiary priced below its indicated valuation and closed below its offer. A five-year private hold converting into public stock found no bid that would pay up for it.</p>
+<h2 class="sig-subhead">One price, broken four ways</h2>
+<p>Lagos competed its term premium to nothing. Nairobi would not supply one at the price offered. Washington is demanding a bigger one in the face of weak data. London would not pay for a claim that had already been held for five years.</p>
+<p>Lagos and Nairobi are moving in opposite directions on duration, and that is the point rather than a problem with it. The flow is not the signal. The price is. In none of these four is the reward for committing and waiting doing the work it is meant to do, in local currency or hard currency, in frontier markets or the deepest market on earth, inside one week.</p>
+<h2>Next move</h2>
+<h3>Career</h3>
+<p>For two months a Nigerian treasury desk could make money doing the obvious thing, which was to buy the one-year, roll it and watch it compress. That is finished, and the crowd that made it work is the reason. A flat curve rewards relative value, credit selection and liability management, which are different skills from directional carry, and this is the quarter where that difference becomes visible to whoever reviews you. The same shift is under way in Nairobi, where a desk that has spent the year sitting in 91-day paper is not building anything transferable. More broadly, the term premium is the most interesting question in rates right now, and almost nobody covering African markets can speak credibly to both the frontier and the dollar end of it. That combination is rare and it is hireable in London and New York as much as in Lagos.</p>
+<h3>Business owners and operators</h3>
+<p>In Nigeria this is the window and it is narrowing. Naira borrowing costs have fallen from 17.59 percent in August to 15.85, commercial paper prices off that curve, and the compression has visibly stalled, so waiting for more is now a bet rather than patience. If you have been planning to issue, refinance or term out short-dated debt, get indicative pricing this week rather than next quarter. In Kenya the Central Bank Rate has not moved in eight months, so do not build a plan around relief arriving; build it around competing for the credit growth the Committee says is already happening. And if you borrow in dollars anywhere, a ten-year above 5 percent means your cost of capital is still rising even while the Fed pauses.</p>
+<h3>Investors</h3>
+<p>At five basis points over the six-month, a Nigerian one-year bill is not paying you for a year of inflation and currency risk, however many other people are buying it. Shorten, or take risk somewhere you are actually compensated. In Kenya the thirty-year auction closing on 14 October is the cleaner read on what long Kenyan duration is worth, and the record 91-day bid tells you what most of the market has already concluded. In dollars and sterling the same instruction arrives from the other side, because cash pays, the long end is being repriced, and the compensation for extending has not caught up with the risk. On Airtel Money, wait for 14 October and for the 180-day lock-up to pass before concluding anything about what African mobile money is worth in public markets. A first week is a price, not a valuation. None of this is investment advice. Check your own numbers and speak to a licensed advisor before you move money.</p>]]></content:encoded>
+    </item>
     <item>
       <title>The Exit Was Already Written</title>
       <link>https://zerotoact.com/signals/the-exit-was-already-written/</link>
