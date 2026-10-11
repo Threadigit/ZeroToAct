@@ -2954,3 +2954,40 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 .latest-band-foot { margin-top: var(--space-sm); font-size: var(--fs-sm); }
 .latest-band-foot a { color: var(--grey-400); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-600); }
 .latest-band-foot a:hover { color: var(--white); }
+
+/* ─── FOUNDER NOTE ──────────────────────────────────────
+   The footer credit is gone, so the founder is established here instead, in
+   content a crawler can actually read rather than a link straight off-site. */
+.founder-note {
+  max-width: 46rem;
+  margin: var(--space-xl) auto 0;
+  padding-top: var(--space-lg);
+  border-top: var(--hairline);
+  text-align: left;
+}
+.founder-note-heading {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  margin-bottom: var(--space-sm);
+}
+.founder-note p {
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  color: var(--grey-300);
+  margin-bottom: var(--space-sm);
+}
+.founder-note strong { color: var(--white-pure); font-weight: var(--fw-semi); }
+.founder-note a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-600); }
+.founder-note a:hover { text-decoration-color: var(--white); }
+.founder-note-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 0;
+  font-size: var(--fs-sm);
+}
+.founder-note-links a { display: inline-flex; align-items: center; min-height: 24px; }
