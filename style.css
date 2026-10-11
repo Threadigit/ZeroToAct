@@ -2898,3 +2898,59 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   align-items: center;
   min-height: 24px;
 }
+
+/* ─── LATEST SIGNAL BAND ────────────────────────────────
+   The homepage described the Signals without showing one. This breaks the
+   eyebrow-heading-subhead rhythm with the actual published work. */
+.latest-band { padding: var(--space-2xl) 0; border-top: var(--hairline); }
+.latest-band-inner { max-width: 54rem; margin-inline: auto; }
+.latest-band-card {
+  display: block;
+  margin-top: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--black-soft);
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+.latest-band-card:hover { border-color: var(--grey-600); background: var(--black-card); }
+.latest-band-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  font-variant-numeric: tabular-nums;
+}
+.latest-band-title {
+  margin-top: var(--space-xs);
+  font-family: var(--ff-serif);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--white-pure);
+  text-wrap: balance;
+}
+.latest-band-claim {
+  margin-top: var(--space-2xs);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  color: var(--grey-300);
+  max-width: 54ch;
+}
+.latest-band-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-top: var(--space-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--white-pure);
+}
+.latest-band-foot { margin-top: var(--space-sm); font-size: var(--fs-sm); }
+.latest-band-foot a { color: var(--grey-400); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-600); }
+.latest-band-foot a:hover { color: var(--white); }

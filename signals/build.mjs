@@ -809,14 +809,47 @@ function whyPage() {
     <p>Then you notice that being good at your work does not decide how far that work travels. Skilled people stay invisible. Good ideas never find a way to make money. Useful products never get funded. Strong companies get knocked back by a currency swing or a government decision that had nothing to do with them.</p>
     <p>You have been reading this from the bottom, starting with your own work. Start at the top instead.</p>
 
-    <ol class="why-chain">
-      <li>Power writes the rules.</li>
-      <li>The rules decide what is allowed and what it costs.</li>
-      <li>That decides how easy it is to get money.</li>
-      <li>How easy money is decides what businesses can afford to build.</li>
-      <li>What they build decides which products and which jobs exist.</li>
-      <li>And that decides what your skill is worth, what your business can charge, and what the money you put in comes back as.</li>
-    </ol>
+    <figure class="why-chain-fig">
+      <ol class="why-chain">
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">01</span>
+        <span class="why-link-name">Power</span>
+        <span class="why-link-note">Governments and central banks decide.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what is allowed, and what it costs</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">02</span>
+        <span class="why-link-name">The rules</span>
+        <span class="why-link-note">Tariffs, rates, subsidies, capital controls.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down how easy it is to get money</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">03</span>
+        <span class="why-link-name">Credit</span>
+        <span class="why-link-note">The price of borrowing, for everyone.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what a business can afford to build</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">04</span>
+        <span class="why-link-name">Business</span>
+        <span class="why-link-note">Which projects clear the hurdle and which are dropped.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down which products and which jobs exist</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">05</span>
+        <span class="why-link-name">The market</span>
+        <span class="why-link-note">What there is to buy, and who gets hired to make it.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what your work is worth</span>
+      </li>
+      <li class="why-link is-you">
+        <span class="why-link-rank" aria-hidden="true">06</span>
+        <span class="why-link-name">You</span>
+        <span class="why-link-note">Your skill, your business, your money.</span>
+        
+      </li>
+      </ol>
+      <figcaption>Each layer hands the next one its terms. By the time it reaches your work, five decisions have already been taken above it.</figcaption>
+    </figure>
 
     <p>Your skill sits near the bottom of that chain. So does your business. So does whatever money you have put to work. What each is worth gets decided several levels above where you sit, by people you may never meet, in rooms you may never enter.</p>
     <p class="why-turn">That is not a reason to feel small. It is the reason to look up.</p>
@@ -875,21 +908,43 @@ function whyPage() {
 }
 
 function annualOutlookPage() {
+  // What goes in it, stated as fields rather than promises.
+  const inside = [
+    ['The scorecard', 'Every call the year\u2019s Signals made, graded right, wrong, half right or too early, before a single new one is made.'],
+    ['Where the money is going', 'Rates, currencies and credit for the year ahead, and what each one does to the cost of borrowing where you are.'],
+    ['Where the openings are', 'The sectors and markets the year\u2019s reporting kept returning to, and the ones it stopped returning to.'],
+    ['What would break it', 'The assumptions the position rests on, named, so you can watch the ones that matter instead of all of them.'],
+    ['The move, by position', 'What it means if you are building a career, running a company, or putting money to work. Three answers, not one.'],
+  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
+
   const sections = `
     <div class="sig-body">
       <p>Once a year, one publication reviews the year of Signals and tells you where to position for the next. It is the point where twelve months of weekly intelligence becomes a single, considered stance.</p>
     </div>
     <div class="sig-block sig-block--move">
-      <h2>It grades its own calls</h2>
-      <p>Before it makes a single new call, the Outlook publishes which of the year's Signals held and which did not. You see the track record before you read the forecast. Most outlooks quietly forget last year's; this one starts there.</p>
+      <h2>It grades its own calls first</h2>
+      <p>Before it makes a single new call, the Outlook publishes which of the year\u2019s Signals held and which did not. You see the track record before you read the forecast. Most outlooks quietly forget last year\u2019s. This one starts there.</p>
+    </div>
+
+    <div class="sig-lasttime">
+      <h2>What a graded call looks like</h2>
+      <p>On 26 July we put the probability of a Federal Reserve hike near one third, while the consensus was still leaning towards a cut.</p>
+      <p class="sig-lasttime-verdict"><strong>Early on timing, right on direction.</strong> The Fed held at that meeting, so the timing was wrong. Two meetings later it raised, unanimously. The grade goes in the Outlook with the call, not instead of it. <a href="/signals/read-the-corridor-not-the-cut/">Read where that landed</a>.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>What is inside it</h2>
+      <ul class="sig-moves">
+        ${inside}
+      </ul>
     </div>
     <div class="sig-block">
-      <h2>It is built from the year's work</h2>
-      <p>The Outlook is assembled, not invented. It draws on the year's Signals, the outcomes recorded inside the accountability cells, and global opportunity. It is the compounding of everything the operation already published.</p>
+      <h2>It is built from the year\u2019s work</h2>
+      <p>The Outlook is assembled, not invented. It draws on the year\u2019s Signals, the outcomes recorded inside the accountability cells, and the openings the reporting kept returning to. It is the compounding of everything already published, which is why it can be graded at all.</p>
     </div>
     <div class="sig-block">
       <h2>It sets up the Summit</h2>
-      <p>The Outlook is where the year's intelligence becomes a position. The <a href="/#summit-section">Annual Summit</a> is where you turn that position into a personal 12-month plan. The first Outlook lands alongside the New Year Summit.</p>
+      <p>The Outlook is where the year\u2019s intelligence becomes a position. The <a href="/#summit-section">Annual Summit</a> is where you turn that position into a personal 12-month plan. The first Outlook lands alongside the New Year Summit.</p>
     </div>`;
 
   return productShell({
@@ -926,6 +981,38 @@ ${SITE_FOOTER}`;
   });
 }
 
+
+// The homepage talked about Weekly Signals without ever showing one. This
+// writes the newest edition into a marked region of the hand-maintained
+// homepage, so the proof is on the page and never goes stale.
+function latestSignalBand() {
+  const s = signals[0];
+  return `<section class="latest-band" aria-labelledby="latest-band-heading">
+      <div class="container">
+        <div class="latest-band-inner reveal">
+          <p class="section-eyebrow" id="latest-band-heading">The latest Signal</p>
+          <a class="latest-band-card" href="${editionUrl(s).replace(BASE, '')}">
+            <p class="latest-band-meta"><span>${esc(s.theme)}</span><span>${esc(longDate(s.date))}</span><span>${readMinutes(s)} min read</span></p>
+            <h3 class="latest-band-title">${esc(s.title)}</h3>
+            <p class="latest-band-claim">${esc(s.headlineClaim)}</p>
+            <span class="latest-band-cta">Read this week&rsquo;s Signal &rarr;</span>
+          </a>
+          <p class="latest-band-foot"><a href="/signals/">Every edition, kept as a dated record</a></p>
+        </div>
+      </div>
+    </section>`;
+}
+
+function writeLatestSignalBand() {
+  const file = resolve(ROOT, 'index.html');
+  const html = readFileSync(file, 'utf8');
+  const start = '<!-- latest-signal:start -->', end = '<!-- latest-signal:end -->';
+  const a = html.indexOf(start), b = html.indexOf(end);
+  if (a === -1 || b === -1) { console.warn('index.html: latest-signal markers not found, skipped'); return; }
+  const next = html.slice(0, a + start.length) + '\n' + latestSignalBand() + '\n    ' + html.slice(b);
+  if (next !== html) { writeFileSync(file, next); console.log('wrote index.html latest-signal band'); }
+}
+
 // ── Write everything ──
 const write = (rel, content) => {
   const full = resolve(ROOT, rel);
@@ -944,3 +1031,4 @@ write('404.html', notFoundPage());
 write('annual-outlook/index.html', annualOutlookPage());
 
 console.log(`\nGenerated ${signals.length} editions and 4 standalone pages.`);
+writeLatestSignalBand();
