@@ -18,8 +18,7 @@
       "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time. Set it only when the substance changed, meaning a claim, figure, source or conclusion. Prose-only edits and same-day fixes are not revisions and carry no notice.",
       "revisionNote": "One short clause on what changed. Keep it to a line; the notice is a caption, not a changelog.",
       "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition.",
-      "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed.",
-      "disclosure": "Optional. An extra paragraph appended to the standing disclosure, for a conflict specific to this edition. Use it when the author or Prembly has a direct commercial stake in the subject, beyond the general overlap the standing note already covers."
+      "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed."
     }
   },
   "signals": [
@@ -169,7 +168,6 @@
         "London Stock Exchange listing",
         "African fintech exits",
         "Nigerian fintech banking licence",
-        "microfinance bank licence",
         "Moniepoint",
         "Flutterwave Bank",
         "African startup funding H1 2026"
