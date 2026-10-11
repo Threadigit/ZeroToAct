@@ -18,7 +18,7 @@
   --black-border-soft: rgba(255, 255, 255, 0.05);
   --white:        #f5f5f5;
   --white-pure:   #ffffff;
-  --grey-600:     #666666;
+  --grey-600:     #7f7f7f;
   --grey-500:     #949494;
   --grey-300:     #bfbfbf;
   --grey-400:     #aaaaaa;
@@ -133,6 +133,23 @@ input, textarea { font-family: inherit; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ─── SKIP LINK ─────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: var(--space-sm);
+  top: var(--space-sm);
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--white-pure);
+  color: var(--black);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  transform: translateY(-200%);
+  transition: transform var(--transition-fast);
+}
+.skip-link:focus { transform: translateY(0); }
 
 /* ─── CONTAINER ─────────────────────────────────────── */
 .container {
@@ -2841,4 +2858,39 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   color: var(--grey-500);
   margin-top: 0.35rem;
   display: block;
+}
+
+
+/* ─── PRINT ─────────────────────────────────────────────
+   Ink on paper, not a screenshot of a dark website. */
+@media print {
+  :root { --black: #fff; --black-soft: #fff; --black-card: #fff; --black-border: #d0d0d0;
+          --white: #111; --white-pure: #000; --grey-200: #222; --grey-300: #333;
+          --grey-400: #444; --grey-500: #555; --grey-600: #666; }
+  html, body { background: #fff !important; color: #111 !important; }
+  nav, .nav-mobile-menu, .sig-progress, .footer, .sig-footer,
+  .join-cta-trigger, .sig-cta-band, .skip-link, iframe, .sig-video { display: none !important; }
+  .sig-article, .why-page { max-width: none; padding: 0; }
+  a { color: #000 !important; text-decoration: underline; }
+  .sig-body a[href^="/"]::after, .sig-body a[href^="http"]::after {
+    content: " (" attr(href) ")"; font-size: 0.75em; color: #555; word-break: break-all;
+  }
+  .sig-chart-data[open] summary, .sig-chart-data summary { display: none; }
+  .sig-chart-data { display: block !important; }
+  .sig-chart path[fill], .sig-chart rect[fill] { fill: #333 !important; }
+  .sig-chart-grid { stroke: #ccc !important; }
+  h1, h2, h3 { break-after: avoid; }
+  .sig-chart, .sig-block, blockquote, table { break-inside: avoid; }
+}
+
+/* ─── TARGET SIZE ───────────────────────────────────────
+   Standalone links were 18 to 21px tall, under the 24px minimum. Centring the
+   text in a 24px box lifts the hit area without moving the text. Links set
+   inside a sentence are exempt and are left alone. */
+.footer-nav-link,
+.footer-instagram,
+.pillar-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }

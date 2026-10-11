@@ -88,7 +88,8 @@ const READING_PROGRESS = `<div class="sig-progress" id="sig-progress" role="pres
   </script>`;
 
 // Shared site chrome, matched to index.html so every page navigates identically.
-const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation">
+const SITE_NAV = `  <a class="skip-link" href="#main">Skip to content</a>
+  <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="36" height="36" /></a>
       <ul class="nav-links" role="list">
@@ -177,7 +178,7 @@ const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true"
     </div>
   </div>`;
 
-const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '' }) => `<!DOCTYPE html>
+const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '', noindex = false }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -185,9 +186,9 @@ const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', ar
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}" />
 ${keywords ? `  <meta name="keywords" content="${esc(keywords)}" />\n` : ''}  <meta name="author" content="${esc(AUTHOR.name)}" />
-  <link rel="canonical" href="${canonical}" />
+${canonical ? `  <link rel="canonical" href="${canonical}" />\n` : ''}
   <link rel="author" href="${AUTHOR.url}" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}" />
   <link rel="icon" type="image/png" href="/favicon-v2.png" />
   <meta name="theme-color" content="#0a0a0a" />
   <meta property="og:type" content="${ogType}" />
@@ -553,7 +554,7 @@ function editionPage(s) {
     `  <meta property="article:tag" content="${esc(s.theme)}" />\n`;
 
   const body = `
-  <main class="sig-wrap sig-article">
+  <main id="main" class="sig-wrap sig-article">
     <a href="/signals/" class="sig-back">&larr; The Signal Archive</a>
     <p class="sig-eyebrow">${eyebrowBits.map(esc).join(' &middot; ')}</p>
     <h1 class="sig-title">${esc(s.title)}</h1>
@@ -611,7 +612,7 @@ function indexPage() {
       </article>`).join('\n');
 
   const body = `
-  <main class="sig-wrap sig-index">
+  <main id="main" class="sig-wrap sig-index">
     <header class="sig-index-head">
       <p class="sig-eyebrow">Weekly Signals, on the record</p>
       <h1 class="sig-index-title">The Signal Archive</h1>
@@ -746,7 +747,7 @@ const briefCta = (label = 'Get the Free Signal') =>
 function productShell({ slug, title, desc, status, claim, sections, cta }) {
   const url = `${BASE}/${slug}/`;
   const body = `
-  <main class="sig-wrap sig-article">
+  <main id="main" class="sig-wrap sig-article">
     <a href="/" class="sig-back">&larr; ZeroToAct</a>
     <p class="sig-eyebrow">Intelligence &middot; ${esc(status)}</p>
     <h1 class="sig-title">${esc(title)}</h1>
@@ -787,7 +788,7 @@ function whyPage() {
   const desc = 'One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. This is the chain that does it.';
 
   const body = `
-  <main class="sig-wrap why-page">
+  <main id="main" class="sig-wrap why-page">
     <a href="/" class="sig-back">&larr; ZeroToAct</a>
     <h1 class="sig-eyebrow why-eyebrow">Why we exist</h1>
 
@@ -902,6 +903,29 @@ function annualOutlookPage() {
   });
 }
 
+
+// A 404 is a page on the site, not an apology from the server. It keeps the
+// chrome so the reader can carry on, and points at the thing most of them want.
+function notFoundPage() {
+  const body = `
+  <main id="main" class="sig-wrap sig-article">
+    <p class="sig-eyebrow">404</p>
+    <h1 class="sig-title">That page is not here.</h1>
+    <p class="sig-claim">The link may be old, or the page may have been retired. Everything we publish is still one click away.</p>
+    <div class="sig-body">
+      <h2 class="sig-subhead">Where to go instead</h2>
+      <p>Start with <a href="/signals/">the Signal archive</a>, which holds every edition we have published. <a href="/why/">Why ZeroToAct exists</a> explains what we are doing and for whom, and <a href="/annual-outlook/">the Annual Outlook</a> is where the year's calls get graded.</p>
+      <p>If you followed a link from somewhere on this site and it brought you here, that is our mistake rather than yours.</p>
+    </div>
+  </main>
+${SITE_FOOTER}`;
+  return shell({
+    title: 'Page not found | ZeroToAct',
+    desc: 'That page is not here. The Signal archive, the Why page and the Annual Outlook are all one click away.',
+    canonical: '', noindex: true, body,
+  });
+}
+
 // ── Write everything ──
 const write = (rel, content) => {
   const full = resolve(ROOT, rel);
@@ -916,6 +940,7 @@ write('sitemap.xml', sitemap());
 for (const s of signals) write(`signals/${s.slug}/index.html`, editionPage(s));
 
 write('why/index.html', whyPage());
+write('404.html', notFoundPage());
 write('annual-outlook/index.html', annualOutlookPage());
 
 console.log(`\nGenerated ${signals.length} editions and 4 standalone pages.`);

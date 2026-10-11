@@ -322,3 +322,14 @@
   .sig-chart-val { font-size: 25px; }
   .sig-chart-inlabel { font-size: 22px; }
 }
+
+/* Standalone targets on the article and archive pages, same 24px minimum. */
+.sig-back,
+.sig-sources li a,
+.sig-byline a,
+.sig-filter {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+.sig-sources li a { align-items: baseline; min-height: 0; padding-block: 3px; }
