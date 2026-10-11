@@ -302,8 +302,11 @@ input, textarea { font-family: inherit; }
 }
 
 #nav.scrolled {
-  background: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(20px);
+  /* Large white serif headings were ghosting through at 0.92. Still glass,
+     but enough of it that nothing reads through next to the logo. */
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
   border-color: var(--black-border);
 }
 
@@ -826,6 +829,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 .pillar-link {
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: .55rem;
@@ -1156,7 +1160,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   position: relative;
   width: 100%;
   max-width: 380px;
-  aspect-ratio: 4/5;
+  min-height: 22rem;
 }
 
 .stack-card {
