@@ -51,7 +51,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css" />
+  <!-- Phone-input styling is only needed inside the join modal, so it must not
+       block first paint. Loaded as print, promoted once it arrives. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css"
+        media="print" onload="this.media='all';this.onload=null" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css" /></noscript>
   <link rel="stylesheet" href="style.css" />
 
   <!-- JSON-LD Structured Data Schema Markup -->
@@ -752,7 +756,7 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/js/intlTelInput.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/js/intlTelInput.min.js"></script>
   <script src="main.js"></script>
 </body>
 
