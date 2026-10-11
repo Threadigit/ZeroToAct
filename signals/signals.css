@@ -54,7 +54,7 @@
 }
 
 /* ── Archive index ── */
-.sig-index { padding-top: 7rem; padding-bottom: 5rem; }
+.sig-index { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
 .sig-index-head { margin-bottom: 2.5rem; }
 .sig-index-title {
   font-family: var(--ff-serif);
@@ -95,11 +95,11 @@
 .sig-card-cta { font-size: var(--fs-sm); font-weight: 500; color: var(--white); }
 
 /* ── Article ── */
-.sig-article { padding-top: 6rem; padding-bottom: 5rem; max-width: 700px; }
+.sig-article { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); max-width: var(--read-measure); }
 .sig-back { display: inline-block; font-size: var(--fs-sm); color: var(--grey-400); margin-bottom: 2rem; }
 .sig-back:hover { color: var(--white); }
-.sig-title { font-family: var(--ff-serif); font-size: var(--fs-4xl); font-weight: 700; line-height: 1.06; letter-spacing: -0.02em; color: var(--white-pure); margin: 0.75rem 0 1rem; }
-.sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-xl); line-height: 1.4; color: var(--grey-200); margin-bottom: 2rem; }
+.sig-title { font-family: var(--ff-serif); font-size: var(--fs-4xl); font-weight: 700; line-height: 1.04; letter-spacing: -0.028em; text-wrap: balance; color: var(--white-pure); margin: 0.75rem 0 1rem; }
+.sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-xl); line-height: 1.38; text-wrap: pretty; color: var(--grey-200); margin-bottom: 2rem; }
 .sig-draft-note { display: inline-block; font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: #f5c451; background: rgba(245, 196, 81, 0.08); border: 1px solid rgba(245, 196, 81, 0.25); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); margin-bottom: 2rem; }
 
 /* figure/figcaption so the caption is associated with the embed, not floating near it. */
@@ -108,14 +108,14 @@
 .sig-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .sig-revised { margin-top: 0.85rem; font-size: var(--fs-sm); line-height: 1.55; color: var(--grey-500); border-left: 2px solid var(--black-border); padding-left: 0.9rem; }
 
-.sig-body p { font-size: var(--fs-md); line-height: 1.75; color: var(--grey-200); margin-bottom: 1.25rem; }
+.sig-body p { font-size: var(--read-size); line-height: var(--read-leading); color: var(--grey-200); margin-bottom: var(--space-md); }
 .sig-body .sig-subhead { font-family: var(--ff-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--white-pure); line-height: 1.25; letter-spacing: -0.01em; margin: 2.25rem 0 0.85rem; }
 .sig-body .sig-subhead:first-child { margin-top: 0; }
 .sig-pending { color: var(--grey-400); font-style: italic; }
 
-.sig-block { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 1.5rem; }
+.sig-block { border-top: var(--hairline); padding-top: var(--space-md); margin-top: var(--space-md); }
 .sig-block h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
-.sig-block p { font-size: var(--fs-md); line-height: 1.7; color: var(--grey-200); }
+.sig-block p { font-size: var(--read-size); line-height: var(--read-leading); color: var(--grey-200); }
 .sig-block--move p { color: var(--white); }
 .sig-flag { color: #f5c451; font-family: var(--ff-mono); font-size: var(--fs-xs); }
 .sig-moves { list-style: none; display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-md); overflow: hidden; }
@@ -168,20 +168,22 @@
 
 /* ── Why page ────────────────────────────────────────────────
    One column, no boxes. Short lines are given room to stand alone. */
-.why-page { padding-top: 6rem; padding-bottom: 6rem; max-width: 660px; }
+.why-page { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); max-width: var(--read-measure); }
 /* The page heading is the eyebrow: semantic h1, visual weight left to the opening line. */
 .why-eyebrow { font-weight: inherit; margin: 0; }
-.why-page > p { font-size: var(--fs-md); line-height: 1.8; color: var(--grey-200); margin-bottom: 1.6rem; }
+.why-page > p { font-size: var(--read-size); line-height: var(--read-leading); color: var(--grey-200); margin-bottom: var(--space-md); }
 .why-page > p a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-600); }
 .why-page > p a:hover { text-decoration-color: var(--white); }
 
 /* Opening line and the pivots: left alone, no rules or boxes around them. */
 .why-page > p.why-lead {
   font-family: var(--ff-serif);
-  font-size: var(--fs-2xl);
-  line-height: 1.3;
+  font-size: var(--fs-3xl);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
   color: var(--white-pure);
-  margin: 2rem 0 2.5rem;
+  text-wrap: balance;
+  margin: var(--space-md) 0 var(--space-lg);
 }
 .why-page > p.why-turn {
   font-family: var(--ff-serif);
@@ -197,7 +199,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--grey-500);
-  margin: 4rem 0 1.25rem;
+  margin: var(--space-xl) 0 var(--space-sm);
 }
 
 /* The chain: one step per line, counted, no cards. */
@@ -251,3 +253,15 @@
 .sig-card-latest { display: inline-block; margin-right: 0.6rem; padding: 0.1rem 0.45rem; border: 1px solid var(--black-border); border-radius: var(--radius-full); color: var(--white); letter-spacing: 0.08em; }
 .sig-card--latest .sig-card-title { font-size: var(--fs-2xl); }
 @media (max-width: 640px) { .sig-card--latest .sig-card-title { font-size: var(--fs-xl); } }
+
+/* ── Numerals ──
+   A publication this full of figures should set them deliberately. Running prose
+   keeps proportional lining figures; anything tabular or compared down a column
+   gets tabular ones so the digits align. */
+.sig-body p,
+.why-page > p { font-variant-numeric: lining-nums proportional-nums; }
+.sig-card-date,
+.sig-eyebrow,
+.sig-cite-text,
+.sig-moves li,
+.sig-sources li { font-variant-numeric: tabular-nums lining-nums; }

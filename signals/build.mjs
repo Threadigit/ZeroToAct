@@ -69,6 +69,24 @@ const citeTitle = (s) => s.title.replace(/\.$/, '');
 const citation = (s) =>
   `ZeroToAct, ${s.number ? `Signal ${s.number}, ` : ''}${citeTitle(s)}, ${longDate(s.date)}, ${editionUrl(s)}`;
 
+// Reading progress. Any page built around a single column of prose gets one.
+const READING_PROGRESS = `<div class="sig-progress" id="sig-progress" role="presentation"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('sig-progress');
+      var article = document.querySelector('.sig-article, .why-page');
+      if (!bar || !article) return;
+      var tick = function () {
+        var span = article.offsetHeight - window.innerHeight;
+        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
+        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+      };
+      addEventListener('scroll', tick, { passive: true });
+      addEventListener('resize', tick);
+      tick();
+    }());
+  </script>`;
+
 // Shared site chrome, matched to index.html so every page navigates identically.
 const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
@@ -358,22 +376,7 @@ function editionPage(s) {
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
   </main>
-  <div class="sig-progress" id="sig-progress" role="presentation"></div>
-  <script>
-    (function () {
-      var bar = document.getElementById('sig-progress');
-      var article = document.querySelector('.sig-article');
-      if (!bar || !article) return;
-      var tick = function () {
-        var span = article.offsetHeight - window.innerHeight;
-        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
-        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
-      };
-      addEventListener('scroll', tick, { passive: true });
-      addEventListener('resize', tick);
-      tick();
-    }());
-  </script>`;
+  ${READING_PROGRESS}`;
 
   return shell({
     title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
@@ -547,7 +550,8 @@ function productShell({ slug, title, desc, status, claim, sections, cta }) {
       </div>
       ${briefCta(cta.label)}
     </div>
-  </main>`;
+  </main>
+  ${READING_PROGRESS}`;
   const ld = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -635,7 +639,8 @@ function whyPage() {
     <p class="why-turn">A year from now you will either have watched the chain move or you will have moved with it.</p>
 
     <div class="why-cta">${briefCta('Get the Free Signal')}</div>
-  </main>`;
+  </main>
+  ${READING_PROGRESS}`;
 
   const ld = {
     '@context': 'https://schema.org',
