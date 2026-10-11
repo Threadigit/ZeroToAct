@@ -20,6 +20,7 @@
   --white-pure:   #ffffff;
   --grey-600:     #666666;
   --grey-500:     #949494;
+  --grey-300:     #bfbfbf;
   --grey-400:     #aaaaaa;
   --grey-200:     #d4d4d4;
 
@@ -32,17 +33,37 @@
   --fw-medium:  500;
   --fw-semi:    600;
 
-  --fs-xs:   0.75rem;
-  --fs-sm:   0.875rem;
-  --fs-base: 1rem;
-  --fs-md:   1.125rem;
-  --fs-lg:   1.25rem;
-  --fs-xl:   1.5rem;
-  --fs-2xl:  2rem;
-  --fs-3xl:  2.5rem;
-  --fs-4xl:  3.25rem;
-  --fs-5xl:  4rem;
-  --fs-6xl:  5.5rem;
+  /* Fluid type. Each step interpolates between a 360px and a 1440px viewport,
+     so nothing is sized for one screen and tolerated on the rest. */
+  --fs-xs:   clamp(0.6875rem, 0.667rem + 0.09vw, 0.75rem);
+  --fs-sm:   clamp(0.8125rem, 0.792rem + 0.09vw, 0.875rem);
+  --fs-base: clamp(0.9375rem, 0.917rem + 0.09vw, 1rem);
+  --fs-md:   clamp(1.0625rem, 1.021rem + 0.19vw, 1.1875rem);
+  --fs-lg:   clamp(1.1875rem, 1.125rem + 0.28vw, 1.375rem);
+  --fs-xl:   clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);
+  --fs-2xl:  clamp(1.625rem, 1.417rem + 0.93vw, 2.25rem);
+  --fs-3xl:  clamp(2rem, 1.625rem + 1.67vw, 3rem);
+  --fs-4xl:  clamp(2.5rem, 1.875rem + 2.78vw, 4rem);
+  --fs-5xl:  clamp(3rem, 2.167rem + 3.7vw, 5rem);
+  --fs-6xl:  clamp(3.5rem, 2.042rem + 6.48vw, 7rem);
+
+  /* Vertical rhythm. One scale, used everywhere, so spacing is a decision
+     made once rather than per component. */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: clamp(4rem, 8vw, 6.5rem);
+  --space-3xl: clamp(5.5rem, 11vw, 9rem);
+
+  /* Long-form reading. Shared by every page that is meant to be read
+     rather than scanned, so they do not drift apart. */
+  --read-measure: 44rem;
+  --read-size: var(--fs-md);
+  --read-leading: 1.75;
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -59,6 +80,8 @@
   --max-w: 1200px;
   --gutter: clamp(1.25rem, 5vw, 3rem);
   --surface-glow: rgba(255, 255, 255, 0.035);
+  --hairline: 1px solid var(--black-border);
+  --ease-out: cubic-bezier(0.2, 0.65, 0.3, 1);
 }
 
 html {
@@ -74,7 +97,13 @@ body {
   color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
+  font-optical-sizing: auto;
+  font-variant-numeric: lining-nums proportional-nums;
+  text-rendering: optimizeLegibility;
 }
+
+/* Paragraphs should not end on a single word. */
+p { text-wrap: pretty; }
 
 ::selection {
   background: var(--white);
@@ -125,10 +154,10 @@ input, textarea { font-family: inherit; }
 
 .section-heading {
   font-family: var(--ff-serif);
-  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
+  font-size: var(--fs-3xl);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
+  letter-spacing: -0.022em;
   color: var(--white);
   margin-bottom: 1.25rem;
   text-wrap: balance;
@@ -154,9 +183,8 @@ input, textarea { font-family: inherit; }
 /* ─── REVEAL ANIMATIONS ─────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(18px);
+  transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
 }
 
 .reveal.is-visible {
@@ -168,19 +196,19 @@ input, textarea { font-family: inherit; }
 .hero .reveal {
   opacity: 1;
   transform: translateY(0);
-  animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: heroFadeUp 0.65s var(--ease-out) both;
 }
 
 @keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(28px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero .reveal:nth-child(1) { animation-delay: 0.1s; }
-.hero .reveal:nth-child(2) { animation-delay: 0.25s; }
-.hero .reveal:nth-child(3) { animation-delay: 0.4s; }
-.hero .reveal:nth-child(4) { animation-delay: 0.55s; }
-.hero .reveal:nth-child(5) { animation-delay: 0.7s; }
+.hero .reveal:nth-child(1) { animation-delay: 0.05s; }
+.hero .reveal:nth-child(2) { animation-delay: 0.16s; }
+.hero .reveal:nth-child(3) { animation-delay: 0.27s; }
+.hero .reveal:nth-child(4) { animation-delay: 0.38s; }
+.hero .reveal:nth-child(5) { animation-delay: 0.49s; }
 
 /* ─── BUTTONS ───────────────────────────────────────── */
 .btn-primary {
@@ -2575,7 +2603,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 
 .join-modal-title {
   font-size: 1.75rem;
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-semi);
   color: var(--white-pure);
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
@@ -2653,7 +2681,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   border: none;
   border-radius: var(--radius-sm);
   font-size: 0.95rem;
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-semi);
   cursor: pointer;
   transition: background var(--transition-fast), transform var(--transition-fast);
   display: flex;
@@ -2747,7 +2775,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   background: #25d366;
   color: var(--white-pure);
   border-radius: var(--radius-sm);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-semi);
   text-decoration: none;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
   margin-top: 1rem;

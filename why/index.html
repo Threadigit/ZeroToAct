@@ -133,6 +133,22 @@
 
     <div class="why-cta"><button type="button" class="sig-cta-btn join-cta-trigger" data-intent="brief">Get the Free Signal</button></div>
   </main>
+  <div class="sig-progress" id="sig-progress" role="presentation"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('sig-progress');
+      var article = document.querySelector('.sig-article, .why-page');
+      if (!bar || !article) return;
+      var tick = function () {
+        var span = article.offsetHeight - window.innerHeight;
+        var pct = span > 0 ? (window.scrollY - article.offsetTop) / span : 1;
+        bar.style.width = Math.max(0, Math.min(1, pct)) * 100 + '%';
+      };
+      addEventListener('scroll', tick, { passive: true });
+      addEventListener('resize', tick);
+      tick();
+    }());
+  </script>
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
