@@ -226,9 +226,218 @@ ${JOIN_MODAL}
 // restricted to site-relative, so neither the text nor the href can inject markup.
 const linkify = (html) =>
   html.replace(/\[([^\]]+)\]\((\/[A-Za-z0-9\-._~\/#]*)\)/g, '<a href="$2">$1</a>');
+// ── Charts ──────────────────────────────────────────────────────────────
+// A publication this full of figures should show them. Three forms, no more:
+// a line for change over time, columns for magnitude, a split bar for
+// part-to-whole. Encoding is monochrome and ordinal, so identity comes from
+// lightness, position and labels rather than hue. Every chart ships a table
+// twin, which is both the accessible equivalent and what goes into the feed.
+
+const INK = { lead: 'var(--white-pure)', context: 'var(--grey-500)', faint: 'var(--grey-600)' };
+
+const niceTicks = (lo, hi, count = 4) => {
+  const span = hi - lo || Math.abs(hi) || 1;
+  const raw = span / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw) ?? 10 * mag;
+  const start = Math.floor(lo / step) * step;
+  const out = [];
+  for (let v = start; v <= hi + step / 2; v += step) out.push(Number(v.toFixed(10)));
+  return out;
+};
+
+const fmt = (v, unit = '') => {
+  const a = Math.abs(v);
+  let s;
+  const trim = (n, dp) => String(Number(n.toFixed(dp)));
+  if (a >= 1e12) s = trim(v / 1e12, 2) + 'tn';
+  else if (a >= 1e9) s = trim(v / 1e9, a >= 1e10 ? 0 : 2) + 'bn';
+  else if (a >= 1e6) s = trim(v / 1e6, 1) + 'm';
+  else if (a >= 1000) s = v.toLocaleString('en-GB');
+  else s = String(Number(v.toFixed(2)));
+  return unit === '%' ? s + '%' : unit ? unit + s : s;
+};
+
+// Table twin. Carries every value, so no number is gated behind a hover.
+const chartTable = (c) => {
+  // A split bar is read as a share, so the share belongs in the table too.
+  // Nothing the chart or its tooltip shows may be missing here.
+  if (c.form === 'split') {
+    const total = c.series.reduce((a, s) => a + s.values[0], 0);
+    const rows = c.series.map(s =>
+      `<tr><th scope="row">${esc(s.name)}</th><td>${esc(fmt(s.values[0], c.unit))}</td><td>${Math.round((s.values[0] / total) * 100)}%</td></tr>`).join('');
+    return `<details class="sig-chart-data"><summary>Table of values</summary><table><caption>${esc(c.title)}</caption><thead><tr><th scope="col">${esc(c.xLabel || '')}</th><th scope="col">Amount</th><th scope="col">Share</th></tr></thead><tbody>${rows}</tbody></table></details>`;
+  }
+  const head = `<tr><th scope="col">${esc(c.xLabel || '')}</th>${c.series.map(s => `<th scope="col">${esc(s.name)}</th>`).join('')}</tr>`;
+  const rows = c.x.map((x, i) =>
+    `<tr><th scope="row">${esc(x)}</th>${c.series.map(s => `<td>${esc(fmt(s.values[i], c.unit))}</td>`).join('')}</tr>`
+  ).join('');
+  return `<details class="sig-chart-data"><summary>Table of values</summary><table><caption>${esc(c.title)}</caption><thead>${head}</thead><tbody>${rows}</tbody></table></details>`;
+};
+
+const barPath = (x, y, w, h, r) => {
+  const rr = Math.min(r, w / 2, h);
+  return `M${x} ${y + h}V${y + rr}a${rr} ${rr} 0 0 1 ${rr} ${-rr}h${w - 2 * rr}a${rr} ${rr} 0 0 1 ${rr} ${rr}V${y + h}Z`;
+};
+
+function chartSvg(c, id) {
+  const W = 680, PAD = { t: 18, r: 18, b: 34, l: 46 };
+  const multi = c.series.length > 1;
+  const all = c.series.flatMap(s => s.values);
+  const H = c.form === 'split' ? 76 : 250;
+
+  if (c.form === 'split') {
+    const total = all.reduce((a, b) => a + b, 0);
+    const innerW = W - PAD.l - PAD.r, y = 22, bh = 32, gap = 2;
+    let x = PAD.l, segs = '', labels = '';
+    c.series.forEach((s, i) => {
+      const w = Math.max(0, (s.values[0] / total) * innerW - (i < c.series.length - 1 ? gap : 0));
+      const fill = i === 0 ? INK.lead : i === 1 ? INK.context : INK.faint;
+      const pct = Math.round((s.values[0] / total) * 100);
+      segs += `<rect x="${x.toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="${bh}" rx="2" fill="${fill}" tabindex="0" role="img" aria-label="${esc(s.name)}, ${esc(fmt(s.values[0], c.unit))}, ${pct} percent" data-l="${esc(s.name)}" data-v="${esc(fmt(s.values[0], c.unit))} · ${pct}%"><title>${esc(s.name)}: ${esc(fmt(s.values[0], c.unit))}</title></rect>`;
+      // Only label inside the segment when the text comfortably fits.
+      if (w > 64) labels += `<text x="${(x + 8).toFixed(1)}" y="${y + bh / 2 + 4}" class="sig-chart-inlabel" fill="${i === 0 ? 'var(--black)' : 'var(--black)'}">${pct}%</text>`;
+      x += w + gap;
+    });
+    const key = c.series.map((s, i) =>
+      `<span class="sig-chart-key"><i style="background:${i === 0 ? INK.lead : i === 1 ? INK.context : INK.faint}"></i>${esc(s.name)} ${esc(fmt(s.values[0], c.unit))}</span>`).join('');
+    return { svg: `<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${id}-t" preserveAspectRatio="xMidYMid meet"><title id="${id}-t">${esc(c.title)}</title>${segs}${labels}</svg>`, key };
+  }
+
+  const lo = Math.min(...all), hi = Math.max(...all);
+  const zeroBased = c.form === 'bar';
+  const ticks = niceTicks(zeroBased ? 0 : lo, hi);
+  const yMin = zeroBased ? 0 : Math.min(ticks[0], lo), yMax = Math.max(ticks[ticks.length - 1], hi);
+  const px = i => PAD.l + (c.x.length === 1 ? (W - PAD.l - PAD.r) / 2 : (i / (c.x.length - 1)) * (W - PAD.l - PAD.r));
+  const py = v => PAD.t + (1 - (v - yMin) / (yMax - yMin || 1)) * (H - PAD.t - PAD.b);
+
+  const grid = ticks.map(t =>
+    `<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${py(t).toFixed(1)}" y2="${py(t).toFixed(1)}" class="sig-chart-grid" />` +
+    `<text x="${PAD.l - 10}" y="${(py(t) + 4).toFixed(1)}" class="sig-chart-tick" text-anchor="end">${esc(fmt(t, c.unit))}</text>`).join('');
+
+  const bandW = (W - PAD.l - PAD.r) / c.x.length;
+  const labelX = i => c.form === 'bar' ? PAD.l + bandW * i + bandW / 2 : px(i);
+  const xLabels = c.x.map((x, i) =>
+    `<text x="${labelX(i).toFixed(1)}" y="${H - 12}" class="sig-chart-tick" text-anchor="${c.form === 'bar' ? 'middle' : i === 0 ? 'start' : i === c.x.length - 1 ? 'end' : 'middle'}">${esc(x)}</text>`).join('');
+
+  let marks = '', hits = '';
+  if (c.form === 'bar') {
+    const band = (W - PAD.l - PAD.r) / c.x.length;
+    const thick = Math.min(24, Math.max(8, (band - 10) / c.series.length - 2));
+    c.series.forEach((s, si) => {
+      const fill = si === 0 ? INK.lead : si === 1 ? INK.context : INK.faint;
+      s.values.forEach((v, i) => {
+        const groupW = c.series.length * thick + (c.series.length - 1) * 2;
+        const x0 = PAD.l + band * i + (band - groupW) / 2 + si * (thick + 2);
+        const y0 = py(v), h = py(yMin) - y0;
+        marks += `<path d="${barPath(x0, y0, thick, h, 4)}" fill="${fill}" tabindex="0" role="img" aria-label="${esc(c.x[i])}, ${esc(s.name)}, ${esc(fmt(v, c.unit))}" data-l="${esc(c.x[i])} · ${esc(s.name)}" data-v="${esc(fmt(v, c.unit))}"><title>${esc(c.x[i])} ${esc(s.name)}: ${esc(fmt(v, c.unit))}</title></path>`;
+        if (si === 0) marks += `<text x="${(x0 + thick / 2).toFixed(1)}" y="${(y0 - 7).toFixed(1)}" class="sig-chart-val" text-anchor="middle">${esc(fmt(v, c.unit))}</text>`;
+      });
+    });
+  } else {
+    c.series.forEach((s, si) => {
+      const stroke = si === 0 ? INK.lead : si === 1 ? INK.context : INK.faint;
+      const d = s.values.map((v, i) => `${i ? 'L' : 'M'}${px(i).toFixed(1)} ${py(v).toFixed(1)}`).join(' ');
+      marks += `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />`;
+      const li = s.values.length - 1;
+      // Selective labels only: the endpoint, and the extreme when it is not the endpoint.
+      const exi = s.values.indexOf(Math.max(...s.values));
+      [li, ...(exi !== li && si === 0 ? [exi] : [])].forEach(i => {
+        marks += `<circle cx="${px(i).toFixed(1)}" cy="${py(s.values[i]).toFixed(1)}" r="4" fill="${stroke}" stroke="var(--black)" stroke-width="2" />`;
+        marks += `<text x="${px(i).toFixed(1)}" y="${(py(s.values[i]) - 12).toFixed(1)}" class="sig-chart-val" text-anchor="${i === li ? 'end' : 'middle'}">${esc(fmt(s.values[i], c.unit))}</text>`;
+      });
+    });
+    // Crosshair hit bands: the reader aims at an x position, never at a 2px line.
+    const band = (W - PAD.l - PAD.r) / Math.max(1, c.x.length - 1);
+    hits = c.x.map((x, i) => {
+      const rows = c.series.map(s => `${s.name} ${fmt(s.values[i], c.unit)}`).join(' · ');
+      return `<rect x="${(px(i) - band / 2).toFixed(1)}" y="${PAD.t}" width="${Math.max(24, band).toFixed(1)}" height="${H - PAD.t - PAD.b}" fill="transparent" tabindex="0" role="img" aria-label="${esc(x)}, ${esc(rows)}" data-l="${esc(x)}" data-v="${esc(rows)}" data-x="${px(i).toFixed(1)}" />`;
+    }).join('');
+  }
+
+  const key = multi ? c.series.map((s, i) =>
+    `<span class="sig-chart-key"><i class="${c.form === 'line' ? 'is-line' : ''}" style="background:${i === 0 ? INK.lead : i === 1 ? INK.context : INK.faint}"></i>${esc(s.name)}</span>`).join('') : '';
+
+  return {
+    svg: `<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${id}-t" preserveAspectRatio="xMidYMid meet"><title id="${id}-t">${esc(c.title)}</title>${grid}<line class="sig-chart-grid" x1="${PAD.l}" x2="${W - PAD.r}" y1="${py(yMin).toFixed(1)}" y2="${py(yMin).toFixed(1)}" />${marks}${xLabels}<g class="sig-chart-cross" aria-hidden="true"><line y1="${PAD.t}" y2="${H - PAD.b}" /></g>${hits}</svg>`,
+    key,
+  };
+}
+
+
+// Chart hover and keyboard readout. Only emitted on pages that have a chart.
+const CHART_SCRIPT = `<script>
+    (function () {
+      document.querySelectorAll('.sig-chart').forEach(function (fig) {
+        var plot = fig.querySelector('.sig-chart-plot');
+        var tip = fig.querySelector('.sig-chart-tip');
+        var svg = fig.querySelector('svg');
+        var cross = fig.querySelector('.sig-chart-cross');
+        if (!plot || !tip || !svg) return;
+        function hide() { tip.hidden = true; if (cross) cross.classList.remove('is-on'); }
+        function show(el) {
+          var v = el.getAttribute('data-v'), l = el.getAttribute('data-l');
+          if (!v) return;
+          tip.textContent = '';
+          var b = document.createElement('b'); b.textContent = v;
+          var sp = document.createElement('span'); sp.textContent = l || '';
+          tip.appendChild(b); tip.appendChild(sp);
+          var r = el.getBoundingClientRect(), p = plot.getBoundingClientRect();
+          tip.hidden = false;
+          tip.style.left = Math.round(r.left - p.left + r.width / 2) + 'px';
+          tip.style.top = Math.round(r.top - p.top) - 8 + 'px';
+          var x = el.getAttribute('data-x');
+          if (cross && x) {
+            var ln = cross.querySelector('line');
+            ln.setAttribute('x1', x); ln.setAttribute('x2', x);
+            cross.classList.add('is-on');
+          }
+        }
+        svg.querySelectorAll('[data-v]').forEach(function (el) {
+          el.addEventListener('pointerenter', function () { show(el); });
+          el.addEventListener('focus', function () { show(el); });
+          el.addEventListener('blur', hide);
+        });
+        plot.addEventListener('pointerleave', hide);
+      });
+    }());
+  <\/script>`;
+
+let chartSeq = 0;
+function renderChart(c) {
+  const id = `chart-${++chartSeq}`;
+  const { svg, key } = chartSvg(c, id);
+  return `<figure class="sig-chart" id="${id}">
+      <figcaption class="sig-chart-head"><span class="sig-chart-title">${esc(c.title)}</span>${c.note ? `<span class="sig-chart-note">${esc(c.note)}</span>` : ''}</figcaption>
+      ${key ? `<div class="sig-chart-legend">${key}</div>` : ''}
+      <div class="sig-chart-plot">${svg}<div class="sig-chart-tip" hidden></div></div>
+      ${c.source ? `<p class="sig-chart-source">${esc(c.source)}</p>` : ''}
+      ${chartTable(c)}
+    </figure>`;
+}
+
 const renderBlock = (item) =>
   typeof item === 'string' ? `<p>${linkify(esc(item))}</p>`
-    : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>` : '';
+    : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>`
+    : (item && item.chart) ? renderChart(item.chart) : '';
+
+// The feed gets the table instead of the SVG. Readers render inline SVG
+// inconsistently, and the table carries every value anyway.
+const renderBlockForFeed = (item) =>
+  (item && item.chart) ? feedTable(item.chart) : renderBlock(item);
+
+const feedTable = (c) => {
+  if (c.form === 'split') {
+    const total = c.series.reduce((a, x) => a + x.values[0], 0);
+    const rows = c.series.map(x =>
+      `<tr><th>${esc(x.name)}</th><td>${esc(fmt(x.values[0], c.unit))}</td><td>${Math.round((x.values[0] / total) * 100)}%</td></tr>`).join('');
+    return `<figure><table><caption>${esc(c.title)}${c.note ? '. ' + esc(c.note) : ''}</caption><thead><tr><th>${esc(c.xLabel || '')}</th><th>Amount</th><th>Share</th></tr></thead><tbody>${rows}</tbody></table></figure>`;
+  }
+  const head = `<tr><th>${esc(c.xLabel || '')}</th>${c.series.map(x => `<th>${esc(x.name)}</th>`).join('')}</tr>`;
+  const rows = c.x.map((x, i) =>
+    `<tr><th>${esc(x)}</th>${c.series.map(sr => `<td>${esc(fmt(sr.values[i], c.unit))}</td>`).join('')}</tr>`).join('');
+  return `<figure><table><caption>${esc(c.title)}${c.note ? '. ' + esc(c.note) : ''}</caption><thead>${head}</thead><tbody>${rows}</tbody></table></figure>`;
+};
 
 // Absolute media URLs for the edition's video, used by both the page schema and the feed.
 const videoThumb = (s) => `https://i.ytimg.com/vi/${s.videoId}/maxresdefault.jpg`;
@@ -376,7 +585,7 @@ function editionPage(s) {
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
   </main>
-  ${READING_PROGRESS}`;
+  ${READING_PROGRESS}${(s.written || []).some(b => b && b.chart) ? CHART_SCRIPT : ''}`;
 
   return shell({
     title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
@@ -468,7 +677,7 @@ function feed() {
   // Feed readers get the whole edition, not a teaser. CDATA carries the markup;
   // the guard keeps a stray terminator from closing the section early.
   const fullHtml = (s) => {
-    const body = (s.written || []).map(renderBlock).join('\n');
+    const body = (s.written || []).map(renderBlockForFeed).join('\n');
     const moves = (s.nextMove || []).map((m) =>
       `<h3>${esc(m.who)}</h3>\n<p>${linkify(esc(m.do))}</p>`).join('\n');
     const html = `${body}\n<h2>Next move</h2>\n${moves}`;

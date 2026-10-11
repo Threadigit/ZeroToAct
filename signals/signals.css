@@ -265,3 +265,60 @@
 .sig-cite-text,
 .sig-moves li,
 .sig-sources li { font-variant-numeric: tabular-nums lining-nums; }
+
+/* ── Charts ──
+   Monochrome by necessity and by choice. Identity comes from lightness,
+   position and labels, so the encoding survives greyscale print, forced
+   colours and every form of colour blindness without a fallback. */
+.sig-chart { margin: var(--space-lg) 0; }
+.sig-chart-head { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: var(--space-xs); }
+.sig-chart-title { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-400); }
+.sig-chart-note { font-size: var(--fs-sm); line-height: 1.5; color: var(--grey-500); }
+.sig-chart-legend { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; margin-bottom: var(--space-xs); }
+.sig-chart-key { display: inline-flex; align-items: center; gap: 0.45rem; font-size: var(--fs-sm); color: var(--grey-400); }
+.sig-chart-key i { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.sig-chart-key i.is-line { height: 2px; width: 14px; border-radius: 2px; }
+
+.sig-chart-plot { position: relative; border: var(--hairline); border-radius: var(--radius-md); background: var(--black-soft); padding: var(--space-xs); }
+.sig-chart-plot svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.sig-chart-grid { stroke: var(--black-border); stroke-width: 1; }
+.sig-chart-tick { font-family: var(--ff-mono); font-size: 12px; fill: var(--grey-500); font-variant-numeric: tabular-nums; }
+.sig-chart-val { font-family: var(--ff-sans); font-size: 13px; font-weight: 500; fill: var(--grey-200); }
+.sig-chart-inlabel { font-family: var(--ff-sans); font-size: 11px; font-weight: 600; }
+
+.sig-chart-cross line { stroke: var(--grey-600); stroke-width: 1; opacity: 0; }
+.sig-chart-cross.is-on line { opacity: 1; }
+
+.sig-chart [tabindex="0"] { outline: none; }
+.sig-chart [tabindex="0"]:focus-visible { outline: 2px solid var(--white-pure); outline-offset: 2px; }
+.sig-chart path[data-v]:hover, .sig-chart rect[data-v]:hover { opacity: 0.82; }
+
+.sig-chart-tip { position: absolute; pointer-events: none; z-index: 2; transform: translate(-50%, -100%); background: var(--black); border: var(--hairline); border-radius: var(--radius-sm); padding: 0.4rem 0.6rem; white-space: nowrap; box-shadow: var(--shadow-elevated); }
+.sig-chart-tip b { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--white-pure); font-variant-numeric: tabular-nums; }
+.sig-chart-tip span { display: block; font-size: var(--fs-xs); color: var(--grey-400); }
+
+.sig-chart .sig-chart-source { margin-top: var(--space-2xs); margin-bottom: 0; font-size: var(--fs-xs); line-height: 1.5; color: var(--grey-500); }
+.sig-chart-data { margin-top: var(--space-2xs); }
+.sig-chart-data summary { font-size: var(--fs-xs); color: var(--grey-500); cursor: pointer; }
+.sig-chart-data summary:hover { color: var(--white); }
+.sig-chart-data table { width: 100%; border-collapse: collapse; margin-top: var(--space-2xs); font-variant-numeric: tabular-nums; }
+.sig-chart-data caption { text-align: left; font-size: var(--fs-xs); color: var(--grey-500); padding-bottom: 0.4rem; }
+.sig-chart-data th, .sig-chart-data td { text-align: right; font-size: var(--fs-sm); color: var(--grey-200); padding: 0.35rem 0.5rem; border-top: var(--hairline); }
+.sig-chart-data thead th, .sig-chart-data tbody th { text-align: left; color: var(--grey-400); font-weight: 500; }
+
+/* Where colour is taken away from us entirely, keep the marks. */
+@media (forced-colors: active) {
+  .sig-chart path[fill], .sig-chart rect[fill] { forced-color-adjust: none; fill: CanvasText; }
+  .sig-chart-grid { stroke: GrayText; }
+}
+
+/* SVG text lives in viewBox units, so it shrinks with the chart. The plot scales
+   to about 0.86 of the viewBox on desktop but only 0.48 on a phone, which would
+   render a 12px tick at 6px. These sizes are chosen so the text lands at roughly
+   11px on screen at both ends. */
+@media (max-width: 640px) {
+  .sig-chart-tick { font-size: 23px; }
+  .sig-chart-val { font-size: 25px; }
+  .sig-chart-inlabel { font-size: 22px; }
+}
