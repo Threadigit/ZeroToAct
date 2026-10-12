@@ -396,3 +396,38 @@
   min-height: 24px;
 }
 .sig-sources li a { align-items: baseline; min-height: 0; padding-block: 3px; }
+
+/* ═══════════════════════════════════════════════════════
+   WHY PAGE: SECTION MARKS IN THE MARGIN
+   The uppercase section marks sat inline in the reading column, interrupting
+   it, while 370px of margin sat empty either side at desktop. Hanging them
+   in the left margin is how a printed essay marks its sections: the reading
+   measure is undisturbed and the page becomes scannable.
+   ═══════════════════════════════════════════════════════ */
+@media (min-width: 1100px) {
+  .why-page { position: relative; }
+  .why-page h2 {
+    position: absolute;
+    left: 0;
+    width: calc(var(--gutter) + 9rem);
+    /* An absolutely positioned box keeps its static position, and a top
+       margin shifts it from there -- so this lands the mark level with the
+       first line of the passage rather than at the top of the gap. */
+    margin: var(--space-xl) 0 0;
+    transform: translateX(calc(-100% - 2.5rem));
+    text-align: right;
+    text-wrap: balance;
+  }
+  /* The absolute mark leaves no space of its own, so the paragraph that
+     follows has to open the gap the heading used to. */
+  .why-page h2 + p { margin-top: var(--space-xl); }
+  /* A hairline ties the mark to the passage it opens. */
+  .why-page h2::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--black-border);
+    margin: 0.75rem 0 0 auto;
+  }
+}

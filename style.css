@@ -54,7 +54,7 @@
   --black-border-soft: rgba(255, 255, 255, 0.05);
   --white:        #f5f5f5;
   --white-pure:   #ffffff;
-  --grey-600:     #7f7f7f;
+  --grey-600:     #878787;
   --grey-500:     #949494;
   --grey-300:     #bfbfbf;
   --grey-400:     #aaaaaa;
@@ -589,8 +589,8 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 70%),
-              radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,255,255,0.02) 0%, transparent 60%);
+  background: radial-gradient(ellipse 70% 55% at 20% 0%, rgba(255,255,255,0.075) 0%, transparent 68%),
+              radial-gradient(ellipse 45% 40% at 85% 15%, rgba(255,255,255,0.03) 0%, transparent 62%);
   pointer-events: none;
 }
 
@@ -1096,7 +1096,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 .summit-section {
   padding-block: clamp(5rem, 10vh, 8rem);
   border-top: 1px solid var(--black-border);
-  background: var(--black-soft);
+  background: rgba(255, 255, 255, 0.022);
 }
 
 .summit-inner {
@@ -1714,8 +1714,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   padding-block: clamp(5.5rem, 10vw, 9rem);
   border-bottom: 1px solid var(--black-border);
   background:
-    radial-gradient(circle at 72% 35%, rgba(255,255,255,.035), transparent 30%),
-    var(--black);
+    radial-gradient(circle at 72% 35%, rgba(255,255,255,.035), transparent 30%);
 }
 
 .instagram-inner {
@@ -1861,7 +1860,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 
 .faq-section {
   padding: clamp(5.5rem, 10vw, 9rem) 0;
-  background: var(--black-soft);
+  background: rgba(255, 255, 255, 0.022);
   border-top: 1px solid var(--black-border);
 }
 
@@ -2829,7 +2828,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   width: 100%;
   padding: 0.875rem;
   background: #25d366;
-  color: var(--white-pure);
+  color: #0a0a0a;
   border-radius: var(--radius-sm);
   font-weight: var(--fw-semi);
   text-decoration: none;
@@ -3255,3 +3254,251 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   .community-card > .community-card-num { align-self: start; }
   .community-card > .community-card-desc { align-self: start; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   MATERIALITY
+   The page was flat #0a0a0a from top to bottom. Nothing sat on anything,
+   nothing caught light, and a pure flat black reads as unfinished rather than
+   serious. These four layers give it depth without introducing a colour.
+   ═══════════════════════════════════════════════════════ */
+
+/* 1. Grain. A single tiled turbulence over the whole page at very low opacity.
+      Flat black banding is what makes large dark areas look cheap on real
+      displays; grain breaks it and reads as print stock. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  will-change: auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body > * { position: relative; z-index: 1; }
+
+/* 3. Surfaces that catch an edge. A raised panel in the real world has a lit
+      top edge; flat 1px borders all round are why these read as outlines
+      rather than objects. */
+.pillar-card,
+.community-card,
+.sig-chart-plot,
+.latest-band-card,
+.subscribe-card,
+.stack-card-1,
+.sig-lasttime,
+.community-cta,
+.faq-item {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 4. Depth under the things that should float. */
+.latest-band-card,
+.subscribe-card { box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 18px 50px -24px rgba(0, 0, 0, 0.9); }
+
+/* ═══════════════════════════════════════════════════════
+   RHYTHM AND CRESCENDO
+   Every section carried the same padding, the same hairline and the same
+   dark-on-dark surface, so the page read as one undifferentiated list.
+   Serious editorial pages vary density: some blocks are tight, one or two
+   are enormous, and at least one inverts.
+   ═══════════════════════════════════════════════════════ */
+
+/* The pillars sit right under the hero and work as a dense index. Tighten. */
+.pillars-section { padding-block: clamp(3.5rem, 6vh, 5rem); }
+
+/* The two editorial blocks are the substance of the page. Give them room. */
+.newsletter-section,
+.summit-section { padding-block: var(--space-3xl); }
+
+/* ── THE INVERSION ───────────────────────────────────────
+   One white block on a black page. On a publication whose whole identity is
+   black and white, this is the single loudest move available and it costs
+   nothing to read: the promise is one sentence, so it can carry the weight.
+   ──────────────────────────────────────────────────────── */
+.promise-section {
+  background: var(--white-pure);
+  border-block: 0;
+  padding-block: clamp(6rem, 14vh, 11rem);
+}
+.promise-section .promise-quote { color: #0a0a0a; }
+.promise-section .promise-rule { background: rgba(10, 10, 10, 0.16); }
+.promise-section .promise-author { color: #0a0a0a; }
+.promise-section .promise-title { color: #4a4a4a; }
+/* The portrait was shot for a dark page; on white it needs a defined edge. */
+.promise-section .promise-avatar {
+  border-color: rgba(10, 10, 10, 0.14);
+  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
+}
+/* The grain layer sits behind the sections, so this opaque white occludes it
+   on its own -- grain over white would read as dirt rather than stock. */
+
+/* The closing call to action is the last thing on the page and was the
+   lightest. Make it the biggest. */
+.final-cta-section {
+  padding-block: clamp(7rem, 16vh, 13rem);
+  border-top: 1px solid var(--black-border);
+}
+
+/* ═══════════════════════════════════════════════════════
+   TYPE
+   ═══════════════════════════════════════════════════════ */
+
+/* The hero was set at 7vw/700 inside 18ch with text-wrap: balance, which
+   produces a dense centred-ish block. Editorial display type is larger,
+   lighter and tracked tighter, and it breaks where the writer wants. */
+.hero-heading {
+  font-size: clamp(2.5rem, 8.4vw, 6.25rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.038em;
+  max-width: 22ch;
+  text-wrap: pretty;
+}
+.hero-heading em { font-weight: 400; color: var(--white-pure); }
+
+/* Playfair carries an optical size axis. Without this it renders display type
+   with text-weight hairlines. */
+.hero-heading,
+.section-title,
+.promise-quote,
+.sig-headline,
+.why-hero h1 { font-optical-sizing: auto; font-variation-settings: 'opsz' 60; }
+
+/* Labels go the other way: smaller, wider, quieter, so the gap between a
+   label and a headline is a cliff rather than a slope. */
+.section-eyebrow,
+.hero-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  font-weight: var(--fw-medium);
+}
+
+/* Figures are data. Line them up and stop the 1 from being narrow. */
+.stat-value,
+.stat-topline,
+.sig-chart-tick,
+.sig-chart-val,
+.hero-stat,
+.community-metric { font-variant-numeric: tabular-nums; }
+
+/* ═══════════════════════════════════════════════════════
+   DISPLAY TYPE, UNIFIED
+   The hero was lifted to weight 500 with the optical-size axis engaged; every
+   other serif heading was still 700 at text optical size, which is why they
+   read as chunky Georgia bold next to it. Playfair at 700 small is a
+   different typeface in effect. One treatment, everywhere.
+   ═══════════════════════════════════════════════════════ */
+.section-heading,
+.pillar-title,
+.subscribe-heading,
+.summit-tagline,
+.stack-heading,
+.community-card-title,
+.community-cta-heading,
+.instagram-card h3,
+.faq-list summary,
+.promise-quote,
+.final-cta-heading,
+.latest-band-title,
+.sig-headline,
+.sig-card-title,
+.why-hero h1,
+.why-h2 {
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 48;
+  letter-spacing: -0.022em;
+}
+
+/* Section titles sat around 48px against a 100px hero, so the page had a
+   display size and a body size and nothing in between. Give the second level
+   its own register. */
+.section-heading {
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.final-cta-heading {
+  font-size: clamp(2.25rem, 5.4vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.032em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LEGIBILITY
+   Body copy ran at grey-400/500 across the whole page. Everything being grey
+   is what makes a dark page read as a draft -- the eye finds no settled
+   reading colour. Raise the running text and keep grey for genuine asides.
+   ═══════════════════════════════════════════════════════ */
+.pillar-desc,
+.pillar-list li,
+.summit-desc,
+.summit-list li,
+.community-card-desc,
+.community-cta-desc,
+.subscribe-desc,
+.section-sub,
+.hero-sub,
+.latest-band-dek,
+.faq-answer p { color: var(--grey-200); }
+
+.hero-sub { font-size: clamp(1rem, 1.4vw, 1.1875rem); }
+
+/* ── Badges ──────────────────────────────────────────────
+   The pillar category pills were a generic rounded outline. A publication
+   marks a department with a rule and small caps, not a chip. */
+.pillar-tag {
+  border: 0;
+  border-radius: 0;
+  padding: 0 0 0.45rem;
+  border-bottom: 1px solid var(--black-border);
+  background: none;
+  color: var(--grey-300);
+  letter-spacing: 0.18em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FINISH
+   ═══════════════════════════════════════════════════════ */
+
+/* Ragged-right paragraphs were dropping single-word last lines ("to work."
+   alone under a six-line hero sub). Browsers can avoid orphans if asked. */
+.hero-sub,
+.section-sub,
+.pillar-desc,
+.summit-desc,
+.community-card-desc,
+.subscribe-desc,
+.latest-band-dek,
+.promise-quote,
+.faq-answer p { text-wrap: pretty; }
+
+/* Motion. Everything eased with the browser default, which decelerates
+   linearly and reads as mechanical. One curve, slightly overshooting the
+   settle, applied to the things that actually move. */
+.pillar-card,
+.community-card,
+.hero-stat,
+.btn,
+.nav-link,
+.sig-card,
+.faq-list summary { transition-timing-function: var(--ease-out); }
+
+/* Hover on a dark surface should look like light falling on it, not like a
+   grey swatch being swapped in. */
+.pillar-card:hover,
+.community-card:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.025), transparent 60%);
+}
+.hero-stat:hover {
+  background: linear-gradient(rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+}
+
+/* Focus rings were inheriting the hover colour and disappearing on the white
+   block. */
+.promise-section :focus-visible { outline-color: #0a0a0a; }
