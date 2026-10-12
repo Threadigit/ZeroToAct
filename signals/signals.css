@@ -99,7 +99,10 @@
 .sig-back { display: inline-block; font-size: var(--fs-sm); color: var(--grey-400); margin-bottom: 2rem; }
 .sig-back:hover { color: var(--white); }
 .sig-title { font-family: var(--ff-serif); font-size: var(--fs-4xl); font-weight: 700; line-height: 1.04; letter-spacing: -0.028em; text-wrap: balance; color: var(--white-pure); margin: 0.75rem 0 1rem; }
-.sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-xl); line-height: 1.38; text-wrap: pretty; color: var(--grey-200); margin-bottom: 2rem; }
+/* The standfirst supports the headline, so it must not outweigh it. At --fs-xl
+   a 60-word claim ran seven lines and 262px against the headline's 133px,
+   and Playfair is a display face being asked to carry a paragraph. */
+.sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-lg); line-height: 1.45; text-wrap: pretty; color: var(--grey-200); max-width: 34rem; margin-bottom: var(--space-lg); }
 .sig-draft-note { display: inline-block; font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: #f5c451; background: rgba(245, 196, 81, 0.08); border: 1px solid rgba(245, 196, 81, 0.25); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); margin-bottom: 2rem; }
 
 /* figure/figcaption so the caption is associated with the embed, not floating near it. */
