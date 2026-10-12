@@ -219,9 +219,8 @@ ${articleMeta}  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:description" content="${esc(desc)}" />
   <meta name="twitter:image" content="${OG_IMAGE}" />
   <link rel="alternate" type="application/rss+xml" title="ZeroToAct Signals" href="/signals/feed.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/signals/signals.css" />
 ${head}</head>
