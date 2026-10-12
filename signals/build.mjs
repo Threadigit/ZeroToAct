@@ -1024,7 +1024,7 @@ function summitPage() {
     <div class="sig-block">
       <h2>The detail</h2>
       <dl class="sig-facts">
-        <div><dt>When</dt><dd>2027, alongside the first Annual Outlook</dd></div>
+        <div><dt>When</dt><dd>2027</dd></div>
         <div><dt>Format</dt><dd>One day, virtual</dd></div>
         <div><dt>Who it is for</dt><dd>Anyone building a career, a company or a portfolio</dd></div>
         <div><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer">Tolu Adetuyi</a></dd></div>
