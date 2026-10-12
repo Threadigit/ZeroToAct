@@ -885,7 +885,7 @@ function whyPage() {
     <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires.</p>
     <p class="why-turn">So we built the other half.</p>
     <p>A cell of five, matched to your stage, meeting every two weeks. You say what you are going to do. The other four ask you about it next time. Matching matters, because a founder raising money and four first year students in one room helps nobody. The cells are peer run, so nobody chairs them for you. You own the outcome.</p>
-    <p>Once a year, at the <a href="/#summit-section">Summit</a>, a year of reading becomes one written plan for the next twelve months with your name on it.</p>
+    <p>Once a year, at the <a href="/summit/">Summit</a>, a year of reading becomes one written plan for the next twelve months with your name on it.</p>
     <p>That is the whole design. See the chain clearly, then sit in a room where somebody expects you to move on it.</p>
 
     <h2>Who is behind this</h2>

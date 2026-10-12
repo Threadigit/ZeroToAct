@@ -1193,20 +1193,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   align-items: center;
 }
 
-.summit-card-stack {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-}
-
-.stack-card {
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  border: 1.5px solid;
-  overflow: hidden;
-}
-
 .stack-card-3 {
   border-color: rgba(255,255,255,0.04);
   background: #080808;
@@ -1230,66 +1216,10 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   box-shadow: var(--shadow-elevated), inset 0 0 30px rgba(255, 255, 255, 0.02);
 }
 
-.stack-card-inner {
-  padding: 1.5rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 /* Front summit card carrying the details */
 .stack-card-inner--details {
   justify-content: flex-start;
   gap: 0.9rem;
-}
-.stack-details {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0.25rem;
-}
-.stack-detail {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.75rem;
-  padding: 0.55rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-.stack-detail:last-child { border-bottom: none; }
-.stack-detail dt {
-  font-family: var(--ff-mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  flex-shrink: 0;
-}
-.stack-detail dd {
-  font-size: 11px;
-  font-weight: var(--fw-medium);
-  color: var(--white-pure);
-  text-align: right;
-  line-height: 1.4;
-}
-.stack-detail dd a { color: var(--white-pure); text-decoration: underline; text-underline-offset: 2px; }
-
-.stack-tag {
-  font-family: var(--ff-mono);
-  font-size: 9px;
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-}
-
-.stack-heading {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-md);
-  font-weight: 700;
-  color: var(--white-pure);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
 }
 
 .stack-sub {
@@ -1307,15 +1237,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   color: var(--grey-600);
   border-top: 1px solid var(--black-border);
   padding-top: 0.75rem;
-}
-
-/* ── Operator / System Ledger Card Details ── */
-.card-top-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 0.5rem;
 }
 
 .card-access-id {
@@ -1443,19 +1364,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   color: var(--grey-400);
 }
 
-.stack-card-inner .stack-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--ff-mono);
-  font-size: 8px;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.35);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding-top: 0.5rem;
-  width: 100%;
-}
-
 .mono-hash {
   color: rgba(255,255,255,0.2);
 }
@@ -1470,33 +1378,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   margin-bottom: 1.75rem;
   line-height: 1.6;
   border-left: 3px solid var(--white-pure);
-}
-
-/* ── Summit: skill-to-business framework ── */
-.summit-framework {
-  margin: 1.5rem 0 2rem;
-}
-.summit-framework-intro {
-  font-size: var(--fs-sm);
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 1rem;
-}
-.summit-paths {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-.summit-paths li {
-  font-size: var(--fs-sm);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.68);
-  padding-left: 1rem;
-  border-left: 2px solid var(--black-border);
-}
-.summit-paths li strong {
-  color: var(--white-pure);
-  font-weight: var(--fw-semi);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2144,7 +2025,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   .summit-content > .section-eyebrow { order: 1; }
   .summit-content > .section-heading { order: 2; }
   .summit-content > .section-sub { order: 3; }
-  .summit-content > .summit-framework { order: 4; }
   .summit-content > #summit-notify-btn {
     order: 8;
     justify-self: start;
@@ -2154,12 +2034,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
     order: 5;
     max-height: none;
     margin-block: 1.5rem 4rem;
-  }
-
-  .summit-card-stack {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
   }
 
   .newsletter-inner {
@@ -2933,62 +2807,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   min-height: 24px;
 }
 
-/* ─── LATEST SIGNAL BAND ────────────────────────────────
-   The homepage described the Signals without showing one. This breaks the
-   eyebrow-heading-subhead rhythm with the actual published work. */
-.latest-band { padding: var(--space-2xl) 0; border-top: var(--hairline); }
-.latest-band-inner { max-width: 54rem; margin-inline: auto; }
-.latest-band-card {
-  display: block;
-  margin-top: var(--space-md);
-  padding: var(--space-lg);
-  background: var(--black-soft);
-  border: var(--hairline);
-  border-radius: var(--radius-lg);
-  transition: border-color var(--transition-base), background var(--transition-base);
-}
-.latest-band-card:hover { border-color: var(--grey-600); background: var(--black-card); }
-.latest-band-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  font-family: var(--ff-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  font-variant-numeric: tabular-nums;
-}
-.latest-band-title {
-  margin-top: var(--space-xs);
-  font-family: var(--ff-serif);
-  font-size: var(--fs-2xl);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  color: var(--white-pure);
-  text-wrap: balance;
-}
-.latest-band-claim {
-  margin-top: var(--space-2xs);
-  font-size: var(--fs-md);
-  line-height: 1.6;
-  color: var(--grey-300);
-  max-width: 54ch;
-}
-.latest-band-cta {
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  margin-top: var(--space-md);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--white-pure);
-}
-.latest-band-foot { margin-top: var(--space-sm); font-size: var(--fs-sm); }
-.latest-band-foot a { color: var(--grey-400); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-600); }
-.latest-band-foot a:hover { color: var(--white); }
-
 /* ─── FOUNDER NOTE ──────────────────────────────────────
    The footer credit is gone, so the founder is established here instead, in
    content a crawler can actually read rather than a link straight off-site. */
@@ -2999,32 +2817,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   border-top: var(--hairline);
   text-align: left;
 }
-.founder-note-heading {
-  font-family: var(--ff-mono);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  margin-bottom: var(--space-sm);
-}
-.founder-note p {
-  font-size: var(--fs-base);
-  line-height: 1.7;
-  color: var(--grey-300);
-  margin-bottom: var(--space-sm);
-}
-.founder-note strong { color: var(--white-pure); font-weight: var(--fw-semi); }
-.founder-note a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-600); }
-.founder-note a:hover { text-decoration-color: var(--white); }
-.founder-note-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  margin-bottom: 0;
-  font-size: var(--fs-sm);
-}
-.founder-note-links a { display: inline-flex; align-items: center; min-height: 24px; }
 
 /* ─── EDITORIAL GRID ────────────────────────────────────
    The page was nine stacked blocks whose headings began at five different
@@ -3120,22 +2912,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 .instagram-content > .instagram-profile { grid-column: 1; }
 .instagram-content > :not(.instagram-profile) { grid-column: 2; }
 
-.founder-note { max-width: none; margin-inline: 0; }
-.promise-inner > .founder-note {
-  display: grid;
-  grid-template-columns: var(--col-label) minmax(0, 1fr);
-  column-gap: var(--space-lg);
-  align-items: start;
-}
-.founder-note > .founder-note-heading {
-  grid-column: 1;
-  grid-row: 1 / span 99;
-  margin: 0;
-  padding-top: 0.55rem;
-  border-top: 2px solid var(--white-pure);
-}
-.founder-note > :not(.founder-note-heading) { grid-column: 2; max-width: 46rem; }
-
 /* The closing call to action is the one deliberate exception: centred, because
    it is the end of the page and has nothing to align beside it. */
 .final-cta-inner { text-align: center; max-width: 46rem; margin-inline: auto; }
@@ -3147,7 +2923,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   .instagram-content > :not(.instagram-profile),
   .founder-note > .founder-note-heading,
   .founder-note > :not(.founder-note-heading) { grid-column: 1; }
-  .founder-note > .founder-note-heading { grid-row: auto; justify-self: start; }
 }
 
 /* The promise block centres its quote deliberately, but the founder note
@@ -3184,7 +2959,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   position: relative;
   inset: auto;
 }
-.stack-card-inner { height: auto; }
 .stack-card-inner--details { padding: var(--space-md); }
 
 /* ─── TWO-COLUMN SECTIONS ───────────────────────────────
@@ -3707,16 +3481,6 @@ body > * { position: relative; z-index: 1; }
 }
 .pillars-grid > * + *,
 .community-grid > * + * { border-left: 1px solid var(--rule); }
-
-/* ═══════════════════════════════════════════════════════════════════════
-   POLARITY: INHERITED TEXT
-   These rules hardcoded white or a fixed grey because the page only ever had
-   one polarity. On a white section or inside an inverted card they rendered
-   white on white. Each now reads the polarity tokens instead.
-   ═══════════════════════════════════════════════════════════════════════ */
-.summit-framework-intro { color: var(--ink-3); }
-.summit-paths li { color: var(--ink-2); border-left-color: var(--rule); }
-.summit-paths li strong { color: var(--ink); }
 .summit-desc, .summit-list li { color: var(--ink-2); }
 
 .instagram-card-kicker { color: var(--ink-3); }
@@ -3912,3 +3676,90 @@ body > * { position: relative; z-index: 1; }
 /* The handle and the section label ended up on one line once the column
    became a plain block. */
 .instagram-profile { display: flex; width: fit-content; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HOW IT WORKS, AS A SEQUENCE
+   The three were set as parallel products in equal boxes. They are not
+   parallel: the Signals build the context the Summit turns into a plan, and
+   the plan is what the Network holds you to. Naming each handoff is the same
+   device the Why page uses for the chain, and it is the truer description.
+   ═══════════════════════════════════════════════════════════════════════ */
+.pillars-grid { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+
+.pillar-hands {
+  grid-column: 1 / -1;
+  margin: var(--space-sm) 0 0;
+  padding-top: 0.9rem;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.pillar-hands strong { color: var(--ink); font-weight: var(--fw-medium); }
+
+/* The connector. An arrow sitting on the rule between one card and the next,
+   so the row reads left to right as a sequence rather than as three columns. */
+.pillars-grid > * + *::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--rule);
+}
+.pillars-grid > li { position: relative; }
+.pillars-grid > li + li { border-left: 0; }
+
+/* An absolutely positioned marker on the dividing rule took its background
+   from the section rather than the card it sat on, so over the inverted card
+   it rendered as a black blob. Inline in the handoff line it is always
+   legible and still reads left to right. */
+.pillar-hands::after {
+  content: '\00a0\2192';
+  color: var(--ink-4);
+}
+.pillars-grid > li:last-child .pillar-hands::after { content: none; }
+
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SUMMIT, ON THE HOMEPAGE
+   The detail panel was three absolutely positioned layers faking a stack of
+   cards, which is why it kept collapsing to no intrinsic height. It is one
+   card now, inverted, carrying the facts -- the same facts list the Summit
+   page uses, so the two read as one object seen twice.
+   ═══════════════════════════════════════════════════════════════════════ */
+.summit-card {
+  padding: clamp(1.75rem, 2.6vw, 2.5rem);
+  background: var(--card-bg);
+  color: var(--ink-2);
+}
+.summit-card-tag {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin: 0 0 var(--space-md);
+}
+.summit-card-heading {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 48;
+  letter-spacing: -0.022em;
+  line-height: 1.12;
+  color: var(--ink);
+  margin: 0 0 var(--space-md);
+}
+.summit-leave {
+  margin: var(--space-md) 0 0;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-md);
+  color: var(--ink-2);
+}
+.summit-leave strong { color: var(--ink); font-weight: var(--fw-medium); }
