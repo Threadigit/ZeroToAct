@@ -1103,7 +1103,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(3rem, 6vw, 6rem);
-  align-items: center;
+  align-items: start;
 }
 
 .summit-details {
@@ -1197,7 +1197,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   position: relative;
   width: 100%;
   max-width: 380px;
-  min-height: 22rem;
 }
 
 .stack-card {
@@ -2161,7 +2160,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   .summit-card-stack {
     width: 100%;
     max-width: 320px;
-    aspect-ratio: 4/5;
     height: auto;
   }
 
@@ -3175,4 +3173,85 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   .pillar-card > .pillar-number { align-self: start; }
   .pillar-card > .pillar-list { align-self: start; }
   .pillar-card > .pillar-link { align-self: end; margin-top: var(--space-md); }
+}
+
+/* ─── SUMMIT CARD STACK ─────────────────────────────────
+   All three layers were absolutely positioned, so the stack had no intrinsic
+   height and depended on a fixed one. That is why the card kept showing a
+   block of empty space below its content. The front card now sits in normal
+   flow and sets the height from what is in it; the two behind stay absolute,
+   so the layered effect is unchanged. */
+.stack-card-1 {
+  position: relative;
+  inset: auto;
+}
+.stack-card-inner { height: auto; }
+.stack-card-inner--details { padding: var(--space-md); }
+
+/* ─── TWO-COLUMN SECTIONS ───────────────────────────────
+   Intelligence, Summit and Community already split into two columns, so
+   putting the label column inside the left half squeezed the heading into
+   roughly 300px and broke it across three lines. The label now sits at
+   section level, outside the split, and the two content columns divide the
+   space that is left. */
+.newsletter-inner,
+.summit-inner,
+.community-inner {
+  display: grid;
+  grid-template-columns: var(--col-label) minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+/* Place every child explicitly. Spanning the label across an open-ended row
+   count generates implicit rows, which is what blew one section to 9000px. */
+.newsletter-inner > .section-eyebrow,
+.summit-inner > .section-eyebrow,
+.community-inner > .section-eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  padding-top: 0.55rem;
+  border-top: 2px solid var(--white-pure);
+  align-self: start;
+}
+.newsletter-left  { grid-column: 2; grid-row: 1; }
+.newsletter-right { grid-column: 3; grid-row: 1; }
+.summit-content   { grid-column: 2; grid-row: 1; }
+.summit-visual    { grid-column: 3; grid-row: 1; }
+
+/* Community leads with a full-width statement, then its own grid below. */
+.community-top  { grid-column: 2 / -1; grid-row: 1; }
+.community-grid { grid-column: 2 / -1; grid-row: 2; margin-top: var(--space-lg); }
+.community-cta  { grid-column: 2 / -1; grid-row: 3; margin-top: var(--space-lg); }
+
+/* These left columns no longer carry a label of their own. */
+.newsletter-left,
+.summit-content,
+.community-top { display: block; }
+
+@media (max-width: 900px) {
+  .newsletter-inner,
+  .summit-inner,
+  .community-inner { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-md); }
+  .newsletter-inner > .section-eyebrow,
+  .summit-inner > .section-eyebrow,
+  .community-inner > .section-eyebrow { grid-column: 1; grid-row: auto; justify-self: start; }
+  .newsletter-left, .newsletter-right,
+  .summit-content, .summit-visual,
+  .community-top, .community-grid, .community-cta { grid-column: 1; grid-row: auto; }
+}
+
+/* Community cards: same shared-row treatment as the pillars, so the number,
+   title and body of each card start on the same line across all three
+   instead of drifting with the length of the longest copy. */
+@supports (grid-template-rows: subgrid) {
+  .community-grid { grid-template-rows: auto auto 1fr; }
+  .community-card {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+  .community-card > .community-card-num { align-self: start; }
+  .community-card > .community-card-desc { align-self: start; }
 }
