@@ -3502,3 +3502,413 @@ body > * { position: relative; z-index: 1; }
 /* Focus rings were inheriting the hover colour and disappearing on the white
    block. */
 .promise-section :focus-visible { outline-color: #0a0a0a; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   POLARITY
+   The site was black with one white block bolted on. The brand is black AND
+   white, so polarity becomes a property a section declares and everything
+   inside it inherits.
+
+   The split is the masthead promise made visible -- "intelligence that moves
+   you from knowing to doing". Black carries the knowing half (the hero, how
+   it works, the Signals). One white signature carries the doing half (the
+   Summit, the Community, the promise). Then it returns to black to close.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Dark is the page default. */
+  --ink:       #ffffff;   /* headings */
+  --ink-2:     #d4d4d4;   /* running copy */
+  --ink-3:     #949494;   /* asides */
+  --ink-4:     #878787;   /* smallest marks */
+  --rule:      rgba(255, 255, 255, 0.14);
+  --rule-soft: rgba(255, 255, 255, 0.07);
+  --card-bg:   rgba(255, 255, 255, 0.028);
+  --card-edge: rgba(255, 255, 255, 0.10);
+  --card-lift: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --mark:      #ffffff;   /* the rule that marks a card's top edge */
+}
+
+.surface-light {
+  --ink:       #0a0a0a;
+  --ink-2:     #2f2f2f;
+  --ink-3:     #585858;
+  --ink-4:     #6b6b6b;
+  --rule:      rgba(10, 10, 10, 0.17);
+  --rule-soft: rgba(10, 10, 10, 0.09);
+  --card-bg:   #ffffff;
+  --card-edge: rgba(10, 10, 10, 0.14);
+  --card-lift: none;
+  --mark:      #0a0a0a;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+/* The lead item in a group takes the opposite polarity of its section. That
+   is what puts black and white in the same row instead of in separate
+   stripes, and it marks what is current without needing a badge. */
+.is-inverted {
+  --ink:       #0a0a0a;
+  --ink-2:     #2f2f2f;
+  --ink-3:     #585858;
+  --ink-4:     #6b6b6b;
+  --rule:      rgba(10, 10, 10, 0.17);
+  --rule-soft: rgba(10, 10, 10, 0.09);
+  --card-bg:   #ffffff;
+  --card-edge: rgba(10, 10, 10, 0.14);
+  --mark:      #0a0a0a;
+}
+.surface-light .is-inverted {
+  --ink:       #ffffff;
+  --ink-2:     #d4d4d4;
+  --ink-3:     #949494;
+  --ink-4:     #878787;
+  --rule:      rgba(255, 255, 255, 0.16);
+  --rule-soft: rgba(255, 255, 255, 0.08);
+  --card-bg:   #0a0a0a;
+  --card-edge: rgba(255, 255, 255, 0.12);
+  --mark:      #ffffff;
+}
+
+/* The grain layer lives behind the page, so a white section occludes it --
+   grain over white reads as dirt rather than stock. Nothing to do but let it
+   happen. The section's own hairlines are what give it texture. */
+.surface-light .section-heading,
+.surface-light .section-eyebrow,
+.surface-light .section-sub,
+.surface-light .section-heading--light,
+.surface-light .section-sub--light { color: var(--ink); }
+.surface-light .section-sub,
+.surface-light .section-sub--light { color: var(--ink-2); }
+.surface-light .section-eyebrow { color: var(--ink-3); }
+.surface-light .section-header::before,
+.surface-light .section-eyebrow::before { background: var(--rule); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE CARD
+   Every card on the site was the same dark box with a title and some grey
+   copy, differing only in padding. One component now, driven entirely by
+   the polarity tokens above, so the same card works on black, on white, and
+   inverted inside either.
+
+   Anatomy, top to bottom:
+     a mark      -- a short rule that runs the full width on hover
+     a slug line -- index on the left, department on the right
+     a title     -- the display serif
+     the body
+     a foot      -- separated by a hairline, with a travelling arrow
+   ═══════════════════════════════════════════════════════════════════════ */
+.pillar-card,
+.community-card,
+.instagram-card,
+.sig-card {
+  position: relative;
+  background: var(--card-bg);
+  background-image: none;
+  color: var(--ink-2);
+  box-shadow: var(--card-lift);
+  border: 0;
+  padding: clamp(1.75rem, 2.6vw, 2.5rem);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: start;
+  gap: 0;
+  isolation: isolate;
+  transition: background-color 240ms var(--ease-out), box-shadow 240ms var(--ease-out);
+}
+
+/* The mark. A 2px stub at the card's top-left that runs the full width when
+   the card is pointed at -- the one piece of motion that makes a grid of
+   cards feel responsive rather than printed. */
+.pillar-card::before,
+.community-card::before,
+.instagram-card::before,
+.sig-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 2.25rem;
+  background: var(--mark);
+  opacity: 0.85;
+  transition: width 420ms var(--ease-out), opacity 240ms var(--ease-out);
+}
+.pillar-card:hover::before,
+.pillar-card:focus-within::before,
+.community-card:hover::before,
+.community-card:focus-within::before,
+.instagram-card:hover::before,
+.sig-card:hover::before,
+.sig-card:focus-within::before { width: 100%; opacity: 1; }
+
+/* The slug line. The index and the department shared a column and stacked as
+   two separate blocks; on one row they read as a masthead slug. */
+.pillar-number,
+.community-card-num { grid-column: 1; grid-row: 1; margin: 0 0 1.5rem; color: var(--ink-4); font-variant-numeric: tabular-nums; }
+.pillar-tag { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; margin: 0; color: var(--ink-3); border: 0; padding: 0; }
+
+.pillar-title,
+.community-card-title,
+.instagram-card h3,
+.sig-card-title { grid-column: 1 / -1; color: var(--ink); margin-bottom: 0.75rem; }
+
+.pillar-desc,
+.community-card-desc,
+.sig-card-claim { grid-column: 1 / -1; color: var(--ink-2); }
+
+.pillar-list { grid-column: 1 / -1; }
+.pillar-list li { color: var(--ink-3); }
+.pillar-list li::before { color: var(--ink-4); }
+
+/* The foot. A hairline separates the action from the body, so the card has a
+   bottom edge of its own rather than trailing off. */
+.pillar-link,
+.sig-card-cta {
+  grid-column: 1 / -1;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule-soft);
+  color: var(--ink);
+  font-weight: var(--fw-medium);
+}
+.pillar-link::after,
+.sig-card-cta::after {
+  content: '→';
+  width: auto;
+  height: auto;
+  background: none;
+  opacity: 1;
+  margin-left: auto;
+  padding-left: 1rem;
+  transition: transform 300ms var(--ease-out);
+}
+.pillar-link { justify-content: flex-start; width: 100%; }
+.pillar-card:hover .pillar-link::after,
+.sig-card:hover .sig-card-cta::after { transform: translateX(0.3rem); }
+
+/* Hover is a change of surface, not a swapped-in grey. */
+.pillar-card:hover,
+.community-card:hover,
+.instagram-card:hover,
+.sig-card:hover { background-color: color-mix(in srgb, var(--mark) 5%, var(--card-bg)); }
+.surface-light .pillar-card:hover,
+.surface-light .community-card:hover { box-shadow: 0 2px 14px -6px rgba(10, 10, 10, 0.25); }
+
+/* The grids drew their own dividers with a background showing through a gap.
+   That only works when every cell is the same colour, and an inverted card
+   breaks it, so the cells carry their own hairlines instead. */
+.pillars-grid,
+.community-grid {
+  gap: 0;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  overflow: visible;
+}
+.pillars-grid > * + *,
+.community-grid > * + * { border-left: 1px solid var(--rule); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   POLARITY: INHERITED TEXT
+   These rules hardcoded white or a fixed grey because the page only ever had
+   one polarity. On a white section or inside an inverted card they rendered
+   white on white. Each now reads the polarity tokens instead.
+   ═══════════════════════════════════════════════════════════════════════ */
+.summit-framework-intro { color: var(--ink-3); }
+.summit-paths li { color: var(--ink-2); border-left-color: var(--rule); }
+.summit-paths li strong { color: var(--ink); }
+.summit-desc, .summit-list li { color: var(--ink-2); }
+
+.instagram-card-kicker { color: var(--ink-3); }
+.instagram-card-handle { color: var(--ink-4); }
+.instagram-card-top { color: var(--ink-4); }
+.instagram-card-format { border-color: var(--rule); }
+
+.convener-link { color: var(--ink); text-decoration-color: var(--rule); }
+.convener-link:hover { text-decoration-color: var(--ink); }
+
+/* An outline button on white needs the ink, not the paper. */
+.surface-light .btn-primary--outline,
+.is-inverted .btn-primary--outline { color: var(--ink); border-color: var(--rule); }
+.surface-light .btn-primary--outline:hover { background: var(--ink); color: #ffffff; border-color: var(--ink); }
+
+/* The community panel keeps the rounded SaaS corners while every card around
+   it is square. Square it up and let it be the inverted block of the section. */
+.surface-light .community-cta {
+  border-radius: 0;
+  border: 0;
+  background: #0a0a0a;
+  --ink: #ffffff; --ink-2: #d4d4d4; --ink-3: #949494; --ink-4: #878787;
+  --rule: rgba(255, 255, 255, 0.16);
+  box-shadow: none;
+}
+.surface-light .community-cta-heading { color: var(--ink); }
+.surface-light .community-cta-sub,
+.surface-light .community-cta-desc { color: var(--ink-2); }
+.surface-light .community-cta-disclaimer { color: var(--ink-4); }
+
+/* The white signature needs its own edges, since the page black no longer
+   provides them. */
+.surface-light { border-block: 1px solid rgba(10, 10, 10, 0.12); }
+.surface-light + .surface-light { border-top: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CARDS, FLATTENED
+   Bridge's card grid carries no fill, no border box and no shadow -- the
+   cells are divided by hairlines and separated by space, nothing else. It
+   reads more expensive than a filled box does, and here it pays twice: with
+   the ordinary cards transparent, the inverted one is the only filled object
+   in the group, so the black-and-white pairing is the thing you see.
+   ═══════════════════════════════════════════════════════════════════════ */
+.pillar-card,
+.community-card,
+.instagram-card,
+.sig-card {
+  background: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+/* Only the inverted card takes a fill. */
+.is-inverted { background-color: var(--card-bg); }
+
+/* Hover is then a wash rather than a lift. */
+.pillar-card:hover,
+.community-card:hover,
+.instagram-card:hover,
+.sig-card:hover { background-color: color-mix(in srgb, var(--mark) 4%, transparent); }
+.is-inverted:hover { background-color: var(--card-bg); }
+.surface-light .pillar-card:hover,
+.surface-light .community-card:hover { box-shadow: none; }
+
+/* The group frame goes too. Hairlines between the cells, and one rule under
+   the group, is the whole structure. */
+.pillars-grid,
+.community-grid {
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+}
+.pillars-grid > *,
+.community-grid > * { border-top: 1px solid var(--rule); }
+
+/* The mark now sits on the cell's own top rule rather than on a box edge. */
+.pillar-card::before,
+.community-card::before,
+.instagram-card::before,
+.sig-card::before { top: -1px; }
+
+/* Without a fill the cards need their own breathing room, not a box's
+   padding. Inset them from the dividing rules. */
+.pillar-card,
+.community-card { padding: clamp(1.75rem, 2.4vw, 2.25rem) clamp(1.5rem, 2.2vw, 2rem) clamp(2rem, 2.6vw, 2.5rem); }
+.is-inverted { padding: clamp(1.75rem, 2.4vw, 2.25rem) clamp(1.75rem, 2.4vw, 2.25rem) clamp(2rem, 2.6vw, 2.5rem); }
+
+/* ── The section mark ─────────────────────────────────────
+   A square bullet and a mono label. Mono is already the site's voice for
+   anything that is data rather than prose (the chart ticks, the why-page
+   section marks), so it belongs on the label that names a department. */
+.section-eyebrow {
+  font-family: var(--ff-mono);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-transform: uppercase;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--ink);
+  flex: none;
+}
+
+/* A pair of actions sitting side by side under a section's copy. */
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: var(--space-md);
+}
+
+/* ── Facts list on a product page ────────────────────────
+   A labelled row per fact, the label small and quiet on the left and the
+   value carrying the weight -- the same treatment as the Summit detail card
+   on the homepage, so the two read as one object seen twice. */
+.sig-facts { margin: var(--space-sm) 0 0; }
+.sig-facts > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr);
+  gap: var(--space-sm);
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--rule-soft);
+}
+.sig-facts > div:last-child { border-bottom: 1px solid var(--rule-soft); }
+.sig-facts dt {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.sig-facts dd { margin: 0; color: var(--ink); }
+.sig-note { font-size: var(--fs-sm); color: var(--ink-3); margin-top: var(--space-sm); }
+
+@media (max-width: 560px) {
+  .sig-facts > div { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }
+}
+
+/* The ghost button was a fixed grey tuned for the page black. */
+.btn-ghost { color: var(--ink-2); border-color: var(--rule); }
+.btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   INSTAGRAM PREVIEW
+   These are post previews, not department cards, so the shared card grid
+   (index column + department column) does not apply to them -- it forced the
+   headline into a narrow second column and pushed it out of the card. They
+   keep their own stacked layout and take only the polarity.
+   ═══════════════════════════════════════════════════════════════════════ */
+.instagram-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: clamp(1.25rem, 1.8vw, 1.75rem);
+  border-left: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+}
+.instagram-card::before { display: none; }
+.instagram-card h3 {
+  grid-column: auto;
+  font-size: clamp(1.05rem, 1.5vw, 1.4rem);
+  margin: 0;
+}
+.instagram-card-body { max-width: 24ch; }
+
+.instagram-preview {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  grid-template-rows: repeat(2, minmax(13rem, auto));
+}
+/* The lead post spans the full left column, as it does in a profile grid. */
+.instagram-preview > .is-inverted { grid-row: 1 / span 2; }
+
+/* The left column carried a label column of its own inside a 470px box, which
+   left about 310px for a 60px headline -- one word per line. The label goes
+   to the top of the column and the copy gets the whole width. */
+.instagram-content {
+  display: block;
+  max-width: 34rem;
+}
+.instagram-content .section-heading { font-size: clamp(1.75rem, 3vw, 2.75rem); }
+.instagram-profile { margin-bottom: var(--space-md); }
+
+@media (max-width: 900px) {
+  .instagram-preview { grid-template-columns: minmax(0, 1fr); }
+  .instagram-preview > .is-inverted { grid-row: auto; }
+}
+
+/* The handle and the section label ended up on one line once the column
+   became a plain block. */
+.instagram-profile { display: flex; width: fit-content; }

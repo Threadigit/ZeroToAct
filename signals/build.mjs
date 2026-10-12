@@ -119,8 +119,8 @@ const SITE_NAV = `  <a class="skip-link" href="#main">Skip to content</a>
             </a>
           </div>
         </li>
-        <li><a href="/#summit-section" class="nav-link">Summit</a></li>
-        <li><a href="/#community-section" class="nav-link">Community</a></li>
+        <li><a href="/summit/" class="nav-link">Summit</a></li>
+        <li><a href="/community/" class="nav-link">Community</a></li>
       </ul>
       <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
@@ -130,8 +130,8 @@ const SITE_NAV = `  <a class="skip-link" href="#main">Skip to content</a>
       <span class="mobile-group-label">Intelligence</span>
       <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
       <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
-      <a href="/#summit-section" class="mobile-link">Summit</a>
-      <a href="/#community-section" class="mobile-link">Community</a>
+      <a href="/summit/" class="mobile-link">Summit</a>
+      <a href="/community/" class="mobile-link">Community</a>
       <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
     </div>
   </nav>`;
@@ -152,8 +152,8 @@ const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>
             <a href="/why/" class="footer-nav-link">Why</a>
-            <a href="/#summit-section" class="footer-nav-link">Summit</a>
-            <a href="/#community-section" class="footer-nav-link">Community</a>
+            <a href="/summit/" class="footer-nav-link">Summit</a>
+            <a href="/community/" class="footer-nav-link">Community</a>
             <a href="/#faq" class="footer-nav-link">FAQ</a>
             <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Founder</a>
           </div>
@@ -736,6 +736,8 @@ function sitemap() {
     ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
     { loc: `${BASE}/why/`, priority: '0.8', changefreq: 'yearly' },
     { loc: `${BASE}/annual-outlook/`, priority: '0.6', changefreq: 'monthly' },
+    { loc: `${BASE}/summit/`, priority: '0.8', changefreq: 'monthly' },
+    { loc: `${BASE}/community/`, priority: '0.8', changefreq: 'monthly' },
   ];
   const body = urls.map((u) => `  <url>
     <loc>${u.loc}</loc>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}
@@ -755,12 +757,12 @@ const briefCta = (label = 'Get the Free Signal') =>
   `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="brief">${esc(label)}</button>`;
 
 // Shared chrome for a single research-product page.
-function productShell({ slug, title, desc, status, claim, sections, cta }) {
+function productShell({ slug, title, desc, kind = 'Intelligence', status, claim, sections, cta }) {
   const url = `${BASE}/${slug}/`;
   const body = `
   <main id="main" class="sig-wrap sig-article">
     <a href="/" class="sig-back">&larr; ZeroToAct</a>
-    <p class="sig-eyebrow">Intelligence &middot; ${esc(status)}</p>
+    <p class="sig-eyebrow">${esc(kind)} &middot; ${esc(status)}</p>
     <h1 class="sig-title">${esc(title)}</h1>
     <p class="sig-claim">${esc(claim)}</p>
     ${sections}
@@ -769,7 +771,9 @@ function productShell({ slug, title, desc, status, claim, sections, cta }) {
         <h2>${esc(cta.heading)}</h2>
         <p>${esc(cta.sub)}</p>
       </div>
-      ${briefCta(cta.label)}
+      ${cta.intent && cta.intent !== 'brief'
+        ? `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="${esc(cta.intent)}">${esc(cta.label)}</button>`
+        : briefCta(cta.label)}
     </div>
   </main>
   ${READING_PROGRESS}`;
@@ -955,7 +959,7 @@ function annualOutlookPage() {
     </div>
     <div class="sig-block">
       <h2>It sets up the Summit</h2>
-      <p>The Outlook is where the year\u2019s intelligence becomes a position. The <a href="/#summit-section">Annual Summit</a> is where you turn that position into a personal 12-month plan. The first Outlook lands alongside the New Year Summit.</p>
+      <p>The Outlook is where the year\u2019s intelligence becomes a position. The <a href="/summit/">Annual Summit</a> is where you turn that position into a personal 12-month plan. The first Outlook lands alongside the New Year Summit.</p>
     </div>`;
 
   return productShell({
@@ -969,6 +973,135 @@ function annualOutlookPage() {
   });
 }
 
+
+
+// ── Summit page ──
+// The homepage carries a summary; this is the whole thing. Everything stated
+// here is already committed to elsewhere on the site -- nothing about the
+// programme is invented to fill the page.
+function summitPage() {
+  const tracks = [
+    ['No skill yet', 'Which skills survive where the economy is heading, matched to what you can realistically learn and stay with.'],
+    ['Building or running something', 'Where the openings are in the year ahead, and how to take them from where you actually stand.'],
+    ['Putting money to work', 'Where to be looking next, and what the cost of borrowing does to the case for waiting.'],
+  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
+
+  const sections = `
+    <div class="sig-body">
+      <p>Most of the year is reading. One day of it is deciding.</p>
+      <p>The Summit is the day the year&rsquo;s intelligence stops being context and becomes a position you have written down. You arrive having read the <a href="/annual-outlook/">Annual Outlook</a>. You leave with twelve months of direction in your own words, for your own situation.</p>
+    </div>
+
+    <div class="sig-block sig-block--move">
+      <h2>Global Eyes. African Stakes.</h2>
+      <p>The decisions that reprice a skill or cancel a project are mostly taken somewhere else. The consequences land here. The Summit reads the world the way it is actually ordered, from where the rules are written down to what it changes for the work you do, and it does not pretend that order runs the other way.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>The shape of the day</h2>
+      <p>One day, virtual, with the Outlook as the text. The morning establishes where the economy is heading and why. The afternoon turns that into your plan, because a forecast you did not write anything down against is entertainment.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Three answers, not one</h2>
+      <p>Where you stand decides what a shift means for you. The same reading of the year produces a different move depending on which of these you are.</p>
+      <ul class="sig-moves">
+        ${tracks}
+      </ul>
+    </div>
+
+    <div class="sig-lasttime">
+      <h2>What you leave with</h2>
+      <p>A written twelve-month plan with your name on it, and a cell of five who will ask you about it every two weeks.</p>
+      <p class="sig-lasttime-verdict"><strong>The plan is the deliverable.</strong> Not notes, not a recording. The Summit is built around the document you walk out holding, and the <a href="/community/">Live Network</a> exists so that document does not go in a drawer.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Where it sits</h2>
+      <p>The <a href="/signals/">Weekly Signals</a> build the context, free, all year. The <a href="/annual-outlook/">Annual Outlook</a> grades the year&rsquo;s calls and sets a position. The Summit turns that position into your plan. The <a href="/community/">Live Network</a> holds you to it. Each one is useful alone and they compound in that order.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>The detail</h2>
+      <dl class="sig-facts">
+        <div><dt>When</dt><dd>2027, alongside the first Annual Outlook</dd></div>
+        <div><dt>Format</dt><dd>One day, virtual</dd></div>
+        <div><dt>Who it is for</dt><dd>Anyone building a career, a company or a portfolio</dd></div>
+        <div><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer">Tolu Adetuyi</a></dd></div>
+      </dl>
+      <p class="sig-note">The waitlist is how the date reaches you. There is nothing to pay to join it.</p>
+    </div>`;
+
+  return productShell({
+    slug: 'summit',
+    title: 'The Annual Summit',
+    kind: 'Summit',
+    desc: 'One day a year where a year of reading becomes a written twelve-month plan with your name on it. Virtual, convened by Tolu Adetuyi.',
+    status: 'Annual',
+    claim: 'One day a year where a year of reading becomes one written plan with your name on it.',
+    sections,
+    cta: { heading: 'Be in the room.', sub: 'The waitlist is how the date reaches you. Nothing to pay to join it.', label: 'Join the Summit Waitlist', intent: 'summit' },
+  });
+}
+
+// ── Community page ──
+function communityPage() {
+  const steps = [
+    ['You apply', 'The form asks who you are and what stage you are at. That is not a filter on ambition, it is how you get placed. A founder raising money does not belong in a room with four first-year students, and neither of them is served by pretending otherwise.'],
+    ['You set your goals', 'Your cell starts as soon as you are in. You say what you are going to do and by when. At the Summit you lock the full twelve months.'],
+    ['Your cell of five holds you to it', 'Every two weeks the cell reviews what you promised, what shipped, and what happens next. You own the outcome. The cell keeps the record.'],
+  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
+
+  const sections = `
+    <div class="sig-body">
+      <p>Most people who understand the chain still do nothing with it.</p>
+      <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires. The Live Network is the witness.</p>
+    </div>
+
+    <div class="sig-block sig-block--move">
+      <h2>A cell is five people</h2>
+      <p>Five, matched to your stage and to what you are building, meeting every two weeks. Small enough that your absence is obvious. Large enough that it survives someone having a bad month.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>How it runs</h2>
+      <ul class="sig-moves">
+        ${steps}
+      </ul>
+    </div>
+
+    <div class="sig-block">
+      <h2>Peer run, on purpose</h2>
+      <p>Cells meet on WhatsApp and run themselves. Moderators check in; they do not chair the meeting. The moment someone else is responsible for the cadence, it stops being your commitment and becomes their programme, and the thing that made it work is gone.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Matching is the product</h2>
+      <p>The cell is useful because of who is in it. Stage and substance decide the match, so you land with four people whose next problem looks like yours. That is also why the application asks what it asks, and why a random five would not do.</p>
+    </div>
+
+    <div class="sig-lasttime">
+      <h2>What it is not</h2>
+      <p>It is not a content drop, a paid mastermind, or a channel where links get posted.</p>
+      <p class="sig-lasttime-verdict"><strong>There is one thing to do here and it is uncomfortable.</strong> Say what you are going to do, in front of four people who will ask about it in a fortnight. Everything else about the network exists to make that one thing happen.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Where it sits</h2>
+      <p>The <a href="/signals/">Weekly Signals</a> tell you what moved. The <a href="/summit/">Annual Summit</a> turns a year of that into your written plan. The Live Network is where the plan survives contact with an ordinary week. You can join it without waiting for the Summit.</p>
+    </div>`;
+
+  return productShell({
+    slug: 'community',
+    title: 'The Live Network',
+    kind: 'Community',
+    desc: 'Cells of five, matched to your stage, reviewing what you promised every two weeks. Peer run, on WhatsApp, open to anyone ready to commit to the cadence.',
+    status: 'Live',
+    claim: 'Five people at your stage. One standing commitment. A review every two weeks.',
+    sections,
+    cta: { heading: 'The community is live.', sub: 'Open to anyone ready to commit to the cadence.', label: 'Apply to the Network', intent: 'community' },
+  });
+}
 
 // A 404 is a page on the site, not an apology from the server. It keeps the
 // chrome so the reader can carry on, and points at the thing most of them want.
@@ -993,37 +1126,6 @@ ${SITE_FOOTER}`;
 }
 
 
-// The homepage talked about Weekly Signals without ever showing one. This
-// writes the newest edition into a marked region of the hand-maintained
-// homepage, so the proof is on the page and never goes stale.
-function latestSignalBand() {
-  const s = signals[0];
-  return `<section class="latest-band" aria-labelledby="latest-band-heading">
-      <div class="container">
-        <div class="latest-band-inner reveal">
-          <p class="section-eyebrow" id="latest-band-heading">The latest Signal</p>
-          <a class="latest-band-card" href="${editionUrl(s).replace(BASE, '')}">
-            <p class="latest-band-meta"><span>${esc(s.theme)}</span><span>${esc(longDate(s.date))}</span><span>${readMinutes(s)} min read</span></p>
-            <h3 class="latest-band-title">${esc(s.title)}</h3>
-            <p class="latest-band-claim">${esc(s.headlineClaim)}</p>
-            <span class="latest-band-cta">Read this week&rsquo;s Signal &rarr;</span>
-          </a>
-          <p class="latest-band-foot"><a href="/signals/">Every edition, kept as a dated record</a></p>
-        </div>
-      </div>
-    </section>`;
-}
-
-function writeLatestSignalBand() {
-  const file = resolve(ROOT, 'index.html');
-  const html = readFileSync(file, 'utf8');
-  const start = '<!-- latest-signal:start -->', end = '<!-- latest-signal:end -->';
-  const a = html.indexOf(start), b = html.indexOf(end);
-  if (a === -1 || b === -1) { console.warn('index.html: latest-signal markers not found, skipped'); return; }
-  const next = html.slice(0, a + start.length) + '\n' + latestSignalBand() + '\n    ' + html.slice(b);
-  if (next !== html) { writeFileSync(file, next); console.log('wrote index.html latest-signal band'); }
-}
-
 // ── Write everything ──
 const write = (rel, content) => {
   const full = resolve(ROOT, rel);
@@ -1037,9 +1139,13 @@ write('signals/feed.xml', feed());
 write('sitemap.xml', sitemap());
 for (const s of signals) write(`signals/${s.slug}/index.html`, editionPage(s));
 
-write('why/index.html', whyPage());
-write('404.html', notFoundPage());
-write('annual-outlook/index.html', annualOutlookPage());
+const STANDALONE = [
+  ['why/index.html', whyPage],
+  ['404.html', notFoundPage],
+  ['annual-outlook/index.html', annualOutlookPage],
+  ['summit/index.html', summitPage],
+  ['community/index.html', communityPage],
+];
+for (const [rel, fn] of STANDALONE) write(rel, fn());
 
-console.log(`\nGenerated ${signals.length} editions and 4 standalone pages.`);
-writeLatestSignalBand();
+console.log(`\nGenerated ${signals.length} editions and ${STANDALONE.length} standalone pages.`);
