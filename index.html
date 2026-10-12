@@ -46,133 +46,17 @@
   <meta name="keywords"
     content="ZeroToAct, weekly intelligence, capital markets, geopolitics, African markets, founders, Tolu Adetuyi, Annual Outlook, Weekly Signals" />
   <link rel="author" href="https://adetuyi.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css" />
+  <link rel="preload" href="/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Phone-input styling is only needed inside the join modal, so it must not
+       block first paint. Loaded as print, promoted once it arrives. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css"
+        media="print" onload="this.media='all';this.onload=null" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css" /></noscript>
   <link rel="stylesheet" href="style.css" />
 
   <!-- JSON-LD Structured Data Schema Markup -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://zerotoact.com/#organization",
-          "name": "ZeroToAct",
-          "url": "https://zerotoact.com/",
-          "description": "Each week we take one shift in money, government policy or the world economy and follow it down to what it changes for your work, your business or your money. Free, with an annual summit and a screened accountability community attached.",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://zerotoact.com/favicon-v2.png",
-            "caption": "ZeroToAct Logo"
-          },
-          "founder": { "@id": "https://adetuyi.com/#person" },
-          "sameAs": [
-            "https://instagram.com/zerotoact",
-            "https://adetuyi.com"
-          ]
-        },
-        {
-          "@type": "Person",
-          "@id": "https://adetuyi.com/#person",
-          "name": "Tolu Adetuyi",
-          "url": "https://adetuyi.com",
-          "sameAs": ["https://adetuyi.com"],
-          "jobTitle": "Convener",
-          "worksFor": { "@id": "https://zerotoact.com/#organization" }
-        },
-        {
-          "@type": "Event",
-          "@id": "https://zerotoact.com/#summit",
-          "name": "ZeroToAct New Year Summit",
-          "description": "A one-day virtual summit where anyone building a career, a company or a portfolio turns the Annual Outlook into a personal 12-month execution plan.",
-          "startDate": "2027",
-          "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-          "eventStatus": "https://schema.org/EventScheduled",
-          "location": { "@type": "VirtualLocation", "url": "https://zerotoact.com/#summit-section" },
-          "organizer": { "@id": "https://zerotoact.com/#organization" }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://zerotoact.com/#website",
-          "url": "https://zerotoact.com/",
-          "name": "ZeroToAct",
-          "description": "Each week we take one shift in money, government policy or the world economy and follow it down to what it changes for your work, your business or your money. Free.",
-          "publisher": {
-            "@id": "https://zerotoact.com/#organization"
-          }
-        },
-        {
-          "@type": "CreativeWorkSeries",
-          "@id": "https://zerotoact.com/#signals",
-          "name": "ZeroToAct Weekly Signals",
-          "description": "One read a week on the shifts in money, government policy and the world economy that change your next move. Free by email and archived at zerotoact.com/signals.",
-          "url": "https://zerotoact.com/signals/",
-          "publisher": {
-            "@id": "https://zerotoact.com/#organization"
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://zerotoact.com/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What exactly is ZeroToAct?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A weekly intelligence publication with two things attached. A yearly Summit that turns the context into a plan, and a screened community where cells of five hold each other to what they said they would do."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Are Weekly Signals free?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. One sharp Signal by email each week, free, and every past edition stays archived at zerotoact.com/signals."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What else does ZeroToAct publish?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Annual Outlook, once a year. It grades the year's calls before making new ones, then says where to position for the next twelve months."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Who is the ZeroToAct community for?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Anyone willing to show up every two weeks and say what they actually did. Cells are matched by stage and by what you are building, so you land with four people at a similar point rather than a random five."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "I am a student, or I am early. Is this for me?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. The Signals are the same for everyone, and in the community you are matched with people at your stage, so the cell is useful to you and you are useful to it."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do I need to join everything at once?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. Start with the free Weekly Signals. They build the context you will use at the Summit and inside the community."
-              }
-            }
-          ]
-        }
-      ]
-    }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zerotoact.com/#organization","name":"ZeroToAct","url":"https://zerotoact.com/","description":"Each week we take one shift in money, government policy or the world economy and follow it down to what it changes for your work, your business or your money. Free, with an annual summit and a screened accountability community attached.","logo":{"@type":"ImageObject","url":"https://zerotoact.com/favicon-v2.png","caption":"ZeroToAct Logo"},"founder":{"@id":"https://adetuyi.com/#person"},"sameAs":["https://instagram.com/zerotoact","https://adetuyi.com"],"foundingDate":"2026"},{"@type":"Person","@id":"https://adetuyi.com/#person","name":"Tolu Adetuyi","url":"https://adetuyi.com","sameAs":["https://adetuyi.com","https://prembly.com"],"jobTitle":"Founder and Convener","worksFor":{"@id":"https://zerotoact.com/#organization"},"givenName":"Tolu","familyName":"Adetuyi","description":"Founder and convener of ZeroToAct, the weekly intelligence publication on the shifts in money, government policy and the world economy. Co-founder and Chief Innovation Officer of Prembly, building identity and compliance infrastructure.","knowsAbout":["Capital markets","Monetary policy","African fintech","Identity infrastructure","Payments regulation","Geopolitics","Emerging market currencies"],"founderOf":{"@id":"https://zerotoact.com/#organization"}},{"@type":"Event","@id":"https://zerotoact.com/#summit","name":"ZeroToAct New Year Summit","description":"A one-day virtual summit where anyone building a career, a company or a portfolio turns the Annual Outlook into a personal 12-month execution plan.","startDate":"2027","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"VirtualLocation","url":"https://zerotoact.com/summit/"},"organizer":{"@id":"https://zerotoact.com/#organization"}},{"@type":"WebSite","@id":"https://zerotoact.com/#website","url":"https://zerotoact.com/","name":"ZeroToAct","description":"Each week we take one shift in money, government policy or the world economy and follow it down to what it changes for your work, your business or your money. Free.","publisher":{"@id":"https://zerotoact.com/#organization"}},{"@type":"CreativeWorkSeries","@id":"https://zerotoact.com/#signals","name":"ZeroToAct Weekly Signals","description":"One read a week on the shifts in money, government policy and the world economy that change your next move. Free by email and archived at zerotoact.com/signals.","url":"https://zerotoact.com/signals/","publisher":{"@id":"https://zerotoact.com/#organization"}},{"@type":"FAQPage","@id":"https://zerotoact.com/#faq","mainEntity":[{"@type":"Question","name":"What exactly is ZeroToAct?","acceptedAnswer":{"@type":"Answer","text":"A weekly intelligence publication with two things attached. A yearly Summit that turns the context into a plan, and a screened community where cells of five hold each other to what they said they would do."}},{"@type":"Question","name":"Are Weekly Signals free?","acceptedAnswer":{"@type":"Answer","text":"Yes. One sharp Signal by email each week, free, and every past edition stays archived at zerotoact.com/signals."}},{"@type":"Question","name":"What else does ZeroToAct publish?","acceptedAnswer":{"@type":"Answer","text":"The Annual Outlook, once a year. It grades the year's calls before making new ones, then says where to position for the next twelve months."}},{"@type":"Question","name":"Who is the ZeroToAct community for?","acceptedAnswer":{"@type":"Answer","text":"Anyone willing to show up every two weeks and say what they actually did. Cells are matched by stage and by what you are building, so you land with four people at a similar point rather than a random five."}},{"@type":"Question","name":"I am a student, or I am early. Is this for me?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Signals are the same for everyone, and in the community you are matched with people at your stage, so the cell is useful to you and you are useful to it."}},{"@type":"Question","name":"Do I need to join everything at once?","acceptedAnswer":{"@type":"Answer","text":"No. Start with the free Weekly Signals. They build the context you will use at the Summit and inside the community."}}]}]}</script>
 </head>
 
 <body>
@@ -180,6 +64,7 @@
   <!-- ═══════════════════════════════════════════
        NAVIGATION
   ═══════════════════════════════════════════ -->
+  <a class="skip-link" href="#main">Skip to content</a>
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo" aria-label="ZeroToAct Home">
@@ -200,8 +85,8 @@
             </a>
           </div>
         </li>
-        <li><a href="#summit-section" class="nav-link">Summit</a></li>
-        <li><a href="#community-section" class="nav-link">Community</a></li>
+        <li><a href="/summit/" class="nav-link">Summit</a></li>
+        <li><a href="/community/" class="nav-link">Community</a></li>
       </ul>
       <button type="button" class="nav-cta join-cta-trigger" data-intent="brief" id="nav-subscribe-btn">Get the Free Signal</button>
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -213,13 +98,13 @@
       <span class="mobile-group-label">Intelligence</span>
       <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
       <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
-      <a href="#summit-section" class="mobile-link">Summit</a>
-      <a href="#community-section" class="mobile-link">Community</a>
+      <a href="/summit/" class="mobile-link">Summit</a>
+      <a href="/community/" class="mobile-link">Community</a>
       <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
     </div>
   </nav>
 
-  <main>
+  <main id="main">
 
     <!-- ═══════════════════════════════════════════
          HERO
@@ -248,12 +133,12 @@
             <span class="stat-label">Intelligence</span>
             <span class="stat-desc">One shift in the world, followed down to what it changes for you.</span>
           </a>
-          <a href="#summit-section" class="hero-stat">
+          <a href="/summit/" class="hero-stat">
             <span class="stat-topline"><span class="stat-num">Annual</span><span class="stat-index">02</span></span>
             <span class="stat-label">Summit</span>
             <span class="stat-desc">One focused day to turn a year of context into your plan.</span>
           </a>
-          <a href="#community-section" class="hero-stat">
+          <a href="/community/" class="hero-stat">
             <span class="stat-topline"><span class="stat-num">Global</span><span class="stat-index">03</span></span>
             <span class="stat-label">Community</span>
             <span class="stat-desc">A cell of five at your stage that keeps your plan moving.</span>
@@ -273,55 +158,58 @@
             From awareness<br />to execution.
           </h2>
           <p class="section-sub">
-            Seeing clearly is the first half. Being held to it is the second.
+            Three things, in order. Each one is useful on its own, and each one hands the next something to work with.
           </p>
         </div>
 
-        <div class="pillars-grid">
+        <ol class="pillars-grid" role="list">
 
-          <article class="pillar-card reveal" id="pillar-content">
+          <li class="pillar-card reveal" id="pillar-content">
             <div class="pillar-number">01</div>
-            <div class="pillar-tag">Intelligence</div>
+            <div class="pillar-tag">Every week</div>
             <h3 class="pillar-title">Weekly Signals</h3>
             <p class="pillar-desc">
-              What changed in the world, and what it changes for you.
+              One shift in money, policy or the world economy, followed down to what it changes for you.
             </p>
-            <ul class="pillar-list" aria-label="What Intelligence provides">
-              <li>One read a week, free forever.</li>
-              <li>What it means for your work, your business or your money.</li>
+            <ul class="pillar-list" aria-label="What Weekly Signals provide">
+              <li>Free, and free forever.</li>
+              <li>Every edition kept as a dated record.</li>
             </ul>
+            <p class="pillar-hands">Hands on <strong>the context</strong></p>
             <a href="#content-section" class="pillar-link">Start with Signals</a>
-          </article>
+          </li>
 
-          <article class="pillar-card pillar-card--featured reveal" id="pillar-summit">
+          <li class="pillar-card pillar-card--featured is-inverted reveal" id="pillar-summit">
             <div class="pillar-number">02</div>
-            <div class="pillar-tag">Summit</div>
+            <div class="pillar-tag">Once a year</div>
             <h3 class="pillar-title">The Annual Summit</h3>
             <p class="pillar-desc">
-              Turn a year of context into a plan for the next twelve months.
+              One day where a year of reading becomes a written plan for the next twelve months.
             </p>
             <ul class="pillar-list" aria-label="What the Summit provides">
               <li>Where the openings are.</li>
-              <li>A written plan with your name on it.</li>
+              <li>A plan with your name on it.</li>
             </ul>
-            <a href="#summit-section" class="pillar-link">Explore the Summit</a>
-          </article>
+            <p class="pillar-hands">Hands on <strong>the plan</strong></p>
+            <a href="/summit/" class="pillar-link">Explore the Summit</a>
+          </li>
 
-          <article class="pillar-card reveal" id="pillar-community">
+          <li class="pillar-card reveal" id="pillar-community">
             <div class="pillar-number">03</div>
-            <div class="pillar-tag">Community</div>
+            <div class="pillar-tag">Every two weeks</div>
             <h3 class="pillar-title">The Live Network</h3>
             <p class="pillar-desc">
-              A cell of five, matched to your stage, reviewing every two weeks.
+              A cell of five, matched to your stage, asking what you said you would do.
             </p>
-            <ul class="pillar-list" aria-label="What the Community provides">
+            <ul class="pillar-list" aria-label="What the Live Network provides">
               <li>One standing commitment.</li>
-              <li>You own the outcome. The cell keeps you honest.</li>
+              <li>Peer run. You own the outcome.</li>
             </ul>
-            <a href="#community-section" class="pillar-link">Explore the Network</a>
-          </article>
+            <p class="pillar-hands">Hands on <strong>the result</strong></p>
+            <a href="/community/" class="pillar-link">Explore the Network</a>
+          </li>
 
-        </div>
+        </ol>
       </div>
     </section>
 
@@ -331,8 +219,8 @@
     <section id="content-section" class="newsletter-section" aria-labelledby="newsletter-heading">
       <div class="container">
         <div class="newsletter-inner">
-          <div class="newsletter-left reveal">
-            <p class="section-eyebrow">01 · Intelligence</p>
+          <p class="section-eyebrow">01 · Intelligence</p>
+            <div class="newsletter-left reveal">
             <h2 id="newsletter-heading" class="section-heading">
               Weekly Signals,<br />
               free forever.
@@ -380,46 +268,35 @@
     <section id="summit-section" class="summit-section" aria-labelledby="summit-heading">
       <div class="container">
         <div class="summit-inner">
+          <p class="section-eyebrow">02 &middot; Summit</p>
           <div class="summit-content reveal">
-            <p class="section-eyebrow">02 · Summit</p>
-            <h2 id="summit-heading" class="section-heading section-heading--light">
+            <h2 id="summit-heading" class="section-heading">
               One day.<br />
-              One year's worth<br />
+              One year&rsquo;s worth<br />
               of direction.
             </h2>
-            <p class="section-sub section-sub--light">
-              Read the <a href="/annual-outlook/" class="convener-link">Annual Outlook</a>, see where the economy is heading, and leave with your own plan for the year.
+            <p class="section-sub">
+              You arrive having read the <a href="/annual-outlook/" class="convener-link">Annual Outlook</a>. You leave with twelve months of direction written down in your own words, for your own situation.
             </p>
-            <div class="summit-framework">
-              <p class="summit-framework-intro">The Summit reads where the economy is going, then hands you your move.</p>
-              <ul class="summit-paths">
-                <li><strong>No skill yet.</strong> Which skills survive where the economy is heading, matched to what you can realistically learn and stay with.</li>
-                <li><strong>Building or running something.</strong> Where the openings are, and how to take them.</li>
-                <li><strong>Putting money to work.</strong> Where to be looking next.</li>
-              </ul>
+            <p class="summit-leave"><strong>The plan is the deliverable.</strong> Not notes, not a recording.</p>
+            <div class="section-actions">
+              <a href="/summit/" class="btn-primary">Read about the Summit</a>
+              <button type="button" class="btn-ghost join-cta-trigger" id="summit-notify-btn" data-intent="summit">
+                Join the waitlist
+              </button>
             </div>
-            <button type="button" class="btn-primary btn-primary--outline join-cta-trigger" id="summit-notify-btn" data-intent="summit">
-              Join the Summit Waitlist
-            </button>
           </div>
+
           <div class="summit-visual reveal">
-            <div class="summit-card-stack">
-              <div class="stack-card stack-card-3" aria-hidden="true"></div>
-              <div class="stack-card stack-card-2" aria-hidden="true"></div>
-              <div class="stack-card stack-card-1">
-                <div class="stack-card-inner stack-card-inner--details">
-                  <div class="card-top-meta">
-                    <span class="stack-tag">ZeroToAct Summit</span>
-                  </div>
-                  <h4 class="stack-heading">Global Eyes.<br />African Stakes.</h4>
-                  <dl class="stack-details">
-                    <div class="stack-detail"><dt>Date</dt><dd>2027</dd></div>
-                    <div class="stack-detail"><dt>Format</dt><dd>One day, virtual</dd></div>
-                    <div class="stack-detail"><dt>Who it is for</dt><dd>Anyone building a career, a company or a portfolio</dd></div>
-                    <div class="stack-detail"><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="convener-link">Tolu Adetuyi</a></dd></div>
-                  </dl>
-                </div>
-              </div>
+            <div class="summit-card is-inverted">
+              <p class="summit-card-tag">ZeroToAct Summit</p>
+              <h3 class="summit-card-heading">Global Eyes.<br />African Stakes.</h3>
+              <dl class="sig-facts">
+                <div><dt>When</dt><dd>2027</dd></div>
+                <div><dt>Format</dt><dd>One day, virtual</dd></div>
+                <div><dt>For</dt><dd>Anyone building a career, a company or a portfolio</dd></div>
+                <div><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="convener-link">Tolu Adetuyi</a></dd></div>
+              </dl>
             </div>
           </div>
         </div>
@@ -432,8 +309,8 @@
     <section id="community-section" class="community-section" aria-labelledby="community-heading">
       <div class="container">
         <div class="community-inner">
-          <div class="community-top reveal">
-            <p class="section-eyebrow">03 · Community</p>
+          <p class="section-eyebrow">03 · Community</p>
+            <div class="community-top reveal">
             <h2 id="community-heading" class="section-heading">
               Where execution lives<br />between signals and summits.
             </h2>
@@ -445,14 +322,14 @@
             <div class="community-card reveal">
               <div class="community-card-num" aria-hidden="true">01</div>
               <h3 class="community-card-title">You Apply</h3>
-              <p class="community-card-desc">The form asks who you are and what stage you are at. That is not a filter on ambition. It is how we place you, so your cell is made up of people the conversation actually works with. A founder raising money is not put in a room with four first year students.</p>
+              <p class="community-card-desc">The form asks who you are and what stage you are at. Not a filter on ambition, a way of placing you with four people whose next problem looks like yours.</p>
             </div>
             <div class="community-card reveal">
               <div class="community-card-num" aria-hidden="true">02</div>
               <h3 class="community-card-title">You Set Your Goals</h3>
               <p class="community-card-desc">Your cell starts as soon as you are in. The Summit is where you lock the full twelve months.</p>
             </div>
-            <div class="community-card reveal">
+            <div class="community-card is-inverted reveal">
               <div class="community-card-num" aria-hidden="true">03</div>
               <h3 class="community-card-title">Your Cell of Five Holds You To It</h3>
               <p class="community-card-desc">Every two weeks the cell reviews what you promised, what shipped, and what happens next.</p>
@@ -468,7 +345,7 @@
                 <button type="button" class="btn-whatsapp join-cta-trigger" id="whatsapp-join-btn" data-intent="community">
                   Apply to the Network
                 </button>
-                <p class="community-cta-disclaimer">Open to anyone ready to commit to the cadence.</p>
+                <p class="community-cta-disclaimer">Open to anyone ready to commit to the cadence. <a href="/community/">How a cell works</a></p>
               </div>
             </div>
           </div>
@@ -479,7 +356,7 @@
     <!-- ═══════════════════════════════════════════
          BRAND PROMISE
     ═══════════════════════════════════════════ -->
-    <section class="promise-section" aria-labelledby="promise-heading">
+    <section class="promise-section surface-light" aria-labelledby="promise-heading">
       <div class="container">
         <div class="promise-inner reveal">
           <div class="promise-rule" aria-hidden="true"></div>
@@ -489,10 +366,10 @@
           </blockquote>
           <div class="promise-rule" aria-hidden="true"></div>
           <div class="promise-founder-meta">
-            <img src="tolu-320.jpg" alt="Tolu Adetuyi" class="promise-avatar" width="320" height="266" loading="lazy" decoding="async" />
+            <img src="tolu-320.jpg" alt="Tolu Adetuyi, founder and convener of ZeroToAct" class="promise-avatar" width="320" height="266" loading="lazy" decoding="async" />
             <div class="promise-founder-details">
               <span class="promise-author">Tolu Adetuyi</span>
-              <span class="promise-title">Convener, ZeroToAct</span>
+              <span class="promise-title">Founder and Convener, ZeroToAct</span>
             </div>
           </div>
         </div>
@@ -502,6 +379,7 @@
     <section class="instagram-section" id="instagram-section" aria-labelledby="instagram-heading">
       <div class="container">
         <div class="instagram-inner">
+          <p class="section-eyebrow">Follow along</p>
           <div class="instagram-content reveal">
             <div class="instagram-profile">
               <svg class="instagram-profile-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -509,7 +387,6 @@
               </svg>
               <span>@zerotoact</span>
             </div>
-            <p class="section-eyebrow">Follow along</p>
             <h2 id="instagram-heading" class="section-heading">
               Weekly Signals continue<br />on Instagram.
             </h2>
@@ -524,7 +401,7 @@
           </div>
 
           <div class="instagram-preview reveal" aria-label="What ZeroToAct shares on Instagram">
-            <article class="instagram-card instagram-card--featured">
+            <article class="instagram-card instagram-card--featured is-inverted">
               <div class="instagram-card-top">
                 <span class="instagram-card-series">01 · The Shift</span>
                 <span class="instagram-card-format">Reels</span>
@@ -567,8 +444,8 @@
     <section class="faq-section" id="faq" aria-labelledby="faq-heading">
       <div class="container">
         <div class="faq-layout">
+          <p class="section-eyebrow">Before you join</p>
           <div class="faq-intro reveal">
-            <p class="section-eyebrow">Before you join</p>
             <h2 id="faq-heading" class="section-heading">Clear answers.<br />No fine print.</h2>
             <p class="section-sub">Start with the free Signal. Go deeper when you are ready to commit.</p>
           </div>
@@ -648,16 +525,15 @@
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>
             <a href="/why/" class="footer-nav-link">Why</a>
-            <a href="#summit-section" class="footer-nav-link">Summit</a>
-            <a href="#community-section" class="footer-nav-link">Community</a>
+            <a href="/summit/" class="footer-nav-link">Summit</a>
+            <a href="/community/" class="footer-nav-link">Community</a>
             <a href="#faq" class="footer-nav-link">FAQ</a>
-            <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Convener</a>
+            <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Founder</a>
           </div>
         </nav>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 ZeroToAct. All rights reserved. Convened by <a href="https://adetuyi.com"
-            target="_blank" rel="noopener noreferrer" class="footer-convener-link">Tolu Adetuyi</a>.</p>
+        <p class="footer-copy">© 2026 ZeroToAct. All rights reserved.</p>
         <a href="https://instagram.com/zerotoact" class="footer-instagram" target="_blank" rel="noopener noreferrer"
           aria-label="ZeroToAct on Instagram">
           <svg class="footer-insta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -751,7 +627,7 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/js/intlTelInput.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/js/intlTelInput.min.js"></script>
   <script src="main.js"></script>
 </body>
 

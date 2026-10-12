@@ -99,7 +99,10 @@
 .sig-back { display: inline-block; font-size: var(--fs-sm); color: var(--grey-400); margin-bottom: 2rem; }
 .sig-back:hover { color: var(--white); }
 .sig-title { font-family: var(--ff-serif); font-size: var(--fs-4xl); font-weight: 700; line-height: 1.04; letter-spacing: -0.028em; text-wrap: balance; color: var(--white-pure); margin: 0.75rem 0 1rem; }
-.sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-xl); line-height: 1.38; text-wrap: pretty; color: var(--grey-200); margin-bottom: 2rem; }
+/* The standfirst supports the headline, so it must not outweigh it. At --fs-xl
+   a 60-word claim ran seven lines and 262px against the headline's 133px,
+   and Playfair is a display face being asked to carry a paragraph. */
+.sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-lg); line-height: 1.45; text-wrap: pretty; color: var(--grey-200); max-width: 34rem; margin-bottom: var(--space-lg); }
 .sig-draft-note { display: inline-block; font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: #f5c451; background: rgba(245, 196, 81, 0.08); border: 1px solid rgba(245, 196, 81, 0.25); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); margin-bottom: 2rem; }
 
 /* figure/figcaption so the caption is associated with the embed, not floating near it. */
@@ -202,41 +205,101 @@
   margin: var(--space-xl) 0 var(--space-sm);
 }
 
-/* The chain: one step per line, counted, no cards. */
-.why-chain { list-style: none; counter-reset: chain; margin: 2.5rem 0 3rem; }
-.why-chain li {
-  counter-increment: chain;
+/* ── The chain ──
+   The page argues a causal chain and used to print it as a flat list, which
+   left the causation inside the sentences. Drawn instead: a spine, a node per
+   layer, and the handoff named on the edge between them. Real text rather than
+   SVG, so it stays legible and reflows at every width. */
+.why-chain-fig { margin: var(--space-lg) 0 var(--space-xl); }
+.why-chain { list-style: none; counter-reset: none; margin: 0; }
+
+.why-link {
   position: relative;
-  padding-left: 2.5rem;
-  font-size: var(--fs-md);
-  line-height: 1.6;
-  color: var(--white);
-  margin-bottom: 1.5rem;
+  padding-left: 3.25rem;
+  padding-bottom: var(--space-md);
 }
-.why-chain li::before {
-  content: counter(chain);
+/* The spine. It stops at the last node rather than running past it. */
+.why-link::before {
+  content: '';
+  position: absolute;
+  left: 0.6875rem;
+  top: 1.4rem;
+  bottom: -0.35rem;
+  width: 1px;
+  background: var(--black-border);
+}
+.why-link:last-child { padding-bottom: 0; }
+.why-link:last-child::before { display: none; }
+
+.why-link-rank {
   position: absolute;
   left: 0;
-  top: 0.35em;
+  top: 0.2rem;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--black-border);
+  background: var(--black);
+  color: var(--grey-500);
+  font-family: var(--ff-mono);
+  font-size: 0.625rem;
+  display: grid;
+  place-items: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.why-link-name {
+  display: block;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--white-pure);
+}
+.why-link-note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--grey-400);
+}
+/* The edge, not the node, carries the mechanism. */
+.why-link-hands {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
   font-family: var(--ff-mono);
   font-size: var(--fs-xs);
-  color: var(--grey-600);
+  letter-spacing: 0.04em;
+  color: var(--grey-500);
 }
-.why-chain li:last-child { margin-bottom: 0; }
-
-.why-cta { margin-top: 3rem; }
-
-@media (max-width: 640px) {
-  .why-page { padding-top: 5rem; padding-bottom: 4rem; }
-  .why-page > p.why-lead { font-size: var(--fs-xl); }
-  .why-page > p.why-turn { font-size: var(--fs-lg); margin: 2.25rem 0; }
-  .why-page h2 { margin-top: 3rem; }
-  .why-chain li { padding-left: 2rem; }
+.why-link-arrow {
+  flex: none;
+  width: 0.75rem;
+  height: 1px;
+  background: var(--grey-600);
+  transform: translateY(-0.25rem);
 }
-.sig-disclosure { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 2rem; }
-.sig-disclosure h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
-.sig-disclosure p { font-size: var(--fs-sm); line-height: 1.6; color: var(--grey-500); }
-.sig-disclosure a { color: var(--grey-400); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Where it lands. The one node the reader is standing on. */
+.why-link.is-you .why-link-rank {
+  background: var(--white-pure);
+  border-color: var(--white-pure);
+  color: var(--black);
+}
+.why-link.is-you .why-link-name { font-size: var(--fs-xl); }
+.why-link.is-you .why-link-note { color: var(--grey-200); }
+
+.why-chain-fig figcaption {
+  margin-top: var(--space-md);
+  padding-top: var(--space-xs);
+  border-top: var(--hairline);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--grey-500);
+}
+
 /* Last time we said. The scorecard that makes a weekly call worth trusting. */
 .sig-lasttime { border: 1px solid var(--black-border); border-radius: var(--radius-md); padding: 1.25rem 1.4rem; margin-bottom: 2.5rem; background: var(--black-soft); }
 .sig-lasttime h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.7rem; }
@@ -265,3 +328,106 @@
 .sig-cite-text,
 .sig-moves li,
 .sig-sources li { font-variant-numeric: tabular-nums lining-nums; }
+
+/* ── Charts ──
+   Monochrome by necessity and by choice. Identity comes from lightness,
+   position and labels, so the encoding survives greyscale print, forced
+   colours and every form of colour blindness without a fallback. */
+.sig-chart { margin: var(--space-lg) 0; }
+.sig-chart-head { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: var(--space-xs); }
+.sig-chart-title { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-400); }
+.sig-chart-note { font-size: var(--fs-sm); line-height: 1.5; color: var(--grey-500); }
+.sig-chart-legend { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; margin-bottom: var(--space-xs); }
+.sig-chart-key { display: inline-flex; align-items: center; gap: 0.45rem; font-size: var(--fs-sm); color: var(--grey-400); }
+.sig-chart-key i { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.sig-chart-key i.is-line { height: 2px; width: 14px; border-radius: 2px; }
+
+.sig-chart-plot { position: relative; border: var(--hairline); border-radius: var(--radius-md); background: var(--black-soft); padding: var(--space-xs); }
+.sig-chart-plot svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.sig-chart-grid { stroke: var(--black-border); stroke-width: 1; }
+.sig-chart-tick { font-family: var(--ff-mono); font-size: 12px; fill: var(--grey-500); font-variant-numeric: tabular-nums; }
+.sig-chart-val { font-family: var(--ff-sans); font-size: 13px; font-weight: 500; fill: var(--grey-200); }
+.sig-chart-inlabel { font-family: var(--ff-sans); font-size: 11px; font-weight: 600; }
+
+.sig-chart-cross line { stroke: var(--grey-600); stroke-width: 1; opacity: 0; }
+.sig-chart-cross.is-on line { opacity: 1; }
+
+.sig-chart [tabindex="0"] { outline: none; }
+.sig-chart [tabindex="0"]:focus-visible { outline: 2px solid var(--white-pure); outline-offset: 2px; }
+.sig-chart path[data-v]:hover, .sig-chart rect[data-v]:hover { opacity: 0.82; }
+
+.sig-chart-tip { position: absolute; pointer-events: none; z-index: 2; transform: translate(-50%, -100%); background: var(--black); border: var(--hairline); border-radius: var(--radius-sm); padding: 0.4rem 0.6rem; white-space: nowrap; box-shadow: var(--shadow-elevated); }
+.sig-chart-tip b { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--white-pure); font-variant-numeric: tabular-nums; }
+.sig-chart-tip span { display: block; font-size: var(--fs-xs); color: var(--grey-400); }
+
+.sig-chart .sig-chart-source { margin-top: var(--space-2xs); margin-bottom: 0; font-size: var(--fs-xs); line-height: 1.5; color: var(--grey-500); }
+.sig-chart-data { margin-top: var(--space-2xs); }
+.sig-chart-data summary { font-size: var(--fs-xs); color: var(--grey-500); cursor: pointer; }
+.sig-chart-data summary:hover { color: var(--white); }
+.sig-chart-data table { width: 100%; border-collapse: collapse; margin-top: var(--space-2xs); font-variant-numeric: tabular-nums; }
+.sig-chart-data caption { text-align: left; font-size: var(--fs-xs); color: var(--grey-500); padding-bottom: 0.4rem; }
+.sig-chart-data th, .sig-chart-data td { text-align: right; font-size: var(--fs-sm); color: var(--grey-200); padding: 0.35rem 0.5rem; border-top: var(--hairline); }
+.sig-chart-data thead th, .sig-chart-data tbody th { text-align: left; color: var(--grey-400); font-weight: 500; }
+
+/* Where colour is taken away from us entirely, keep the marks. */
+@media (forced-colors: active) {
+  .sig-chart path[fill], .sig-chart rect[fill] { forced-color-adjust: none; fill: CanvasText; }
+  .sig-chart-grid { stroke: GrayText; }
+}
+
+/* SVG text lives in viewBox units, so it shrinks with the chart. The plot scales
+   to about 0.86 of the viewBox on desktop but only 0.48 on a phone, which would
+   render a 12px tick at 6px. These sizes are chosen so the text lands at roughly
+   11px on screen at both ends. */
+@media (max-width: 640px) {
+  .sig-chart-tick { font-size: 23px; }
+  .sig-chart-val { font-size: 25px; }
+  .sig-chart-inlabel { font-size: 22px; }
+}
+
+/* Standalone targets on the article and archive pages, same 24px minimum. */
+.sig-back,
+.sig-sources li a,
+.sig-byline a,
+.sig-filter {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+.sig-sources li a { align-items: baseline; min-height: 0; padding-block: 3px; }
+
+/* ═══════════════════════════════════════════════════════
+   WHY PAGE: SECTION MARKS IN THE MARGIN
+   The uppercase section marks sat inline in the reading column, interrupting
+   it, while 370px of margin sat empty either side at desktop. Hanging them
+   in the left margin is how a printed essay marks its sections: the reading
+   measure is undisturbed and the page becomes scannable.
+   ═══════════════════════════════════════════════════════ */
+@media (min-width: 1100px) {
+  .why-page { position: relative; }
+  .why-page h2 {
+    position: absolute;
+    left: 0;
+    width: calc(var(--gutter) + 9rem);
+    /* An absolutely positioned box keeps its static position, and a top
+       margin shifts it from there -- so this lands the mark level with the
+       first line of the passage rather than at the top of the gap. */
+    margin: var(--space-xl) 0 0;
+    transform: translateX(calc(-100% - 2.5rem));
+    text-align: right;
+    text-wrap: balance;
+  }
+  /* The absolute mark leaves no space of its own, so the paragraph that
+     follows has to open the gap the heading used to. */
+  .why-page h2 + p { margin-top: var(--space-xl); }
+  /* A hairline ties the mark to the passage it opens. */
+  .why-page h2::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--black-border);
+    margin: 0.75rem 0 0 auto;
+  }
+}

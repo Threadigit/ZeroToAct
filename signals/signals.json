@@ -14,11 +14,18 @@
       "seoTitle": "Optional. Search-result title. Falls back to title.",
       "seoDesc": "Optional. Meta description, keep under about 155 characters. Falls back to headlineClaim.",
       "keywords": "Optional array of per-edition keywords, merged ahead of the standing list.",
-      "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only.",
+      "written": "Body blocks. Strings are paragraphs, {h} is a subhead. [text](/path) renders an internal link; site-relative paths only. {chart:{...}} renders a chart; see meta.chartForms.",
       "revised": "Optional ISO date of a post-publication revision. Drives the notice, dateModified and article:modified_time. Set it only when the substance changed, meaning a claim, figure, source or conclusion. Prose-only edits and same-day fixes are not revisions and carry no notice.",
       "revisionNote": "One short clause on what changed. Keep it to a line; the notice is a caption, not a changelog.",
       "videoPredatesRevision": "Set true when a revision changed the analysis enough that the video no longer matches the text. Captions the embed as the original edition.",
       "lastTime": "Optional scorecard on the previous call, rendered above this week's analysis. {of: slug being graded, said: what the call was, verdict: Right / Wrong / Half right / Too early, landed: what actually happened}. Write it every week, including the weeks the call missed."
+    },
+    "chartForms": {
+      "note": "Three forms, monochrome and ordinal. Identity comes from lightness, position and labels, never hue, so the encoding survives greyscale print, forced colours and colour blindness. Every chart gets a table twin, which is also what goes into the feed in place of the SVG.",
+      "line": "Change over time. Labels the endpoint and the extreme only, never every point.",
+      "bar": "Magnitude. Zero-based. One or two series; with two, only the lead series is labelled and a legend is shown.",
+      "split": "Part-to-whole, one horizontal bar. Shares appear in the table as well as the chart.",
+      "fields": "{form, title, note, xLabel, unit, x:[labels], series:[{name, values}], source}. unit is '%' to suffix, or a prefix such as 'KSh'."
     }
   },
   "signals": [
@@ -56,13 +63,99 @@
         },
         "At the 7 October Treasury bill auction the Debt Management Office offered ₦900 billion and allotted ₦968.47 billion, taking 7.6 percent more than it advertised against ₦1.77 trillion of bids. The curve that came out of it is almost flat. The 91-day cleared at 15.50 percent, the 182-day at 15.80 and the 364-day at 15.85. Thirty-five basis points separates three months from twelve, and five basis points separates six months from twelve.",
         "The obvious reading is that investors have stopped going long. The composition says the opposite. Of that ₦1.77 trillion, roughly ₦1.68 trillion chased the 364-day. The 91-day and the 182-day together drew ₦86.29 billion against ₦200 billion offered, so both were undersubscribed. Two weeks earlier the same shape was starker still, with ₦4.23 trillion of total bids and ₦4.09 trillion of it, about 97 percent, going into the one-year.",
+        {
+          "chart": {
+            "form": "split",
+            "title": "Where the 7 October bids went",
+            "note": "Of ₦1.77 trillion bid, almost all of it chased the longest tenor on offer.",
+            "xLabel": "Tenor",
+            "unit": "₦",
+            "x": [
+              "7 October auction"
+            ],
+            "series": [
+              {
+                "name": "364-day",
+                "values": [
+                  1680000000000
+                ]
+              },
+              {
+                "name": "91-day and 182-day",
+                "values": [
+                  86290000000
+                ]
+              }
+            ],
+            "source": "DMO auction results, 7 October 2026."
+          }
+        },
         "So nobody in Lagos is refusing duration. They are stampeding into it, and that is precisely why it has stopped paying. In August the one-year paid 17.59 percent. It now pays 15.85, and it pays almost nothing over the six-month, because the people taking the risk competed away their own compensation for it.",
+        {
+          "chart": {
+            "form": "line",
+            "title": "Nigeria's one-year bill, July to October",
+            "note": "Stop rate at the primary auction. The compensation did not fall in a crisis. It was competed away.",
+            "xLabel": "Auction",
+            "unit": "%",
+            "x": [
+              "8 Jul",
+              "21 Aug",
+              "10 Sep",
+              "23 Sep",
+              "7 Oct"
+            ],
+            "series": [
+              {
+                "name": "364-day stop rate",
+                "values": [
+                  17.7,
+                  17.59,
+                  16.62,
+                  15.89,
+                  15.85
+                ]
+              }
+            ],
+            "source": "DMO primary auction results, via Nairametrics and Business Post."
+          }
+        },
         {
           "h": "Nairobi refused to supply one"
         },
         "Kenya's Monetary Policy Committee held the Central Bank Rate at 8.75 percent on 7 October, a fourth consecutive hold and eight months since the February cut. September inflation came in at 6.8 percent against 6.6 in August, with core rising to 4.0 from 3.4 while non-core eased to 14.0 from 14.7. The Committee called the stance appropriate.",
         "The auction the next day said something the hold did not. Bids reached KSh75.4 billion against KSh28 billion offered, a performance rate of 269.3 percent. The 91-day alone drew KSh50.2 billion against an KSh8 billion offer, its heaviest bid since 2017, and the central bank took KSh20.4 billion of it at an average 8.762 percent. The 364-day drew KSh9.6 billion against KSh10 billion offered, undersubscribed, at 9.035 percent.",
         "Read those two lines together. Kenyan investors turned down 9.035 percent for a year and queued for 8.762 percent for three months, surrendering about 27 basis points to stay liquid. Meanwhile the central bank is in the market with KSh50 billion of reopened thirty-year bonds carrying coupons of 12.5 and 12.9 percent, with bidding open to 14 October. Investors want three months. The government needs thirty years.",
+        {
+          "chart": {
+            "form": "bar",
+            "title": "Kenya, bids against the amount offered",
+            "note": "Three months at 8.762 percent was oversubscribed six times. A year at 9.035 went undersubscribed.",
+            "xLabel": "Tenor",
+            "unit": "KSh",
+            "x": [
+              "91-day",
+              "364-day"
+            ],
+            "series": [
+              {
+                "name": "Bids received",
+                "values": [
+                  50200000000,
+                  9600000000
+                ]
+              },
+              {
+                "name": "Amount offered",
+                "values": [
+                  8000000000,
+                  10000000000
+                ]
+              }
+            ],
+            "source": "Central Bank of Kenya auction of 8 October 2026."
+          }
+        },
         {
           "h": "Washington is demanding a bigger one"
         },

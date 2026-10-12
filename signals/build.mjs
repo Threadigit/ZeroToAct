@@ -19,10 +19,18 @@ const PERSON = {
   '@type': 'Person',
   '@id': `${AUTHOR.url}/#person`,
   name: AUTHOR.name,
+  givenName: 'Tolu',
+  familyName: 'Adetuyi',
   url: AUTHOR.url,
-  sameAs: [AUTHOR.url],
-  jobTitle: 'Convener',
+  sameAs: [AUTHOR.url, 'https://prembly.com'],
+  jobTitle: 'Founder and Convener',
+  description: 'Founder and convener of ZeroToAct, the weekly intelligence publication on the shifts in money, government policy and the world economy. Co-founder and Chief Innovation Officer of Prembly, building identity and compliance infrastructure.',
+  knowsAbout: [
+    'Capital markets', 'Monetary policy', 'African fintech', 'Identity infrastructure',
+    'Payments regulation', 'Geopolitics', 'Emerging market currencies',
+  ],
   worksFor: { '@id': `${BASE}/#organization` },
+  founderOf: { '@id': `${BASE}/#organization` },
 };
 const PUBLISHER = {
   '@type': 'Organization',
@@ -30,6 +38,10 @@ const PUBLISHER = {
   name: 'ZeroToAct',
   url: `${BASE}/`,
   logo: { '@type': 'ImageObject', url: `${BASE}/favicon-v2.png` },
+  founder: { '@id': `${AUTHOR.url}/#person` },
+  foundingDate: '2026',
+  description: 'Weekly intelligence on the shifts in money, government policy and the world economy that change your next move.',
+  sameAs: ['https://instagram.com/zerotoact'],
 };
 // Breadcrumb JSON-LD from an ordered list of [name, url] pairs.
 const breadcrumb = (items) => ({
@@ -88,7 +100,8 @@ const READING_PROGRESS = `<div class="sig-progress" id="sig-progress" role="pres
   </script>`;
 
 // Shared site chrome, matched to index.html so every page navigates identically.
-const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation">
+const SITE_NAV = `  <a class="skip-link" href="#main">Skip to content</a>
+  <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="36" height="36" /></a>
       <ul class="nav-links" role="list">
@@ -106,8 +119,8 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
             </a>
           </div>
         </li>
-        <li><a href="/#summit-section" class="nav-link">Summit</a></li>
-        <li><a href="/#community-section" class="nav-link">Community</a></li>
+        <li><a href="/summit/" class="nav-link">Summit</a></li>
+        <li><a href="/community/" class="nav-link">Community</a></li>
       </ul>
       <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
@@ -117,8 +130,8 @@ const SITE_NAV = `  <nav id="nav" role="navigation" aria-label="Main navigation"
       <span class="mobile-group-label">Intelligence</span>
       <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
       <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
-      <a href="/#summit-section" class="mobile-link">Summit</a>
-      <a href="/#community-section" class="mobile-link">Community</a>
+      <a href="/summit/" class="mobile-link">Summit</a>
+      <a href="/community/" class="mobile-link">Community</a>
       <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
     </div>
   </nav>`;
@@ -139,15 +152,15 @@ const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>
             <a href="/why/" class="footer-nav-link">Why</a>
-            <a href="/#summit-section" class="footer-nav-link">Summit</a>
-            <a href="/#community-section" class="footer-nav-link">Community</a>
+            <a href="/summit/" class="footer-nav-link">Summit</a>
+            <a href="/community/" class="footer-nav-link">Community</a>
             <a href="/#faq" class="footer-nav-link">FAQ</a>
-            <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Convener</a>
+            <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Founder</a>
           </div>
         </nav>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; ${new Date().getFullYear()} ZeroToAct. All rights reserved. Convened by <a href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer" class="footer-convener-link">${AUTHOR.name}</a>.</p>
+        <p class="footer-copy">&copy; ${new Date().getFullYear()} ZeroToAct. All rights reserved.</p>
         <a href="https://instagram.com/zerotoact" class="footer-instagram" target="_blank" rel="noopener noreferrer" aria-label="ZeroToAct on Instagram"><svg class="footer-insta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>@zerotoact</a>
       </div>
     </div>
@@ -177,7 +190,7 @@ const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true"
     </div>
   </div>`;
 
-const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '' }) => `<!DOCTYPE html>
+const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '', noindex = false }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -185,9 +198,9 @@ const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', ar
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}" />
 ${keywords ? `  <meta name="keywords" content="${esc(keywords)}" />\n` : ''}  <meta name="author" content="${esc(AUTHOR.name)}" />
-  <link rel="canonical" href="${canonical}" />
+${canonical ? `  <link rel="canonical" href="${canonical}" />\n` : ''}
   <link rel="author" href="${AUTHOR.url}" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}" />
   <link rel="icon" type="image/png" href="/favicon-v2.png" />
   <meta name="theme-color" content="#0a0a0a" />
   <meta property="og:type" content="${ogType}" />
@@ -206,9 +219,8 @@ ${articleMeta}  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:description" content="${esc(desc)}" />
   <meta name="twitter:image" content="${OG_IMAGE}" />
   <link rel="alternate" type="application/rss+xml" title="ZeroToAct Signals" href="/signals/feed.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/signals/signals.css" />
 ${head}</head>
@@ -226,9 +238,218 @@ ${JOIN_MODAL}
 // restricted to site-relative, so neither the text nor the href can inject markup.
 const linkify = (html) =>
   html.replace(/\[([^\]]+)\]\((\/[A-Za-z0-9\-._~\/#]*)\)/g, '<a href="$2">$1</a>');
+// ── Charts ──────────────────────────────────────────────────────────────
+// A publication this full of figures should show them. Three forms, no more:
+// a line for change over time, columns for magnitude, a split bar for
+// part-to-whole. Encoding is monochrome and ordinal, so identity comes from
+// lightness, position and labels rather than hue. Every chart ships a table
+// twin, which is both the accessible equivalent and what goes into the feed.
+
+const INK = { lead: 'var(--white-pure)', context: 'var(--grey-500)', faint: 'var(--grey-600)' };
+
+const niceTicks = (lo, hi, count = 4) => {
+  const span = hi - lo || Math.abs(hi) || 1;
+  const raw = span / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw) ?? 10 * mag;
+  const start = Math.floor(lo / step) * step;
+  const out = [];
+  for (let v = start; v <= hi + step / 2; v += step) out.push(Number(v.toFixed(10)));
+  return out;
+};
+
+const fmt = (v, unit = '') => {
+  const a = Math.abs(v);
+  let s;
+  const trim = (n, dp) => String(Number(n.toFixed(dp)));
+  if (a >= 1e12) s = trim(v / 1e12, 2) + 'tn';
+  else if (a >= 1e9) s = trim(v / 1e9, a >= 1e10 ? 0 : 2) + 'bn';
+  else if (a >= 1e6) s = trim(v / 1e6, 1) + 'm';
+  else if (a >= 1000) s = v.toLocaleString('en-GB');
+  else s = String(Number(v.toFixed(2)));
+  return unit === '%' ? s + '%' : unit ? unit + s : s;
+};
+
+// Table twin. Carries every value, so no number is gated behind a hover.
+const chartTable = (c) => {
+  // A split bar is read as a share, so the share belongs in the table too.
+  // Nothing the chart or its tooltip shows may be missing here.
+  if (c.form === 'split') {
+    const total = c.series.reduce((a, s) => a + s.values[0], 0);
+    const rows = c.series.map(s =>
+      `<tr><th scope="row">${esc(s.name)}</th><td>${esc(fmt(s.values[0], c.unit))}</td><td>${Math.round((s.values[0] / total) * 100)}%</td></tr>`).join('');
+    return `<details class="sig-chart-data"><summary>Table of values</summary><table><caption>${esc(c.title)}</caption><thead><tr><th scope="col">${esc(c.xLabel || '')}</th><th scope="col">Amount</th><th scope="col">Share</th></tr></thead><tbody>${rows}</tbody></table></details>`;
+  }
+  const head = `<tr><th scope="col">${esc(c.xLabel || '')}</th>${c.series.map(s => `<th scope="col">${esc(s.name)}</th>`).join('')}</tr>`;
+  const rows = c.x.map((x, i) =>
+    `<tr><th scope="row">${esc(x)}</th>${c.series.map(s => `<td>${esc(fmt(s.values[i], c.unit))}</td>`).join('')}</tr>`
+  ).join('');
+  return `<details class="sig-chart-data"><summary>Table of values</summary><table><caption>${esc(c.title)}</caption><thead>${head}</thead><tbody>${rows}</tbody></table></details>`;
+};
+
+const barPath = (x, y, w, h, r) => {
+  const rr = Math.min(r, w / 2, h);
+  return `M${x} ${y + h}V${y + rr}a${rr} ${rr} 0 0 1 ${rr} ${-rr}h${w - 2 * rr}a${rr} ${rr} 0 0 1 ${rr} ${rr}V${y + h}Z`;
+};
+
+function chartSvg(c, id) {
+  const W = 680, PAD = { t: 18, r: 18, b: 34, l: 46 };
+  const multi = c.series.length > 1;
+  const all = c.series.flatMap(s => s.values);
+  const H = c.form === 'split' ? 76 : 250;
+
+  if (c.form === 'split') {
+    const total = all.reduce((a, b) => a + b, 0);
+    const innerW = W - PAD.l - PAD.r, y = 22, bh = 32, gap = 2;
+    let x = PAD.l, segs = '', labels = '';
+    c.series.forEach((s, i) => {
+      const w = Math.max(0, (s.values[0] / total) * innerW - (i < c.series.length - 1 ? gap : 0));
+      const fill = i === 0 ? INK.lead : i === 1 ? INK.context : INK.faint;
+      const pct = Math.round((s.values[0] / total) * 100);
+      segs += `<rect x="${x.toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="${bh}" rx="2" fill="${fill}" tabindex="0" role="img" aria-label="${esc(s.name)}, ${esc(fmt(s.values[0], c.unit))}, ${pct} percent" data-l="${esc(s.name)}" data-v="${esc(fmt(s.values[0], c.unit))} · ${pct}%"><title>${esc(s.name)}: ${esc(fmt(s.values[0], c.unit))}</title></rect>`;
+      // Only label inside the segment when the text comfortably fits.
+      if (w > 64) labels += `<text x="${(x + 8).toFixed(1)}" y="${y + bh / 2 + 4}" class="sig-chart-inlabel" fill="${i === 0 ? 'var(--black)' : 'var(--black)'}">${pct}%</text>`;
+      x += w + gap;
+    });
+    const key = c.series.map((s, i) =>
+      `<span class="sig-chart-key"><i style="background:${i === 0 ? INK.lead : i === 1 ? INK.context : INK.faint}"></i>${esc(s.name)} ${esc(fmt(s.values[0], c.unit))}</span>`).join('');
+    return { svg: `<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${id}-t" preserveAspectRatio="xMidYMid meet"><title id="${id}-t">${esc(c.title)}</title>${segs}${labels}</svg>`, key };
+  }
+
+  const lo = Math.min(...all), hi = Math.max(...all);
+  const zeroBased = c.form === 'bar';
+  const ticks = niceTicks(zeroBased ? 0 : lo, hi);
+  const yMin = zeroBased ? 0 : Math.min(ticks[0], lo), yMax = Math.max(ticks[ticks.length - 1], hi);
+  const px = i => PAD.l + (c.x.length === 1 ? (W - PAD.l - PAD.r) / 2 : (i / (c.x.length - 1)) * (W - PAD.l - PAD.r));
+  const py = v => PAD.t + (1 - (v - yMin) / (yMax - yMin || 1)) * (H - PAD.t - PAD.b);
+
+  const grid = ticks.map(t =>
+    `<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${py(t).toFixed(1)}" y2="${py(t).toFixed(1)}" class="sig-chart-grid" />` +
+    `<text x="${PAD.l - 10}" y="${(py(t) + 4).toFixed(1)}" class="sig-chart-tick" text-anchor="end">${esc(fmt(t, c.unit))}</text>`).join('');
+
+  const bandW = (W - PAD.l - PAD.r) / c.x.length;
+  const labelX = i => c.form === 'bar' ? PAD.l + bandW * i + bandW / 2 : px(i);
+  const xLabels = c.x.map((x, i) =>
+    `<text x="${labelX(i).toFixed(1)}" y="${H - 12}" class="sig-chart-tick" text-anchor="${c.form === 'bar' ? 'middle' : i === 0 ? 'start' : i === c.x.length - 1 ? 'end' : 'middle'}">${esc(x)}</text>`).join('');
+
+  let marks = '', hits = '';
+  if (c.form === 'bar') {
+    const band = (W - PAD.l - PAD.r) / c.x.length;
+    const thick = Math.min(24, Math.max(8, (band - 10) / c.series.length - 2));
+    c.series.forEach((s, si) => {
+      const fill = si === 0 ? INK.lead : si === 1 ? INK.context : INK.faint;
+      s.values.forEach((v, i) => {
+        const groupW = c.series.length * thick + (c.series.length - 1) * 2;
+        const x0 = PAD.l + band * i + (band - groupW) / 2 + si * (thick + 2);
+        const y0 = py(v), h = py(yMin) - y0;
+        marks += `<path d="${barPath(x0, y0, thick, h, 4)}" fill="${fill}" tabindex="0" role="img" aria-label="${esc(c.x[i])}, ${esc(s.name)}, ${esc(fmt(v, c.unit))}" data-l="${esc(c.x[i])} · ${esc(s.name)}" data-v="${esc(fmt(v, c.unit))}"><title>${esc(c.x[i])} ${esc(s.name)}: ${esc(fmt(v, c.unit))}</title></path>`;
+        if (si === 0) marks += `<text x="${(x0 + thick / 2).toFixed(1)}" y="${(y0 - 7).toFixed(1)}" class="sig-chart-val" text-anchor="middle">${esc(fmt(v, c.unit))}</text>`;
+      });
+    });
+  } else {
+    c.series.forEach((s, si) => {
+      const stroke = si === 0 ? INK.lead : si === 1 ? INK.context : INK.faint;
+      const d = s.values.map((v, i) => `${i ? 'L' : 'M'}${px(i).toFixed(1)} ${py(v).toFixed(1)}`).join(' ');
+      marks += `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />`;
+      const li = s.values.length - 1;
+      // Selective labels only: the endpoint, and the extreme when it is not the endpoint.
+      const exi = s.values.indexOf(Math.max(...s.values));
+      [li, ...(exi !== li && si === 0 ? [exi] : [])].forEach(i => {
+        marks += `<circle cx="${px(i).toFixed(1)}" cy="${py(s.values[i]).toFixed(1)}" r="4" fill="${stroke}" stroke="var(--black)" stroke-width="2" />`;
+        marks += `<text x="${px(i).toFixed(1)}" y="${(py(s.values[i]) - 12).toFixed(1)}" class="sig-chart-val" text-anchor="${i === li ? 'end' : 'middle'}">${esc(fmt(s.values[i], c.unit))}</text>`;
+      });
+    });
+    // Crosshair hit bands: the reader aims at an x position, never at a 2px line.
+    const band = (W - PAD.l - PAD.r) / Math.max(1, c.x.length - 1);
+    hits = c.x.map((x, i) => {
+      const rows = c.series.map(s => `${s.name} ${fmt(s.values[i], c.unit)}`).join(' · ');
+      return `<rect x="${(px(i) - band / 2).toFixed(1)}" y="${PAD.t}" width="${Math.max(24, band).toFixed(1)}" height="${H - PAD.t - PAD.b}" fill="transparent" tabindex="0" role="img" aria-label="${esc(x)}, ${esc(rows)}" data-l="${esc(x)}" data-v="${esc(rows)}" data-x="${px(i).toFixed(1)}" />`;
+    }).join('');
+  }
+
+  const key = multi ? c.series.map((s, i) =>
+    `<span class="sig-chart-key"><i class="${c.form === 'line' ? 'is-line' : ''}" style="background:${i === 0 ? INK.lead : i === 1 ? INK.context : INK.faint}"></i>${esc(s.name)}</span>`).join('') : '';
+
+  return {
+    svg: `<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${id}-t" preserveAspectRatio="xMidYMid meet"><title id="${id}-t">${esc(c.title)}</title>${grid}<line class="sig-chart-grid" x1="${PAD.l}" x2="${W - PAD.r}" y1="${py(yMin).toFixed(1)}" y2="${py(yMin).toFixed(1)}" />${marks}${xLabels}<g class="sig-chart-cross" aria-hidden="true"><line y1="${PAD.t}" y2="${H - PAD.b}" /></g>${hits}</svg>`,
+    key,
+  };
+}
+
+
+// Chart hover and keyboard readout. Only emitted on pages that have a chart.
+const CHART_SCRIPT = `<script>
+    (function () {
+      document.querySelectorAll('.sig-chart').forEach(function (fig) {
+        var plot = fig.querySelector('.sig-chart-plot');
+        var tip = fig.querySelector('.sig-chart-tip');
+        var svg = fig.querySelector('svg');
+        var cross = fig.querySelector('.sig-chart-cross');
+        if (!plot || !tip || !svg) return;
+        function hide() { tip.hidden = true; if (cross) cross.classList.remove('is-on'); }
+        function show(el) {
+          var v = el.getAttribute('data-v'), l = el.getAttribute('data-l');
+          if (!v) return;
+          tip.textContent = '';
+          var b = document.createElement('b'); b.textContent = v;
+          var sp = document.createElement('span'); sp.textContent = l || '';
+          tip.appendChild(b); tip.appendChild(sp);
+          var r = el.getBoundingClientRect(), p = plot.getBoundingClientRect();
+          tip.hidden = false;
+          tip.style.left = Math.round(r.left - p.left + r.width / 2) + 'px';
+          tip.style.top = Math.round(r.top - p.top) - 8 + 'px';
+          var x = el.getAttribute('data-x');
+          if (cross && x) {
+            var ln = cross.querySelector('line');
+            ln.setAttribute('x1', x); ln.setAttribute('x2', x);
+            cross.classList.add('is-on');
+          }
+        }
+        svg.querySelectorAll('[data-v]').forEach(function (el) {
+          el.addEventListener('pointerenter', function () { show(el); });
+          el.addEventListener('focus', function () { show(el); });
+          el.addEventListener('blur', hide);
+        });
+        plot.addEventListener('pointerleave', hide);
+      });
+    }());
+  <\/script>`;
+
+let chartSeq = 0;
+function renderChart(c) {
+  const id = `chart-${++chartSeq}`;
+  const { svg, key } = chartSvg(c, id);
+  return `<figure class="sig-chart" id="${id}">
+      <figcaption class="sig-chart-head"><span class="sig-chart-title">${esc(c.title)}</span>${c.note ? `<span class="sig-chart-note">${esc(c.note)}</span>` : ''}</figcaption>
+      ${key ? `<div class="sig-chart-legend">${key}</div>` : ''}
+      <div class="sig-chart-plot">${svg}<div class="sig-chart-tip" hidden></div></div>
+      ${c.source ? `<p class="sig-chart-source">${esc(c.source)}</p>` : ''}
+      ${chartTable(c)}
+    </figure>`;
+}
+
 const renderBlock = (item) =>
   typeof item === 'string' ? `<p>${linkify(esc(item))}</p>`
-    : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>` : '';
+    : (item && item.h) ? `<h2 class="sig-subhead">${esc(item.h)}</h2>`
+    : (item && item.chart) ? renderChart(item.chart) : '';
+
+// The feed gets the table instead of the SVG. Readers render inline SVG
+// inconsistently, and the table carries every value anyway.
+const renderBlockForFeed = (item) =>
+  (item && item.chart) ? feedTable(item.chart) : renderBlock(item);
+
+const feedTable = (c) => {
+  if (c.form === 'split') {
+    const total = c.series.reduce((a, x) => a + x.values[0], 0);
+    const rows = c.series.map(x =>
+      `<tr><th>${esc(x.name)}</th><td>${esc(fmt(x.values[0], c.unit))}</td><td>${Math.round((x.values[0] / total) * 100)}%</td></tr>`).join('');
+    return `<figure><table><caption>${esc(c.title)}${c.note ? '. ' + esc(c.note) : ''}</caption><thead><tr><th>${esc(c.xLabel || '')}</th><th>Amount</th><th>Share</th></tr></thead><tbody>${rows}</tbody></table></figure>`;
+  }
+  const head = `<tr><th>${esc(c.xLabel || '')}</th>${c.series.map(x => `<th>${esc(x.name)}</th>`).join('')}</tr>`;
+  const rows = c.x.map((x, i) =>
+    `<tr><th>${esc(x)}</th>${c.series.map(sr => `<td>${esc(fmt(sr.values[i], c.unit))}</td>`).join('')}</tr>`).join('');
+  return `<figure><table><caption>${esc(c.title)}${c.note ? '. ' + esc(c.note) : ''}</caption><thead>${head}</thead><tbody>${rows}</tbody></table></figure>`;
+};
 
 // Absolute media URLs for the edition's video, used by both the page schema and the feed.
 const videoThumb = (s) => `https://i.ytimg.com/vi/${s.videoId}/maxresdefault.jpg`;
@@ -344,7 +565,7 @@ function editionPage(s) {
     `  <meta property="article:tag" content="${esc(s.theme)}" />\n`;
 
   const body = `
-  <main class="sig-wrap sig-article">
+  <main id="main" class="sig-wrap sig-article">
     <a href="/signals/" class="sig-back">&larr; The Signal Archive</a>
     <p class="sig-eyebrow">${eyebrowBits.map(esc).join(' &middot; ')}</p>
     <h1 class="sig-title">${esc(s.title)}</h1>
@@ -376,7 +597,7 @@ function editionPage(s) {
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
     </div>
   </main>
-  ${READING_PROGRESS}`;
+  ${READING_PROGRESS}${(s.written || []).some(b => b && b.chart) ? CHART_SCRIPT : ''}`;
 
   return shell({
     title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
@@ -402,7 +623,7 @@ function indexPage() {
       </article>`).join('\n');
 
   const body = `
-  <main class="sig-wrap sig-index">
+  <main id="main" class="sig-wrap sig-index">
     <header class="sig-index-head">
       <p class="sig-eyebrow">Weekly Signals, on the record</p>
       <h1 class="sig-index-title">The Signal Archive</h1>
@@ -468,7 +689,7 @@ function feed() {
   // Feed readers get the whole edition, not a teaser. CDATA carries the markup;
   // the guard keeps a stray terminator from closing the section early.
   const fullHtml = (s) => {
-    const body = (s.written || []).map(renderBlock).join('\n');
+    const body = (s.written || []).map(renderBlockForFeed).join('\n');
     const moves = (s.nextMove || []).map((m) =>
       `<h3>${esc(m.who)}</h3>\n<p>${linkify(esc(m.do))}</p>`).join('\n');
     const html = `${body}\n<h2>Next move</h2>\n${moves}`;
@@ -515,6 +736,8 @@ function sitemap() {
     ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
     { loc: `${BASE}/why/`, priority: '0.8', changefreq: 'yearly' },
     { loc: `${BASE}/annual-outlook/`, priority: '0.6', changefreq: 'monthly' },
+    { loc: `${BASE}/summit/`, priority: '0.8', changefreq: 'monthly' },
+    { loc: `${BASE}/community/`, priority: '0.8', changefreq: 'monthly' },
   ];
   const body = urls.map((u) => `  <url>
     <loc>${u.loc}</loc>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}
@@ -534,12 +757,12 @@ const briefCta = (label = 'Get the Free Signal') =>
   `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="brief">${esc(label)}</button>`;
 
 // Shared chrome for a single research-product page.
-function productShell({ slug, title, desc, status, claim, sections, cta }) {
+function productShell({ slug, title, desc, kind = 'Intelligence', status, claim, sections, cta }) {
   const url = `${BASE}/${slug}/`;
   const body = `
-  <main class="sig-wrap sig-article">
+  <main id="main" class="sig-wrap sig-article">
     <a href="/" class="sig-back">&larr; ZeroToAct</a>
-    <p class="sig-eyebrow">Intelligence &middot; ${esc(status)}</p>
+    <p class="sig-eyebrow">${esc(kind)} &middot; ${esc(status)}</p>
     <h1 class="sig-title">${esc(title)}</h1>
     <p class="sig-claim">${esc(claim)}</p>
     ${sections}
@@ -548,7 +771,9 @@ function productShell({ slug, title, desc, status, claim, sections, cta }) {
         <h2>${esc(cta.heading)}</h2>
         <p>${esc(cta.sub)}</p>
       </div>
-      ${briefCta(cta.label)}
+      ${cta.intent && cta.intent !== 'brief'
+        ? `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="${esc(cta.intent)}">${esc(cta.label)}</button>`
+        : briefCta(cta.label)}
     </div>
   </main>
   ${READING_PROGRESS}`;
@@ -578,7 +803,7 @@ function whyPage() {
   const desc = 'One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. This is the chain that does it.';
 
   const body = `
-  <main class="sig-wrap why-page">
+  <main id="main" class="sig-wrap why-page">
     <a href="/" class="sig-back">&larr; ZeroToAct</a>
     <h1 class="sig-eyebrow why-eyebrow">Why we exist</h1>
 
@@ -599,14 +824,47 @@ function whyPage() {
     <p>Then you notice that being good at your work does not decide how far that work travels. Skilled people stay invisible. Good ideas never find a way to make money. Useful products never get funded. Strong companies get knocked back by a currency swing or a government decision that had nothing to do with them.</p>
     <p>You have been reading this from the bottom, starting with your own work. Start at the top instead.</p>
 
-    <ol class="why-chain">
-      <li>Power writes the rules.</li>
-      <li>The rules decide what is allowed and what it costs.</li>
-      <li>That decides how easy it is to get money.</li>
-      <li>How easy money is decides what businesses can afford to build.</li>
-      <li>What they build decides which products and which jobs exist.</li>
-      <li>And that decides what your skill is worth, what your business can charge, and what the money you put in comes back as.</li>
-    </ol>
+    <figure class="why-chain-fig">
+      <ol class="why-chain">
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">01</span>
+        <span class="why-link-name">Power</span>
+        <span class="why-link-note">Governments and central banks decide.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what is allowed, and what it costs</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">02</span>
+        <span class="why-link-name">The rules</span>
+        <span class="why-link-note">Tariffs, rates, subsidies, capital controls.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down how easy it is to get money</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">03</span>
+        <span class="why-link-name">Credit</span>
+        <span class="why-link-note">The price of borrowing, for everyone.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what a business can afford to build</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">04</span>
+        <span class="why-link-name">Business</span>
+        <span class="why-link-note">Which projects clear the hurdle and which are dropped.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down which products and which jobs exist</span>
+      </li>
+      <li class="why-link">
+        <span class="why-link-rank" aria-hidden="true">05</span>
+        <span class="why-link-name">The market</span>
+        <span class="why-link-note">What there is to buy, and who gets hired to make it.</span>
+        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what your work is worth</span>
+      </li>
+      <li class="why-link is-you">
+        <span class="why-link-rank" aria-hidden="true">06</span>
+        <span class="why-link-name">You</span>
+        <span class="why-link-note">Your skill, your business, your money.</span>
+        
+      </li>
+      </ol>
+      <figcaption>Each layer hands the next one its terms. By the time it reaches your work, five decisions have already been taken above it.</figcaption>
+    </figure>
 
     <p>Your skill sits near the bottom of that chain. So does your business. So does whatever money you have put to work. What each is worth gets decided several levels above where you sit, by people you may never meet, in rooms you may never enter.</p>
     <p class="why-turn">That is not a reason to feel small. It is the reason to look up.</p>
@@ -627,7 +885,7 @@ function whyPage() {
     <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires.</p>
     <p class="why-turn">So we built the other half.</p>
     <p>A cell of five, matched to your stage, meeting every two weeks. You say what you are going to do. The other four ask you about it next time. Matching matters, because a founder raising money and four first year students in one room helps nobody. The cells are peer run, so nobody chairs them for you. You own the outcome.</p>
-    <p>Once a year, at the <a href="/#summit-section">Summit</a>, a year of reading becomes one written plan for the next twelve months with your name on it.</p>
+    <p>Once a year, at the <a href="/summit/">Summit</a>, a year of reading becomes one written plan for the next twelve months with your name on it.</p>
     <p>That is the whole design. See the chain clearly, then sit in a room where somebody expects you to move on it.</p>
 
     <h2>Who is behind this</h2>
@@ -665,21 +923,43 @@ function whyPage() {
 }
 
 function annualOutlookPage() {
+  // What goes in it, stated as fields rather than promises.
+  const inside = [
+    ['The scorecard', 'Every call the year\u2019s Signals made, graded right, wrong, half right or too early, before a single new one is made.'],
+    ['Where the money is going', 'Rates, currencies and credit for the year ahead, and what each one does to the cost of borrowing where you are.'],
+    ['Where the openings are', 'The sectors and markets the year\u2019s reporting kept returning to, and the ones it stopped returning to.'],
+    ['What would break it', 'The assumptions the position rests on, named, so you can watch the ones that matter instead of all of them.'],
+    ['The move, by position', 'What it means if you are building a career, running a company, or putting money to work. Three answers, not one.'],
+  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
+
   const sections = `
     <div class="sig-body">
       <p>Once a year, one publication reviews the year of Signals and tells you where to position for the next. It is the point where twelve months of weekly intelligence becomes a single, considered stance.</p>
     </div>
     <div class="sig-block sig-block--move">
-      <h2>It grades its own calls</h2>
-      <p>Before it makes a single new call, the Outlook publishes which of the year's Signals held and which did not. You see the track record before you read the forecast. Most outlooks quietly forget last year's; this one starts there.</p>
+      <h2>It grades its own calls first</h2>
+      <p>Before it makes a single new call, the Outlook publishes which of the year\u2019s Signals held and which did not. You see the track record before you read the forecast. Most outlooks quietly forget last year\u2019s. This one starts there.</p>
+    </div>
+
+    <div class="sig-lasttime">
+      <h2>What a graded call looks like</h2>
+      <p>On 26 July we put the probability of a Federal Reserve hike near one third, while the consensus was still leaning towards a cut.</p>
+      <p class="sig-lasttime-verdict"><strong>Early on timing, right on direction.</strong> The Fed held at that meeting, so the timing was wrong. Two meetings later it raised, unanimously. The grade goes in the Outlook with the call, not instead of it. <a href="/signals/read-the-corridor-not-the-cut/">Read where that landed</a>.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>What is inside it</h2>
+      <ul class="sig-moves">
+        ${inside}
+      </ul>
     </div>
     <div class="sig-block">
-      <h2>It is built from the year's work</h2>
-      <p>The Outlook is assembled, not invented. It draws on the year's Signals, the outcomes recorded inside the accountability cells, and global opportunity. It is the compounding of everything the operation already published.</p>
+      <h2>It is built from the year\u2019s work</h2>
+      <p>The Outlook is assembled, not invented. It draws on the year\u2019s Signals, the outcomes recorded inside the accountability cells, and the openings the reporting kept returning to. It is the compounding of everything already published, which is why it can be graded at all.</p>
     </div>
     <div class="sig-block">
       <h2>It sets up the Summit</h2>
-      <p>The Outlook is where the year's intelligence becomes a position. The <a href="/#summit-section">Annual Summit</a> is where you turn that position into a personal 12-month plan. The first Outlook lands alongside the New Year Summit.</p>
+      <p>The Outlook is where the year\u2019s intelligence becomes a position. The <a href="/summit/">Annual Summit</a> is where you turn that position into a personal 12-month plan. The first Outlook lands alongside the New Year Summit.</p>
     </div>`;
 
   return productShell({
@@ -692,6 +972,159 @@ function annualOutlookPage() {
     cta: { heading: 'Be there for the first one.', sub: 'The first Annual Outlook lands with the New Year Summit. Subscribe to Weekly Signals to get it.', label: 'Get the Free Signal' },
   });
 }
+
+
+
+// ── Summit page ──
+// The homepage carries a summary; this is the whole thing. Everything stated
+// here is already committed to elsewhere on the site -- nothing about the
+// programme is invented to fill the page.
+function summitPage() {
+  const tracks = [
+    ['No skill yet', 'Which skills survive where the economy is heading, matched to what you can realistically learn and stay with.'],
+    ['Building or running something', 'Where the openings are in the year ahead, and how to take them from where you actually stand.'],
+    ['Putting money to work', 'Where to be looking next, and what the cost of borrowing does to the case for waiting.'],
+  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
+
+  const sections = `
+    <div class="sig-body">
+      <p>Most of the year is reading. One day of it is deciding.</p>
+      <p>The Summit is the day the year&rsquo;s intelligence stops being context and becomes a position you have written down. You arrive having read the <a href="/annual-outlook/">Annual Outlook</a>. You leave with twelve months of direction in your own words, for your own situation.</p>
+    </div>
+
+    <div class="sig-block sig-block--move">
+      <h2>Global Eyes. African Stakes.</h2>
+      <p>The decisions that reprice a skill or cancel a project are mostly taken somewhere else. The consequences land here. The Summit reads the world the way it is actually ordered, from where the rules are written down to what it changes for the work you do, and it does not pretend that order runs the other way.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>The shape of the day</h2>
+      <p>One day, virtual, with the Outlook as the text. The morning establishes where the economy is heading and why. The afternoon turns that into your plan, because a forecast you did not write anything down against is entertainment.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Three answers, not one</h2>
+      <p>Where you stand decides what a shift means for you. The same reading of the year produces a different move depending on which of these you are.</p>
+      <ul class="sig-moves">
+        ${tracks}
+      </ul>
+    </div>
+
+    <div class="sig-lasttime">
+      <h2>What you leave with</h2>
+      <p>A written twelve-month plan with your name on it, and a cell of five who will ask you about it every two weeks.</p>
+      <p class="sig-lasttime-verdict"><strong>The plan is the deliverable.</strong> Not notes, not a recording. The Summit is built around the document you walk out holding, and the <a href="/community/">Live Network</a> exists so that document does not go in a drawer.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Where it sits</h2>
+      <p>The <a href="/signals/">Weekly Signals</a> build the context, free, all year. The <a href="/annual-outlook/">Annual Outlook</a> grades the year&rsquo;s calls and sets a position. The Summit turns that position into your plan. The <a href="/community/">Live Network</a> holds you to it. Each one is useful alone and they compound in that order.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>The detail</h2>
+      <dl class="sig-facts">
+        <div><dt>When</dt><dd>2027</dd></div>
+        <div><dt>Format</dt><dd>One day, virtual</dd></div>
+        <div><dt>Who it is for</dt><dd>Anyone building a career, a company or a portfolio</dd></div>
+        <div><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer">Tolu Adetuyi</a></dd></div>
+      </dl>
+      <p class="sig-note">The waitlist is how the date reaches you. There is nothing to pay to join it.</p>
+    </div>`;
+
+  return productShell({
+    slug: 'summit',
+    title: 'The Annual Summit',
+    kind: 'Summit',
+    desc: 'One day a year where a year of reading becomes a written twelve-month plan with your name on it. Virtual, convened by Tolu Adetuyi.',
+    status: 'Annual',
+    claim: 'One day a year where a year of reading becomes one written plan with your name on it.',
+    sections,
+    cta: { heading: 'Be in the room.', sub: 'The waitlist is how the date reaches you. Nothing to pay to join it.', label: 'Join the Summit Waitlist', intent: 'summit' },
+  });
+}
+
+// ── Community page ──
+function communityPage() {
+  const steps = [
+    ['You apply', 'The form asks who you are and what stage you are at. That is not a filter on ambition, it is how you get placed. A founder raising money does not belong in a room with four first-year students, and neither of them is served by pretending otherwise.'],
+    ['You set your goals', 'Your cell starts as soon as you are in. You say what you are going to do and by when. At the Summit you lock the full twelve months.'],
+    ['Your cell of five holds you to it', 'Every two weeks the cell reviews what you promised, what shipped, and what happens next. You own the outcome. The cell keeps the record.'],
+  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
+
+  const sections = `
+    <div class="sig-body">
+      <p>Most people who understand the chain still do nothing with it.</p>
+      <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires. The Live Network is the witness.</p>
+    </div>
+
+    <div class="sig-block sig-block--move">
+      <h2>A cell is five people</h2>
+      <p>Five, matched to your stage and to what you are building, meeting every two weeks. Small enough that your absence is obvious. Large enough that it survives someone having a bad month.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>How it runs</h2>
+      <ul class="sig-moves">
+        ${steps}
+      </ul>
+    </div>
+
+    <div class="sig-block">
+      <h2>Peer run, on purpose</h2>
+      <p>Cells meet on WhatsApp and run themselves. Moderators check in; they do not chair the meeting. The moment someone else is responsible for the cadence, it stops being your commitment and becomes their programme, and the thing that made it work is gone.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Matching is the product</h2>
+      <p>The cell is useful because of who is in it. Stage and substance decide the match, so you land with four people whose next problem looks like yours. That is also why the application asks what it asks, and why a random five would not do.</p>
+    </div>
+
+    <div class="sig-lasttime">
+      <h2>What it is not</h2>
+      <p>It is not a content drop, a paid mastermind, or a channel where links get posted.</p>
+      <p class="sig-lasttime-verdict"><strong>There is one thing to do here and it is uncomfortable.</strong> Say what you are going to do, in front of four people who will ask about it in a fortnight. Everything else about the network exists to make that one thing happen.</p>
+    </div>
+
+    <div class="sig-block">
+      <h2>Where it sits</h2>
+      <p>The <a href="/signals/">Weekly Signals</a> tell you what moved. The <a href="/summit/">Annual Summit</a> turns a year of that into your written plan. The Live Network is where the plan survives contact with an ordinary week. You can join it without waiting for the Summit.</p>
+    </div>`;
+
+  return productShell({
+    slug: 'community',
+    title: 'The Live Network',
+    kind: 'Community',
+    desc: 'Cells of five, matched to your stage, reviewing what you promised every two weeks. Peer run, on WhatsApp, open to anyone ready to commit to the cadence.',
+    status: 'Live',
+    claim: 'Five people at your stage. One standing commitment. A review every two weeks.',
+    sections,
+    cta: { heading: 'The community is live.', sub: 'Open to anyone ready to commit to the cadence.', label: 'Apply to the Network', intent: 'community' },
+  });
+}
+
+// A 404 is a page on the site, not an apology from the server. It keeps the
+// chrome so the reader can carry on, and points at the thing most of them want.
+function notFoundPage() {
+  const body = `
+  <main id="main" class="sig-wrap sig-article">
+    <p class="sig-eyebrow">404</p>
+    <h1 class="sig-title">That page is not here.</h1>
+    <p class="sig-claim">The link may be old, or the page may have been retired. Everything we publish is still one click away.</p>
+    <div class="sig-body">
+      <h2 class="sig-subhead">Where to go instead</h2>
+      <p>Start with <a href="/signals/">the Signal archive</a>, which holds every edition we have published. <a href="/why/">Why ZeroToAct exists</a> explains what we are doing and for whom, and <a href="/annual-outlook/">the Annual Outlook</a> is where the year's calls get graded.</p>
+      <p>If you followed a link from somewhere on this site and it brought you here, that is our mistake rather than yours.</p>
+    </div>
+  </main>
+${SITE_FOOTER}`;
+  return shell({
+    title: 'Page not found | ZeroToAct',
+    desc: 'That page is not here. The Signal archive, the Why page and the Annual Outlook are all one click away.',
+    canonical: '', noindex: true, body,
+  });
+}
+
 
 // ── Write everything ──
 const write = (rel, content) => {
@@ -706,7 +1139,13 @@ write('signals/feed.xml', feed());
 write('sitemap.xml', sitemap());
 for (const s of signals) write(`signals/${s.slug}/index.html`, editionPage(s));
 
-write('why/index.html', whyPage());
-write('annual-outlook/index.html', annualOutlookPage());
+const STANDALONE = [
+  ['why/index.html', whyPage],
+  ['404.html', notFoundPage],
+  ['annual-outlook/index.html', annualOutlookPage],
+  ['summit/index.html', summitPage],
+  ['community/index.html', communityPage],
+];
+for (const [rel, fn] of STANDALONE) write(rel, fn());
 
-console.log(`\nGenerated ${signals.length} editions and 4 standalone pages.`);
+console.log(`\nGenerated ${signals.length} editions and ${STANDALONE.length} standalone pages.`);
