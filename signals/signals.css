@@ -103,7 +103,7 @@
    a 60-word claim ran seven lines and 262px against the headline's 133px,
    and Playfair is a display face being asked to carry a paragraph. */
 .sig-claim { font-family: var(--ff-serif); font-style: italic; font-size: var(--fs-lg); line-height: 1.45; text-wrap: pretty; color: var(--grey-200); max-width: 34rem; margin-bottom: var(--space-lg); }
-.sig-draft-note { display: inline-block; font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: #f5c451; background: rgba(245, 196, 81, 0.08); border: 1px solid rgba(245, 196, 81, 0.25); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); margin-bottom: 2rem; }
+
 
 /* figure/figcaption so the caption is associated with the embed, not floating near it. */
 .sig-video { margin: 0 0 2.5rem; }
@@ -120,7 +120,7 @@
 .sig-block h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
 .sig-block p { font-size: var(--read-size); line-height: var(--read-leading); color: var(--grey-200); }
 .sig-block--move p { color: var(--white); }
-.sig-flag { color: #f5c451; font-family: var(--ff-mono); font-size: var(--fs-xs); }
+
 .sig-moves { list-style: none; display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-md); overflow: hidden; }
 .sig-moves li { display: flex; flex-direction: column; gap: 0.45rem; padding: 1.15rem 1.25rem; background: var(--black); }
 .sig-move-who { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-pure); }
@@ -137,12 +137,8 @@
 .sig-byline--top { margin-top: -1.25rem; margin-bottom: 2.5rem; }
 
 /* ── Intelligence hub ── */
-.hub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3rem; }
-.hub-card { display: flex; flex-direction: column; gap: 0.6rem; background: var(--black); padding: 1.9rem; transition: background var(--transition-fast); }
-.hub-card:hover { background: var(--black-card); }
-.hub-card-status { align-self: flex-start; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); border: 1px solid var(--black-border); border-radius: var(--radius-full); padding: 0.2rem 0.6rem; }
-.hub-card--live .hub-card-status { color: #2ed573; border-color: rgba(46, 213, 115, 0.3); }
-.hub-card-title { font-family: var(--ff-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--white-pure); line-height: 1.2; letter-spacing: -0.01em; }
+
+
 .hub-card-blurb { color: var(--grey-400); font-size: var(--fs-base); line-height: 1.55; flex: 1; }
 .hub-card-cta { font-size: var(--fs-sm); font-weight: 500; color: var(--white); }
 

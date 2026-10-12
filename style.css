@@ -76,10 +76,10 @@
   --card-edge: rgba(255, 255, 255, 0.10);
   --card-lift: 0 1px 2px rgba(0, 0, 0, 0.4);
   --mark:      #ffffff;
-  --paper:     #f2f2f2;   /* the one light surface */
-  --page:      #0a0a0a;   /* the one dark surface */
-  --lift-1:    rgba(255, 255, 255, 0.022);
-  --lift-2:    rgba(255, 255, 255, 0.045);
+  --paper:     #f7f6f4;   /* the one light surface: paper, faintly warm */
+  --page:      #070707;   /* the floor */
+  --lift-1:    rgba(255, 255, 255, 0.030);
+  --lift-2:    rgba(255, 255, 255, 0.055);
   --grid-label: clamp(5.5rem, 11vw, 9rem);
   --grid-gap:   clamp(1.25rem, 2.8vw, 2.5rem);
   --measure:    42rem;        /* ~68 characters at the body size */
@@ -512,8 +512,6 @@ input, textarea { font-family: inherit; }
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #2ed573;
-  border: 1px solid rgba(46, 213, 115, 0.3);
   border-radius: var(--radius-full);
   padding: 0.05rem 0.4rem;
 }
@@ -790,38 +788,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 /* ── Beehiiv Embed ── */
-.beehiiv-embed-wrapper {
-  width: 100%;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  /* Pull edge-to-edge within the card */
-  margin-inline: calc(-1 * clamp(2rem, 4vw, 2.5rem));
-  margin-bottom: calc(-1 * clamp(2rem, 4vw, 2.5rem));
-  width: calc(100% + 2 * clamp(2rem, 4vw, 2.5rem));
-}
 
-.beehiiv-embed-wrapper .beehiiv-embed {
-  width: 100%;
-  height: 160px;
-  display: block;
-  border: none;
-}
-
-.beehiiv-embed-wrapper--inline {
-  flex: 1;
-  min-width: 260px;
-  max-width: 480px;
-  margin: 0;
-  overflow: hidden;
-}
-
-.beehiiv-embed-wrapper--inline .beehiiv-embed {
-  width: 100%;
-  height: 80px;
-  display: block;
-  border: none;
-  margin-top: -8px;
-}
 
 /* ═══════════════════════════════════════════════════════
    SUMMIT SECTION
@@ -871,72 +838,9 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   text-align: right;
 }
 
-.outcomes-label {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey-600);
-  margin-bottom: 1rem;
-}
-
-.outcomes-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-
-.outcome-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: var(--fs-sm);
-  color: var(--grey-400);
-  line-height: 1.5;
-}
-
-.outcome-check {
-  font-size: var(--fs-xs);
-  color: var(--white-pure);
-  opacity: 0.6;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-}
 
 /* ── Summit Visual Card Stack ── */
 
-
-.stack-card-3 {
-  border-color: rgba(255,255,255,0.04);
-  background: #080808;
-  transform: rotate(4deg) scale(0.92);
-}
-
-.stack-card-2 {
-  border-color: rgba(255,255,255,0.08);
-  background: #0f0f0f;
-  transform: rotate(2deg) scale(0.96);
-}
-
-
-.stack-sub {
-  font-size: 11px;
-  font-weight: var(--fw-light);
-  color: var(--grey-500);
-  line-height: 1.5;
-}
-
-.stack-label {
-  font-size: 10px;
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--grey-600);
-  border-top: 1px solid var(--black-border);
-  padding-top: 0.75rem;
-}
 
 .card-access-id {
   font-family: var(--ff-mono);
@@ -949,55 +853,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.tech-prefix {
-  color: rgba(255, 255, 255, 0.35);
-  margin-right: 2px;
-}
 
-.card-status-dot-container {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-family: var(--ff-mono);
-  font-size: 8px;
-  letter-spacing: 0.05em;
-  color: #2ed573;
-  background: rgba(46, 213, 115, 0.06);
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(46, 213, 115, 0.15);
-  position: relative;
-}
-
-.card-status-dot {
-  width: 5px;
-  height: 5px;
-  background-color: #2ed573;
-  border-radius: 50%;
-  z-index: 2;
-}
-
-.card-status-pulse {
-  position: absolute;
-  left: 8px;
-  width: 5px;
-  height: 5px;
-  background-color: #2ed573;
-  border-radius: 50%;
-  animation: statusPulse 2s infinite ease-in-out;
-  z-index: 1;
-}
-
-@keyframes statusPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(3);
-    opacity: 0;
-  }
-}
 
 .card-status-text {
   font-weight: 600;
@@ -1044,28 +900,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   margin-block: 0.25rem;
 }
 
-.tech-row {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px dashed rgba(255,255,255,0.03);
-  padding-bottom: 0.2rem;
-}
-
-.tech-row:last-child {
-  border-bottom: none;
-}
-
-.tech-label {
-  color: var(--grey-600);
-}
-
-.tech-val {
-  color: var(--grey-400);
-}
-
-.mono-hash {
-  color: rgba(255,255,255,0.2);
-}
 
 .summit-prereq-note {
   font-size: var(--fs-sm);
@@ -1148,11 +982,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   transform: translateY(-1px);
 }
 
-.whatsapp-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
 
 .community-cta-disclaimer {
   font-size: var(--fs-xs);
@@ -1458,7 +1287,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 /* ─── UTILITY ───────────────────────────────────────── */
-.hide-mobile { display: inline; }
+
 
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE · TABLET
@@ -2079,8 +1908,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(46, 213, 115, 0.1);
-  color: #2ed573;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2099,7 +1926,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   gap: 0.75rem;
   width: 100%;
   padding: 0.875rem;
-  background: #25d366;
   color: #0a0a0a;
   border-radius: var(--radius-sm);
   font-weight: var(--fw-semi);
@@ -2109,7 +1935,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 .btn-whatsapp-success:hover {
-  background-color: #20ba5a;
   transform: translateY(-1px);
 }
 
@@ -2314,17 +2139,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
    block of empty space below its content. The front card now sits in normal
    flow and sets the height from what is in it; the two behind stay absolute,
    so the layered effect is unchanged. */
-.stack-card-1 {
-  border-color: rgba(255,255,255,0.18);
-  background: #121212;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 16px 16px, 100% 4px;
-  transform: rotate(0deg) scale(1);
-  box-shadow: var(--shadow-elevated), inset 0 0 30px rgba(255, 255, 255, 0.02);
-  position: relative;
-  inset: auto;
-}
+
 .stack-card-inner--details {
   justify-content: flex-start;
   gap: 0.9rem;
@@ -2381,7 +2196,6 @@ body > * { position: relative; z-index: 1; }
 .sig-chart-plot,
 .latest-band-card,
 .subscribe-card,
-.stack-card-1,
 .sig-lasttime,
 .faq-item {
   box-shadow:
@@ -3047,8 +2861,7 @@ body > * { position: relative; z-index: 1; }
 
 /* Light polarity. Used by the one full-bleed light block and by every
    inverted card, so they are the same material. */
-.surface-light,
-.is-inverted {
+.surface-light {
   --ink:       #141414;
   --ink-2:     #3a3a3a;
   --ink-3:     #5e5e5e;
@@ -3061,21 +2874,33 @@ body > * { position: relative; z-index: 1; }
   --mark:      #141414;
   color: var(--ink);
 }
-.surface-light,
-.is-inverted { background: var(--paper); }
+.surface-light { background: var(--paper); }
 
-/* Inside a light block the polarity flips back, so an inverted card there is
-   dark. Same system, read in the other direction. */
+/* ── The lead item ───────────────────────────────────────
+   This used to fill with paper, which put four flat white rectangles down a
+   dark page. They read as holes punched in it, and they pulled the eye to
+   whichever card happened to be featured rather than to the writing.
+
+   White is the ink here, not the surface. The lead item is marked the way a
+   printed page marks one: a heavier rule, a step of elevation, and brighter
+   type. Nothing is inverted, so nothing shouts.
+   ──────────────────────────────────────────────────────── */
+.is-inverted {
+  --ink-2: #e6e6e6;
+  --ink-3: #b4b4b4;
+  --rule:      rgba(255, 255, 255, 0.20);
+  --rule-soft: rgba(255, 255, 255, 0.11);
+  background: var(--lift-2);
+}
+.is-inverted::before { height: 4px; }
+
+/* Inside the light block the same emphasis reads the other way. */
 .surface-light .is-inverted {
-  --ink:       #ffffff;
-  --ink-2:     #d2d2d2;
-  --ink-3:     #9a9a9a;
-  --ink-4:     #878787;
-  --rule:      rgba(255, 255, 255, 0.15);
-  --rule-soft: rgba(255, 255, 255, 0.08);
-  --card-bg:   var(--page);
-  --mark:      #ffffff;
-  background: var(--page);
+  --ink-2: #1f1f1f;
+  --ink-3: #454545;
+  --rule:      rgba(10, 10, 10, 0.24);
+  --rule-soft: rgba(10, 10, 10, 0.13);
+  background: rgba(10, 10, 10, 0.045);
 }
 
 /* ── 2. THE PAGE GRID ────────────────────────────────────
@@ -3203,8 +3028,7 @@ body > * { position: relative; z-index: 1; }
 }
 .pillar-card + .pillar-card,
 .community-card + .community-card { border-left: 1px solid var(--rule); }
-.is-inverted + .pillar-card,
-.is-inverted + .community-card { border-left: 0; }
+
 
 /* The mark: a stub on the card's top rule that runs its full width on hover.
    The one piece of motion that makes a grid of cards feel answerable. */
@@ -3341,4 +3165,176 @@ body > * { position: relative; z-index: 1; }
   .pillar-card + .pillar-card,
   .community-card + .community-card { border-left: 0; }
   .pillar-hands::after { content: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   COLOUR, FINAL
+   The site had four accent colours doing unrelated jobs: two greens that
+   were nearly the same but not the same (#2ed573 on the nav badge and the
+   success panel, #25d366 on the WhatsApp button), a gold on draft notes, and
+   a red on form errors. Three of the four lived in dead rules; what was left
+   read as arbitrary rather than designed.
+
+   The brand is black and white, so hue now does exactly one job on the whole
+   site -- warning the reader that a form field is wrong -- and it is a token.
+   Everything else is neutral. "Live" and "success" are carried by the words
+   and the marks that already say them, which is also what WCAG 1.4.1 asks
+   for: never colour alone.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root { --alert: #ff6b6b; }
+
+/* The Live badge in the Intelligence menu. The word already says "live". */
+.nav-dd-badge {
+  color: var(--page);
+  background: var(--paper);
+  border: 0;
+  border-radius: var(--radius-full);
+  padding: 0.1rem 0.4rem;
+}
+
+/* The same WhatsApp action is a white pill on the page (.btn-whatsapp) and
+   was a green one in the modal. One treatment. */
+.btn-whatsapp-success {
+  background: var(--paper);
+  color: var(--page);
+  border: 1.5px solid var(--paper);
+}
+.btn-whatsapp-success:hover { background: var(--white-pure); border-color: var(--white-pure); }
+
+/* The success mark. The tick and the heading carry the meaning. */
+.success-icon-container {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+}
+.success-check-icon { stroke: var(--ink); }
+
+/* The one place hue is still doing work. */
+.form-error { color: var(--alert); }
+.form-input.is-invalid,
+.form-textarea.is-invalid { border-color: var(--alert); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PRESENCE
+   With the white slabs gone the page has to carry itself on type and space,
+   which is what it should have been doing. Three things were holding it flat:
+   every register sat in the same middle band, the sections were all the same
+   height, and the light block was a slab rather than a moment.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* 1. Scale. The gap between a label and a headline was a slope; it should be
+      a cliff. Labels go smaller and wider, display type goes larger. */
+.section-eyebrow { font-size: 0.625rem; letter-spacing: 0.2em; }
+.section-heading { font-size: clamp(2.125rem, 4.8vw, 4rem); line-height: 1.04; }
+.pillar-title    { font-size: clamp(1.375rem, 1.9vw, 1.875rem); }
+
+/* 2. Air. The reading column sat tight under its heading. */
+.section-sub { margin-top: var(--space-md); }
+.pillars-grid, .community-grid { margin-block: var(--space-2xl) 0; }
+
+/* 3. The light block becomes a moment rather than a slab: narrower measure,
+      the quote carrying real size, and the rules doing the framing. */
+.promise-section { padding-block: clamp(5rem, 11vh, 8.5rem); }
+.promise-quote {
+  font-size: clamp(1.375rem, 2.6vw, 2.125rem);
+  line-height: 1.32;
+  max-width: 30ch;
+  text-align: left;
+  margin-inline: 0;
+}
+.promise-founder-meta { margin-inline: 0; }
+.promise-inner { max-width: 46rem; margin-inline: auto; }
+.promise-rule { height: 1px; background: var(--rule); }
+
+/* 4. The hero is the one place that should feel unreasonable. */
+.hero-heading { font-size: clamp(2.5rem, 8.8vw, 6.75rem); }
+
+/* 5. Figures and marks set in mono read as instruments rather than labels. */
+.pillar-number,
+.community-card-num {
+  font-family: var(--ff-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-4);
+}
+
+/* A heading in a two-column section has half the width of one that spans the
+   grid, so it cannot carry the same size: at 69px in a 440px column "One
+   year's worth" needs about 497px and broke to a fourth line. One step down
+   for the split sections. */
+.newsletter-left .section-heading,
+.summit-content .section-heading,
+.instagram-content .section-heading,
+.faq-intro .section-heading { font-size: clamp(1.875rem, 3.6vw, 3.25rem); }
+
+/* A forced break plus a natural wrap produced a one-word middle line
+   ("Weekly Signals / continue / on Instagram."). Let the browser distribute
+   the lines instead of fighting it. */
+.instagram-content .section-heading { text-wrap: balance; }
+
+/* ── Row alignment across a card row ─────────────────────
+   Card 01 carries a line more of copy than its neighbours, so its handoff
+   and its link sat 33px below theirs and the row read as misaligned. Subgrid
+   hands the cards the row track of the grid they sit in, so the slug, title,
+   body, handoff and foot each land on one line across all three however much
+   copy any of them carries. */
+.pillars-grid { grid-template-rows: repeat(6, auto); }
+.pillar-card {
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+}
+.pillar-number, .pillar-tag { grid-row: 1; }
+.pillar-title { grid-row: 2; }
+.pillar-desc  { grid-row: 3; }
+.pillar-list  { grid-row: 4; }
+.pillar-hands { grid-row: 5; }
+.pillar-link  { grid-row: 6; align-self: end; }
+
+.community-grid { grid-template-rows: repeat(3, auto); }
+.community-card {
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+}
+.community-card-num   { grid-row: 1; }
+.community-card-title { grid-row: 2; }
+.community-card-desc  { grid-row: 3; }
+
+@media (max-width: 1024px) {
+  .pillars-grid, .community-grid { grid-template-rows: none; }
+  .pillar-card    { grid-row: auto; grid-template-rows: none; }
+  .community-card { grid-row: auto; grid-template-rows: none; }
+}
+
+/* ── The light block, on the page grid ───────────────────
+   The quote sat at x=420 and its attribution at x=713, neither of them on
+   the 352 line every other section uses, and the two hairlines were centred
+   60px stubs that read as leftovers rather than as rules. The block now
+   places onto the same grid as everything else: label column empty, content
+   starting where all the other content starts.
+   ──────────────────────────────────────────────────────── */
+.promise-inner {
+  display: grid;
+  grid-template-columns:
+    [label] var(--grid-label)
+    [main] minmax(0, 1fr)
+    [aside] minmax(0, 1fr);
+  column-gap: var(--grid-gap);
+  max-width: none;
+  margin-inline: 0;
+}
+.promise-quote,
+.promise-founder-meta { grid-column: main / -1; max-width: 26ch; margin-inline: 0; }
+.promise-founder-meta { max-width: none; margin-top: var(--space-lg); }
+
+/* One rule, above the attribution, doing the job both stubs were failing at. */
+.promise-rule { display: none; }
+.promise-founder-meta {
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--rule);
+  max-width: 26ch;
+}
+
+@media (max-width: 1024px) {
+  .promise-inner { grid-template-columns: minmax(0, 1fr); }
+  .promise-quote, .promise-founder-meta { grid-column: 1; }
 }
