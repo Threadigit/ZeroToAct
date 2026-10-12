@@ -3,6 +3,87 @@
    first paint, varied with the reader's connection, and sent every visitor's
    IP to Google. These are the same two families as variable woff2, 128KB for
    the whole weight range, served from our own origin. */
+
+/* ── Design tokens ───────────────────────────────────────
+   Every custom property, in one place. They were spread over five :root
+   blocks, so the live value of a token depended on which block came last.
+   ──────────────────────────────────────────────────────── */
+:root {
+  --black:        #0a0a0a;
+  --black-soft:   #111111;
+  --black-card:   #161616;
+  --black-border: rgba(255, 255, 255, 0.08);
+  --black-border-soft: rgba(255, 255, 255, 0.05);
+  --white:        #f5f5f5;
+  --white-pure:   #ffffff;
+  --grey-600:     #878787;
+  --grey-500:     #949494;
+  --grey-300:     #bfbfbf;
+  --grey-400:     #aaaaaa;
+  --grey-200:     #d4d4d4;
+  --ff-serif:   'Playfair Display', Georgia, serif;
+  --ff-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --ff-mono:    SFMono-Regular, Menlo, Monaco, Consolas, "Fira Code", monospace;
+  --fw-light:   300;
+  --fw-normal:  400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fs-xs:   clamp(0.6875rem, 0.667rem + 0.09vw, 0.75rem);
+  --fs-sm:   clamp(0.8125rem, 0.792rem + 0.09vw, 0.875rem);
+  --fs-base: clamp(0.9375rem, 0.917rem + 0.09vw, 1rem);
+  --fs-md:   clamp(1.0625rem, 1.021rem + 0.19vw, 1.1875rem);
+  --fs-lg:   clamp(1.1875rem, 1.125rem + 0.28vw, 1.375rem);
+  --fs-xl:   clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);
+  --fs-2xl:  clamp(1.625rem, 1.417rem + 0.93vw, 2.25rem);
+  --fs-3xl:  clamp(2rem, 1.625rem + 1.67vw, 3rem);
+  --fs-4xl:  clamp(2.5rem, 1.875rem + 2.78vw, 4rem);
+  --fs-5xl:  clamp(3rem, 2.167rem + 3.7vw, 5rem);
+  --fs-6xl:  clamp(3.5rem, 2.042rem + 6.48vw, 7rem);
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: clamp(4rem, 8vw, 6.5rem);
+  --space-3xl: clamp(5.5rem, 11vw, 9rem);
+  --read-measure: 44rem;
+  --read-size: var(--fs-md);
+  --read-leading: 1.75;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-elevated: 0 8px 40px rgba(0,0,0,0.6);
+  --transition-fast: 180ms ease;
+  --transition-base: 280ms ease;
+  --transition-slow: 420ms ease;
+  --max-w: 1200px;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --surface-glow: rgba(255, 255, 255, 0.035);
+  --col-label: clamp(7rem, 12vw, 10rem);
+  --hairline: 1px solid var(--black-border);
+  --ease-out: cubic-bezier(0.2, 0.65, 0.3, 1);
+  --ink:       #ffffff;
+  --ink-2:     #d2d2d2;
+  --ink-3:     #9a9a9a;
+  --ink-4:     #878787;
+  --rule:      rgba(255, 255, 255, 0.13);
+  --rule-soft: rgba(255, 255, 255, 0.07);
+  --card-bg:   transparent;
+  --card-edge: rgba(255, 255, 255, 0.10);
+  --card-lift: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --mark:      #ffffff;
+  --paper:     #f2f2f2;   /* the one light surface */
+  --page:      #0a0a0a;   /* the one dark surface */
+  --lift-1:    rgba(255, 255, 255, 0.022);
+  --lift-2:    rgba(255, 255, 255, 0.045);
+  --grid-label: clamp(5.5rem, 11vw, 9rem);
+  --grid-gap:   clamp(1.25rem, 2.8vw, 2.5rem);
+  --measure:    42rem;        /* ~68 characters at the body size */
+}
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -46,80 +127,6 @@
   padding: 0;
 }
 
-:root {
-  --black:        #0a0a0a;
-  --black-soft:   #111111;
-  --black-card:   #161616;
-  --black-border: rgba(255, 255, 255, 0.08);
-  --black-border-soft: rgba(255, 255, 255, 0.05);
-  --white:        #f5f5f5;
-  --white-pure:   #ffffff;
-  --grey-600:     #878787;
-  --grey-500:     #949494;
-  --grey-300:     #bfbfbf;
-  --grey-400:     #aaaaaa;
-  --grey-200:     #d4d4d4;
-
-  --ff-serif:   'Playfair Display', Georgia, serif;
-  --ff-sans:    'Inter', system-ui, -apple-system, sans-serif;
-  --ff-mono:    SFMono-Regular, Menlo, Monaco, Consolas, "Fira Code", monospace;
-
-  --fw-light:   300;
-  --fw-normal:  400;
-  --fw-medium:  500;
-  --fw-semi:    600;
-
-  /* Fluid type. Each step interpolates between a 360px and a 1440px viewport,
-     so nothing is sized for one screen and tolerated on the rest. */
-  --fs-xs:   clamp(0.6875rem, 0.667rem + 0.09vw, 0.75rem);
-  --fs-sm:   clamp(0.8125rem, 0.792rem + 0.09vw, 0.875rem);
-  --fs-base: clamp(0.9375rem, 0.917rem + 0.09vw, 1rem);
-  --fs-md:   clamp(1.0625rem, 1.021rem + 0.19vw, 1.1875rem);
-  --fs-lg:   clamp(1.1875rem, 1.125rem + 0.28vw, 1.375rem);
-  --fs-xl:   clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);
-  --fs-2xl:  clamp(1.625rem, 1.417rem + 0.93vw, 2.25rem);
-  --fs-3xl:  clamp(2rem, 1.625rem + 1.67vw, 3rem);
-  --fs-4xl:  clamp(2.5rem, 1.875rem + 2.78vw, 4rem);
-  --fs-5xl:  clamp(3rem, 2.167rem + 3.7vw, 5rem);
-  --fs-6xl:  clamp(3.5rem, 2.042rem + 6.48vw, 7rem);
-
-  /* Vertical rhythm. One scale, used everywhere, so spacing is a decision
-     made once rather than per component. */
-  --space-3xs: 0.25rem;
-  --space-2xs: 0.5rem;
-  --space-xs:  0.75rem;
-  --space-sm:  1rem;
-  --space-md:  1.5rem;
-  --space-lg:  2.5rem;
-  --space-xl:  4rem;
-  --space-2xl: clamp(4rem, 8vw, 6.5rem);
-  --space-3xl: clamp(5.5rem, 11vw, 9rem);
-
-  /* Long-form reading. Shared by every page that is meant to be read
-     rather than scanned, so they do not drift apart. */
-  --read-measure: 44rem;
-  --read-size: var(--fs-md);
-  --read-leading: 1.75;
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
-
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3);
-  --shadow-elevated: 0 8px 40px rgba(0,0,0,0.6);
-
-  --transition-fast: 180ms ease;
-  --transition-base: 280ms ease;
-  --transition-slow: 420ms ease;
-
-  --max-w: 1200px;
-  --gutter: clamp(1.25rem, 5vw, 3rem);
-  --surface-glow: rgba(255, 255, 255, 0.035);
-  --col-label: clamp(7rem, 12vw, 10rem);
-  --hairline: 1px solid var(--black-border);
-  --ease-out: cubic-bezier(0.2, 0.65, 0.3, 1);
-}
 
 html {
   scroll-behavior: smooth;
@@ -196,39 +203,12 @@ input, textarea { font-family: inherit; }
 }
 
 /* ─── TYPOGRAPHY HELPERS ────────────────────────────── */
-.section-eyebrow {
-  font-family: var(--ff-sans);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  margin-bottom: 1.25rem;
-}
 
-.section-heading {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-3xl);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.022em;
-  color: var(--white);
-  margin-bottom: 1.25rem;
-  text-wrap: balance;
-}
 
 .section-heading--light {
   color: var(--white-pure);
 }
 
-.section-sub {
-  font-size: var(--fs-md);
-  font-weight: var(--fw-light);
-  color: var(--grey-400);
-  line-height: 1.7;
-  max-width: 56ch;
-  text-wrap: pretty;
-}
 
 .section-sub--light {
   color: rgba(255,255,255,0.65);
@@ -303,25 +283,6 @@ input, textarea { font-family: inherit; }
   font-size: var(--fs-base);
 }
 
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
-  color: var(--grey-400);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.03em;
-  border-radius: var(--radius-full);
-  border: 1.5px solid var(--black-border);
-  transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.btn-ghost:hover {
-  color: var(--white);
-  border-color: rgba(255,255,255,0.25);
-  transform: translateY(-1px);
-}
 
 /* ═══════════════════════════════════════════════════════
    NAVIGATION
@@ -617,18 +578,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   padding-block: clamp(4rem, 10vh, 8rem);
 }
 
-.hero-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  margin-bottom: 2rem;
-  transition-delay: 0.1s;
-}
 
 .label-dot {
   width: 6px;
@@ -638,33 +587,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   opacity: 0.4;
 }
 
-.hero-heading {
-  font-family: var(--ff-serif);
-  font-size: clamp(var(--fs-3xl), 7vw, var(--fs-6xl));
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: var(--white-pure);
-  margin-bottom: 2rem;
-  max-width: 18ch;
-  transition-delay: 0.2s;
-  text-wrap: balance;
-}
-
-.hero-heading em {
-  font-style: italic;
-  color: var(--grey-200);
-}
-
-.hero-sub {
-  font-size: clamp(var(--fs-base), 2vw, var(--fs-md));
-  font-weight: var(--fw-light);
-  color: var(--grey-400);
-  line-height: 1.75;
-  max-width: 50ch;
-  margin-bottom: 2.5rem;
-  transition-delay: 0.3s;
-}
 
 .hero-actions {
   display: flex;
@@ -699,9 +621,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 .hero-stat:first-child { padding-left: 1rem; margin-left: -1rem; }
 .hero-stat:last-child { border-right: 0; }
 
-.hero-stat:hover {
-  background: rgba(255,255,255,.025);
-}
 
 .stat-topline {
   display: flex;
@@ -741,155 +660,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   line-height: 1.55;
 }
 
-/* ═══════════════════════════════════════════════════════
-   PILLARS
-═══════════════════════════════════════════════════════ */
-.pillars-section {
-  padding-block: clamp(5rem, 10vh, 8rem);
-  border-top: 1px solid var(--black-border);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-header .section-sub {
-  margin-inline: auto;
-}
-
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
-  background: var(--black-border);
-  border: 1.5px solid var(--black-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-.pillar-card {
-  position: relative;
-  background: var(--black-soft);
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: background var(--transition-base);
-}
-
-.pillar-card,
-.subscribe-card,
-.community-card {
-  background-image: linear-gradient(145deg, var(--surface-glow), transparent 45%);
-}
-
-.pillar-card:hover {
-  background: var(--black-card);
-}
-
-.pillar-card--featured {
-  background: var(--black-card);
-}
-
-.pillar-card--featured::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-}
-
-.pillar-number {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-xs);
-  font-weight: 400;
-  color: var(--grey-600);
-  letter-spacing: 0.15em;
-  margin-bottom: 1.25rem;
-}
-
-.pillar-tag {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: var(--fw-semi);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey-600);
-  border: 1px solid var(--black-border);
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 1.5rem;
-  width: fit-content;
-}
-
-.pillar-title {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  color: var(--white-pure);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-.pillar-desc {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-light);
-  color: var(--grey-400);
-  line-height: 1.75;
-  margin-bottom: 1.5rem;
-  flex: 1;
-}
-
-.pillar-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.pillar-list li {
-  font-size: var(--fs-sm);
-  color: var(--grey-500);
-  padding-left: 1rem;
-  position: relative;
-}
-
-.pillar-list li::before {
-  content: '·';
-  position: absolute;
-  left: 0;
-  color: var(--grey-600);
-}
-
-.pillar-link {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--grey-400);
-  letter-spacing: 0.01em;
-  transition: color var(--transition-fast);
-  margin-top: auto;
-}
-
-.pillar-link::after {
-  content: '';
-  width: 1.5rem;
-  height: 1px;
-  background: currentColor;
-  opacity: .55;
-  transition: width var(--transition-fast), opacity var(--transition-fast);
-}
-
-.pillar-link:hover {
-  color: var(--white-pure);
-}
 
 /* ═══════════════════════════════════════════════════════
    NEWSLETTER / CONTENT SECTION
@@ -899,12 +669,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   border-top: 1px solid var(--black-border);
 }
 
-.newsletter-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 6vw, 6rem);
-  align-items: center;
-}
 
 .newsletter-features {
   display: flex;
@@ -932,6 +696,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 
 /* ── Subscribe Card ── */
 .subscribe-card {
+  background-image: linear-gradient(145deg, var(--surface-glow), transparent 45%);
   background: var(--black-soft);
   border: 1.5px solid var(--black-border);
   border-radius: var(--radius-lg);
@@ -986,18 +751,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   gap: 1rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.form-label {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.05em;
-  color: var(--grey-500);
-}
 
 .form-input {
   background: var(--black);
@@ -1020,26 +773,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   box-shadow: 0 0 0 3px rgba(255,255,255,0.05);
 }
 
-.btn-submit {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  background: var(--white-pure);
-  color: var(--black);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semi);
-  letter-spacing: 0.03em;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--white-pure);
-  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-  width: 100%;
-}
-
-.btn-submit:hover {
-  background: var(--grey-200);
-  transform: translateY(-1px);
-}
 
 .btn-submit-arrow {
   font-size: var(--fs-lg);
@@ -1099,12 +832,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   background: rgba(255, 255, 255, 0.022);
 }
 
-.summit-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 6vw, 6rem);
-  align-items: start;
-}
 
 .summit-details {
   display: flex;
@@ -1160,14 +887,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   margin-bottom: 2rem;
 }
 
-.summit-tagline {
-  font-family: var(--ff-serif);
-  font-style: italic;
-  font-size: var(--fs-base);
-  color: var(--grey-500);
-  margin-bottom: 1.75rem;
-  letter-spacing: 0.01em;
-}
 
 .outcome-item {
   display: flex;
@@ -1187,11 +906,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 /* ── Summit Visual Card Stack ── */
-.summit-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .stack-card-3 {
   border-color: rgba(255,255,255,0.04);
@@ -1205,22 +920,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   transform: rotate(2deg) scale(0.96);
 }
 
-.stack-card-1 {
-  border-color: rgba(255,255,255,0.18);
-  background: #121212;
-  background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 16px 16px, 100% 4px;
-  transform: rotate(0deg) scale(1);
-  box-shadow: var(--shadow-elevated), inset 0 0 30px rgba(255, 255, 255, 0.02);
-}
-
-/* Front summit card carrying the details */
-.stack-card-inner--details {
-  justify-content: flex-start;
-  gap: 0.9rem;
-}
 
 .stack-sub {
   font-size: 11px;
@@ -1388,77 +1087,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   border-top: 1px solid var(--black-border);
 }
 
-.community-top {
-  max-width: 600px;
-  margin-bottom: 3.5rem;
-}
-
-.community-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--black-border);
-  border: 1px solid var(--black-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-bottom: 4rem;
-}
-
-.community-card {
-  background: var(--black);
-  padding: 2.5rem;
-  transition: background var(--transition-base);
-}
-
-.community-card:hover {
-  background: var(--black-soft);
-}
-
-.community-card-num {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-xs);
-  font-weight: 400;
-  color: var(--grey-600);
-  letter-spacing: 0.15em;
-  margin-bottom: 1.25rem;
-  line-height: 1;
-}
-
-.community-card-title {
-  font-family: var(--ff-serif);
-  font-size: var(--fs-lg);
-  font-weight: 600;
-  color: var(--white-pure);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.75rem;
-}
-
-.community-card-desc {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-light);
-  color: var(--grey-500);
-  line-height: 1.75;
-}
-
-/* ── Community CTA ── */
-.community-cta {
-  border: 1.5px solid var(--black-border);
-  border-radius: var(--radius-lg);
-  padding: clamp(2rem, 4vw, 3rem);
-  background: var(--black-soft);
-  position: relative;
-  overflow: hidden;
-}
-
-.community-cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
-}
 
 .community-cta-inner {
   display: flex;
@@ -1579,14 +1207,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   transform: translateY(-1px);
 }
 
-/* ═══════════════════════════════════════════════════════
-   PROMISE SECTION
-═══════════════════════════════════════════════════════ */
-.promise-section {
-  padding-block: clamp(5rem, 10vh, 8rem);
-  border-top: 1px solid var(--black-border);
-  border-bottom: 1px solid var(--black-border);
-}
 
 /* ═══════════════════════════════════════════════════════
    INSTAGRAM SECTION
@@ -1598,26 +1218,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
     radial-gradient(circle at 72% 35%, rgba(255,255,255,.035), transparent 30%);
 }
 
-.instagram-inner {
-  display: grid;
-  grid-template-columns: .82fr 1.18fr;
-  gap: clamp(3rem, 7vw, 7rem);
-  align-items: center;
-}
-
-.instagram-content {
-  max-width: 470px;
-}
-
-.instagram-profile {
-  display: inline-flex;
-  align-items: center;
-  gap: .65rem;
-  margin-bottom: 2rem;
-  color: var(--grey-400);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-}
 
 .instagram-profile-icon {
   width: 18px;
@@ -1652,31 +1252,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   font-size: var(--fs-xs);
 }
 
-.instagram-preview {
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  grid-template-rows: repeat(2, minmax(190px, 1fr));
-  border: 1px solid var(--black-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--black-soft);
-}
-
-.instagram-card {
-  position: relative;
-  min-width: 0;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-left: 1px solid var(--black-border);
-  background-image:
-    linear-gradient(var(--black-border-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--black-border-soft) 1px, transparent 1px),
-    linear-gradient(145deg, rgba(255,255,255,.025), transparent 50%);
-  background-size: 40px 40px, 40px 40px, 100% 100%;
-  transition: background-color var(--transition-base);
-}
 
 .instagram-card:nth-child(2) {
   border-bottom: 1px solid var(--black-border);
@@ -1693,51 +1268,11 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   background-color: rgba(255,255,255,.025);
 }
 
-.instagram-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--grey-600);
-  font-family: var(--ff-mono);
-  font-size: .6rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.instagram-card-format {
-  padding: .25rem .5rem;
-  border: 1px solid var(--black-border);
-  border-radius: var(--radius-full);
-}
-
-.instagram-card-body {
-  max-width: 29ch;
-}
-
-.instagram-card-kicker {
-  margin-bottom: .65rem;
-  color: var(--grey-500);
-  font-size: var(--fs-xs);
-}
-
-.instagram-card h3 {
-  color: var(--white);
-  font-family: var(--ff-serif);
-  font-size: clamp(1.15rem, 2vw, 1.65rem);
-  line-height: 1.25;
-  letter-spacing: -.02em;
-}
 
 .instagram-card--featured h3 {
   font-size: clamp(1.6rem, 3vw, 2.35rem);
 }
 
-.instagram-card-handle {
-  color: var(--grey-600);
-  font-size: .65rem;
-  letter-spacing: .08em;
-}
 
 .faq-section {
   padding: clamp(5.5rem, 10vw, 9rem) 0;
@@ -1745,14 +1280,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   border-top: 1px solid var(--black-border);
 }
 
-.faq-layout {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: clamp(3rem, 8vw, 8rem);
-  align-items: start;
-}
-
-.faq-intro { position: sticky; top: 110px; }
 
 .faq-list {
   border-top: 1px solid var(--black-border);
@@ -1795,32 +1322,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   color: var(--grey-400);
 }
 
-.promise-inner {
-  text-align: center;
-  max-width: 780px;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-.promise-rule {
-  width: 48px;
-  height: 1px;
-  background: var(--grey-600);
-  opacity: 0.4;
-}
-
-.promise-quote {
-  font-family: var(--ff-serif);
-  font-size: clamp(var(--fs-xl), 3.5vw, var(--fs-3xl));
-  font-weight: 400;
-  font-style: italic;
-  color: var(--white);
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-}
 
 .promise-founder-meta {
   display: flex;
@@ -1845,44 +1346,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   gap: 0.25rem;
 }
 
-.promise-author {
-  font-size: var(--fs-base);
-  font-weight: 600;
-  color: var(--white-pure);
-  letter-spacing: -0.01em;
-}
-
-.promise-title {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-}
-
-/* ═══════════════════════════════════════════════════════
-   FINAL CTA SECTION
-═══════════════════════════════════════════════════════ */
-.final-cta-section {
-  padding-block: clamp(5rem, 12vh, 10rem);
-}
-
-.final-cta-inner {
-  text-align: center;
-  max-width: 600px;
-  margin-inline: auto;
-}
-
-.final-cta-heading {
-  font-family: var(--ff-serif);
-  font-size: clamp(var(--fs-2xl), 5vw, var(--fs-4xl));
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: var(--white-pure);
-  margin-bottom: 1.25rem;
-  text-wrap: balance;
-}
 
 .final-cta-sub {
   font-size: var(--fs-md);
@@ -1999,58 +1462,14 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE · TABLET
+   What was here set .summit-content to display:contents and collapsed three
+   sections to one column at 1024px, while the rest of the page stacked at
+   900px. Two breakpoint systems in one stylesheet, which is why the Summit
+   heading was 113px wide at 1024 while every other heading was 379px. The
+   system's own breakpoint (below) is the only one now, and it is 1024.
 ═══════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .pillars-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pillar-card:last-child {
-    grid-column: span 2;
-  }
-
-  .summit-inner {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .summit-content {
-    display: contents;
-  }
-
-  .summit-content > * {
-    grid-column: 1;
-  }
-
-  .summit-content > .section-eyebrow { order: 1; }
-  .summit-content > .section-heading { order: 2; }
-  .summit-content > .section-sub { order: 3; }
-  .summit-content > #summit-notify-btn {
-    order: 8;
-    justify-self: start;
-  }
-
-  .summit-visual {
-    order: 5;
-    max-height: none;
-    margin-block: 1.5rem 4rem;
-  }
-
-  .newsletter-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .instagram-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .instagram-content {
-    max-width: 620px;
-  }
-
-  .outcomes-grid {
-    grid-template-columns: 1fr;
-  }
+  .outcomes-grid { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2095,17 +1514,11 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
     max-width: 100%;
   }
 
-  .pillars-grid {
-    grid-template-columns: 1fr;
-  }
 
   .pillar-card:last-child {
     grid-column: span 1;
   }
 
-  .community-grid {
-    grid-template-columns: 1fr;
-  }
 
   .community-cta-inner {
     flex-direction: column;
@@ -2240,14 +1653,10 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 @media (max-width: 480px) {
-  .pillar-card {
-    padding: 1.75rem;
-  }
 
   .subscribe-card {
     padding: 1.5rem;
   }
-
 
 
   .footer-nav {
@@ -2393,19 +1802,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   font-size: 1.75rem;
 }
 
-/* Convener Links styling */
-.convener-link {
-  color: var(--white);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: rgba(255, 255, 255, 0.2);
-  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
-}
-
-.convener-link:hover {
-  color: var(--white-pure);
-  text-decoration-color: var(--white-pure);
-}
 
 .footer-convener-link {
   color: var(--grey-400);
@@ -2546,9 +1942,10 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 .form-group {
-  margin-bottom: 1.25rem;
   display: flex;
   flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
   align-items: flex-start;
   width: 100%;
 }
@@ -2556,9 +1953,9 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 .form-label {
   font-size: 0.85rem;
   font-weight: var(--fw-medium);
+  letter-spacing: 0.03em;
   color: var(--grey-300);
   margin-bottom: 0.5rem;
-  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
@@ -2603,19 +2000,20 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 .btn-submit {
-  width: 100%;
-  padding: 0.875rem;
-  background: var(--white-pure);
-  color: var(--black);
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: 0.95rem;
-  font-weight: var(--fw-semi);
-  cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.875rem;
+  background: var(--white-pure);
+  color: var(--black);
+  font-size: 0.95rem;
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-sm);
+  border: none;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  width: 100%;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
   margin-top: 1rem;
@@ -2800,8 +2198,7 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
    text in a 24px box lifts the hit area without moving the text. Links set
    inside a sentence are exempt and are left alone. */
 .footer-nav-link,
-.footer-instagram,
-.pillar-link {
+.footer-instagram {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
@@ -2825,44 +2222,10 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
    number and name, and a wide content column everything else sits in. This is
    the arrangement a journal uses, and it is what makes the structure legible
    rather than merely tidy. */
-.section-header,
-.newsletter-left,
-.community-top,
-.summit-content,
-.faq-intro,
-.latest-band-inner {
-  display: grid;
-  grid-template-columns: var(--col-label) minmax(0, 1fr);
-  column-gap: var(--space-lg);
-  align-items: start;
-  text-align: left;
-}
-.section-header > .section-eyebrow,
-.newsletter-left > .section-eyebrow,
-.community-top > .section-eyebrow,
-.summit-content > .section-eyebrow,
-.faq-intro > .section-eyebrow,
-.latest-band-inner > .section-eyebrow {
-  grid-column: 1;
-  grid-row: 1 / span 99;
-  margin: 0;
-  padding-top: 0.55rem;
-  border-top: 2px solid var(--white-pure);
-  align-self: start;
-}
-.section-header > :not(.section-eyebrow),
-.newsletter-left > :not(.section-eyebrow),
-.community-top > :not(.section-eyebrow),
-.summit-content > :not(.section-eyebrow),
-.faq-intro > :not(.section-eyebrow),
-.latest-band-inner > :not(.section-eyebrow) {
-  grid-column: 2;
-}
+
+
 /* The content column owns the measure, so subheads stop re-centring. */
-.section-header .section-sub,
-.newsletter-left .section-sub,
-.community-top .section-sub,
-.faq-intro .section-sub { margin-inline: 0; }
+
 
 @media (max-width: 900px) {
   .section-header,
@@ -2902,19 +2265,15 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 
 /* Pull the last outliers onto the same grid. These blocks were each centring
    themselves independently, which is why five left edges existed. */
-.latest-band-inner { max-width: none; margin-inline: 0; }
-.instagram-content {
-  display: grid;
-  grid-template-columns: var(--col-label) minmax(0, 1fr);
-  column-gap: var(--space-lg);
-  align-items: start;
-}
-.instagram-content > .instagram-profile { grid-column: 1; }
-.instagram-content > :not(.instagram-profile) { grid-column: 2; }
+
 
 /* The closing call to action is the one deliberate exception: centred, because
    it is the end of the page and has nothing to align beside it. */
-.final-cta-inner { text-align: center; max-width: 46rem; margin-inline: auto; }
+.final-cta-inner {
+  text-align: center;
+  max-width: 46rem;
+  margin-inline: auto;
+}
 
 @media (max-width: 900px) {
   .instagram-content,
@@ -2927,9 +2286,17 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 
 /* The promise block centres its quote deliberately, but the founder note
    below it belongs on the page grid like every other section. */
-.promise-inner { max-width: none; }
+.promise-inner {
+  text-align: center;
+  max-width: none;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
 .promise-quote,
-.promise-founder-meta { max-width: 780px; margin-inline: auto; }
+.promise-founder-meta { max-width: 46rem; margin-inline: auto; }
 
 /* ─── PILLAR CARDS ──────────────────────────────────────
    Each card was its own flex column, so a description that wrapped to a
@@ -2937,16 +2304,8 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
    neighbours. Subgrid makes the three cards share one set of rows, so every
    band across them starts on the same line. */
 @supports (grid-template-rows: subgrid) {
-  .pillars-grid { grid-template-rows: auto auto auto auto 1fr auto; }
-  .pillar-card {
-    display: grid;
-    grid-row: span 6;
-    grid-template-rows: subgrid;
-    row-gap: 0;
-  }
   .pillar-card > .pillar-number { align-self: start; }
   .pillar-card > .pillar-list { align-self: start; }
-  .pillar-card > .pillar-link { align-self: end; margin-top: var(--space-md); }
 }
 
 /* ─── SUMMIT CARD STACK ─────────────────────────────────
@@ -2956,10 +2315,21 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
    flow and sets the height from what is in it; the two behind stay absolute,
    so the layered effect is unchanged. */
 .stack-card-1 {
+  border-color: rgba(255,255,255,0.18);
+  background: #121212;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 16px 16px, 100% 4px;
+  transform: rotate(0deg) scale(1);
+  box-shadow: var(--shadow-elevated), inset 0 0 30px rgba(255, 255, 255, 0.02);
   position: relative;
   inset: auto;
 }
-.stack-card-inner--details { padding: var(--space-md); }
+.stack-card-inner--details {
+  justify-content: flex-start;
+  gap: 0.9rem;
+  padding: var(--space-md);
+}
 
 /* ─── TWO-COLUMN SECTIONS ───────────────────────────────
    Intelligence, Summit and Community already split into two columns, so
@@ -2967,64 +2337,18 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
    roughly 300px and broke it across three lines. The label now sits at
    section level, outside the split, and the two content columns divide the
    space that is left. */
-.newsletter-inner,
-.summit-inner,
-.community-inner {
-  display: grid;
-  grid-template-columns: var(--col-label) minmax(0, 1fr) minmax(0, 1fr);
-  column-gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
-}
+
 /* Place every child explicitly. Spanning the label across an open-ended row
    count generates implicit rows, which is what blew one section to 9000px. */
-.newsletter-inner > .section-eyebrow,
-.summit-inner > .section-eyebrow,
-.community-inner > .section-eyebrow {
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0;
-  padding-top: 0.55rem;
-  border-top: 2px solid var(--white-pure);
-  align-self: start;
-}
-.newsletter-left  { grid-column: 2; grid-row: 1; }
-.newsletter-right { grid-column: 3; grid-row: 1; }
-.summit-content   { grid-column: 2; grid-row: 1; }
-.summit-visual    { grid-column: 3; grid-row: 1; }
 
-/* Community leads with a full-width statement, then its own grid below. */
-.community-top  { grid-column: 2 / -1; grid-row: 1; }
-.community-grid { grid-column: 2 / -1; grid-row: 2; margin-top: var(--space-lg); }
-.community-cta  { grid-column: 2 / -1; grid-row: 3; margin-top: var(--space-lg); }
 
 /* These left columns no longer carry a label of their own. */
-.newsletter-left,
-.summit-content,
-.community-top { display: block; }
 
-@media (max-width: 900px) {
-  .newsletter-inner,
-  .summit-inner,
-  .community-inner { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-md); }
-  .newsletter-inner > .section-eyebrow,
-  .summit-inner > .section-eyebrow,
-  .community-inner > .section-eyebrow { grid-column: 1; grid-row: auto; justify-self: start; }
-  .newsletter-left, .newsletter-right,
-  .summit-content, .summit-visual,
-  .community-top, .community-grid, .community-cta { grid-column: 1; grid-row: auto; }
-}
 
 /* Community cards: same shared-row treatment as the pillars, so the number,
    title and body of each card start on the same line across all three
    instead of drifting with the length of the longest copy. */
 @supports (grid-template-rows: subgrid) {
-  .community-grid { grid-template-rows: auto auto 1fr; }
-  .community-card {
-    display: grid;
-    grid-row: span 3;
-    grid-template-rows: subgrid;
-    row-gap: 0;
-  }
   .community-card > .community-card-num { align-self: start; }
   .community-card > .community-card-desc { align-self: start; }
 }
@@ -3054,14 +2378,11 @@ body > * { position: relative; z-index: 1; }
 /* 3. Surfaces that catch an edge. A raised panel in the real world has a lit
       top edge; flat 1px borders all round are why these read as outlines
       rather than objects. */
-.pillar-card,
-.community-card,
 .sig-chart-plot,
 .latest-band-card,
 .subscribe-card,
 .stack-card-1,
 .sig-lasttime,
-.community-cta,
 .faq-item {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.055),
@@ -3083,7 +2404,10 @@ body > * { position: relative; z-index: 1; }
    ═══════════════════════════════════════════════════════ */
 
 /* The pillars sit right under the hero and work as a dense index. Tighten. */
-.pillars-section { padding-block: clamp(3.5rem, 6vh, 5rem); }
+.pillars-section {
+  padding-block: clamp(3.5rem, 6vh, 5rem);
+  border-top: 1px solid var(--black-border);
+}
 
 /* The two editorial blocks are the substance of the page. Give them room. */
 .newsletter-section,
@@ -3095,18 +2419,43 @@ body > * { position: relative; z-index: 1; }
    nothing to read: the promise is one sentence, so it can carry the weight.
    ──────────────────────────────────────────────────────── */
 .promise-section {
-  background: var(--white-pure);
-  border-block: 0;
   padding-block: clamp(6rem, 14vh, 11rem);
+  border-top: 1px solid var(--black-border);
+  border-bottom: 1px solid var(--black-border);
+  border-block: 0;
 }
-.promise-section .promise-quote { color: #0a0a0a; }
-.promise-section .promise-rule { background: rgba(10, 10, 10, 0.16); }
-.promise-section .promise-author { color: #0a0a0a; }
-.promise-section .promise-title { color: #4a4a4a; }
-/* The portrait was shot for a dark page; on white it needs a defined edge. */
-.promise-section .promise-avatar {
-  border-color: rgba(10, 10, 10, 0.14);
-  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
+.promise-quote  {
+  font-family: var(--ff-serif);
+  font-size: clamp(var(--fs-xl), 3.5vw, var(--fs-3xl));
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+.promise-rule   {
+  width: 48px;
+  height: 1px;
+  background: var(--rule);
+  opacity: 0.4;
+}
+.promise-author {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.promise-title  {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+/* The portrait was shot for a dark page; on paper it needs a defined edge. */
+.surface-light .promise-avatar {
+  border-color: var(--rule);
+  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.08);
 }
 /* The grain layer sits behind the sections, so this opaque white occludes it
    on its own -- grain over white would read as dirt rather than stock. */
@@ -3126,30 +2475,42 @@ body > * { position: relative; z-index: 1; }
    produces a dense centred-ish block. Editorial display type is larger,
    lighter and tracked tighter, and it breaks where the writer wants. */
 .hero-heading {
+  font-family: var(--ff-serif);
   font-size: clamp(2.5rem, 8.4vw, 6.25rem);
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.038em;
+  color: var(--white-pure);
+  margin-bottom: 2rem;
   max-width: 22ch;
+  transition-delay: 0.2s;
   text-wrap: pretty;
 }
-.hero-heading em { font-weight: 400; color: var(--white-pure); }
+.hero-heading em {
+  font-style: italic;
+  color: var(--white-pure);
+  font-weight: 400;
+}
 
 /* Playfair carries an optical size axis. Without this it renders display type
    with text-weight hairlines. */
 .hero-heading,
 .section-title,
-.promise-quote,
-.sig-headline,
-.why-hero h1 { font-optical-sizing: auto; font-variation-settings: 'opsz' 60; }
+.promise-quote { font-optical-sizing: auto; font-variation-settings: 'opsz' 60; }
 
 /* Labels go the other way: smaller, wider, quieter, so the gap between a
    label and a headline is a cliff rather than a slope. */
-.section-eyebrow,
 .hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 0.6875rem;
-  letter-spacing: 0.2em;
   font-weight: var(--fw-medium);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  margin-bottom: 2rem;
+  transition-delay: 0.1s;
 }
 
 /* Figures are data. Line them up and stop the 1 from being narrow. */
@@ -3168,21 +2529,13 @@ body > * { position: relative; z-index: 1; }
    different typeface in effect. One treatment, everywhere.
    ═══════════════════════════════════════════════════════ */
 .section-heading,
-.pillar-title,
 .subscribe-heading,
-.summit-tagline,
-.stack-heading,
-.community-card-title,
 .community-cta-heading,
 .instagram-card h3,
 .faq-list summary,
 .promise-quote,
 .final-cta-heading,
-.latest-band-title,
-.sig-headline,
-.sig-card-title,
-.why-hero h1,
-.why-h2 {
+.sig-card-title {
   font-weight: 500;
   font-optical-sizing: auto;
   font-variation-settings: 'opsz' 48;
@@ -3193,48 +2546,39 @@ body > * { position: relative; z-index: 1; }
    display size and a body size and nothing in between. Give the second level
    its own register. */
 .section-heading {
+  font-family: var(--ff-serif);
   font-size: clamp(2rem, 4.2vw, 3.5rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  text-wrap: balance;
 }
 .final-cta-heading {
+  font-family: var(--ff-serif);
   font-size: clamp(2.25rem, 5.4vw, 4.5rem);
   line-height: 1.05;
   letter-spacing: -0.032em;
+  color: var(--white-pure);
+  margin-bottom: 1.25rem;
+  text-wrap: balance;
 }
 
-/* ═══════════════════════════════════════════════════════
-   LEGIBILITY
-   Body copy ran at grey-400/500 across the whole page. Everything being grey
-   is what makes a dark page read as a draft -- the eye finds no settled
-   reading colour. Raise the running text and keep grey for genuine asides.
-   ═══════════════════════════════════════════════════════ */
-.pillar-desc,
-.pillar-list li,
-.summit-desc,
-.summit-list li,
-.community-card-desc,
-.community-cta-desc,
-.subscribe-desc,
-.section-sub,
-.hero-sub,
-.latest-band-dek,
-.faq-answer p { color: var(--grey-200); }
 
-.hero-sub { font-size: clamp(1rem, 1.4vw, 1.1875rem); }
+.hero-sub {
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  font-weight: var(--fw-light);
+  color: var(--grey-200);
+  line-height: 1.75;
+  max-width: 50ch;
+  margin-bottom: 2.5rem;
+  transition-delay: 0.3s;
+}
 
 /* ── Badges ──────────────────────────────────────────────
    The pillar category pills were a generic rounded outline. A publication
    marks a department with a rule and small caps, not a chip. */
-.pillar-tag {
-  border: 0;
-  border-radius: 0;
-  padding: 0 0 0.45rem;
-  border-bottom: 1px solid var(--black-border);
-  background: none;
-  color: var(--grey-300);
-  letter-spacing: 0.18em;
-}
+
 
 /* ═══════════════════════════════════════════════════════
    FINISH
@@ -3243,20 +2587,11 @@ body > * { position: relative; z-index: 1; }
 /* Ragged-right paragraphs were dropping single-word last lines ("to work."
    alone under a six-line hero sub). Browsers can avoid orphans if asked. */
 .hero-sub,
-.section-sub,
-.pillar-desc,
-.summit-desc,
-.community-card-desc,
-.subscribe-desc,
-.latest-band-dek,
-.promise-quote,
-.faq-answer p { text-wrap: pretty; }
+.promise-quote { text-wrap: pretty; }
 
 /* Motion. Everything eased with the browser default, which decelerates
    linearly and reads as mechanical. One curve, slightly overshooting the
    settle, applied to the things that actually move. */
-.pillar-card,
-.community-card,
 .hero-stat,
 .btn,
 .nav-link,
@@ -3265,10 +2600,7 @@ body > * { position: relative; z-index: 1; }
 
 /* Hover on a dark surface should look like light falling on it, not like a
    grey swatch being swapped in. */
-.pillar-card:hover,
-.community-card:hover {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.025), transparent 60%);
-}
+
 .hero-stat:hover {
   background: linear-gradient(rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
 }
@@ -3288,60 +2620,12 @@ body > * { position: relative; z-index: 1; }
    it works, the Signals). One white signature carries the doing half (the
    Summit, the Community, the promise). Then it returns to black to close.
    ═══════════════════════════════════════════════════════════════════════ */
-:root {
-  /* Dark is the page default. */
-  --ink:       #ffffff;   /* headings */
-  --ink-2:     #d4d4d4;   /* running copy */
-  --ink-3:     #949494;   /* asides */
-  --ink-4:     #878787;   /* smallest marks */
-  --rule:      rgba(255, 255, 255, 0.14);
-  --rule-soft: rgba(255, 255, 255, 0.07);
-  --card-bg:   rgba(255, 255, 255, 0.028);
-  --card-edge: rgba(255, 255, 255, 0.10);
-  --card-lift: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --mark:      #ffffff;   /* the rule that marks a card's top edge */
-}
 
-.surface-light {
-  --ink:       #0a0a0a;
-  --ink-2:     #2f2f2f;
-  --ink-3:     #585858;
-  --ink-4:     #6b6b6b;
-  --rule:      rgba(10, 10, 10, 0.17);
-  --rule-soft: rgba(10, 10, 10, 0.09);
-  --card-bg:   #ffffff;
-  --card-edge: rgba(10, 10, 10, 0.14);
-  --card-lift: none;
-  --mark:      #0a0a0a;
-  background: #ffffff;
-  color: var(--ink);
-}
 
 /* The lead item in a group takes the opposite polarity of its section. That
    is what puts black and white in the same row instead of in separate
    stripes, and it marks what is current without needing a badge. */
-.is-inverted {
-  --ink:       #0a0a0a;
-  --ink-2:     #2f2f2f;
-  --ink-3:     #585858;
-  --ink-4:     #6b6b6b;
-  --rule:      rgba(10, 10, 10, 0.17);
-  --rule-soft: rgba(10, 10, 10, 0.09);
-  --card-bg:   #ffffff;
-  --card-edge: rgba(10, 10, 10, 0.14);
-  --mark:      #0a0a0a;
-}
-.surface-light .is-inverted {
-  --ink:       #ffffff;
-  --ink-2:     #d4d4d4;
-  --ink-3:     #949494;
-  --ink-4:     #878787;
-  --rule:      rgba(255, 255, 255, 0.16);
-  --rule-soft: rgba(255, 255, 255, 0.08);
-  --card-bg:   #0a0a0a;
-  --card-edge: rgba(255, 255, 255, 0.12);
-  --mark:      #ffffff;
-}
+
 
 /* The grain layer lives behind the page, so a white section occludes it --
    grain over white reads as dirt rather than stock. Nothing to do but let it
@@ -3371,8 +2655,6 @@ body > * { position: relative; z-index: 1; }
      the body
      a foot      -- separated by a hairline, with a travelling arrow
    ═══════════════════════════════════════════════════════════════════════ */
-.pillar-card,
-.community-card,
 .instagram-card,
 .sig-card {
   position: relative;
@@ -3393,8 +2675,6 @@ body > * { position: relative; z-index: 1; }
 /* The mark. A 2px stub at the card's top-left that runs the full width when
    the card is pointed at -- the one piece of motion that makes a grid of
    cards feel responsive rather than printed. */
-.pillar-card::before,
-.community-card::before,
 .instagram-card::before,
 .sig-card::before {
   content: '';
@@ -3407,36 +2687,22 @@ body > * { position: relative; z-index: 1; }
   opacity: 0.85;
   transition: width 420ms var(--ease-out), opacity 240ms var(--ease-out);
 }
-.pillar-card:hover::before,
-.pillar-card:focus-within::before,
-.community-card:hover::before,
-.community-card:focus-within::before,
 .instagram-card:hover::before,
 .sig-card:hover::before,
 .sig-card:focus-within::before { width: 100%; opacity: 1; }
 
 /* The slug line. The index and the department shared a column and stacked as
    two separate blocks; on one row they read as a masthead slug. */
-.pillar-number,
-.community-card-num { grid-column: 1; grid-row: 1; margin: 0 0 1.5rem; color: var(--ink-4); font-variant-numeric: tabular-nums; }
-.pillar-tag { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; margin: 0; color: var(--ink-3); border: 0; padding: 0; }
 
-.pillar-title,
-.community-card-title,
+
 .instagram-card h3,
 .sig-card-title { grid-column: 1 / -1; color: var(--ink); margin-bottom: 0.75rem; }
 
-.pillar-desc,
-.community-card-desc,
 .sig-card-claim { grid-column: 1 / -1; color: var(--ink-2); }
 
-.pillar-list { grid-column: 1 / -1; }
-.pillar-list li { color: var(--ink-3); }
-.pillar-list li::before { color: var(--ink-4); }
 
 /* The foot. A hairline separates the action from the body, so the card has a
    bottom edge of its own rather than trailing off. */
-.pillar-link,
 .sig-card-cta {
   grid-column: 1 / -1;
   margin-top: auto;
@@ -3445,7 +2711,6 @@ body > * { position: relative; z-index: 1; }
   color: var(--ink);
   font-weight: var(--fw-medium);
 }
-.pillar-link::after,
 .sig-card-cta::after {
   content: '→';
   width: auto;
@@ -3456,40 +2721,56 @@ body > * { position: relative; z-index: 1; }
   padding-left: 1rem;
   transition: transform 300ms var(--ease-out);
 }
-.pillar-link { justify-content: flex-start; width: 100%; }
-.pillar-card:hover .pillar-link::after,
 .sig-card:hover .sig-card-cta::after { transform: translateX(0.3rem); }
 
 /* Hover is a change of surface, not a swapped-in grey. */
-.pillar-card:hover,
-.community-card:hover,
 .instagram-card:hover,
 .sig-card:hover { background-color: color-mix(in srgb, var(--mark) 5%, var(--card-bg)); }
-.surface-light .pillar-card:hover,
-.surface-light .community-card:hover { box-shadow: 0 2px 14px -6px rgba(10, 10, 10, 0.25); }
 
 /* The grids drew their own dividers with a background showing through a gap.
    That only works when every cell is the same colour, and an inverted card
    breaks it, so the cells carry their own hairlines instead. */
-.pillars-grid,
-.community-grid {
-  gap: 0;
-  background: none;
-  border: 1px solid var(--rule);
-  border-radius: 0;
-  overflow: visible;
+
+
+.instagram-card-kicker {
+  margin-bottom: .65rem;
+  color: var(--ink-3);
+  font-size: var(--fs-xs);
 }
-.pillars-grid > * + *,
-.community-grid > * + * { border-left: 1px solid var(--rule); }
-.summit-desc, .summit-list li { color: var(--ink-2); }
+.instagram-card-handle {
+  color: var(--ink-4);
+  font-size: .65rem;
+  letter-spacing: .08em;
+}
+.instagram-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--ink-4);
+  font-family: var(--ff-mono);
+  font-size: .6rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.instagram-card-format {
+  padding: .25rem .5rem;
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-full);
+  border-color: var(--rule);
+}
 
-.instagram-card-kicker { color: var(--ink-3); }
-.instagram-card-handle { color: var(--ink-4); }
-.instagram-card-top { color: var(--ink-4); }
-.instagram-card-format { border-color: var(--rule); }
-
-.convener-link { color: var(--ink); text-decoration-color: var(--rule); }
-.convener-link:hover { text-decoration-color: var(--ink); }
+.convener-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--rule);
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+.convener-link:hover {
+  color: var(--white-pure);
+  text-decoration-color: var(--ink);
+}
 
 /* An outline button on white needs the ink, not the paper. */
 .surface-light .btn-primary--outline,
@@ -3513,8 +2794,7 @@ body > * { position: relative; z-index: 1; }
 
 /* The white signature needs its own edges, since the page black no longer
    provides them. */
-.surface-light { border-block: 1px solid rgba(10, 10, 10, 0.12); }
-.surface-light + .surface-light { border-top: 0; }
+
 
 /* ═══════════════════════════════════════════════════════════════════════
    CARDS, FLATTENED
@@ -3524,8 +2804,6 @@ body > * { position: relative; z-index: 1; }
    the ordinary cards transparent, the inverted one is the only filled object
    in the group, so the black-and-white pairing is the thing you see.
    ═══════════════════════════════════════════════════════════════════════ */
-.pillar-card,
-.community-card,
 .instagram-card,
 .sig-card {
   background: none;
@@ -3533,57 +2811,28 @@ body > * { position: relative; z-index: 1; }
   box-shadow: none;
 }
 /* Only the inverted card takes a fill. */
-.is-inverted { background-color: var(--card-bg); }
 
 /* Hover is then a wash rather than a lift. */
-.pillar-card:hover,
-.community-card:hover,
 .instagram-card:hover,
 .sig-card:hover { background-color: color-mix(in srgb, var(--mark) 4%, transparent); }
-.is-inverted:hover { background-color: var(--card-bg); }
-.surface-light .pillar-card:hover,
-.surface-light .community-card:hover { box-shadow: none; }
 
 /* The group frame goes too. Hairlines between the cells, and one rule under
    the group, is the whole structure. */
-.pillars-grid,
-.community-grid {
-  border: 0;
-  border-bottom: 1px solid var(--rule);
-}
-.pillars-grid > *,
-.community-grid > * { border-top: 1px solid var(--rule); }
+
 
 /* The mark now sits on the cell's own top rule rather than on a box edge. */
-.pillar-card::before,
-.community-card::before,
 .instagram-card::before,
 .sig-card::before { top: -1px; }
 
 /* Without a fill the cards need their own breathing room, not a box's
    padding. Inset them from the dividing rules. */
-.pillar-card,
-.community-card { padding: clamp(1.75rem, 2.4vw, 2.25rem) clamp(1.5rem, 2.2vw, 2rem) clamp(2rem, 2.6vw, 2.5rem); }
-.is-inverted { padding: clamp(1.75rem, 2.4vw, 2.25rem) clamp(1.75rem, 2.4vw, 2.25rem) clamp(2rem, 2.6vw, 2.5rem); }
+
 
 /* ── The section mark ─────────────────────────────────────
    A square bullet and a mono label. Mono is already the site's voice for
    anything that is data rather than prose (the chart ticks, the why-page
    section marks), so it belongs on the label that names a department. */
-.section-eyebrow {
-  font-family: var(--ff-mono);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-transform: uppercase;
-}
-.section-eyebrow::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  background: var(--ink);
-  flex: none;
-}
+
 
 /* A pair of actions sitting side by side under a section's copy. */
 .section-actions {
@@ -3622,8 +2871,25 @@ body > * { position: relative; z-index: 1; }
 }
 
 /* The ghost button was a fixed grey tuned for the page black. */
-.btn-ghost { color: var(--ink-2); border-color: var(--rule); }
-.btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--black-border);
+  transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  border-color: var(--rule);
+}
+.btn-ghost:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    INSTAGRAM PREVIEW
@@ -3633,27 +2899,41 @@ body > * { position: relative; z-index: 1; }
    keep their own stacked layout and take only the polarity.
    ═══════════════════════════════════════════════════════════════════════ */
 .instagram-card {
+  position: relative;
+  min-width: 0;
+  padding: clamp(1.25rem, 1.8vw, 1.75rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--space-md);
-  padding: clamp(1.25rem, 1.8vw, 1.75rem);
   border-left: 1px solid var(--rule);
+  background-image: linear-gradient(var(--black-border-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--black-border-soft) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(255,255,255,.025), transparent 50%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  transition: background-color var(--transition-base);
+  gap: var(--space-md);
   border-top: 1px solid var(--rule);
 }
 .instagram-card::before { display: none; }
 .instagram-card h3 {
-  grid-column: auto;
+  font-family: var(--ff-serif);
   font-size: clamp(1.05rem, 1.5vw, 1.4rem);
+  line-height: 1.25;
+  grid-column: auto;
   margin: 0;
 }
-.instagram-card-body { max-width: 24ch; }
+.instagram-card-body {
+  max-width: 24ch;
+}
 
 .instagram-preview {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  grid-template-rows: repeat(2, minmax(13rem, auto));
   border: 0;
   border-radius: 0;
+  overflow: hidden;
   background: none;
-  grid-template-rows: repeat(2, minmax(13rem, auto));
 }
 /* The lead post spans the full left column, as it does in a profile grid. */
 .instagram-preview > .is-inverted { grid-row: 1 / span 2; }
@@ -3661,12 +2941,9 @@ body > * { position: relative; z-index: 1; }
 /* The left column carried a label column of its own inside a 470px box, which
    left about 310px for a 60px headline -- one word per line. The label goes
    to the top of the column and the copy gets the whole width. */
-.instagram-content {
-  display: block;
-  max-width: 34rem;
-}
+
 .instagram-content .section-heading { font-size: clamp(1.75rem, 3vw, 2.75rem); }
-.instagram-profile { margin-bottom: var(--space-md); }
+
 
 @media (max-width: 900px) {
   .instagram-preview { grid-template-columns: minmax(0, 1fr); }
@@ -3675,7 +2952,16 @@ body > * { position: relative; z-index: 1; }
 
 /* The handle and the section label ended up on one line once the column
    became a plain block. */
-.instagram-profile { display: flex; width: fit-content; }
+.instagram-profile {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: var(--space-md);
+  color: var(--grey-400);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  width: fit-content;
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    HOW IT WORKS, AS A SEQUENCE
@@ -3684,44 +2970,16 @@ body > * { position: relative; z-index: 1; }
    the plan is what the Network holds you to. Naming each handoff is the same
    device the Why page uses for the chain, and it is the truer description.
    ═══════════════════════════════════════════════════════════════════════ */
-.pillars-grid { list-style: none; margin: 0; padding: 0; counter-reset: none; }
 
-.pillar-hands {
-  grid-column: 1 / -1;
-  margin: var(--space-sm) 0 0;
-  padding-top: 0.9rem;
-  font-family: var(--ff-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-}
-.pillar-hands strong { color: var(--ink); font-weight: var(--fw-medium); }
 
 /* The connector. An arrow sitting on the rule between one card and the next,
    so the row reads left to right as a sequence rather than as three columns. */
-.pillars-grid > * + *::after {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  background: var(--rule);
-}
-.pillars-grid > li { position: relative; }
-.pillars-grid > li + li { border-left: 0; }
+
 
 /* An absolutely positioned marker on the dividing rule took its background
    from the section rather than the card it sat on, so over the inverted card
    it rendered as a black blob. Inline in the handoff line it is always
    legible and still reads left to right. */
-.pillar-hands::after {
-  content: '\00a0\2192';
-  color: var(--ink-4);
-}
-.pillars-grid > li:last-child .pillar-hands::after { content: none; }
-
 
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -3763,3 +3021,324 @@ body > * { position: relative; z-index: 1; }
   color: var(--ink-2);
 }
 .summit-leave strong { color: var(--ink); font-weight: var(--fw-medium); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ▓▓ THE SYSTEM
+   Everything below replaces rules that had accumulated in layers -- at its
+   worst .pillar-card was declared nine times in this file and .pillars-grid
+   seven, so the real value of any property was whichever override happened
+   to come last. Each thing is now defined once.
+
+   Three parts: the surface scale, the page grid, and the card.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. SURFACES ─────────────────────────────────────────
+   There were three different whites in play: #ffffff on sections, #ffffff on
+   cards, and an unused --white of #f5f5f5. One paper colour now, used for
+   every light surface so "white" means one thing.
+
+   It is deliberately not #ffffff. Pure white against #0a0a0a is a ~21:1
+   luminance step, which glares when you scroll into it and is why large
+   light panels in dark interfaces are conventionally set a notch down.
+   Ink on it is near-black rather than black, for the same reason in reverse:
+   maximum contrast on paper causes halation around the letterforms.
+   ──────────────────────────────────────────────────────── */
+
+
+/* Light polarity. Used by the one full-bleed light block and by every
+   inverted card, so they are the same material. */
+.surface-light,
+.is-inverted {
+  --ink:       #141414;
+  --ink-2:     #3a3a3a;
+  --ink-3:     #5e5e5e;
+  --ink-4:     #6b6b6b;
+  --rule:      rgba(10, 10, 10, 0.16);
+  --rule-soft: rgba(10, 10, 10, 0.09);
+  --lift-1:    rgba(10, 10, 10, 0.02);
+  --lift-2:    rgba(10, 10, 10, 0.04);
+  --card-bg:   var(--paper);
+  --mark:      #141414;
+  color: var(--ink);
+}
+.surface-light,
+.is-inverted { background: var(--paper); }
+
+/* Inside a light block the polarity flips back, so an inverted card there is
+   dark. Same system, read in the other direction. */
+.surface-light .is-inverted {
+  --ink:       #ffffff;
+  --ink-2:     #d2d2d2;
+  --ink-3:     #9a9a9a;
+  --ink-4:     #878787;
+  --rule:      rgba(255, 255, 255, 0.15);
+  --rule-soft: rgba(255, 255, 255, 0.08);
+  --card-bg:   var(--page);
+  --mark:      #ffffff;
+  background: var(--page);
+}
+
+/* ── 2. THE PAGE GRID ────────────────────────────────────
+   Four different grids were in use, so section headings started at five
+   different left edges (168, 330, 352, 368 and 386 at 1440px). One grid
+   now: a label column, a main column and an aside column. Every section
+   places onto it, so every heading starts at the same x at every width.
+   ──────────────────────────────────────────────────────── */
+
+
+.section-header,
+.newsletter-inner,
+.summit-inner,
+.community-inner,
+.instagram-inner,
+.faq-layout {
+  display: grid;
+  grid-template-columns:
+    [label] var(--grid-label)
+    [main] minmax(0, 1fr)
+    [aside] minmax(0, 1fr);
+  column-gap: var(--grid-gap);
+  align-items: start;
+  text-align: left;
+}
+
+/* The label sits in its own column, ruled, at the top of the block. */
+.section-eyebrow {
+  grid-column: label;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding-top: 0.6rem;
+  border-top: 2px solid var(--ink);
+  font-family: var(--ff-mono);
+  font-size: 0.6875rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  align-self: start;
+}
+
+/* Single-column blocks: everything else stacks in main. */
+.section-header > :not(.section-eyebrow) { grid-column: main / -1; }
+
+/* Two-column blocks: copy in main, the object in aside. */
+.newsletter-left, .summit-content, .community-top, .instagram-content, .faq-intro { grid-column: main; grid-row: 1; }
+.newsletter-right, .summit-visual, .instagram-preview, .faq-list { grid-column: aside; grid-row: 1; }
+
+/* Blocks whose content spans both. */
+.community-top  { grid-column: main / -1; }
+.community-grid { grid-column: main / -1; grid-row: 2; }
+.community-cta  {
+  position: relative;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--lift-1);
+  border-top: 2px solid var(--ink);
+  color: var(--ink-2);
+  grid-column: main / -1;
+  grid-row: 3;
+  margin-top: var(--space-lg);
+}
+
+.section-sub {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-normal);
+  line-height: 1.7;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* Reading measure. Lines ran to 920px -- about 115 characters -- in three
+   sections, well past the 45-to-75 that is comfortable. */
+.section-sub,
+.pillar-desc,
+.summit-leave { max-width: var(--measure); }
+
+@media (max-width: 1024px) {
+  .section-header,
+  .newsletter-inner,
+  .summit-inner,
+  .community-inner,
+  .instagram-inner,
+  .faq-layout { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-md); }
+  .section-header > :not(.section-eyebrow),
+  .newsletter-left, .newsletter-right,
+  .summit-content, .summit-visual,
+  .community-top, .community-grid, .community-cta,
+  .instagram-content, .instagram-preview,
+  .faq-intro, .faq-list { grid-column: 1; grid-row: auto; margin-top: 0; }
+  .section-eyebrow { grid-column: 1; grid-row: auto; justify-self: start; }
+}
+
+/* ── 3. THE CARD ─────────────────────────────────────────
+   One component, two polarities. No fill, no border box, no shadow: hairline
+   dividers and space, so the one inverted card in a group is the only filled
+   object and the black-and-white pairing is what you see.
+   ──────────────────────────────────────────────────────── */
+.pillars-grid,
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  list-style: none;
+  margin-block: var(--space-xl) 0;
+  padding: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pillar-card,
+.community-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: start;
+  padding: clamp(1.75rem, 2.4vw, 2.25rem) clamp(1.5rem, 2.2vw, 2rem) clamp(2rem, 2.6vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+  background: var(--card-bg);
+  color: var(--ink-2);
+  transition: background-color 240ms var(--ease-out);
+}
+.pillar-card + .pillar-card,
+.community-card + .community-card { border-left: 1px solid var(--rule); }
+.is-inverted + .pillar-card,
+.is-inverted + .community-card { border-left: 0; }
+
+/* The mark: a stub on the card's top rule that runs its full width on hover.
+   The one piece of motion that makes a grid of cards feel answerable. */
+.pillar-card::before,
+.community-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px auto auto 0;
+  height: 2px;
+  width: 2.25rem;
+  background: var(--mark);
+  transition: width 420ms var(--ease-out);
+}
+.pillar-card:hover::before,
+.pillar-card:focus-within::before,
+.community-card:hover::before,
+.community-card:focus-within::before { width: 100%; }
+
+.pillar-card:hover,
+.community-card:hover { background-color: color-mix(in srgb, var(--mark) 4%, var(--card-bg)); }
+.is-inverted:hover    { background-color: var(--card-bg); }
+
+/* The slug line: index left, cadence right, on one row. */
+.pillar-number,
+.community-card-num {
+  grid-column: 1; grid-row: 1;
+  margin: 0 0 1.5rem;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-4);
+}
+.pillar-tag {
+  grid-column: 2; grid-row: 1;
+  justify-self: end; align-self: start;
+  margin: 0; padding: 0; border: 0; background: none;
+  font-family: var(--ff-mono);
+  font-size: 0.625rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.pillar-title,
+.community-card-title {
+  grid-column: 1 / -1;
+  margin: 0 0 0.75rem;
+  /* Pillars are the page's primary index; community steps are secondary. */
+  font-family: var(--ff-serif);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 48;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+}
+
+.pillar-desc,
+.community-card-desc {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.community-card-title { font-size: var(--fs-lg); }
+.community-card-num { line-height: 1; }
+
+.pillar-list {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: var(--space-sm) 0 0;
+  list-style: none;
+  padding: 0;
+}
+.pillar-list li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+.pillar-list li::before { content: '·'; position: absolute; left: 0; color: var(--ink-4); }
+
+/* The handoff: what this step gives the next one. */
+.pillar-hands {
+  grid-column: 1 / -1;
+  margin: var(--space-md) 0 0;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.pillar-hands strong { color: var(--ink); font-weight: var(--fw-medium); }
+.pillar-hands::after { content: '\00a0\2192'; }
+.pillars-grid > li:last-child .pillar-hands::after { content: none; }
+
+/* The foot: a rule, the action, and an arrow that travels on hover. */
+.pillar-link {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  min-height: 24px;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule-soft);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.pillar-link::after {
+  content: '→';
+  margin-left: auto;
+  padding-left: 1rem;
+  transition: transform 300ms var(--ease-out);
+}
+.pillar-card:hover .pillar-link::after { transform: translateX(0.3rem); }
+
+@media (max-width: 1024px) {
+  .pillars-grid,
+  .community-grid { grid-template-columns: minmax(0, 1fr); }
+  .pillar-card + .pillar-card,
+  .community-card + .community-card { border-left: 0; }
+  .pillar-hands::after { content: none; }
+}
