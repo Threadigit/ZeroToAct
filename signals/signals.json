@@ -31,6 +31,223 @@
   "signals": [
     {
       "number": null,
+      "slug": "one-shock-four-answers",
+      "title": "One Shock, Four Answers",
+      "seoTitle": "One Shock, Four Answers",
+      "seoDesc": "Nigeria's inflation fell more than anyone forecast. America's rose more than anyone forecast. The same thing wrote both reports, and four central banks are reading it four ways.",
+      "keywords": [
+        "US CPI September 2026",
+        "Nigeria inflation 14.63%",
+        "Bank of England November hike",
+        "CBK Central Bank Rate",
+        "energy inflation",
+        "Fed October 2026",
+        "Kenya treasury bills",
+        "African macro"
+      ],
+      "videoId": "7zfrfdGIkSo",
+      "date": "2026-10-18",
+      "theme": "Macro",
+      "headlineClaim": "Nigeria's inflation rate fell more than any analyst expected. America's rose more than any analyst expected. Both reports were written by the same thing, which is energy, and the four central banks reading them are heading in four different directions.",
+      "status": "published",
+      "lastTime": {
+        "of": "nobody-is-being-paid-to-wait",
+        "said": "That nobody is being paid to wait, because the price of committing money over time had broken in four markets at once, and that in Nairobi the money would keep refusing duration.",
+        "verdict": "Right",
+        "landed": "Kenya's 15 October auction put the argument beyond doubt. The 91-day drew 622.46 percent of what was offered while the 364-day drew 66.43 percent, the only tenor to come in under its target. The yields barely moved: 8.75 percent for three months against 9.0383 for a year. The falsifier we named also held. Airtel Money's unconditional open on 14 October did not take it meaningfully above the £1.96 offer."
+      },
+      "written": [
+        "Nigeria's inflation rate fell more than any analyst expected. America's rose more than any analyst expected. Both reports were written by the same thing, and the four central banks reading them are heading in four different directions.",
+        {
+          "h": "The United States: the number that moved the Fed"
+        },
+        "September CPI landed on 14 October at 3.7 percent year on year, up from 3.4 percent in August and above the 3.6 percent consensus. Prices rose 0.6 percent on the month against 0.4 percent in August. Core CPI, which strips out food and energy, rose to 2.6 percent from 2.4 percent, also above forecast.",
+        "Gasoline did most of it. Pump prices rose 9.1 percent in September alone and accounted for more than half the monthly increase in the index. Airline fares are up 22 percent over twelve months, largely on jet fuel. Consumer inflation expectations rose to 3.9 percent from 3.6 percent.",
+        "The market repriced immediately. Odds of an October hike jumped from roughly 22 percent to about 44 percent on CME futures within hours, then faded through the rest of the week. Chair Warsh declined to signal anything, saying he does not prejudge meetings.",
+        "Note what happened in sequence. Twelve days earlier, on 2 October, a payrolls print of 29,000 had taken an October hike off the table. One energy-driven CPI put it back on. That is a central bank whose next move is now being decided by the oil price rather than by the labour market.",
+        "What a US reader should take from this. Core at 2.6 percent and rising says this is no longer only energy passing through. If you are carrying floating rate debt or planning a refinancing, stop assuming the next move is down. And if you hold cash, you are still being paid properly to do so for the first time in years.",
+        {
+          "h": "The United Kingdom: the consensus flipped inside a month"
+        },
+        "Britain has the same problem with less room.",
+        "The Bank of England held Bank Rate at 3.75 percent on 17 September by six votes to three, with three members wanting an immediate rise. The Bank attributed roughly 0.7 percentage points of its inflation overshoot to energy, mostly motor fuel, after Brent crude rose 36 percent and UK wholesale gas 78 percent since its July forecast. Bank staff now expect CPI near 3.75 percent in the final quarter of this year and slightly above 4 percent in early 2027.",
+        "During the past week a Reuters survey found 54 of 63 economists now expect a 25 basis point increase at the 5 November meeting, taking Bank Rate to 4 percent. In September's survey, nine in ten expected no change for the rest of the year. That is the fastest consensus reversal in this cycle.",
+        "Gilts gave back some ground. The 10-year eased to around 5.35 percent from 5.48 percent a week earlier and the 30-year fell back below 5.9 percent, after touching 6 percent on 1 October for the first time since 1998. Sterling firmed around 0.5 percent on Thursday to near 1.33 against the dollar.",
+        "September UK CPI publishes on 21 October, three days from now, and the Budget follows the week after. That September figure also sets the state pension triple lock and most benefit uprating.",
+        "What a UK reader should take from this. The chance that your mortgage gets cheaper this year has effectively gone. Fix now if you were waiting, and read the 21 October print as a fiscal event as much as a monetary one, because it sets next year's pension and benefit bill before the Chancellor has finished writing the Budget.",
+        {
+          "h": "Nigeria: the good number with a bad engine"
+        },
+        "The NBS published September CPI on 15 October. Headline inflation fell to 14.63 percent from 15.39 percent, a fourth consecutive monthly decline and well below every major forecast on the street, where FMDA had 15.65 percent and both Meristem and CardinalStone had 15.40. Month on month, headline rose just 0.06 percent against 0.71 percent in August.",
+        "Now read the components, because they do not say the same thing as the headline.",
+        {
+          "chart": {
+            "form": "bar",
+            "title": "Nigeria, what actually moved in September",
+            "note": "The headline fell. Food was flat. Energy, the component that persists, more than doubled.",
+            "xLabel": "Annual rate",
+            "unit": "%",
+            "x": [
+              "Headline",
+              "Food",
+              "Energy"
+            ],
+            "series": [
+              {
+                "name": "September",
+                "values": [
+                  14.63,
+                  19.59,
+                  10.85
+                ]
+              },
+              {
+                "name": "August",
+                "values": [
+                  15.39,
+                  19.57,
+                  4.69
+                ]
+              }
+            ],
+            "source": "National Bureau of Statistics, Consumer Price Index, September 2026. The August energy rate is the September figure less the 6.16 point rise the NBS reported."
+          }
+        },
+        "Food inflation was 19.59 percent year on year, essentially flat against August's 19.57, but it fell 1.55 percent during the month. Farm produce fell 2.86 percent. That is a harvest, and harvests end.",
+        "Energy went the other way. The energy sub-index rose 5.38 percent on the month, and the annual energy rate reached 10.85 percent, up 6.16 percentage points on August. That is a 131 percent increase in the annual rate inside four weeks. Core inflation month on month flipped from minus 0.06 percent in August to plus 1.11 percent in September.",
+        "So the headline fell because food fell, while the two components that persist, energy and core, both turned sharply higher. Food inflation still sits 4.96 percentage points above the headline. The naira traded near 1,332 to the dollar, and FAAC shared ₦2.428 trillion for the month.",
+        "What a Nigerian reader should take from this. The CBN cut 350 basis points in September into the same global energy shock that is pushing the Fed and the Bank of England toward hikes. September's print will be read in Abuja as vindication. The energy and core lines say the harvest bought time rather than solving anything. Expect the October and November prints to be harder, and do not build a 2027 budget on 14.63 percent.",
+        {
+          "h": "Kenya: money everywhere, conviction nowhere"
+        },
+        "Two auctions ran in the space of two days.",
+        "On 14 October the reopened 30-year bond auction drew KSh83.8 billion against KSh50 billion offered, a performance rate of 167.7 percent. That is a real improvement: the two 30-year auctions held in September cleared at 62.7 percent and 18.5 percent subscription.",
+        "On 15 October Treasury bills drew KSh68.5 billion against KSh28 billion offered, 244.6 percent. The CBK accepted KSh52.32 billion of it. But the demand was not spread evenly.",
+        {
+          "chart": {
+            "form": "split",
+            "title": "Where the 15 October bill bids went",
+            "note": "Of KSh68.5 billion bid, nearly three quarters chased the shortest paper on offer.",
+            "xLabel": "Tenor",
+            "unit": "KSh",
+            "x": [
+              "15 October auction"
+            ],
+            "series": [
+              {
+                "name": "91-day",
+                "values": [
+                  49800000000
+                ]
+              },
+              {
+                "name": "182-day",
+                "values": [
+                  12060000000
+                ]
+              },
+              {
+                "name": "364-day",
+                "values": [
+                  6640000000
+                ]
+              }
+            ],
+            "source": "Central Bank of Kenya Treasury bill auction of 15 October 2026."
+          }
+        },
+        "The 91-day alone took KSh49.80 billion against an KSh8 billion offer, a subscription rate of 622.46 percent, clearing at a weighted average of 8.75 percent against 8.7615 previously. The 182-day drew 120.58 percent. The 364-day drew 66.43 percent, the only tenor to come in under its target, at 9.0383 percent.",
+        "Both ends of the curve were bid heavily in the same week, and inside the bill auction the money ran to the shortest paper on offer. That is not a view on duration. That is a banking system with more liquidity than it has places to put it, buying whatever the government offers and preferring to get it back quickly.",
+        "The policy backdrop has not moved. The CBK held the Central Bank Rate at 8.75 percent on 7 October, a fourth consecutive hold, and named higher energy prices from the Middle East conflict as its principal external risk. September inflation was 6.8 percent, up from 6.6, with core rising to 4.0 percent from 3.4 and non-core easing to 14.0 from 14.7.",
+        "What a Kenyan reader should take from this. The long bond clearing above its target after two failed September auctions means the government can fund itself domestically for now. But a 622 percent subscription on three-month paper at a yield that barely moved, against an undersubscribed one-year, tells you the same institutions would rather be liquid. If you are borrowing commercially, the banks have the money. Ask for the price.",
+        {
+          "h": "The one argument"
+        },
+        "Four central banks, one input. Energy prices from the Middle East conflict have pushed the US above forecast, pushed Britain's economists into expecting a hike within a month of expecting none, sat underneath Nigeria's headline decline as its fastest rising component, and been named explicitly by Kenya as its principal risk.",
+        "The stances could not be more different. America is debating a hike. Britain has swung to expecting one. Nigeria sits at 23 percent, having cut 350 basis points in September, and this week's CPI was the first proper read on that decision. Kenya has not moved in eight months.",
+        "That divergence is not a disagreement about the facts. It is four different tolerances for the same shock, and the gap between them is where the next currency and rate moves get made."
+      ],
+      "method": "Written on 18 October 2026, covering 11 to 17 October. Every anchor in this edition falls inside that window: US CPI on 14 October, Nigerian CPI on 15 October, the Kenyan bond auction on 14 October and bill auction on 15 October, the CBK weekly bulletin on 16 October, the Reuters economists' survey during the week, UK gilt and sterling levels on 15 and 16 October, and Airtel Money's admission to unconditional dealing on 14 October. Facts carried as background sit outside it and are dated where they appear: the US payrolls print of 2 October, the Bank of England's decision of 17 September, the 30-year gilt touching 6 percent on 1 October, the CBN's rate decision of 22 September, the CBK's rate decision of 7 October and Kenya's September inflation, the two Kenyan 30-year auctions in September, and Airtel Money's conditional dealings of 9 October. Nigeria held no policy meeting in the covered week. US figures are from the BLS September CPI release of 14 October and contemporaneous reporting by CNBC, Axios, CNN and CBS, with hike odds from CME FedWatch as cited by Axios. UK figures are from the Bank of England's September MPC statement, the Reuters economists' survey reported during the week, and gilt and sterling levels from market commentary dated 16 October; UK September CPI had not been published at the time of writing and is due 21 October. Nigerian figures are from the NBS September CPI report of 15 October, with pre-release forecasts from FMDA, Meristem and CardinalStone as reported by BusinessDay. Kenyan bill figures are from the 15 October auction as reported in the CBK weekly bulletin of 16 October and by Bizna Kenya, which gives the tenor-by-tenor breakdown used in the chart. The 30-year bond result of 14 October is taken from the same weekly bulletin; at the time of writing it had not been carried in the Kenyan press, so it rests on that single source. Airtel Money pricing is the 14 October unconditional opening level as reported, not a closing price. The energy attribution across markets is drawn from each central bank's or statistics office's own stated reasoning, not from our own modelling of oil pass-through.",
+      "sources": [
+        {
+          "label": "US Bureau of Labor Statistics, Consumer Price Index, September 2026",
+          "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
+        },
+        {
+          "label": "CNBC, the inflation breakdown for September 2026",
+          "url": "https://www.cnbc.com/2026/10/14/cpi-inflation-breakdown-september-2026.html"
+        },
+        {
+          "label": "CNBC, CPI inflation report September 2026",
+          "url": "https://www.cnbc.com/2026/10/14/cpi-inflation-report-september-2026.html"
+        },
+        {
+          "label": "CBS News, September CPI shows inflation accelerated to 3.7% as energy costs soared",
+          "url": "https://www.cbsnews.com/news/september-cpi-report-inflation-energy-costs/"
+        },
+        {
+          "label": "Bank of England, Monetary Policy Summary, 17 September 2026",
+          "url": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/september-2026"
+        },
+        {
+          "label": "Reuters poll, BoE to hike by 25bps to 4% in November",
+          "url": "https://www.fxstreet.com/news/boe-to-hike-interest-rates-by-25-bps-to-4-in-november-reuters-poll-202610150945"
+        },
+        {
+          "label": "Bank of England's Bailey sees subdued second-round price pressures",
+          "url": "https://www.rte.ie/news/business/2026/1016/1595607-bank-of-england-on-uk-inflation/"
+        },
+        {
+          "label": "National Bureau of Statistics, Consumer Price Index, September 2026",
+          "url": "https://nigerianstat.gov.ng/elibrary"
+        },
+        {
+          "label": "Nairametrics, Nigeria's inflation drops to 14.63% in September 2026",
+          "url": "https://nairametrics.com/2026/10/15/nigerias-inflation-drops-to-14-63-in-september-2026-nbs/"
+        },
+        {
+          "label": "Leadership, inflation eases to 14.63% as food prices moderate, FAAC shares ₦2.428trn",
+          "url": "https://leadership.ng/inflation-eases-to-14-63-as-food-prices-moderate-faac-shares-n2-428trn-for-september/"
+        },
+        {
+          "label": "Tribune, Nigeria's inflation drops from 15.39% to 14.63% in September",
+          "url": "https://tribuneonlineng.com/nigerias-inflation-drops-from-15-39-to-14-63-in-september/"
+        },
+        {
+          "label": "Central Bank of Kenya, MPC press release, 7 October 2026",
+          "url": "https://www.centralbank.go.ke/2026/10/07/monetary-policy-committee-press-release/"
+        },
+        {
+          "label": "Bizna Kenya, Treasury bill auction draws Sh68.5 billion in bids",
+          "url": "https://biznakenya.com/treasury-bill-auction-draws-sh68-5-billion-in-bids/"
+        },
+        {
+          "label": "The Kenya Times, 91-day Treasury bill attracts six times more bids",
+          "url": "https://thekenyatimes.com/banking/investors-bid-over-six-times-amount-offered-for-cbks-91-day-treasury-bill/"
+        },
+        {
+          "label": "Euronext, Airtel Money makes muted London trading debut",
+          "url": "https://live.euronext.com/en/financial-news/airtel-money-makes-muted-london-trading-debut"
+        }
+      ],
+      "proveWrong": "The easy read is that an energy shock is always a passing thing that central banks should look through. Four things would weaken that, and this edition with it. If UK September CPI on 21 October comes in at or below 3.1 percent, the November hike consensus unwinds as fast as it formed and the Bank's own energy pass-through is weaker than its staff forecast. If Nigeria's October print holds below 15 percent with the energy sub-index flat or lower, September's surge was a one-month pricing adjustment rather than the start of a leg, and the disinflation story survives intact. If the Fed holds in October and US core CPI falls back below 2.5 percent in the November release, the September reading was energy passing through rather than broadening, and the hike repricing was noise. And if Kenyan 91-day subscription rates normalise below 300 percent over the next three auctions while long bond cover holds above 100 percent, the liquidity glut is clearing into real allocation rather than parking.",
+      "nextMove": [
+        {
+          "who": "Career",
+          "do": "Energy pass-through modelling is suddenly the most valuable thing in a macro or treasury function, and almost nobody under forty has done it in anger, because the last fifteen years did not require it. In Lagos that means being the person who can decompose a CPI print into food, energy and core instead of reading the headline. In London and New York it means being able to argue the difference between an energy shock passing through and one broadening into core, which is the exact question the Fed and the Bank are now split on. In Nairobi, where the banking system keeps parking excess liquidity in short paper, the scarce skill is credit origination: finding borrowers the banks can actually lend to. All four markets are hiring for the same underlying capability, which is reading a number properly rather than reacting to it."
+        },
+        {
+          "who": "Business owners and operators",
+          "do": "Energy is now a line item that moves faster than your pricing. In Nigeria the energy sub-index rose 5.38 percent in one month, so if you run logistics, cold chain, manufacturing or anything with a diesel or generator component, your September costs are not your October costs. Reprice or hedge now rather than absorbing it. In the UK and US, assume your cost of borrowing is flat to higher into next year and stop modelling a cutting cycle; if you have a facility to refinance, move this quarter. In Kenya the banks are liquid and parking money at 8.75 percent in three-month paper, so a credible borrower has more leverage in that conversation than they did three months ago. And across all four, a hike expectation in London and Washington pulls capital toward cash and away from long-duration equity stories, which matters if you are raising."
+        },
+        {
+          "who": "Investors",
+          "do": "The naira fixed income curve has flattened to almost nothing, so you are not being paid to extend; the real question is whether Nigerian disinflation survives the energy line, and the October print on roughly 15 November answers it. In Kenya the 91-day at 8.75 percent is where the institutions are hiding, and a long bond clearing above target after two failed September auctions means Kenyan duration is available at a price again, which is worth examining rather than dismissing. In dollars and sterling, cash and short duration still pay, and both markets are now pricing the possibility of hikes rather than cuts, so extending into long government paper is a bet that energy pass-through fades. And on Airtel Money, unconditional trading opened on 14 October at 181.28p, about 7.5 percent below the £1.96 offer, which makes London's largest listing in five years a stock trading below its IPO price in its first week. Wait out the 180-day lock-up before drawing conclusions about what African mobile money is worth in public markets."
+        }
+      ]
+    },
+    {
+      "number": null,
       "slug": "nobody-is-being-paid-to-wait",
       "title": "Nobody Is Being Paid to Wait",
       "seoTitle": "Nobody Is Being Paid to Wait",
