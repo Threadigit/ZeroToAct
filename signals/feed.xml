@@ -6,14 +6,68 @@
     <description>One read a week on the shifts in money, government policy and the world economy that change your next move.</description>
     <language>en</language>
     <copyright>ZeroToAct</copyright>
-    <lastBuildDate>Sun, 18 Oct 2026 12:00:00 GMT</lastBuildDate>
-    <pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>
+    <lastBuildDate>Sat, 24 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <pubDate>Sat, 24 Oct 2026 12:00:00 GMT</pubDate>
     <image>
       <url>https://zerotoact.com/og-image-v2.png</url>
       <title>ZeroToAct Signals</title>
       <link>https://zerotoact.com/signals/</link>
     </image>
     <atom:link href="https://zerotoact.com/signals/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lenders Started Choosing</title>
+      <link>https://zerotoact.com/signals/lenders-started-choosing/</link>
+      <guid isPermaLink="true">https://zerotoact.com/signals/lenders-started-choosing/</guid>
+      <pubDate>Sat, 24 Oct 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Tolu Adetuyi</dc:creator>
+      <category>Macro</category>
+      <description>For most of the last fifteen years, lending to a government was a single decision: how much, and for how long. This week it became a different question. Which government.</description>
+      <content:encoded><![CDATA[<p>For most of the last fifteen years, lending to a government was a single decision: how much, and for how long. This week it became a different question. Which government.</p>
+<p>France crossed 5 percent for the first time since 2002 and the money that left it went looking for somewhere safer. Four thousand miles away, Nigeria&#39;s debt office had to reach past its own offer to place its bonds, and Kenya&#39;s auction barely cleared. The same question was being asked in all three places.</p>
+<h2 class="sig-subhead">France crossed five percent</h2>
+<p>On Wednesday the French 10-year yield went above 5 percent, a level it had not touched since July 2002. On Thursday it reached 5.142 percent, a 24-year high. The premium over German debt widened to roughly 173 basis points, the largest gap since 2011, and the cost of insuring French government debt against default rose above 100 basis points for the first time since October 2012.</p>
+<figure><table><caption>What a lender charged two euro-zone governments. Same currency, same central bank, same week. The gap is the whole story.</caption><thead><tr><th>Government</th><th>23 October</th></tr></thead><tbody><tr><th>France</th><td>5.05%</td></tr><tr><th>Germany</th><td>3.33%</td></tr></tbody></table></figure>
+<p>The arithmetic behind it is not complicated. French public debt stands near €3.6 trillion, about 119 percent of GDP, projected to reach 121.7 percent next year. Germany sits at 65 percent. Moody&#39;s was scheduled on Friday to review a sovereign rating already carrying a negative outlook. The yield eased back to about 5.04 percent as the week closed.</p>
+<p>The European Central Bank meets on Thursday and is widely expected to do nothing, partly because rising yields are already tightening conditions across the bloc. Christine Lagarde has said the first move on French debt has to come from Paris, not Frankfurt.</p>
+<p>That last sentence is the one worth keeping. A central bank declining to absorb a government&#39;s borrowing problem is the premise of everything else that happened this week.</p>
+<h2 class="sig-subhead">The money had to go somewhere</h2>
+<p>It went into the bonds of governments investors still trust.</p>
+<p>On Thursday, yields fell sharply on German, Canadian and Swiss debt. The US 10-year fell 19.3 basis points to 4.953 percent, its largest single-day decline since 10 March 2023, the day Silicon Valley Bank failed. Two things were pushing the same way. The AI trade wobbled, taking the Nasdaq down 2.6 percent, and French debt was being sold. Most of the reporting led on the first. The second is the one that matters here.</p>
+<p>By Friday most of it had reversed. The 10-year came back to 4.99 percent as Brent settled at $116.72, up about 3.1 percent and its highest close since April, after renewed attacks on Saudi oil infrastructure. The Dow fell 1.23 percent and nearly three in four S&amp;P 500 stocks declined.</p>
+<p>Read Thursday correctly. It was not the bond market calling the top in American rates. Whichever of the two drivers you weight, the move was a judgment about where money was safer, not a forecast about where American rates are going. US borrowing costs fell because somebody else&#39;s rose.</p>
+<h2 class="sig-subhead">Lagos ran the same auction on Monday</h2>
+<p>Nigeria asked the same question of its own lenders and got an expensive answer.</p>
+<p>The Debt Management Office reopened the February 2034, September 2036 and June 2038 bonds against a ₦1.75 trillion offer. Bids came in at ₦1.75 trillion, which is to say exactly the amount asked for and no more. The DMO allotted ₦1.22 trillion competitively, rejected about 30 percent of what was bid, and then added ₦800 billion in non-competitive allotments to reach ₦2.02 trillion.</p>
+<p>Read the three bonds separately, because they did not behave the same way. The September 2036 drew 1.16 times its offer and cleared at 17.29 percent, up 50 basis points. The June 2038 drew 1.15 times and cleared at 17.19 percent, up 34. The February 2034 was undersubscribed at 0.61 times, with bids spread from 16.00 percent to 19.00 percent.</p>
+<p>That is not a market pricing Nigerian risk. That is a market with no settled view of what a particular Nigerian bond is worth, which is the same condition as France in a different currency.</p>
+<p>Then on Thursday the central bank sold ₦2.628 trillion of OMO bills against a ₦2 trillion offer, 31.4 percent above target, on ₦2.728 trillion of bids. Stop rates rose on both tenors, and they rose in a strange order.</p>
+<figure><table><caption>Nigeria&#39;s OMO bills, 22 October. The shorter bill cleared 49 basis points above the longer one. Lenders charged more to wait less.</caption><thead><tr><th>Tenor</th><th>Stop rate</th></tr></thead><tbody><tr><th>138-day</th><td>17.63%</td></tr><tr><th>180-day</th><td>17.14%</td></tr></tbody></table></figure>
+<p>The 180-day took 67.92 percent of total subscriptions and cleared at 17.14 percent, roughly 20 basis points above the previous comparable sale. The 138-day drew less and cleared at 17.63 percent, 41 basis points above the 147-day of 6 October and 49 above the longer bill sold the same day.</p>
+<p>The policy rate is 23 percent, lower than it was two months ago. The rates at which money actually changed hands this week went up.</p>
+<h2 class="sig-subhead">Nairobi ran it on Thursday and almost nobody came</h2>
+<p>Seven days earlier, Kenyan Treasury bills had drawn KSh68.5 billion against KSh28 billion offered, more than twice covered, with the 91-day bid six times over.</p>
+<figure><table><caption>Kenya, two consecutive Thursdays. The same offer, a week apart. Bids fell from 244.6 percent of it to 103.</caption><thead><tr><th>Auction</th><th>Bids received</th><th>Amount offered</th></tr></thead><tbody><tr><th>15 October</th><td>KSh69bn</td><td>KSh28bn</td></tr><tr><th>22 October</th><td>KSh29bn</td><td>KSh28bn</td></tr></tbody></table></figure>
+<p>This Thursday the same auction drew KSh28.83 billion against the same KSh28 billion offer, a subscription rate of 103 percent. The central bank accepted KSh28.79 billion, which is to say almost every shilling anyone put up.</p>
+<p>Accepted rates were 8.7478 percent on the 91-day, 8.8591 on the 182-day and 9.0267 on the 364-day, with the longest bill paying the most. Note that all three edged down rather than up, and the 91-day fell below the 8.75 percent policy rate for the first time since June. Demand collapsed and the price did not move, which tells you the bids that vanished were not bids at any price. They simply were not there.</p>
+<p>On Friday the CBK reopened KSh50 billion of longer paper anyway: a 15-year at a 12.34 percent coupon and a 30-year at 12.50 percent, closing on 4 November.</p>
+<p>A government asking for thirty-year money from a market that stopped bidding for three-month money is a position, not a strategy. The 4 November result will tell you what it costs.</p>
+<h2 class="sig-subhead">Britain found out what its bill will be</h2>
+<p>The ONS published September inflation on Wednesday. CPI rose to 3.5 percent from 3.1, above the 3.4 percent consensus and the highest since October 2025. Core rose to 2.8 percent from 2.6 and services inflation to 3.7 from 3.4, both above forecast. Fuel did much of it, up 29.8 percent year on year against 23.0 in August.</p>
+<p>RPI printed 3.9 percent. That number is the fiscal one. September CPI sets the triple lock and most benefit uprating, and RPI still governs a long tail of index-linked government obligations. So Wednesday&#39;s release did not only make a rate rise more likely, with markets now pricing two before year end and the Bank meeting on 5 November. It raised next year&#39;s spending commitment before the Chancellor has finished writing the Budget.</p>
+<p>Britain is the market where this week&#39;s two forces meet: an inflation problem that argues for higher rates, and a debt problem that makes higher rates expensive.</p>
+<h2 class="sig-subhead">What actually happened this week</h2>
+<p>Sovereign debt stopped being a single asset class.</p>
+<p>For years, government bonds were priced off one question, which was where policy rates were going. This week they were priced off a second question, which is whether a particular government can carry what it owes. France failed that test and paid 24-year-high yields. Germany, Switzerland, Canada and the United States passed it and were rewarded with cheaper borrowing. Nigeria had to reach past its own offer to place its paper, and Kenya found out what happens when it does not.</p>
+<p>Notice what is missing from that list of causes. Not one of these moves was made by a central bank. The ECB is expected to sit still. The Fed is expected to hold on Wednesday at better than nine in ten. The Bank of England has not changed Bank Rate since December 2025. The CBN cut last month. The CBK has held for eight.</p>
+<p>The price of government money is currently being set by how much governments need to borrow and who is willing to lend it. That is a different world from the one most portfolios and most treasury functions were built for.</p>
+<h2>Next move</h2>
+<h3>Career</h3>
+<p>Sovereign credit analysis has been a quiet corner of finance for a decade because the answer was always the same. It is not a quiet corner this week. Being able to look at a debt-to-GDP path, a deficit trajectory and a political situation and say what a government should pay is a skill that was close to unnecessary in 2015 and is being bid for now, in London, in Paris and increasingly in Lagos and Nairobi where the same question is asked every auction. The adjacent opening is in treasury functions: someone has to explain to a Nigerian bank board why funding costs rose in a quarter the central bank cut, and most teams cannot. If you are early in your career and numerate, this is a more durable thing to learn than almost anything on the equity side right now.</p>
+<h3>Business owners and operators</h3>
+<p>You compete with your government for capital, and in Nigeria your government is taking ₦5.75 trillion of bonds out of the market this quarter at rising rates. That is your bank&#39;s alternative to lending to you, and it just got more attractive. Open your facility renewal conversation now rather than in January, and expect the answer to be worse than the policy rate implies. In Kenya, the banks that were flush a week ago are not, so move faster on anything needing a credit decision. In the UK and US, both markets are pricing hikes rather than cuts, so any plan assuming cheaper money in 2027 needs rebuilding. And one input is moving faster than all of this: Brent closed at $116.72 on Friday, its highest since April, and no central bank can fix a supply problem, so hedge or reprice rather than waiting it out.</p>
+<h3>Investors</h3>
+<p>The useful idea this week is that safety is now relative rather than absolute. US Treasuries rallied because French bonds sold off and because equities fell, not because American fiscal arithmetic improved. If you hold developed market government debt, you are making a country-selection decision whether or not you intended to. In Nigeria, OMO at 17.14 percent and a bond auction clearing 50 basis points higher reverses the compression that ran from August into late September, and the next auction tells you whether it is a trend; the undersubscribed February 2034 is the line to watch, not the headline total. In Kenya, the long bond closing 4 November is a live price discovery event for Kenyan duration, and a bill auction that cleared at 103 percent without yields rising says the bid withdrew rather than repriced, which is the harder problem for a government with thirty-year paper to sell. Resist reading Thursday&#39;s US rally as a signal about inflation; Friday took most of it back.</p>]]></content:encoded>
+    </item>
     <item>
       <title>One Shock, Four Answers</title>
       <link>https://zerotoact.com/signals/one-shock-four-answers/</link>
