@@ -572,14 +572,25 @@ function editionPage(s) {
     <p class="sig-claim">${esc(s.headlineClaim)}</p>
     <p class="sig-byline sig-byline--top">By <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a></p>
     ${draftBanner}
-    <figure class="sig-video">
-      ${s.videoId ? `<div class="sig-video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>` : ''}
-      ${s.revised && s.revised !== s.date ? `<figcaption class="sig-revised" role="note">Revised ${longDate(s.revised)}, first published ${
+    ${(() => {
+      // An edition can have a video, a revision notice, both or neither. The
+      // figure used to be emitted unconditionally, which left an empty
+      // <figure> on an edition with neither, and a figcaption has to sit
+      // inside a figure to be valid, so the notice stands alone without one.
+      const revised = s.revised && s.revised !== s.date;
+      const notice = revised ? `Revised ${longDate(s.revised)}, first published ${
         s.revised.slice(0, 4) === s.date.slice(0, 4) ? longDate(s.date).replace(/ \d{4}$/, '') : longDate(s.date)
-      }. ${esc(s.revisionNote || '')}${s.videoPredatesRevision ? ' Video is the original edition.' : ''}</figcaption>` : ''}
-    </figure>
+      }. ${esc(s.revisionNote || '')}${s.videoPredatesRevision ? ' Video is the original edition.' : ''}` : '';
+      if (s.videoId) {
+        return `<figure class="sig-video">
+      <div class="sig-video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/${esc(s.videoId)}" title="${esc(s.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>${revised ? `
+      <figcaption class="sig-revised" role="note">${notice}</figcaption>` : ''}
+    </figure>`;
+      }
+      return revised ? `<p class="sig-revised" role="note">${notice}</p>` : '';
+    })()}
     ${lastTime}
     <div class="sig-body">
         ${article}
@@ -595,6 +606,7 @@ function editionPage(s) {
     <div class="sig-disclosure">
       <h2>Disclosure</h2>
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
+      ${(s.disclosure || []).map((d) => `<p>${linkify(esc(d))}</p>`).join('\n      ')}
     </div>
   </main>
   ${READING_PROGRESS}${(s.written || []).some(b => b && b.chart) ? CHART_SCRIPT : ''}`;
