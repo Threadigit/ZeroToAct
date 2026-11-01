@@ -605,8 +605,8 @@ function editionPage(s) {
     </div>
     <div class="sig-disclosure">
       <h2>Disclosure</h2>
-      <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>
-      ${(s.disclosure || []).map((d) => `<p>${linkify(esc(d))}</p>`).join('\n      ')}
+      <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>${(s.disclosure || []).length ? `
+      ${(s.disclosure || []).map((d) => `<p>${linkify(esc(d))}</p>`).join('\n      ')}` : ''}
     </div>
   </main>
   ${READING_PROGRESS}${(s.written || []).some(b => b && b.chart) ? CHART_SCRIPT : ''}`;
