@@ -10,25 +10,34 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const BASE = 'https://zerotoact.com';
+const BASE = 'https://www.zerotoact.com';
 const OG_IMAGE = `${BASE}/og-image-v2.png`;
 // Every edition shared with the same picture, so sixteen different Signals
 // previewed identically. Each now has a card rendered from its own headline.
 const ogImagePath = (s) => `/og/${s.slug}.png`;
 const ogImageUrl = (s) => `${BASE}${ogImagePath(s)}`;
-const AUTHOR = { name: 'Tolu Adetuyi', url: 'https://adetuyi.com' };
+const AUTHOR = {
+  name: 'Tolu Adetuyi',
+  url: 'https://www.adetuyi.com/',
+  id: 'https://www.adetuyi.com/#person',
+};
 
 // Reusable schema.org entities for structured data.
 const PERSON = {
   '@type': 'Person',
-  '@id': `${AUTHOR.url}/#person`,
+  '@id': AUTHOR.id,
   name: AUTHOR.name,
   givenName: 'Tolu',
   familyName: 'Adetuyi',
   url: AUTHOR.url,
-  sameAs: [AUTHOR.url, 'https://prembly.com'],
-  jobTitle: 'Founder',
-  description: 'Founder of ZeroToAct, the intelligence publication on the shifts in money, policy and technology that change what people build, earn and invest. Co-founder and Chief Innovation Officer of Prembly, building identity and compliance infrastructure.',
+  sameAs: [
+    AUTHOR.url,
+    'https://www.linkedin.com/in/adetuyitolu',
+    'https://councils.forbes.com/profile/Tolu-Adetuyi-Chief-Innovation-Officer-Prembly-inc/35956b57-031a-4c4e-9be2-1e5843051b20',
+  ],
+  image: { '@type': 'ImageObject', url: `${BASE}/tolu-320.jpg`, width: 320, height: 266 },
+  jobTitle: 'Founder and Convener of ZeroToAct',
+  description: 'Tolu Adetuyi is the founder and convener of ZeroToAct, an intelligence publication for career builders, business builders and people investing money. He is also co-founder and Chief Innovation Officer of Prembly.',
   knowsAbout: [
     'Capital markets', 'Monetary policy', 'African fintech', 'Identity infrastructure',
     'Payments regulation', 'Geopolitics', 'Emerging market currencies',
@@ -41,10 +50,10 @@ const PUBLISHER = {
   '@id': `${BASE}/#organization`,
   name: 'ZeroToAct',
   url: `${BASE}/`,
-  logo: { '@type': 'ImageObject', url: `${BASE}/favicon-v2.png` },
-  founder: { '@id': `${AUTHOR.url}/#person` },
+  logo: { '@type': 'ImageObject', url: `${BASE}/favicon-v2.png`, width: 256, height: 256 },
+  founder: { '@id': AUTHOR.id },
   foundingDate: '2026',
-  description: 'Weekly intelligence on the shifts in money, government policy and the world economy that change your next move.',
+  description: 'ZeroToAct is an intelligence publication founded and convened by Tolu Adetuyi for career builders, business builders and people investing money.',
   sameAs: ['https://instagram.com/zerotoact'],
 };
 // Breadcrumb JSON-LD from an ordered list of [name, url] pairs.
@@ -86,6 +95,13 @@ const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canoni
 // Strip terminal punctuation before adding citation or record separators.
 const recordTitle = (s) => s.title.replace(/[.!?]+$/, '');
 const citeTitle = recordTitle;
+const fitMetaDescription = (value, max = 160) => {
+  const text = String(value || '').trim();
+  if (text.length <= max) return text;
+  const clipped = text.slice(0, max + 1);
+  const boundary = clipped.lastIndexOf(' ');
+  return `${clipped.slice(0, boundary > 110 ? boundary : max).replace(/[,:;.!?]+$/, '')}.`;
+};
 const citation = (s) =>
   `ZeroToAct, ${s.number ? `Signal ${s.number}, ` : ''}${citeTitle(s)}, ${longDate(s.date)}, ${editionUrl(s)}`;
 
@@ -151,7 +167,7 @@ const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
             <a href="/summit/" class="footer-nav-link">Summit</a>
             <a href="/community/" class="footer-nav-link">Live Network</a>
             <a href="/#faq" class="footer-nav-link">FAQ</a>
-            <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Founder</a>
+            <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer" class="footer-nav-link">Tolu Adetuyi</a>
           </div>
         </nav>
       </div>
@@ -186,18 +202,20 @@ const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true"
     </div>
   </div>`;
 
-const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '', noindex = false, image = OG_IMAGE }) => `<!DOCTYPE html>
+const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', noindex = false, image = OG_IMAGE }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}" />
-${keywords ? `  <meta name="keywords" content="${esc(keywords)}" />\n` : ''}  <meta name="author" content="${esc(AUTHOR.name)}" />
+  <meta name="author" content="${esc(AUTHOR.name)}" />
+  <meta name="publisher" content="ZeroToAct" />
 ${canonical ? `  <link rel="canonical" href="${canonical}" />\n` : ''}
   <link rel="author" href="${AUTHOR.url}" />
   <meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}" />
   <link rel="icon" type="image/png" href="/favicon-v2.png" />
+  <link rel="apple-touch-icon" href="/favicon-v2.png" />
   <meta name="theme-color" content="#0a0a0a" />
   <meta property="og:type" content="${ogType}" />
   <meta property="og:site_name" content="ZeroToAct" />
@@ -206,14 +224,17 @@ ${canonical ? `  <link rel="canonical" href="${canonical}" />\n` : ''}
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(desc)}" />
   <meta property="og:image" content="${image}" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="${esc(title)}" />
 ${articleMeta}  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@zerotoact" />
   <meta name="twitter:creator" content="@zerotoact" />
   <meta name="twitter:title" content="${esc(title)}" />
   <meta name="twitter:description" content="${esc(desc)}" />
   <meta name="twitter:image" content="${image}" />
+  <meta name="twitter:image:alt" content="${esc(title)}" />
   <link rel="alternate" type="application/rss+xml" title="ZeroToAct Signals" href="/signals/feed.xml" />
   <link rel="preload" href="/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
@@ -456,6 +477,7 @@ const videoWatch = (s) => `https://www.youtube.com/watch?v=${s.videoId}`;
 // ── Per-edition page ──
 function editionPage(s) {
   const url = editionUrl(s);
+  const metaDesc = fitMetaDescription(s.seoDesc || s.headlineClaim);
   // A minute count is a blog device, not a publication's. The archive dropped
   // it; the edition header keeps the two facts that place the piece.
   const eyebrowBits = [s.theme, longDate(s.date)];
@@ -505,9 +527,9 @@ function editionPage(s) {
         '@id': `${url}#article`,
         headline: s.title,
         name: s.title,
-        description: s.headlineClaim,
-        datePublished: s.date,
-        dateModified: s.revised || s.date,
+        description: metaDesc,
+        datePublished: isoPub,
+        dateModified: isoMod,
         inLanguage: 'en',
         image: { '@type': 'ImageObject', url: ogImageUrl(s), width: 1200, height: 630 },
         articleSection: s.theme,
@@ -603,8 +625,8 @@ ${draftBanner ? `        ${draftBanner}\n` : ''}      </div>
   ${READING_PROGRESS}${(s.written || []).some(b => b && b.chart) ? CHART_SCRIPT : ''}`;
 
   return shell({
-    title: `${s.seoTitle || s.title} | ZeroToAct Weekly Signal`,
-    desc: s.seoDesc || s.headlineClaim, canonical: url, head: jsonLdScript(jsonLd), body,
+    title: `${s.seoTitle || s.title} | ZeroToAct`,
+    desc: metaDesc, canonical: url, head: jsonLdScript(jsonLd), body,
     ogType: 'article', articleMeta, keywords: kw, image: ogImageUrl(s),
   });
 }
@@ -774,7 +796,7 @@ function sitemap() {
   const urls = [
     { loc: `${BASE}/`, priority: '1.0', changefreq: 'weekly', lastmod: signals[0].date },
     { loc: `${BASE}/signals/`, priority: '0.9', changefreq: 'weekly', lastmod: signals[0].date },
-    ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.date })),
+    ...signals.map((s) => ({ loc: editionUrl(s), priority: '0.8', changefreq: 'monthly', lastmod: s.revised || s.date })),
     { loc: `${BASE}/why/`, priority: '0.8', changefreq: 'yearly' },
     { loc: `${BASE}/annual-outlook/`, priority: '0.6', changefreq: 'monthly' },
     { loc: `${BASE}/summit/`, priority: '0.8', changefreq: 'monthly' },
@@ -845,7 +867,7 @@ ${sections}
 function whyPage() {
   const url = `${BASE}/why/`;
   const title = 'About ZeroToAct | Intelligence for your next decision';
-  const desc = 'How ZeroToAct turns consequential shifts in money, policy and technology into useful intelligence for career builders, business builders and people investing money.';
+  const desc = 'How ZeroToAct turns shifts in money, policy and technology into decision-ready intelligence for career builders, business builders and people investing money.';
 
   const body = `
   <main id="main" class="why-page why-page--institutional">
@@ -998,7 +1020,7 @@ function summitPage() {
     slug: 'summit',
     title: 'The Annual Summit',
     kind: 'One virtual day each year',
-    desc: 'One day a year where a year of reading becomes a written twelve-month plan with your name on it.',
+    desc: 'The ZeroToAct Annual Summit presents the Annual Outlook and helps career builders, business builders and people investing money write a twelve-month plan.',
     status: 'Annual',
     claim: 'The Outlook, the discussion and the activities happen in one day, ending with a written plan that belongs to you.',
     sections,

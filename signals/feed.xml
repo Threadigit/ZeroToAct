@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>ZeroToAct Signals</title>
-    <link>https://zerotoact.com/signals/</link>
+    <link>https://www.zerotoact.com/signals/</link>
     <description>One read a week on the shifts in money, government policy and the world economy that change your next move.</description>
     <language>en</language>
     <copyright>ZeroToAct</copyright>
     <lastBuildDate>Sun, 01 Nov 2026 12:00:00 GMT</lastBuildDate>
     <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
     <image>
-      <url>https://zerotoact.com/og-image-v2.png</url>
+      <url>https://www.zerotoact.com/og-image-v2.png</url>
       <title>ZeroToAct Signals</title>
-      <link>https://zerotoact.com/signals/</link>
+      <link>https://www.zerotoact.com/signals/</link>
     </image>
-    <atom:link href="https://zerotoact.com/signals/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.zerotoact.com/signals/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nobody Went First</title>
-      <link>https://zerotoact.com/signals/nobody-went-first/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/nobody-went-first/</guid>
+      <link>https://www.zerotoact.com/signals/nobody-went-first/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/nobody-went-first/</guid>
       <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -78,8 +78,8 @@
     </item>
     <item>
       <title>Lenders Started Choosing</title>
-      <link>https://zerotoact.com/signals/lenders-started-choosing/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/lenders-started-choosing/</guid>
+      <link>https://www.zerotoact.com/signals/lenders-started-choosing/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/lenders-started-choosing/</guid>
       <pubDate>Sat, 24 Oct 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -132,8 +132,8 @@
     </item>
     <item>
       <title>One Shock, Four Answers</title>
-      <link>https://zerotoact.com/signals/one-shock-four-answers/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/one-shock-four-answers/</guid>
+      <link>https://www.zerotoact.com/signals/one-shock-four-answers/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/one-shock-four-answers/</guid>
       <pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -183,8 +183,8 @@
     </item>
     <item>
       <title>Nobody Is Being Paid to Wait</title>
-      <link>https://zerotoact.com/signals/nobody-is-being-paid-to-wait/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/nobody-is-being-paid-to-wait/</guid>
+      <link>https://www.zerotoact.com/signals/nobody-is-being-paid-to-wait/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/nobody-is-being-paid-to-wait/</guid>
       <pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -220,8 +220,8 @@
     </item>
     <item>
       <title>The Exit Was Already Written</title>
-      <link>https://zerotoact.com/signals/the-exit-was-already-written/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/the-exit-was-already-written/</guid>
+      <link>https://www.zerotoact.com/signals/the-exit-was-already-written/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/the-exit-was-already-written/</guid>
       <pubDate>Sun, 04 Oct 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Capital</category>
@@ -254,8 +254,8 @@
     </item>
     <item>
       <title>Read the Corridor, Not the Cut</title>
-      <link>https://zerotoact.com/signals/read-the-corridor-not-the-cut/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/read-the-corridor-not-the-cut/</guid>
+      <link>https://www.zerotoact.com/signals/read-the-corridor-not-the-cut/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/read-the-corridor-not-the-cut/</guid>
       <pubDate>Sun, 27 Sep 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -295,8 +295,8 @@
     </item>
     <item>
       <title>One Pipeline. Four Currencies.</title>
-      <link>https://zerotoact.com/signals/one-pipeline-four-currencies/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/one-pipeline-four-currencies/</guid>
+      <link>https://www.zerotoact.com/signals/one-pipeline-four-currencies/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/one-pipeline-four-currencies/</guid>
       <pubDate>Sun, 20 Sep 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -327,8 +327,8 @@
     </item>
     <item>
       <title>Money Got More Expensive Everywhere. Except in Nigeria.</title>
-      <link>https://zerotoact.com/signals/money-got-more-expensive-except-in-nigeria/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/money-got-more-expensive-except-in-nigeria/</guid>
+      <link>https://www.zerotoact.com/signals/money-got-more-expensive-except-in-nigeria/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/money-got-more-expensive-except-in-nigeria/</guid>
       <pubDate>Sun, 13 Sep 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Capital</category>
@@ -360,8 +360,8 @@
     </item>
     <item>
       <title>Three Prices Moved. All of Them in Dollars.</title>
-      <link>https://zerotoact.com/signals/three-prices-all-in-dollars/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/three-prices-all-in-dollars/</guid>
+      <link>https://www.zerotoact.com/signals/three-prices-all-in-dollars/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/three-prices-all-in-dollars/</guid>
       <pubDate>Sun, 06 Sep 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -390,8 +390,8 @@
     </item>
     <item>
       <title>The Stablecoin Rulebook</title>
-      <link>https://zerotoact.com/signals/the-stablecoin-rulebook/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/the-stablecoin-rulebook/</guid>
+      <link>https://www.zerotoact.com/signals/the-stablecoin-rulebook/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/the-stablecoin-rulebook/</guid>
       <pubDate>Sun, 30 Aug 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Policy</category>
@@ -420,8 +420,8 @@
     </item>
     <item>
       <title>The Demographic Dividend Is Not Automatic</title>
-      <link>https://zerotoact.com/signals/the-demographic-shift/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/the-demographic-shift/</guid>
+      <link>https://www.zerotoact.com/signals/the-demographic-shift/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/the-demographic-shift/</guid>
       <pubDate>Sun, 23 Aug 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>
@@ -454,8 +454,8 @@
     </item>
     <item>
       <title>The $700 Billion Compute Divide</title>
-      <link>https://zerotoact.com/signals/700-billion-compute-divide/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/700-billion-compute-divide/</guid>
+      <link>https://www.zerotoact.com/signals/700-billion-compute-divide/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/700-billion-compute-divide/</guid>
       <pubDate>Sun, 16 Aug 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Technology</category>
@@ -489,8 +489,8 @@
     </item>
     <item>
       <title>The Africa Window</title>
-      <link>https://zerotoact.com/signals/the-africa-window/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/the-africa-window/</guid>
+      <link>https://www.zerotoact.com/signals/the-africa-window/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/the-africa-window/</guid>
       <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Capital</category>
@@ -521,8 +521,8 @@
     </item>
     <item>
       <title>DFIs Have Stopped Writing Equity Cheques</title>
-      <link>https://zerotoact.com/signals/dfis-stopped-writing-equity/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/dfis-stopped-writing-equity/</guid>
+      <link>https://www.zerotoact.com/signals/dfis-stopped-writing-equity/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/dfis-stopped-writing-equity/</guid>
       <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Capital</category>
@@ -555,8 +555,8 @@
     </item>
     <item>
       <title>The Fed Might Hike on July 29, Not Cut</title>
-      <link>https://zerotoact.com/signals/fed-might-hike-not-cut/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/fed-might-hike-not-cut/</guid>
+      <link>https://www.zerotoact.com/signals/fed-might-hike-not-cut/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/fed-might-hike-not-cut/</guid>
       <pubDate>Sun, 26 Jul 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Policy</category>
@@ -592,8 +592,8 @@
     </item>
     <item>
       <title>The US Economy Dominating Through Service</title>
-      <link>https://zerotoact.com/signals/us-economy-service-power/</link>
-      <guid isPermaLink="true">https://zerotoact.com/signals/us-economy-service-power/</guid>
+      <link>https://www.zerotoact.com/signals/us-economy-service-power/</link>
+      <guid isPermaLink="true">https://www.zerotoact.com/signals/us-economy-service-power/</guid>
       <pubDate>Sun, 19 Jul 2026 12:00:00 GMT</pubDate>
       <dc:creator>Tolu Adetuyi</dc:creator>
       <category>Macro</category>

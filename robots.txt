@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zerotoact.com/sitemap.xml
+Sitemap: https://www.zerotoact.com/sitemap.xml
