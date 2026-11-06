@@ -1065,10 +1065,10 @@
       "headlineClaim": "Two central banks moved in opposite directions inside six days. The Fed raised rates for the first time since 2023. Nigeria then cut by 350 basis points. One move is what it looks like. The other is not.",
       "status": "published",
       "lastTime": {
-        "of": "money-got-more-expensive-except-in-nigeria",
-        "said": "Money was getting more expensive everywhere except Nigeria, and a strong naira and the carry trade were the same event described twice.",
-        "verdict": "Right on direction, early on timing",
-        "landed": "The Fed raised rates two meetings later while Nigeria cut by 350 basis points, widening the nominal policy-rate gap to 1,900 basis points."
+        "of": "one-pipeline-four-currencies",
+        "said": "That one pipeline attack had already repriced four currencies in nine days, and that Nigeria’s bond market had priced an easing the central bank had not agreed to, after the DMO cleared a reopened June 2038 bond at 16.85 percent, 94 basis points below August, on thinner bids.",
+        "verdict": "Half right",
+        "landed": "The transmission read held. The Nigerian call did not. The monetary policy committee cut 350 basis points two days after we published, so the bond market had been reading the central bank correctly rather than running ahead of it. That was the edition’s own stated falsifier, and it triggered."
       },
       "written": [
         "On 16 September in Washington, the Federal Open Market Committee raised the federal funds target by 25 basis points to 3.75 to 4.00 percent. It was the first increase since July 2023 and the vote was unanimous. Six days later in Abuja, the Central Bank of Nigeria cut its monetary policy rate from 26.5 to 23 percent, the largest reduction since the MPR was introduced.",
@@ -1101,7 +1101,7 @@
         {
           "h": "Where the previous call landed"
         },
-        "On 26 July, this publication put the probability of a Fed hike near one third while the consensus was still leaning towards a cut. The Fed held at that meeting, so the timing was early. Two meetings later, the direction arrived unanimously. On 13 September, [the last Signal](/signals/money-got-more-expensive-except-in-nigeria/) argued that money was becoming more expensive everywhere except Nigeria. The two central bank decisions have now made that divergence explicit. The remaining question is how much of the Nigerian move reaches the private economy.",
+        "On 26 July, this publication put the probability of a Fed hike near one third while the consensus was still leaning towards a cut. The Fed held at that meeting, so the timing was early. Two meetings later, the direction arrived unanimously. On 13 September we argued that money was becoming more expensive everywhere except Nigeria, and the two central bank decisions have now made that divergence explicit. [Last week](/signals/one-pipeline-four-currencies/) we went a step further and said Nigeria’s bond market had priced an easing the central bank had not agreed to. It had agreed to it. The committee cut 350 basis points two days after we published, which means the market was ahead of us rather than ahead of the CBN. The remaining question is how much of the Nigerian move reaches the private economy.",
         {
           "h": "The bottom line"
         },
@@ -1156,7 +1156,10 @@
           "who": "Dollar and sterling holders",
           "do": "Cash and short-duration instruments pay again when developed-market rates rise. Keep duration deliberate and watch whether emerging-market stress begins to decouple through year-end rather than assuming every market will move with the Fed."
         }
-      ]
+      ],
+      "revised": "2026-11-06",
+      "revisionNote": "Regraded. This edition scored the 13 September call, which the 20 September edition had already scored; it now scores 20 September, and the Nigerian bond-market call in it is marked wrong.",
+      "videoPredatesRevision": true
     },
     {
       "number": null,
