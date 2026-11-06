@@ -802,11 +802,10 @@ function productShell({ slug, title, desc, kind = 'Intelligence', status, claim,
   const body = `
   <main id="main" class="product-page">
     <section class="product-hero">
-      <div class="container">
-        <div class="product-hero-grid">
-          <p class="sig-eyebrow">${esc(kind)}</p>
-          <div><h1 class="sig-title">${esc(title)}</h1><p class="sig-claim">${esc(claim)}</p></div>
-        </div>
+      <div class="product-hero-inner">
+        <p class="sig-eyebrow">${esc(kind)}</p>
+        <h1 class="sig-title">${esc(title)}</h1>
+        <p class="sig-claim">${esc(claim)}</p>
       </div>
     </section>
     <section class="product-body">
@@ -844,103 +843,42 @@ ${sections}
 // Long-form argument. One column, no cards, short lines left to stand alone.
 function whyPage() {
   const url = `${BASE}/why/`;
-  const title = 'Why ZeroToAct exists | What decides what your work is worth';
-  const desc = 'One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. This is the chain that does it.';
+  const title = 'About ZeroToAct | Intelligence for your next decision';
+  const desc = 'How ZeroToAct turns consequential shifts in money, policy and technology into useful intelligence for career builders, business builders and people investing money.';
 
   const body = `
-  <main id="main" class="why-page">
+  <main id="main" class="why-page why-page--institutional">
     <section class="why-hero">
       <div class="why-hero-inner">
-        <p class="sig-eyebrow">Why ZeroToAct exists</p>
-        <div><h1 class="why-title">Read the forces shaping your next move.</h1><p class="why-claim">One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. We follow the chain until it reaches you.</p></div>
+        <p class="sig-eyebrow">About ZeroToAct</p>
+        <div><h1 class="why-title">Intelligence should change what you do next.</h1><p class="why-claim">ZeroToAct explains the shifts in money, policy and technology that can change what you build, what you earn and where you invest.</p></div>
       </div>
     </section>
     <section class="why-body">
       <div class="why-body-inner">
-    <p class="why-lead">Fuel gets expensive.</p>
+        <section class="why-editorial-intro">
+          <p class="why-section-label">What we do</p>
+          <div><h2>We follow the decision until it reaches you.</h2><p>A central bank changes direction. A government rewrites a rule. A technology alters the cost of doing business. The headline is only the beginning. We trace what changed, who it affects and what the reader should reconsider now.</p><p>Each Weekly Signal chooses one consequential shift and gives it enough room to be understood. It is written for a decision, not for the feed.</p></div>
+        </section>
 
-    <p>It might start with a war, a production cut, a damaged pipeline or a shipping route nobody can use. Nothing about it was decided anywhere near you.</p>
-    <p>Fuel moves everything else, because everything else has to be moved. Transport costs rise, then food, then rent. Prices climb, so the people who set interest rates push those rates higher to cool things down. Borrowing, which used to be cheap, becomes expensive.</p>
+        <blockquote class="why-declaration">“The point is not to know more news. It is to see the change early enough to act with judgment.”</blockquote>
 
-    <p class="why-turn">Now watch that one event land three times.</p>
+        <section class="why-editorial-section">
+          <p class="why-section-label">Who it is for</p>
+          <div><h2>People with something real at stake.</h2><p>Career builders deciding what to learn, negotiate or pursue. Business builders deciding where to place time, people and capital. People investing money deciding what deserves conviction and what would change their mind.</p><p>The same shift can produce three different decisions. We write with that difference in view.</p></div>
+        </section>
 
-    <p>A company drops the two year project it had been funding. The loan behind it costs far more now, and the project no longer earns enough to be worth doing. The team that would have built it is never hired.</p>
-    <p>Someone who spent a year learning the exact skill that project needed finds fewer people asking for it, and takes less for the work. Nothing about their skill got worse.</p>
-    <p>Someone with money to put to work changes their mind. When borrowing is cheap you can afford to wait years for a payoff. When it is expensive you want something that pays soon. So money leaves anything slow and moves to anything quick. Companies that looked valuable last quarter are suddenly worth less, and nothing inside them changed.</p>
-    <p>None of the three did anything wrong. Not one of them could see the thing that moved them.</p>
+        <section class="why-standard">
+          <p class="why-section-label">The editorial standard</p>
+          <div><h2>A considered view, with the evidence attached.</h2><dl><div><dt>Selection</dt><dd>We cover the shift that changes a decision, not everything that happened.</dd></div><div><dt>Reasoning</dt><dd>We show the chain from event to consequence and name the assumptions inside it.</dd></div><div><dt>Accountability</dt><dd>Sources stay visible. Calls stay in the archive. What held and what failed can be inspected.</dd></div></dl></div>
+        </section>
 
-    <h2>Read it backwards</h2>
-    <p>Most of us learn one thing well and stay close to it. At the beginning, the work itself is the world.</p>
-    <p>Then you notice that being good at your work does not decide how far that work travels. Skilled people stay invisible. Good ideas never find a way to make money. Useful products never get funded. Strong companies get knocked back by a currency swing or a government decision that had nothing to do with them.</p>
-    <p>You have been reading this from the bottom, starting with your own work. Start at the top instead.</p>
+        <section class="why-founder">
+          <img src="/tolu-320.jpg" alt="Tolu Adetuyi, founder of ZeroToAct" width="320" height="266" loading="lazy" decoding="async" />
+          <div><p class="why-section-label">Founder</p><h2>Built from operating experience.</h2><p>ZeroToAct is founded by <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a>. He builds identity and cross-border payments infrastructure and has advised companies across North America, the United Kingdom and Africa.</p><p>Policy, currency, regulation and the cost of capital are operating conditions in his work. ZeroToAct brings that same practical reading to every edition.</p><a class="pub-inline-link" href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer">About Tolu Adetuyi</a></div>
+        </section>
 
-    <figure class="why-chain-fig">
-      <ol class="why-chain">
-      <li class="why-link">
-        <span class="why-link-name">Power</span>
-        <span class="why-link-note">Governments and central banks decide.</span>
-        <span class="why-link-hands">Hands down what is allowed, and what it costs.</span>
-      </li>
-      <li class="why-link">
-        <span class="why-link-name">The rules</span>
-        <span class="why-link-note">Tariffs, rates, subsidies, capital controls.</span>
-        <span class="why-link-hands">Hands down how easy it is to get money.</span>
-      </li>
-      <li class="why-link">
-        <span class="why-link-name">Credit</span>
-        <span class="why-link-note">The price of borrowing, for everyone.</span>
-        <span class="why-link-hands">Hands down what a business can afford to build.</span>
-      </li>
-      <li class="why-link">
-        <span class="why-link-name">Business</span>
-        <span class="why-link-note">Which projects clear the hurdle and which are dropped.</span>
-        <span class="why-link-hands">Hands down which products and which jobs exist.</span>
-      </li>
-      <li class="why-link">
-        <span class="why-link-name">The market</span>
-        <span class="why-link-note">What there is to buy, and who gets hired to make it.</span>
-        <span class="why-link-hands">Hands down what your work is worth.</span>
-      </li>
-      <li class="why-link is-you">
-        <span class="why-link-name">You</span>
-        <span class="why-link-note">Your skill, your business, your money.</span>
-        
-      </li>
-      </ol>
-      <figcaption>Each layer hands the next one its terms. By the time it reaches your work, five decisions have already been taken above it.</figcaption>
-    </figure>
-
-    <p>Your skill sits near the bottom of that chain. So does your business. So does whatever money you have put to work. What each is worth gets decided several levels above where you sit, by people you may never meet, in rooms you may never enter.</p>
-    <p class="why-turn">That is not a reason to feel small. It is the reason to look up.</p>
-
-    <h2>How far are you from the room</h2>
-    <p>Some people sit close to where the rules get written. Their currency, the dollar, is the one everyone else holds. Their central bank moves and the rest of the world adjusts. For them the chain is short and most of it is visible from home.</p>
-    <p>Most of us sit further out. What your country sells, what borrowing costs, what your currency is worth and whether foreign money turns up are largely settled somewhere else. The decision at home often comes second, as a response to something already decided.</p>
-    <p>That distance is not something you can remove. It is something you can either see across or be surprised by.</p>
-    <p>Which is why reading only local news leaves you a step behind on your own life, wherever you are standing.</p>
-    <p class="why-turn">Seen early, a shift is a decision you get to make. Seen late, it is something that happened to you.</p>
-
-    <h2>So this is what we publish</h2>
-    <p>Every week we take one thing that moved near the top of the chain and follow it down, step by step, until it reaches your work, your business or your money. That is the <a href="/signals/"><strong>Weekly Signal</strong></a>. It is free and it stays free, because the read should not be the part that is rationed.</p>
-    <p>Then once a year, at the Summit, we present the <a href="/annual-outlook/"><strong>Annual Outlook</strong></a>. It grades how the previous year&rsquo;s calls turned out before setting out our position for the next twelve months. The Outlook becomes the working text for the day, and the other sessions and activities help you turn it into your own plan.</p>
-
-    <h2>The harder half</h2>
-    <p>Most people who understand the chain still do nothing with it.</p>
-    <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires.</p>
-    <p class="why-turn">So we built the other half.</p>
-    <p>A cell of five, matched to your stage, meeting every two weeks. You say what you are going to do. The other four ask you about it next time. Matching matters, because a founder raising money and four first year students in one room helps nobody. The cells are peer run, so nobody chairs them for you. You own the outcome.</p>
-    <p>Once a year, at the <a href="/summit/">Summit</a>, the Annual Outlook and a year of reading become one written plan for the next twelve months with your name on it.</p>
-    <p>That is the whole design. See the chain clearly, then sit in a room where somebody expects you to move on it.</p>
-
-    <h2>Who is behind this</h2>
-    <p>ZeroToAct is led by <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a>, who builds identity and cross border payments infrastructure and has consulted for companies across North America, the UK and Africa. Policy, currency and the cost of credit are line items he manages, not topics he covers. So are the effects of new technology, and where to position across several markets at once.</p>
-    <p>Everyone behind a Signal is building something of their own. What we publish is the read we needed before our own decisions. You get it before you make yours.</p>
-
-    <h2>Start</h2>
-    <p>The Signal is free and weekly, and there is no paid tier that gets a better one.</p>
-    <p class="why-turn">A year from now you will either have watched the chain move or you will have moved with it.</p>
-
-    <div class="why-cta"><div><h2>See the next shift before it reaches you.</h2><p>One considered Signal each week. Free, sourced and written for your decision.</p></div>${briefCta('Get the Free Signal')}</div>
+        <div class="why-cta"><div><h2>Read one Signal. Judge the work.</h2><p>The Weekly Signal is free, sourced and kept in the public archive.</p></div>${briefCta('Get the Free Signal')}</div>
       </div>
     </section>
   </main>
@@ -969,45 +907,32 @@ function whyPage() {
 }
 
 function annualOutlookPage() {
-  // What goes in it, stated as fields rather than promises.
-  const inside = [
-    ['The scorecard', 'Every call the year\u2019s Signals made, graded right, wrong, half right or too early, before a single new one is made.'],
-    ['Where the money is going', 'Rates, currencies and credit for the year ahead, and what each one does to the cost of borrowing where you are.'],
-    ['Where the openings are', 'The sectors and markets the year\u2019s reporting kept returning to, and the ones it stopped returning to.'],
-    ['What would break it', 'The assumptions the position rests on, named, so you can watch the ones that matter instead of all of them.'],
-    ['What it means for you', 'A separate reading for career builders, business builders and people investing money, because the same year does not create the same decision for everyone.'],
-  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
-
   const sections = `
-    <div class="sig-body">
-      <p>The Annual Outlook is delivered at the Annual Summit. It reviews the year of Signals, grades what held and what did not, and sets out our considered view of the twelve months ahead.</p>
-      <p>It is not a separate report you are expected to interpret alone before the event. It is the working text for the day. The Summit gives you the discussion, activities and time needed to decide what the Outlook means for your own position.</p>
-    </div>
-    <div class="sig-block sig-block--move">
-      <h2>It grades its own calls first</h2>
-      <p>Before it makes a single new call, the Outlook publishes which of the year\u2019s Signals held and which did not. You see the track record before you read the forecast. Most outlooks quietly forget last year\u2019s. This one starts there.</p>
-    </div>
+    <section class="interior-intro">
+      <p class="interior-label">The publication</p>
+      <div><h2>A year of Signals becomes one considered position.</h2><p>The Annual Outlook reviews the year, grades what held and what did not, then sets out our view of the twelve months ahead.</p><p>It is delivered at the Annual Summit and becomes the working text for the day. You do not receive a forecast and get left to interpret it alone.</p></div>
+    </section>
 
-    <div class="sig-lasttime">
-      <h2>What a graded call looks like</h2>
-      <p>On 26 July we put the probability of a Federal Reserve hike near one third, while the consensus was still leaning towards a cut.</p>
-      <p class="sig-lasttime-verdict"><strong>Early on timing, right on direction.</strong> The Fed held at that meeting, so the timing was wrong. Two meetings later it raised, unanimously. The grade goes in the Outlook with the call, not instead of it. <a href="/signals/read-the-corridor-not-the-cut/">Read where that landed</a>.</p>
-    </div>
+    <section class="interior-feature">
+      <h2>Before we call the next year, we grade the last one.</h2>
+      <div><p>Every major call is marked right, wrong, partly right or too early. The original reasoning remains available in the archive.</p><p class="interior-example"><strong>Example</strong> Our July call on the Federal Reserve was early on timing and right on direction. The hold came first. The unanimous increase followed two meetings later.</p></div>
+    </section>
 
-    <div class="sig-block">
-      <h2>What is inside it</h2>
-      <ul class="sig-moves">
-        ${inside}
-      </ul>
-    </div>
-    <div class="sig-block">
-      <h2>It is built from the year\u2019s work</h2>
-      <p>The Outlook is assembled, not invented. It draws on the year\u2019s Signals, the outcomes recorded inside the accountability cells, and the openings the reporting kept returning to. It is the compounding of everything already published, which is why it can be graded at all.</p>
-    </div>
-    <div class="sig-block">
-      <h2>It is part of the Summit</h2>
-      <p>The Outlook and the <a href="/summit/">Annual Summit</a> happen on the same day. We present the Outlook, work through the assumptions behind it and use the rest of the day to help you turn its conclusions into a personal twelve-month plan.</p>
-    </div>`;
+    <section class="interior-section">
+      <div><p class="interior-label">Inside the Outlook</p><h2>Enough structure to make the position testable.</h2></div>
+      <dl class="interior-ledger">
+        <div><dt>Scorecard</dt><dd>The year\u2019s calls and the evidence of how each one landed.</dd></div>
+        <div><dt>Capital</dt><dd>Rates, currencies and credit, with the implications for the cost of money.</dd></div>
+        <div><dt>Openings</dt><dd>The sectors and markets the reporting kept returning to, and those it left behind.</dd></div>
+        <div><dt>Assumptions</dt><dd>The conditions that support the position and the events that would break it.</dd></div>
+        <div><dt>Your position</dt><dd>A distinct reading for career builders, business builders and people investing money.</dd></div>
+      </dl>
+    </section>
+
+    <section class="interior-note">
+      <p class="interior-label">One day, one body of work</p>
+      <div><h2>The Outlook and Summit belong together.</h2><p>We present the Outlook, test its assumptions and use the rest of the <a href="/summit/">Annual Summit</a> to turn its conclusions into a personal twelve-month plan.</p></div>
+    </section>`;
 
   return productShell({
     slug: 'annual-outlook',
@@ -1028,57 +953,40 @@ function annualOutlookPage() {
 // here is already committed to elsewhere on the site -- nothing about the
 // programme is invented to fill the page.
 function summitPage() {
-  const tracks = [
-    ['Career builders', 'Which skills and roles fit the direction of the year, and what you should start, stop or strengthen from where you are now.'],
-    ['Business builders', 'Where demand, capital and policy are creating openings, and which assumptions in your current plan need to change.'],
-    ['People investing money', 'Where to look next, what the cost of money changes and which risks would invalidate the position.'],
-  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
-
   const sections = `
-    <div class="sig-body">
-      <p>Most of the year is reading. One day of it is deciding.</p>
-      <p>The <a href="/annual-outlook/">Annual Outlook</a> is delivered at the Summit and becomes the working text for the day. We present the position, work through the reasoning behind it and use the other sessions and activities to help you decide what it changes for you.</p>
-      <p>You leave with twelve months of direction written in your own words, for your own situation.</p>
-    </div>
+    <section class="interior-intro">
+      <p class="interior-label">The day</p>
+      <div><h2>Most of the year is reading. One day is deciding.</h2><p>The <a href="/annual-outlook/">Annual Outlook</a> gives the room a shared view of the year. The Summit turns that view into a decision about your own work, business or capital.</p><p>You leave with twelve months of direction written in your own words, for your own position.</p></div>
+    </section>
 
-    <div class="sig-block sig-block--move">
-      <h2>The day is built around your decision</h2>
-      <p>The Outlook gives everyone the same reading of the year. The work of the Summit is to make that reading specific. What should you learn or negotiate next? What needs to change in the business you are building? What deserves your money, and what no longer does?</p>
-    </div>
+    <section class="interior-feature">
+      <h2>The plan is the deliverable.</h2>
+      <div><p>Not a collection of notes and not another recording to revisit later. The day ends with a written plan you can use.</p><p>The <a href="/community/">Live Network</a> exists to keep that plan in motion after the event.</p></div>
+    </section>
 
-    <div class="sig-block">
-      <h2>The shape of the day</h2>
-      <p>One virtual day, with the Outlook as the text. We establish where the year may be heading, test the assumptions behind that position and work through activities that turn it into a plan you can use. A forecast you do not decide anything against is only something you read.</p>
-    </div>
-
-    <div class="sig-block">
-      <h2>Three answers, not one</h2>
-      <p>Where you stand decides what a shift means for you. The same reading of the year produces a different move depending on which of these you are.</p>
-      <ul class="sig-moves">
-        ${tracks}
-      </ul>
-    </div>
-
-    <div class="sig-lasttime">
-      <h2>What you leave with</h2>
-      <p>A written twelve-month plan with your name on it, and a cell of five who will ask you about it every two weeks.</p>
-      <p class="sig-lasttime-verdict"><strong>The plan is the deliverable.</strong> Not notes, not a recording. The Summit is built around the document you walk out holding, and the <a href="/community/">Live Network</a> exists so that document does not go in a drawer.</p>
-    </div>
-
-    <div class="sig-block">
-      <h2>Where it sits</h2>
-      <p>The <a href="/signals/">Weekly Signals</a> build the context throughout the year. At the Summit, the <a href="/annual-outlook/">Annual Outlook</a> grades the calls, sets the position and becomes the basis for the day&rsquo;s work. The <a href="/community/">Live Network</a> helps you keep moving after the event.</p>
-    </div>
-
-    <div class="sig-block">
-      <h2>The detail</h2>
-      <dl class="sig-facts">
-        <div><dt>When</dt><dd>2027</dd></div>
-        <div><dt>Format</dt><dd>One day, virtual</dd></div>
-        <div><dt>Who it is for</dt><dd>Career builders, business builders and people investing money</dd></div>
+    <section class="interior-section">
+      <div><p class="interior-label">How the day works</p><h2>One text. Three stages of work.</h2></div>
+      <dl class="interior-ledger">
+        <div><dt>Read the year</dt><dd>We present the Outlook and the evidence behind its position.</dd></div>
+        <div><dt>Test the view</dt><dd>The room works through the assumptions, risks and questions that could change it.</dd></div>
+        <div><dt>Write the plan</dt><dd>You decide what to start, stop or strengthen over the next twelve months.</dd></div>
       </dl>
-      <p class="sig-note">The waitlist is how the date reaches you. There is nothing to pay to join it.</p>
-    </div>`;
+    </section>
+
+    <section class="interior-section">
+      <div><p class="interior-label">Three positions</p><h2>The same year does not create the same decision for everyone.</h2></div>
+      <dl class="interior-ledger">
+        <div><dt>Career</dt><dd>What to learn, negotiate or pursue from where you are now.</dd></div>
+        <div><dt>Business</dt><dd>Where demand, policy and capital change the plan you are building against.</dd></div>
+        <div><dt>Investment</dt><dd>What deserves conviction, what carries new risk and what would change your mind.</dd></div>
+      </dl>
+    </section>
+
+    <dl class="interior-details">
+      <div><dt>When</dt><dd>2027</dd></div>
+      <div><dt>Format</dt><dd>One virtual day</dd></div>
+      <div><dt>For</dt><dd>Career builders, business builders and people investing money</dd></div>
+    </dl>`;
 
   return productShell({
     slug: 'summit',
@@ -1094,59 +1002,39 @@ function summitPage() {
 
 // ── Community page ──
 function communityPage() {
-  const steps = [
-    ['You apply', 'The form asks whether you are building a career, building a business or investing money, what stage you are at and what you are trying to move. That is how we place you with people who can be useful to you.'],
-    ['You set your goals', 'Your cell starts as soon as you are in. You say what you are going to do and by when. At the Summit you lock the full twelve months.'],
-    ['Your cell of five holds you to it', 'Every two weeks the cell reviews what you promised, what shipped, and what happens next. You own the outcome. The cell keeps the record.'],
-  ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
-
   const sections = `
-    <div class="sig-body">
-      <p>Most people who understand the chain still do nothing with it.</p>
-      <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires. The Live Network is the witness.</p>
-    </div>
+    <section class="interior-intro">
+      <p class="interior-label">The network</p>
+      <div><h2>Understanding is not the same as moving.</h2><p>A private intention with no witness quietly expires. The Live Network places you with four people at a similar stage who expect to hear what you did next.</p><p>The group meets every two weeks. The commitment stays yours. The record stays visible.</p></div>
+    </section>
 
-    <div class="sig-block sig-block--move">
-      <h2>A cell is five people</h2>
-      <p>Five, matched to your stage and to what you are building, meeting every two weeks. Small enough that your absence is obvious. Large enough that it survives someone having a bad month.</p>
-    </div>
+    <section class="interior-feature">
+      <h2>Five people. One commitment. Every two weeks.</h2>
+      <div><p>Small enough for an absence to be obvious. Large enough to survive someone having a difficult month.</p><p>Cells run on WhatsApp. They are peer led, with moderators checking the health of the cadence rather than chairing the meeting.</p></div>
+    </section>
 
-    <div class="sig-block">
-      <h2>How it runs</h2>
-      <ul class="sig-moves">
-        ${steps}
-      </ul>
-    </div>
+    <section class="interior-section">
+      <div><p class="interior-label">How it works</p><h2>The structure is deliberately simple.</h2></div>
+      <dl class="interior-ledger">
+        <div><dt>Apply</dt><dd>Tell us what you are building, your stage and the decision you are trying to move.</dd></div>
+        <div><dt>Commit</dt><dd>Set the action and the date in front of four people matched to your position.</dd></div>
+        <div><dt>Review</dt><dd>Every two weeks, say what shipped, what changed and what happens next.</dd></div>
+      </dl>
+    </section>
 
-    <div class="sig-block">
-      <h2>Peer run, on purpose</h2>
-      <p>Cells meet on WhatsApp and run themselves. Moderators check in; they do not chair the meeting. The moment someone else is responsible for the cadence, it stops being your commitment and becomes their programme, and the thing that made it work is gone.</p>
-    </div>
+    <section class="interior-section">
+      <div><p class="interior-label">Useful at three positions</p><h2>Accountability changes with the work.</h2></div>
+      <dl class="interior-ledger">
+        <div><dt>Career</dt><dd>Keep a learning plan, search, negotiation or professional move attached to a date.</dd></div>
+        <div><dt>Business</dt><dd>Review the operating commitment that matters now, from revenue and hiring to a launch or change in direction.</dd></div>
+        <div><dt>Investment</dt><dd>State the reasoning behind an allocation and the condition that would change your mind.</dd></div>
+      </dl>
+    </section>
 
-    <div class="sig-block">
-      <h2>Matching is the product</h2>
-      <p>The cell is useful because of who is in it. Stage and substance decide the match, so you land with four people whose next problem looks like yours. That is also why the application asks what it asks, and why a random five would not do.</p>
-    </div>
-
-    <div class="sig-block">
-      <h2>Useful to different kinds of builders</h2>
-      <ul class="sig-moves">
-        <li><span class="sig-move-who">Career builders</span><span class="sig-move-do">Use the cell to keep a learning plan, job search, negotiation or professional move from becoming a private intention with no deadline.</span></li>
-        <li><span class="sig-move-who">Business builders</span><span class="sig-move-do">Use it to review the operating commitment that matters now, from revenue and hiring to a launch, a raise or a change in direction.</span></li>
-        <li><span class="sig-move-who">People investing money</span><span class="sig-move-do">Use it to make the reasoning behind an allocation explicit, set the condition that would change your mind and review whether the thesis still holds.</span></li>
-      </ul>
-    </div>
-
-    <div class="sig-lasttime">
-      <h2>What it is not</h2>
-      <p>It is not a content drop, a paid mastermind, or a channel where links get posted.</p>
-      <p class="sig-lasttime-verdict"><strong>There is one thing to do here and it is uncomfortable.</strong> Say what you are going to do, in front of four people who will ask about it in a fortnight. Everything else about the network exists to make that one thing happen.</p>
-    </div>
-
-    <div class="sig-block">
-      <h2>Where it sits</h2>
-      <p>The <a href="/signals/">Weekly Signals</a> tell you what moved. The <a href="/summit/">Annual Summit</a> turns a year of that into your written plan. The Live Network is where the plan survives contact with an ordinary week. You can join it without waiting for the Summit.</p>
-    </div>`;
+    <section class="interior-note">
+      <p class="interior-label">What it is not</p>
+      <div><h2>Not another content channel.</h2><p>No feed to keep up with and no paid mastermind performance. The work is to say what you will do, then return in a fortnight with the record.</p></div>
+    </section>`;
 
   return productShell({
     slug: 'community',
