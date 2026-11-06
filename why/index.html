@@ -61,10 +61,15 @@
     </div>
   </nav>
   
-  <main id="main" class="sig-wrap why-page">
-    <a href="/" class="sig-back">&larr; ZeroToAct</a>
-    <h1 class="sig-eyebrow why-eyebrow">Why we exist</h1>
-
+  <main id="main" class="why-page">
+    <section class="why-hero">
+      <div class="why-hero-inner">
+        <p class="sig-eyebrow">Why ZeroToAct exists</p>
+        <div><h1 class="why-title">Read the forces shaping your next move.</h1><p class="why-claim">One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. We follow the chain until it reaches you.</p></div>
+      </div>
+    </section>
+    <section class="why-body">
+      <div class="why-body-inner">
     <p class="why-lead">Fuel gets expensive.</p>
 
     <p>It might start with a war, a production cut, a damaged pipeline or a shipping route nobody can use. Nothing about it was decided anywhere near you.</p>
@@ -85,37 +90,31 @@
     <figure class="why-chain-fig">
       <ol class="why-chain">
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">01</span>
         <span class="why-link-name">Power</span>
         <span class="why-link-note">Governments and central banks decide.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what is allowed, and what it costs</span>
+        <span class="why-link-hands">Hands down what is allowed, and what it costs.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">02</span>
         <span class="why-link-name">The rules</span>
         <span class="why-link-note">Tariffs, rates, subsidies, capital controls.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down how easy it is to get money</span>
+        <span class="why-link-hands">Hands down how easy it is to get money.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">03</span>
         <span class="why-link-name">Credit</span>
         <span class="why-link-note">The price of borrowing, for everyone.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what a business can afford to build</span>
+        <span class="why-link-hands">Hands down what a business can afford to build.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">04</span>
         <span class="why-link-name">Business</span>
         <span class="why-link-note">Which projects clear the hurdle and which are dropped.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down which products and which jobs exist</span>
+        <span class="why-link-hands">Hands down which products and which jobs exist.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">05</span>
         <span class="why-link-name">The market</span>
         <span class="why-link-note">What there is to buy, and who gets hired to make it.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what your work is worth</span>
+        <span class="why-link-hands">Hands down what your work is worth.</span>
       </li>
       <li class="why-link is-you">
-        <span class="why-link-rank" aria-hidden="true">06</span>
         <span class="why-link-name">You</span>
         <span class="why-link-note">Your skill, your business, your money.</span>
         
@@ -154,13 +153,15 @@
     <p>The Signal is free and weekly, and there is no paid tier that gets a better one.</p>
     <p class="why-turn">A year from now you will either have watched the chain move or you will have moved with it.</p>
 
-    <div class="why-cta"><button type="button" class="sig-cta-btn join-cta-trigger" data-intent="brief">Get the Free Signal</button></div>
+    <div class="why-cta"><div><h2>See the next shift before it reaches you.</h2><p>One considered Signal each week. Free, sourced and written for your decision.</p></div><button type="button" class="sig-cta-btn join-cta-trigger" data-intent="brief">Get the Free Signal</button></div>
+      </div>
+    </section>
   </main>
   <div class="sig-progress" id="sig-progress" role="presentation"></div>
   <script>
     (function () {
       var bar = document.getElementById('sig-progress');
-      var article = document.querySelector('.sig-article, .why-page');
+      var article = document.querySelector('.signal-reading-inner, .why-body-inner, .sig-article, .why-page');
       if (!bar || !article) return;
       var tick = function () {
         var span = article.offsetHeight - window.innerHeight;

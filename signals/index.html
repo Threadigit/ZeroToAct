@@ -61,22 +61,24 @@
     </div>
   </nav>
   
-  <main id="main" class="sig-wrap sig-index">
-    <header class="sig-index-head">
-      <h1 class="sig-index-title">The Signal Archive</h1>
-      <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
+  <main id="main" class="archive-page">
+    <header class="archive-hero">
+      <div class="archive-hero-inner">
+        <p class="sig-eyebrow">Weekly Signals</p>
+        <div><h1 class="sig-index-title">The Signal Archive</h1><p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. <a href="/signals/feed.xml">Follow by RSS</a>.</p></div>
+      </div>
     </header>
-
-    <div class="sig-filters" role="group" aria-label="Filter by theme">
-        <button class="sig-filter is-active" data-theme="all" type="button">All</button>
+    <section class="archive-body">
+      <div class="archive-body-inner">
+        <div class="sig-filters" role="group" aria-label="Filter by theme">
+            <button class="sig-filter is-active" data-theme="all" type="button">All</button>
         <button class="sig-filter" data-theme="Capital" type="button">Capital</button>
         <button class="sig-filter" data-theme="Policy" type="button">Policy</button>
         <button class="sig-filter" data-theme="Technology" type="button">Technology</button>
         <button class="sig-filter" data-theme="Macro" type="button">Macro</button>
-    </div>
+        </div>
 
-    
-      <article class="arc-lead" data-theme="Macro">
+        <article class="arc-lead" data-theme="Macro">
         <a class="arc-lead-link" href="/signals/nobody-went-first/">
           <p class="arc-lead-meta"><time datetime="2026-11-01">1 November 2026</time> &middot; Macro</p>
           <h2 class="arc-lead-title">Nobody Went First</h2>
@@ -84,7 +86,7 @@
         </a>
       </article>
 
-    <ol class="arc-index" role="list">
+        <ol class="arc-index" role="list">
         <li class="arc-row" data-theme="Macro">
           <a class="arc-row-link" href="/signals/lenders-started-choosing/">
             <span class="arc-row-date"><time datetime="2026-10-24">24 Oct</time></span>
@@ -190,12 +192,12 @@
             <span class="arc-row-theme">Macro</span>
           </a>
         </li>
-    </ol>
+        </ol>
 
-    <section class="arc-record" aria-labelledby="track-record">
-      <h2 class="arc-section-head" id="track-record">The record</h2>
-      <p class="arc-record-intro">Every Signal grades the previous week's call before making a new one, including the weeks it missed.</p>
-      <ol class="arc-calls" role="list">
+        <section class="arc-record" aria-labelledby="track-record">
+          <h2 class="arc-section-head" id="track-record">The record</h2>
+          <p class="arc-record-intro">Every Signal grades the previous week's call before making a new one, including the weeks it missed.</p>
+          <ol class="arc-calls" role="list">
         <li class="arc-call">
           <p class="arc-call-of"><a href="/signals/lenders-started-choosing/">Lenders Started Choosing</a>, 24 Oct</p>
           <p class="arc-call-said">That lenders had begun pricing governments individually rather than as a class, and that the gap between what lenders want and what borrowers will pay was widening.</p>
@@ -231,7 +233,9 @@
           <p class="arc-call-said">That a Fed hike on 16 September would narrow Nigeria&#39;s yield advantage without closing it, moving the marginal dollar rather than all of them. We put the odds at anywhere from 50 to 85 percent depending on where you looked.</p>
           <p class="arc-call-landed"><em>Half right.</em> The Fed hiked 25 basis points to 3.75 to 4 percent in a unanimous vote. The spread behaved exactly as described, with Nigerian ten year paper clearing 16.79 percent two days earlier. But we quoted a range wide enough to be right whichever way it went. The mechanism was the call. The probability was not.</p>
         </li>
-      </ol>
+          </ol>
+        </section>
+      </div>
     </section>
   </main>
   <script>

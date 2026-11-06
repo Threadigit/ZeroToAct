@@ -83,7 +83,6 @@ const shortDate = (iso) => {
 const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
 const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
 const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canonical/OG/RSS/sitemap/citation
-const label = (s) => (s.number ? `Signal ${s.number}` : 'Signal');
 // Titles may end in a full stop, which would read as "Nigeria., 13 September" in a citation.
 const citeTitle = (s) => s.title.replace(/\.$/, '');
 const citation = (s) =>
@@ -94,7 +93,7 @@ const READING_PROGRESS = `<div class="sig-progress" id="sig-progress" role="pres
   <script>
     (function () {
       var bar = document.getElementById('sig-progress');
-      var article = document.querySelector('.sig-article, .why-page');
+      var article = document.querySelector('.signal-reading-inner, .why-body-inner, .sig-article, .why-page');
       if (!bar || !article) return;
       var tick = function () {
         var span = article.offsetHeight - window.innerHeight;
@@ -459,7 +458,6 @@ function editionPage(s) {
   // A minute count is a blog device, not a publication's. The archive dropped
   // it; the edition header keeps the two facts that place the piece.
   const eyebrowBits = [s.theme, longDate(s.date)];
-  if (s.number) eyebrowBits.unshift(`Signal ${s.number}`);
 
   // A written item is a paragraph (string) or a section subheading ({ h: '...' }).
   const article = s.written
@@ -474,7 +472,7 @@ function editionPage(s) {
     ? `<div class="sig-block"><h2>Method</h2><p>${esc(s.method)}</p></div>` : '';
   const sources = s.sources || [];
   const source = s.written
-    ? `<div class="sig-block"><h2>Source</h2>${
+    ? `<div class="sig-block"><h2>Sources</h2>${
         sources.length
           ? `<ul class="sig-sources">${sources.map((src) =>
               `<li><a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.label)}</a></li>`).join('')}</ul>`
@@ -552,13 +550,17 @@ function editionPage(s) {
     `  <meta property="article:tag" content="${esc(s.theme)}" />\n`;
 
   const body = `
-  <main id="main" class="sig-wrap sig-article">
-    <a href="/signals/" class="sig-back">&larr; The Signal Archive</a>
-    <p class="sig-eyebrow">${eyebrowBits.map(esc).join(' &middot; ')}</p>
-    <h1 class="sig-title">${esc(s.title)}</h1>
-    <p class="sig-claim">${esc(s.headlineClaim)}</p>
-    <p class="sig-byline sig-byline--top">By <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a></p>
-    ${draftBanner}
+  <main id="main" class="signal-page">
+    <section class="signal-hero">
+      <div class="signal-hero-inner">
+        <p class="sig-eyebrow">${eyebrowBits.map(esc).join(' &middot; ')}</p>
+        <h1 class="sig-title">${esc(s.title)}</h1>
+        <p class="sig-claim">${esc(s.headlineClaim)}</p>
+        <p class="sig-byline sig-byline--top">By <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">${AUTHOR.name}</a></p>
+${draftBanner ? `        ${draftBanner}\n` : ''}      </div>
+    </section>
+    <section class="signal-reading">
+      <div class="signal-reading-inner${s.videoId ? '' : ' signal-reading-inner--solo'}">
     ${(() => {
       // An edition can have a video, a revision notice, both or neither. The
       // figure used to be emitted unconditionally, which left an empty
@@ -594,11 +596,13 @@ function editionPage(s) {
       <p>${esc(AUTHOR.name)} is co-founder and Chief Innovation Officer of <a href="https://prembly.com" target="_blank" rel="noopener noreferrer">Prembly</a>, which builds identity and compliance infrastructure. Signals regularly cover payments, identity and regulation, which is his commercial interest as well as his subject.</p>${(s.disclosure || []).length ? `
       ${(s.disclosure || []).map((d) => `<p>${linkify(esc(d))}</p>`).join('\n      ')}` : ''}
     </div>
+      </div>
+    </section>
   </main>
   ${READING_PROGRESS}${(s.written || []).some(b => b && b.chart) ? CHART_SCRIPT : ''}`;
 
   return shell({
-    title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
+    title: `${s.seoTitle || s.title} | ZeroToAct Weekly Signal`,
     desc: s.seoDesc || s.headlineClaim, canonical: url, head: jsonLdScript(jsonLd), body,
     ogType: 'article', articleMeta, keywords: kw, image: ogImageUrl(s),
   });
@@ -612,8 +616,7 @@ function indexPage() {
 
   const [lead, ...rest] = signals;
 
-  const leadCard = `
-      <article class="arc-lead" data-theme="${esc(lead.theme)}">
+  const leadCard = `<article class="arc-lead" data-theme="${esc(lead.theme)}">
         <a class="arc-lead-link" href="${editionPath(lead)}">
           <p class="arc-lead-meta"><time datetime="${lead.date}">${esc(longDate(lead.date))}</time> &middot; ${esc(lead.theme)}</p>
           <h2 class="arc-lead-title">${esc(lead.title)}</h2>
@@ -645,26 +648,31 @@ function indexPage() {
   }).join('');
 
   const body = `
-  <main id="main" class="sig-wrap sig-index">
-    <header class="sig-index-head">
-      <h1 class="sig-index-title">The Signal Archive</h1>
-      <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
+  <main id="main" class="archive-page">
+    <header class="archive-hero">
+      <div class="archive-hero-inner">
+        <p class="sig-eyebrow">Weekly Signals</p>
+        <div><h1 class="sig-index-title">The Signal Archive</h1><p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. <a href="/signals/feed.xml">Follow by RSS</a>.</p></div>
+      </div>
     </header>
+    <section class="archive-body">
+      <div class="archive-body-inner">
+        <div class="sig-filters" role="group" aria-label="Filter by theme">
+            ${filters}
+        </div>
 
-    <div class="sig-filters" role="group" aria-label="Filter by theme">
-        ${filters}
-    </div>
+        ${leadCard}
 
-    ${leadCard}
+        <ol class="arc-index" role="list">${rows}
+        </ol>
 
-    <ol class="arc-index" role="list">${rows}
-    </ol>
-
-    <section class="arc-record" aria-labelledby="track-record">
-      <h2 class="arc-section-head" id="track-record">The record</h2>
-      <p class="arc-record-intro">Every Signal grades the previous week's call before making a new one, including the weeks it missed.</p>
-      <ol class="arc-calls" role="list">${record}
-      </ol>
+        <section class="arc-record" aria-labelledby="track-record">
+          <h2 class="arc-section-head" id="track-record">The record</h2>
+          <p class="arc-record-intro">Every Signal grades the previous week's call before making a new one, including the weeks it missed.</p>
+          <ol class="arc-calls" role="list">${record}
+          </ol>
+        </section>
+      </div>
     </section>
   </main>
   <script>
@@ -840,10 +848,15 @@ function whyPage() {
   const desc = 'One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. This is the chain that does it.';
 
   const body = `
-  <main id="main" class="sig-wrap why-page">
-    <a href="/" class="sig-back">&larr; ZeroToAct</a>
-    <h1 class="sig-eyebrow why-eyebrow">Why we exist</h1>
-
+  <main id="main" class="why-page">
+    <section class="why-hero">
+      <div class="why-hero-inner">
+        <p class="sig-eyebrow">Why ZeroToAct exists</p>
+        <div><h1 class="why-title">Read the forces shaping your next move.</h1><p class="why-claim">One decision taken far away can reprice a skill, cancel a project and move money out of a whole sector. We follow the chain until it reaches you.</p></div>
+      </div>
+    </section>
+    <section class="why-body">
+      <div class="why-body-inner">
     <p class="why-lead">Fuel gets expensive.</p>
 
     <p>It might start with a war, a production cut, a damaged pipeline or a shipping route nobody can use. Nothing about it was decided anywhere near you.</p>
@@ -864,37 +877,31 @@ function whyPage() {
     <figure class="why-chain-fig">
       <ol class="why-chain">
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">01</span>
         <span class="why-link-name">Power</span>
         <span class="why-link-note">Governments and central banks decide.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what is allowed, and what it costs</span>
+        <span class="why-link-hands">Hands down what is allowed, and what it costs.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">02</span>
         <span class="why-link-name">The rules</span>
         <span class="why-link-note">Tariffs, rates, subsidies, capital controls.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down how easy it is to get money</span>
+        <span class="why-link-hands">Hands down how easy it is to get money.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">03</span>
         <span class="why-link-name">Credit</span>
         <span class="why-link-note">The price of borrowing, for everyone.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what a business can afford to build</span>
+        <span class="why-link-hands">Hands down what a business can afford to build.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">04</span>
         <span class="why-link-name">Business</span>
         <span class="why-link-note">Which projects clear the hurdle and which are dropped.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down which products and which jobs exist</span>
+        <span class="why-link-hands">Hands down which products and which jobs exist.</span>
       </li>
       <li class="why-link">
-        <span class="why-link-rank" aria-hidden="true">05</span>
         <span class="why-link-name">The market</span>
         <span class="why-link-note">What there is to buy, and who gets hired to make it.</span>
-        <span class="why-link-hands"><span class="why-link-arrow" aria-hidden="true"></span>hands down what your work is worth</span>
+        <span class="why-link-hands">Hands down what your work is worth.</span>
       </li>
       <li class="why-link is-you">
-        <span class="why-link-rank" aria-hidden="true">06</span>
         <span class="why-link-name">You</span>
         <span class="why-link-note">Your skill, your business, your money.</span>
         
@@ -933,7 +940,9 @@ function whyPage() {
     <p>The Signal is free and weekly, and there is no paid tier that gets a better one.</p>
     <p class="why-turn">A year from now you will either have watched the chain move or you will have moved with it.</p>
 
-    <div class="why-cta">${briefCta('Get the Free Signal')}</div>
+    <div class="why-cta"><div><h2>See the next shift before it reaches you.</h2><p>One considered Signal each week. Free, sourced and written for your decision.</p></div>${briefCta('Get the Free Signal')}</div>
+      </div>
+    </section>
   </main>
   ${READING_PROGRESS}`;
 
@@ -1253,17 +1262,15 @@ function writeBand(name, html) {
 // chrome so the reader can carry on, and points at the thing most of them want.
 function notFoundPage() {
   const body = `
-  <main id="main" class="sig-wrap sig-article">
-    <p class="sig-eyebrow">404</p>
-    <h1 class="sig-title">That page is not here.</h1>
-    <p class="sig-claim">The link may be old, or the page may have been retired. Everything we publish is still one click away.</p>
-    <div class="sig-body">
-      <h2 class="sig-subhead">Where to go instead</h2>
-      <p>Start with <a href="/signals/">the Signal archive</a>, which holds every edition we have published. <a href="/why/">Why ZeroToAct exists</a> explains what we are doing and for whom, and <a href="/annual-outlook/">the Annual Outlook</a> is where the year's calls get graded.</p>
-      <p>If you followed a link from somewhere on this site and it brought you here, that is our mistake rather than yours.</p>
+  <main id="main" class="not-found-page">
+    <div class="not-found-inner">
+      <p class="sig-eyebrow">Page not found</p>
+      <h1>That page is not here.</h1>
+      <p>The link may be old or the page may have been retired. Every published edition is still available in the Signal Archive.</p>
+      <div class="not-found-actions"><a class="pub-button" href="/signals/">Open the archive</a><a class="pub-inline-link" href="/">Return home</a></div>
     </div>
   </main>
-${SITE_FOOTER}`;
+`;
   return shell({
     title: 'Page not found | ZeroToAct',
     desc: 'That page is not here. The Signal archive, the Why page and the Annual Outlook are all one click away.',
