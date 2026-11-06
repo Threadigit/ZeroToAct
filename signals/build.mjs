@@ -638,61 +638,45 @@ function indexPage() {
     .concat(themes.map((t) => `<button class="sig-filter" data-theme="${esc(t)}" type="button">${esc(t)}</button>`))
     .join('\n        ');
 
-  // The newest edition leads. It gets the claim and the room; the rest of the
-  // archive is an index, which is what a reader scanning sixteen editions
-  // actually wants.
   const [lead, ...rest] = signals;
+
   const leadCard = `
       <article class="arc-lead" data-theme="${esc(lead.theme)}">
         <a class="arc-lead-link" href="${editionPath(lead)}">
-          <p class="arc-lead-meta"><span class="arc-latest">Latest</span><span>${esc(longDate(lead.date))}</span><span>${esc(lead.theme)}</span><span>${readMinutes(lead)} min</span></p>
+          <p class="arc-lead-meta"><time datetime="${lead.date}">${esc(longDate(lead.date))}</time> &middot; ${esc(lead.theme)}</p>
           <h2 class="arc-lead-title">${esc(lead.title)}</h2>
           <p class="arc-lead-claim">${esc(lead.headlineClaim)}</p>
-          <span class="arc-lead-cta">Read this Signal &rarr;</span>
         </a>
       </article>`;
 
-  // A ruled index rather than a column of cards. Date, theme and length sit in
-  // their own columns so the eye can run down any one of them.
   const rows = rest.map((s) => `
         <li class="arc-row" data-theme="${esc(s.theme)}">
           <a class="arc-row-link" href="${editionPath(s)}">
             <span class="arc-row-date"><time datetime="${s.date}">${esc(shortDate(s.date))}</time></span>
             <span class="arc-row-title">${esc(s.title)}</span>
             <span class="arc-row-theme">${esc(s.theme)}</span>
-            <span class="arc-row-len">${readMinutes(s)} min</span>
           </a>
         </li>`).join('');
 
-  // Every edition grades the previous week's call. Published one at a time
-  // that record is invisible; collected, it is the most checkable thing here.
+  // Every edition grades the previous week's call. Collected, that record is
+  // the most checkable thing here. Set as prose, not as scorecards.
   const graded = signals.filter((s) => s.lastTime && s.lastTime.of);
   const bySlug = Object.fromEntries(signals.map((s) => [s.slug, s]));
   const record = graded.map((s) => {
     const of = bySlug[s.lastTime.of];
     return `
         <li class="arc-call">
-          <p class="arc-call-head">
-            <span class="arc-call-verdict">${esc(s.lastTime.verdict)}</span>
-            ${of ? `<a class="arc-call-of" href="${editionPath(of)}">${esc(of.title)}</a><span class="arc-call-date">${esc(shortDate(of.date))}</span>` : ''}
-          </p>
-          <p class="arc-call-said"><span class="arc-call-label">We said</span>${esc(s.lastTime.said)}</p>
-          <p class="arc-call-landed"><span class="arc-call-label">It landed</span>${esc(s.lastTime.landed)}</p>
-          <p class="arc-call-graded">Graded in <a href="${editionPath(s)}">${esc(s.title)}</a>, ${esc(shortDate(s.date))}</p>
+          <p class="arc-call-of">${of ? `<a href="${editionPath(of)}">${esc(of.title)}</a>, ${esc(shortDate(of.date))}` : ''}</p>
+          <p class="arc-call-said">${esc(s.lastTime.said)}</p>
+          <p class="arc-call-landed"><em>${esc(s.lastTime.verdict)}.</em> ${esc(s.lastTime.landed)}</p>
         </li>`;
   }).join('');
 
   const body = `
   <main id="main" class="sig-wrap sig-index">
     <header class="sig-index-head">
-      <p class="sig-eyebrow">Weekly Signals, on the record</p>
       <h1 class="sig-index-title">The Signal Archive</h1>
-      <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. Money, government policy, technology, and the world-economy shifts that change your next move. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
-      <dl class="arc-stats">
-        <div><dt>Editions</dt><dd>${signals.length}</dd></div>
-        <div><dt>Since</dt><dd>${esc(shortDate(signals[signals.length - 1].date))}</dd></div>
-        <div><dt>Calls graded</dt><dd>${graded.length}</dd></div>
-      </dl>
+      <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
     </header>
 
     <div class="sig-filters" role="group" aria-label="Filter by theme">
@@ -701,13 +685,12 @@ function indexPage() {
 
     ${leadCard}
 
-    <h2 class="arc-section-head" id="every-edition">Every edition</h2>
     <ol class="arc-index" role="list">${rows}
     </ol>
 
     <section class="arc-record" aria-labelledby="track-record">
       <h2 class="arc-section-head" id="track-record">The record</h2>
-      <p class="arc-record-intro">Every Signal grades the previous week's call before making a new one, including the weeks it missed. ${graded.length} have been graded so far.</p>
+      <p class="arc-record-intro">Every Signal grades the previous week's call before making a new one, including the weeks it missed.</p>
       <ol class="arc-calls" role="list">${record}
       </ol>
     </section>
@@ -1180,6 +1163,55 @@ function communityPage() {
   });
 }
 
+// ── Latest Signals on the homepage ──
+// The homepage described Weekly Signals without ever showing one. This writes
+// the three newest into a marked region of the hand-maintained index.html, so
+// the proof is on the page and cannot go stale. The newest leads with its
+// claim; the two behind it are ruled rows, which is the archive's own logic at
+// small scale and keeps this from being a third three-column grid.
+function latestSignalsBand(n = 3) {
+  const [lead, ...rest] = signals.slice(0, n);
+  const row = (s) => `
+            <li class="latest-row">
+              <a class="latest-row-link" href="${editionPath(s)}">
+                <span class="latest-row-date"><time datetime="${s.date}">${esc(shortDate(s.date))}</time></span>
+                <span class="latest-row-title">${esc(s.title)}</span>
+                <span class="latest-row-theme">${esc(s.theme)}</span>
+              </a>
+            </li>`;
+  return `<section id="latest-signals" class="latest-section" aria-labelledby="latest-heading">
+      <div class="container">
+        <div class="latest-inner">
+          <p class="section-eyebrow">On the record</p>
+          <div class="latest-main reveal">
+            <h2 id="latest-heading" class="section-heading">The latest Signals.</h2>
+            <article class="latest-lead">
+              <a class="latest-lead-link" href="${editionPath(lead)}">
+                <p class="latest-lead-meta"><time datetime="${lead.date}">${esc(longDate(lead.date))}</time> &middot; ${esc(lead.theme)}</p>
+                <h3 class="latest-lead-title">${esc(lead.title)}</h3>
+                <p class="latest-lead-claim">${esc(lead.headlineClaim)}</p>
+                <span class="latest-lead-cta">Read this Signal &rarr;</span>
+              </a>
+            </article>
+            <ol class="latest-rows" role="list">${rest.map(row).join('')}
+            </ol>
+            <p class="latest-foot"><a href="/signals/">The full archive</a></p>
+          </div>
+        </div>
+      </div>
+    </section>`;
+}
+
+function writeLatestSignals() {
+  const file = resolve(ROOT, 'index.html');
+  const html = readFileSync(file, 'utf8');
+  const start = '<!-- latest-signals:start -->', end = '<!-- latest-signals:end -->';
+  const a = html.indexOf(start), b = html.indexOf(end);
+  if (a === -1 || b === -1) { console.warn('index.html: latest-signals markers not found, skipped'); return; }
+  const next = html.slice(0, a + start.length) + '\n    ' + latestSignalsBand() + '\n    ' + html.slice(b);
+  if (next !== html) { writeFileSync(file, next); console.log('wrote index.html latest-signals band'); }
+}
+
 // A 404 is a page on the site, not an apology from the server. It keeps the
 // chrome so the reader can carry on, and points at the thing most of them want.
 function notFoundPage() {
@@ -1224,5 +1256,6 @@ const STANDALONE = [
   ['community/index.html', communityPage],
 ];
 for (const [rel, fn] of STANDALONE) write(rel, fn());
+writeLatestSignals();
 
 console.log(`\nGenerated ${signals.length} editions and ${STANDALONE.length} standalone pages.`);
