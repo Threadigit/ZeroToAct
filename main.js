@@ -55,6 +55,18 @@
     });
   }
 
+  // Show readers where they are without adding another label to the page.
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  document.querySelectorAll('.nav-link[href^="/"], .mobile-link[href^="/"]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || href.includes('#')) return;
+    const linkPath = new URL(href, window.location.origin).pathname.replace(/\/+$/, '') || '/';
+    const isCurrent = linkPath === '/signals'
+      ? currentPath === '/signals' || currentPath.startsWith('/signals/')
+      : currentPath === linkPath;
+    if (isCurrent) link.setAttribute('aria-current', 'page');
+  });
+
   // ─── SCROLL REVEAL ────────────────────────────────
   const revealEls = document.querySelectorAll('.reveal');
 
@@ -266,7 +278,6 @@
       joinSuccessPanel.style.display = 'none';
 
       // Dynamic text based on trigger button content
-      const triggerText = e && e.currentTarget ? e.currentTarget.textContent.trim() : '';
       activeIntent = e && e.currentTarget ? (e.currentTarget.dataset.intent || 'community') : 'community';
       const modalTitle = joinFormPanel.querySelector('.join-modal-title');
       const modalDesc = joinFormPanel.querySelector('.join-modal-desc');
@@ -291,13 +302,9 @@
           modalTitle.textContent = 'Join the Summit Waitlist';
           modalDesc.textContent = 'Leave your email and we will send the Summit details when registration opens.';
           if (submitText) submitText.textContent = 'Join the Waitlist';
-        } else if (triggerText.includes('Movement') || triggerText.includes('Join')) {
-          modalTitle.textContent = 'Apply to the Community';
-          modalDesc.textContent = 'Enter your details below to request access to the community';
-          if (submitText) submitText.textContent = 'Submit Application';
         } else {
-          modalTitle.textContent = 'Apply to the Network';
-          modalDesc.textContent = 'Enter your details below to request access to the community';
+          modalTitle.textContent = 'Apply to the Live Network';
+          modalDesc.textContent = 'Tell us what you are building, your stage and the decision you are trying to move.';
           if (submitText) submitText.textContent = 'Submit Application';
         }
       }
@@ -453,7 +460,7 @@
           })
           .catch(error => {
             if (joinSubmitBtn) joinSubmitBtn.classList.remove('loading');
-            showError('email', 'We could not submit your application. Please try again.');
+            showError('email', 'We could not submit your details. Please try again.');
             console.warn('Form submission failed.', error);
           });
       }
@@ -493,12 +500,10 @@
           if (successCta) successCta.style.display = 'none';
           if (joinModalClose) joinModalClose.focus();
         } else {
-          if (successTitle) successTitle.textContent = 'Application Submitted';
-          if (successDesc) successDesc.textContent = 'Thank you for applying. A welcome email is on the way. You can join the community below.';
-          if (successCta) {
-            successCta.style.display = '';
-            successCta.focus();
-          }
+          if (successTitle) successTitle.textContent = 'Application received';
+          if (successDesc) successDesc.textContent = 'We will review your application and email you with the next step.';
+          if (successCta) successCta.style.display = 'none';
+          if (joinModalClose) joinModalClose.focus();
         }
       }, 800); // simulation delay for premium micro-interaction
     };

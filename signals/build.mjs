@@ -27,8 +27,8 @@ const PERSON = {
   familyName: 'Adetuyi',
   url: AUTHOR.url,
   sameAs: [AUTHOR.url, 'https://prembly.com'],
-  jobTitle: 'Founder and Convener',
-  description: 'Founder and convener of ZeroToAct, the weekly intelligence publication on the shifts in money, government policy and the world economy. Co-founder and Chief Innovation Officer of Prembly, building identity and compliance infrastructure.',
+  jobTitle: 'Founder',
+  description: 'Founder of ZeroToAct, the intelligence publication on the shifts in money, policy and technology that change what people build, earn and invest. Co-founder and Chief Innovation Officer of Prembly, building identity and compliance infrastructure.',
   knowsAbout: [
     'Capital markets', 'Monetary policy', 'African fintech', 'Identity infrastructure',
     'Payments regulation', 'Geopolitics', 'Emerging market currencies',
@@ -83,8 +83,9 @@ const shortDate = (iso) => {
 const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
 const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
 const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canonical/OG/RSS/sitemap/citation
-// Titles may end in a full stop, which would read as "Nigeria., 13 September" in a citation.
-const citeTitle = (s) => s.title.replace(/\.$/, '');
+// Strip terminal punctuation before adding citation or record separators.
+const recordTitle = (s) => s.title.replace(/[.!?]+$/, '');
+const citeTitle = recordTitle;
 const citation = (s) =>
   `ZeroToAct, ${s.number ? `Signal ${s.number}, ` : ''}${citeTitle(s)}, ${longDate(s.date)}, ${editionUrl(s)}`;
 
@@ -641,7 +642,7 @@ function indexPage() {
     const of = bySlug[s.lastTime.of];
     return `
         <li class="arc-call">
-          <p class="arc-call-of">${of ? `<a href="${editionPath(of)}">${esc(of.title)}</a>, ${esc(shortDate(of.date))}` : ''}</p>
+          <p class="arc-call-of">${of ? `<a href="${editionPath(of)}">${esc(recordTitle(of))}</a>, ${esc(shortDate(of.date))}` : ''}</p>
           <p class="arc-call-said">${esc(s.lastTime.said)}</p>
           <p class="arc-call-landed"><em>${esc(s.lastTime.verdict)}.</em> ${esc(s.lastTime.landed)}</p>
         </li>`;
@@ -1107,7 +1108,7 @@ function recordBand(n = 4) {
               <p class="rec-row-head">
                 <span class="rec-row-verdict">${esc(s.lastTime.verdict)}</span>
                 <span class="rec-row-of">${of
-                  ? `<a href="${editionPath(of)}">${esc(of.title)}</a>, ${esc(shortDate(of.date))}`
+                  ? `<a href="${editionPath(of)}">${esc(recordTitle(of))}</a>, ${esc(shortDate(of.date))}`
                   : esc(s.lastTime.of)}</span>
               </p>
               <p class="rec-row-said">${esc(s.lastTime.said)}</p>
