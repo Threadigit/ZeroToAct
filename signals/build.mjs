@@ -111,36 +111,24 @@ const READING_PROGRESS = `<div class="sig-progress" id="sig-progress" role="pres
 const SITE_NAV = `  <a class="skip-link" href="#main">Skip to content</a>
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="36" height="36" /></a>
+      <a href="/" class="nav-brand" aria-label="ZeroToAct Home"><span class="nav-logo"><img src="/favicon-v2.png" alt="" width="34" height="34" /></span><span class="nav-wordmark">ZeroToAct</span></a>
       <ul class="nav-links" role="list">
         <li><a href="/why/" class="nav-link">Why</a></li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Intelligence<span class="nav-caret" aria-hidden="true">&#9662;</span></button>
-          <div class="nav-dropdown-panel" role="menu" aria-label="Intelligence products">
-            <a href="/signals/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Weekly Signals <span class="nav-dd-badge">Live</span></span>
-              <span class="nav-dd-desc">One read a week on what is shifting and what it changes for you.</span>
-            </a>
-            <a href="/annual-outlook/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Annual Outlook</span>
-              <span class="nav-dd-desc">Grades last year's calls, then says where to position next.</span>
-            </a>
-          </div>
-        </li>
+        <li><a href="/annual-outlook/" class="nav-link">Outlook</a></li>
         <li><a href="/summit/" class="nav-link">Summit</a></li>
-        <li><a href="/community/" class="nav-link">Community</a></li>
+        <li><a href="/community/" class="nav-link">Network</a></li>
+        <li><a href="/signals/" class="nav-link">Archive</a></li>
       </ul>
-      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
+      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Subscribe free</button>
       <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav-mobile-menu" id="mobile-menu" aria-hidden="true">
       <a href="/why/" class="mobile-link">Why</a>
-      <span class="mobile-group-label">Intelligence</span>
-      <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
-      <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
+      <a href="/annual-outlook/" class="mobile-link">Annual Outlook</a>
       <a href="/summit/" class="mobile-link">Summit</a>
-      <a href="/community/" class="mobile-link">Community</a>
-      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
+      <a href="/community/" class="mobile-link">Live Network</a>
+      <a href="/signals/" class="mobile-link">Signal Archive</a>
+      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Subscribe free</button>
     </div>
   </nav>`;
 
@@ -149,19 +137,19 @@ const SITE_FOOTER = `  <footer class="footer" role="contentinfo">
       <div class="footer-inner">
         <div class="footer-brand">
           <a href="/" class="footer-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="48" height="48" loading="lazy" decoding="async" /></a>
-          <p class="footer-tagline">Intelligence that moves you<br />from knowing to doing.</p>
+          <p class="footer-tagline">See the shift.<br />Make the move.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
           <div class="footer-nav-group">
-            <p class="footer-nav-label">Intelligence</p>
-            <a href="/signals/" class="footer-nav-link">Weekly Signals</a>
+            <p class="footer-nav-label">Publication</p>
             <a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a>
+            <a href="/signals/" class="footer-nav-link">Signal Archive</a>
           </div>
           <div class="footer-nav-group">
             <p class="footer-nav-label">Explore</p>
             <a href="/why/" class="footer-nav-link">Why</a>
             <a href="/summit/" class="footer-nav-link">Summit</a>
-            <a href="/community/" class="footer-nav-link">Community</a>
+            <a href="/community/" class="footer-nav-link">Live Network</a>
             <a href="/#faq" class="footer-nav-link">FAQ</a>
             <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Founder</a>
           </div>
@@ -231,6 +219,7 @@ ${articleMeta}  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/signals/signals.css" />
+  <link rel="stylesheet" href="/publication.css" />
 ${head}</head>
 <body>
 ${SITE_NAV}
@@ -477,18 +466,6 @@ function editionPage(s) {
     ? s.written.map(renderBlock).join('\n        ')
     : `<p class="sig-pending">The written analysis for this Signal is being prepared from the video above. Watch the Signal in the meantime, or <a href="/#subscribe-section">get Weekly Signals by email</a>.</p>`;
 
-  // Grades the previous call before making a new one. `of` is the slug being graded,
-  // so the block also links back to it.
-  const prior = s.lastTime && signals.find((x) => x.slug === s.lastTime.of);
-  const lastTime = s.lastTime
-    ? `<div class="sig-lasttime">
-      <h2>Last time we said</h2>
-      <p>${linkify(esc(s.lastTime.said))}</p>
-      <p class="sig-lasttime-verdict"><strong>${esc(s.lastTime.verdict)}.</strong> ${linkify(esc(s.lastTime.landed))}${
-        prior ? ` <a href="/signals/${prior.slug}/">Read the original call</a>.` : ''}</p>
-    </div>`
-    : '';
-
   const draftBanner = s.status === 'draft' && s.written
     ? `<p class="sig-draft-note" role="note">Draft for review. Not yet published.</p>`
     : '';
@@ -601,7 +578,6 @@ function editionPage(s) {
       }
       return revised ? `<p class="sig-revised" role="note">${notice}</p>` : '';
     })()}
-    ${lastTime}
     <div class="sig-body">
         ${article}
     </div>
@@ -1301,7 +1277,5 @@ const STANDALONE = [
   ['community/index.html', communityPage],
 ];
 for (const [rel, fn] of STANDALONE) write(rel, fn());
-writeBand('latest-signals', latestSignalsBand());
-writeBand('record', recordBand());
 
 console.log(`\nGenerated ${signals.length} editions and ${STANDALONE.length} standalone pages.`);

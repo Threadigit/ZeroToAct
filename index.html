@@ -1,645 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZeroToAct | Intelligence that moves you from knowing to doing</title>
-  <meta name="description"
-    content="One shift in money, government policy or the world economy each week, followed down to what it changes for your work, your business or your money. Free." />
+  <title>ZeroToAct | Global intelligence for African decisions</title>
+  <meta name="description" content="Independent intelligence on capital, policy and technology, translated into the decisions that matter for careers, companies and portfolios with African stakes." />
   <link rel="canonical" href="https://zerotoact.com/" />
   <link rel="alternate" type="application/rss+xml" title="ZeroToAct Signals" href="/signals/feed.xml" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon-v2.png" />
-  <link rel="apple-touch-icon" href="favicon-v2.png" />
-
-  <!-- Open Graph / Facebook -->
+  <link rel="icon" type="image/png" href="/favicon-v2.png" />
+  <link rel="apple-touch-icon" href="/favicon-v2.png" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="author" content="Tolu Adetuyi" />
+  <meta name="publisher" content="ZeroToAct" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="ZeroToAct" />
-  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://zerotoact.com/" />
-  <meta property="og:title" content="ZeroToAct | Intelligence that moves you from knowing to doing" />
-  <meta property="og:description"
-    content="See what is shifting. Know what it means. Act before the crowd." />
+  <meta property="og:title" content="ZeroToAct | Global intelligence for African decisions" />
+  <meta property="og:description" content="See the shift. Understand the African stakes. Make the move." />
   <meta property="og:image" content="https://zerotoact.com/og-image-v2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="ZeroToAct. See what's shifting. Act before the crowd." />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@zerotoact" />
-  <meta name="twitter:creator" content="@zerotoact" />
-  <meta name="twitter:url" content="https://zerotoact.com/" />
-  <meta name="twitter:title" content="ZeroToAct | Intelligence that moves you from knowing to doing" />
-  <meta name="twitter:description"
-    content="See what is shifting. Know what it means. Act before the crowd." />
+  <meta name="twitter:title" content="ZeroToAct | Global intelligence for African decisions" />
+  <meta name="twitter:description" content="See the shift. Understand the African stakes. Make the move." />
   <meta name="twitter:image" content="https://zerotoact.com/og-image-v2.png" />
-  <meta name="twitter:image:alt" content="ZeroToAct. See what's shifting. Act before the crowd." />
-
-  <!-- Robots / SEO -->
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta name="author" content="Tolu Adetuyi" />
-  <meta name="publisher" content="ZeroToAct" />
-  <meta name="keywords"
-    content="ZeroToAct, weekly intelligence, capital markets, geopolitics, African markets, founders, Tolu Adetuyi, Annual Outlook, Weekly Signals" />
   <link rel="author" href="https://adetuyi.com" />
   <link rel="preload" href="/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
-  <!-- Phone-input styling is only needed inside the join modal, so it must not
-       block first paint. Loaded as print, promoted once it arrives. -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css"
-        media="print" onload="this.media='all';this.onload=null" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css" media="print" onload="this.media='all';this.onload=null" />
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/css/intlTelInput.css" /></noscript>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- JSON-LD Structured Data Schema Markup -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zerotoact.com/#organization","name":"ZeroToAct","url":"https://zerotoact.com/","description":"Each week we take one shift in money, government policy or the world economy and follow it down to what it changes for your work, your business or your money. Free, with an annual summit and a screened accountability community attached.","logo":{"@type":"ImageObject","url":"https://zerotoact.com/favicon-v2.png","caption":"ZeroToAct Logo"},"founder":{"@id":"https://adetuyi.com/#person"},"sameAs":["https://instagram.com/zerotoact","https://adetuyi.com"],"foundingDate":"2026"},{"@type":"Person","@id":"https://adetuyi.com/#person","name":"Tolu Adetuyi","url":"https://adetuyi.com","sameAs":["https://adetuyi.com","https://prembly.com"],"jobTitle":"Founder and Convener","worksFor":{"@id":"https://zerotoact.com/#organization"},"givenName":"Tolu","familyName":"Adetuyi","description":"Founder and convener of ZeroToAct, the weekly intelligence publication on the shifts in money, government policy and the world economy. Co-founder and Chief Innovation Officer of Prembly, building identity and compliance infrastructure.","knowsAbout":["Capital markets","Monetary policy","African fintech","Identity infrastructure","Payments regulation","Geopolitics","Emerging market currencies"],"founderOf":{"@id":"https://zerotoact.com/#organization"}},{"@type":"Event","@id":"https://zerotoact.com/#summit","name":"ZeroToAct New Year Summit","description":"A one-day virtual summit where anyone building a career, a company or a portfolio turns the Annual Outlook into a personal 12-month execution plan.","startDate":"2027","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"VirtualLocation","url":"https://zerotoact.com/summit/"},"organizer":{"@id":"https://zerotoact.com/#organization"}},{"@type":"WebSite","@id":"https://zerotoact.com/#website","url":"https://zerotoact.com/","name":"ZeroToAct","description":"Each week we take one shift in money, government policy or the world economy and follow it down to what it changes for your work, your business or your money. Free.","publisher":{"@id":"https://zerotoact.com/#organization"}},{"@type":"CreativeWorkSeries","@id":"https://zerotoact.com/#signals","name":"ZeroToAct Weekly Signals","description":"One read a week on the shifts in money, government policy and the world economy that change your next move. Free by email and archived at zerotoact.com/signals.","url":"https://zerotoact.com/signals/","publisher":{"@id":"https://zerotoact.com/#organization"}},{"@type":"FAQPage","@id":"https://zerotoact.com/#faq","mainEntity":[{"@type":"Question","name":"What exactly is ZeroToAct?","acceptedAnswer":{"@type":"Answer","text":"A weekly intelligence publication with two things attached. A yearly Summit that turns the context into a plan, and a screened community where cells of five hold each other to what they said they would do."}},{"@type":"Question","name":"Are Weekly Signals free?","acceptedAnswer":{"@type":"Answer","text":"Yes. One sharp Signal by email each week, free, and every past edition stays archived at zerotoact.com/signals."}},{"@type":"Question","name":"What else does ZeroToAct publish?","acceptedAnswer":{"@type":"Answer","text":"The Annual Outlook, once a year. It grades the year's calls before making new ones, then says where to position for the next twelve months."}},{"@type":"Question","name":"Who is the ZeroToAct community for?","acceptedAnswer":{"@type":"Answer","text":"Anyone willing to show up every two weeks and say what they actually did. Cells are matched by stage and by what you are building, so you land with four people at a similar point rather than a random five."}},{"@type":"Question","name":"I am a student, or I am early. Is this for me?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Signals are the same for everyone, and in the community you are matched with people at your stage, so the cell is useful to you and you are useful to it."}},{"@type":"Question","name":"Do I need to join everything at once?","acceptedAnswer":{"@type":"Answer","text":"No. Start with the free Weekly Signals. They build the context you will use at the Summit and inside the community."}}]}]}</script>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/publication.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zerotoact.com/#organization","name":"ZeroToAct","url":"https://zerotoact.com/","description":"Independent intelligence on capital, policy and technology, translated into decisions for careers, companies and portfolios with African stakes.","logo":{"@type":"ImageObject","url":"https://zerotoact.com/favicon-v2.png"},"founder":{"@id":"https://adetuyi.com/#person"},"sameAs":["https://instagram.com/zerotoact","https://adetuyi.com"],"foundingDate":"2026"},{"@type":"Person","@id":"https://adetuyi.com/#person","name":"Tolu Adetuyi","url":"https://adetuyi.com","jobTitle":"Founder and Convener","worksFor":{"@id":"https://zerotoact.com/#organization"}},{"@type":"WebSite","@id":"https://zerotoact.com/#website","url":"https://zerotoact.com/","name":"ZeroToAct","description":"Global intelligence for African decisions.","publisher":{"@id":"https://zerotoact.com/#organization"}},{"@type":"CreativeWorkSeries","@id":"https://zerotoact.com/#signals","name":"ZeroToAct Weekly Signals","url":"https://zerotoact.com/signals/","publisher":{"@id":"https://zerotoact.com/#organization"}},{"@type":"FAQPage","@id":"https://zerotoact.com/#faq","mainEntity":[{"@type":"Question","name":"What is ZeroToAct?","acceptedAnswer":{"@type":"Answer","text":"An independent intelligence publication that follows shifts in capital, policy and technology down to the decisions they create for people building careers, companies and portfolios with African stakes."}},{"@type":"Question","name":"What do I receive when I subscribe?","acceptedAnswer":{"@type":"Answer","text":"One free Weekly Signal by email. Every edition is also kept in the public archive with sources and a clear next move."}},{"@type":"Question","name":"How does the Annual Outlook differ from Weekly Signals?","acceptedAnswer":{"@type":"Answer","text":"The Annual Outlook establishes the position for the year. Weekly Signals update that position as the facts change."}},{"@type":"Question","name":"Do I need to join the Summit or Network?","acceptedAnswer":{"@type":"Answer","text":"No. The publication stands on its own. The Summit and Live Network exist for readers who want to turn the intelligence into a written plan and a recurring execution practice."}}]}]}</script>
 </head>
-
 <body>
-
-  <!-- ═══════════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════════ -->
   <a class="skip-link" href="#main">Skip to content</a>
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="ZeroToAct Home">
-        <img src="favicon-v2.png" alt="" width="36" height="36" />
-      </a>
-      <ul class="nav-links" role="list">
-        <li><a href="/why/" class="nav-link">Why</a></li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Intelligence<span class="nav-caret" aria-hidden="true">▾</span></button>
-          <div class="nav-dropdown-panel" role="menu" aria-label="Intelligence products">
-            <a href="/signals/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Weekly Signals <span class="nav-dd-badge">Live</span></span>
-              <span class="nav-dd-desc">One read a week on what is shifting and what it changes for you.</span>
-            </a>
-            <a href="/annual-outlook/" class="nav-dd-item" role="menuitem">
-              <span class="nav-dd-title">Annual Outlook</span>
-              <span class="nav-dd-desc">Grades last year's calls, then says where to position next.</span>
-            </a>
-          </div>
-        </li>
-        <li><a href="/summit/" class="nav-link">Summit</a></li>
-        <li><a href="/community/" class="nav-link">Community</a></li>
-      </ul>
-      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief" id="nav-subscribe-btn">Get the Free Signal</button>
-      <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+      <a href="/" class="nav-brand" aria-label="ZeroToAct Home"><span class="nav-logo"><img src="/favicon-v2.png" alt="" width="34" height="34" /></span><span class="nav-wordmark">ZeroToAct</span></a>
+      <ul class="nav-links" role="list"><li><a href="/why/" class="nav-link">Why</a></li><li><a href="/annual-outlook/" class="nav-link">Outlook</a></li><li><a href="/summit/" class="nav-link">Summit</a></li><li><a href="/community/" class="nav-link">Network</a></li><li><a href="/signals/" class="nav-link">Archive</a></li></ul>
+      <button type="button" class="nav-cta join-cta-trigger" data-intent="brief">Subscribe free</button>
+      <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
-    <div class="nav-mobile-menu" id="mobile-menu" aria-hidden="true">
-      <a href="/why/" class="mobile-link">Why</a>
-      <span class="mobile-group-label">Intelligence</span>
-      <a href="/signals/" class="mobile-link mobile-sublink">Weekly Signals</a>
-      <a href="/annual-outlook/" class="mobile-link mobile-sublink">Annual Outlook</a>
-      <a href="/summit/" class="mobile-link">Summit</a>
-      <a href="/community/" class="mobile-link">Community</a>
-      <button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Get the Free Signal</button>
-    </div>
+    <div class="nav-mobile-menu" id="mobile-menu" aria-hidden="true"><a href="/why/" class="mobile-link">Why</a><a href="/annual-outlook/" class="mobile-link">Annual Outlook</a><a href="/summit/" class="mobile-link">Summit</a><a href="/community/" class="mobile-link">Live Network</a><a href="/signals/" class="mobile-link">Signal Archive</a><button type="button" class="mobile-link mobile-link-cta join-cta-trigger" data-intent="brief">Subscribe free</button></div>
   </nav>
 
-  <main id="main">
-
-    <!-- ═══════════════════════════════════════════
-         HERO
-    ═══════════════════════════════════════════ -->
-    <section id="hero" class="hero" aria-labelledby="hero-heading">
-      <div class="hero-inner">
-          <p class="section-eyebrow">Weekly</p>
-        <h1 id="hero-heading" class="hero-heading reveal">
-          See what’s shifting.<br />
-          Know what it means.<br />
-          <em>Act before the crowd.</em>
-        </h1>
-        <p class="hero-sub reveal">
-          ZeroToAct follows the shifts in money, government policy and the world economy down to the decision they put in front of you. Written for whoever is building something, whether that is a career, a company or the money you have put to work.</p>
-        <div class="hero-actions reveal">
-          <a class="btn-primary" href="#subscribe-section" id="hero-subscribe-btn">Get the Free Signal</a>
-          <button type="button" class="btn-ghost" id="play-video-btn">
-            <svg class="play-icon" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            Watch the Intro
-          </button>
+  <main id="main" class="pub-home">
+    <section class="pub-hero" aria-labelledby="hero-heading">
+      <div class="pub-hero-grid">
+        <div class="pub-hero-main">
+          <p class="pub-kicker">Independent intelligence · African stakes</p>
+          <h1 id="hero-heading" class="pub-display">See the shift.<br />Make the move.</h1>
+          <p class="pub-lede">ZeroToAct follows capital, policy and technology across borders, then translates the movement into the decision in front of you.</p>
+          <div class="pub-actions"><button type="button" class="pub-button join-cta-trigger" data-intent="brief">Get the free weekly Signal</button><a class="pub-button pub-button--quiet" href="/why/">Read why we exist</a></div>
         </div>
-
+        <aside class="pub-hero-side" aria-label="Publication promise"><p class="pub-section-label">Built for</p><p>People building careers, companies and portfolios where global decisions meet African realities.</p><p class="pub-section-label">Published</p><p>One sharp Signal each week. One Annual Outlook. Every call kept on the record.</p></aside>
+        <div class="pub-hero-foot"><span>Capital · Policy · Technology</span><span>Global context · African consequences · Practical action</span></div>
       </div>
     </section>
 
-    <!-- latest-signals:start -->
-    <section id="latest-signals" class="latest-section" aria-labelledby="latest-heading">
+    <section class="pub-intro" aria-labelledby="intro-heading"><div class="pub-intro-grid"><p class="pub-section-label">The premise</p><p id="intro-heading" class="pub-intro-statement">The decision that changes your next year may be taken in Washington, Abuja, London or Nairobi. <em>You should see it before it reaches your balance sheet.</em></p></div></section>
+
+    <section class="pub-system" aria-labelledby="system-heading">
       <div class="container">
-        <div class="latest-inner">
-          <p class="section-eyebrow">On the record</p>
-          <div class="latest-main reveal">
-            <h2 id="latest-heading" class="section-heading">The latest Signals.</h2>
-            <article class="latest-lead">
-              <a class="latest-lead-link" href="/signals/nobody-went-first/">
-                <p class="latest-lead-meta"><time datetime="2026-11-01">1 November 2026</time> &middot; Macro</p>
-                <h3 class="latest-lead-title">Nobody Went First</h3>
-                <p class="latest-lead-claim">Last week lenders started pricing governments individually. This week the governments, the central banks and one very large company answered, and almost all of them answered the same way: not yet.</p>
-                <span class="latest-lead-cta">Read this Signal &rarr;</span>
-              </a>
-            </article>
-            <ol class="latest-rows" role="list">
-            <li class="latest-row">
-              <a class="latest-row-link" href="/signals/lenders-started-choosing/">
-                <span class="latest-row-date"><time datetime="2026-10-24">24 Oct</time></span>
-                <span class="latest-row-title">Lenders Started Choosing</span>
-                <span class="latest-row-theme">Macro</span>
-              </a>
-            </li>
-            <li class="latest-row">
-              <a class="latest-row-link" href="/signals/one-shock-four-answers/">
-                <span class="latest-row-date"><time datetime="2026-10-18">18 Oct</time></span>
-                <span class="latest-row-title">One Shock, Four Answers</span>
-                <span class="latest-row-theme">Macro</span>
-              </a>
-            </li>
-            </ol>
-            <p class="latest-foot"><a href="/signals/">The full archive</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- latest-signals:end -->
-
-    <!-- record:start -->
-    <section id="record" class="record-section" aria-labelledby="record-heading">
-      <div class="container">
-        <div class="record-inner">
-          <p class="section-eyebrow">The record</p>
-          <div class="record-main reveal">
-            <h2 id="record-heading" class="section-heading">We grade our own calls.</h2>
-            <p class="section-sub">
-              Every Signal scores the previous week's call before it makes a new one, in the same
-              words it used at the time, including the weeks it missed.
-            </p>
-            <div class="rec-head" aria-hidden="true">
-              <span>The call</span>
-              <span>What happened</span>
-            </div>
-            <ol class="rec-rows" role="list">
-            <li class="rec-row">
-              <p class="rec-row-head">
-                <span class="rec-row-verdict">Half right</span>
-                <span class="rec-row-of"><a href="/signals/lenders-started-choosing/">Lenders Started Choosing</a>, 24 Oct</span>
-              </p>
-              <p class="rec-row-said">That lenders had begun pricing governments individually rather than as a class, and that the gap between what lenders want and what borrowers will pay was widening.</p>
-              <p class="rec-row-landed">In Europe it held. France still pays about 153 basis points over Germany, down from the week before but far above September&#39;s 117, and Moody&#39;s declining to downgrade is what moved the price rather than anything Paris did. In Nigeria it inverted. The debt office was offered ₦1.91 trillion, took ₦71.16 billion and pushed its own one-year rate down to 15.80 percent. The lender did not set that price; the borrower did, because it did not need the money. We called the direction and missed that a borrower sitting on enough liquidity can refuse.</p>
-            </li>
-            <li class="rec-row">
-              <p class="rec-row-head">
-                <span class="rec-row-verdict">Right</span>
-                <span class="rec-row-of"><a href="/signals/one-shock-four-answers/">One Shock, Four Answers</a>, 18 Oct</span>
-              </p>
-              <p class="rec-row-said">That one energy shock was being read four different ways, and that Britain&#39;s hike consensus would hold. We named the falsifier: if UK September CPI came in at or below 3.1 percent on 21 October, the November consensus would unwind as fast as it formed.</p>
-              <p class="rec-row-landed">UK CPI came in at 3.5 percent, not 3.1, the highest since October 2025, with core at 2.8 and services at 3.7, all above forecast. The falsifier did not trigger and the consensus hardened rather than unwinding: markets now price two rises before year end. The energy read held too, with fuel prices up 29.8 percent year on year against 23.0 in August.</p>
-            </li>
-            <li class="rec-row">
-              <p class="rec-row-head">
-                <span class="rec-row-verdict">Right</span>
-                <span class="rec-row-of"><a href="/signals/nobody-is-being-paid-to-wait/">Nobody Is Being Paid to Wait</a>, 11 Oct</span>
-              </p>
-              <p class="rec-row-said">That nobody is being paid to wait, because the price of committing money over time had broken in four markets at once, and that in Nairobi the money would keep refusing duration.</p>
-              <p class="rec-row-landed">Kenya&#39;s 15 October auction put the argument beyond doubt. The 91-day drew 622.46 percent of what was offered while the 364-day drew 66.43 percent, the only tenor to come in under its target. The yields barely moved: 8.75 percent for three months against 9.0383 for a year. The falsifier we named also held. Airtel Money&#39;s unconditional open on 14 October did not take it meaningfully above the £1.96 offer.</p>
-            </li>
-            <li class="rec-row">
-              <p class="rec-row-head">
-                <span class="rec-row-verdict">Right so far</span>
-                <span class="rec-row-of"><a href="/signals/the-exit-was-already-written/">The Exit Was Already Written</a>, 4 Oct</span>
-              </p>
-              <p class="rec-row-said">That Airtel Money would have a soft debut, because it priced below its own indicated range and the sellers were partly discharging an obligation rather than meeting demand.</p>
-              <p class="rec-row-landed">Conditional dealings opened on 9 October and the shares traded below the £1.96 offer. Reuters called the debut muted, and the sale raised around £582 million rather than the $800 million first targeted. Unconditional dealings on 14 October are the full test, so this is not settled.</p>
-            </li>
-            </ol>
-            <p class="rec-foot"><a href="/signals/#track-record">The full record</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- record:end -->
-
-    <section id="pillars" class="pillars-section" aria-labelledby="pillars-heading">
-      <div class="container">
-        <div class="section-header reveal">
-          <p class="section-eyebrow">How it works</p>
-          <h2 id="pillars-heading" class="section-heading">
-            From awareness<br />to execution.
-          </h2>
-          <p class="section-sub">
-            Three things, in order. Each one is useful on its own, and each one hands the next something to work with.
-          </p>
-
-        <ol class="pillars-grid" role="list">
-
-          <li class="pillar-card reveal" id="pillar-content">
-            <div class="pillar-number">01</div>
-            <div class="pillar-tag">Every week</div>
-            <h3 class="pillar-title">Weekly Signals</h3>
-            <p class="pillar-desc">
-              One shift in money, policy or the world economy, followed down to what it changes for you.
-            </p>
-            <ul class="pillar-list" aria-label="What Weekly Signals provide">
-              <li>Free, and free forever.</li>
-              <li>Every edition kept as a dated record.</li>
-            </ul>
-            <p class="pillar-hands">Hands on <strong>the context</strong></p>
-            <a href="#content-section" class="pillar-link">Start with Signals</a>
-          </li>
-
-          <li class="pillar-card pillar-card--featured is-inverted reveal" id="pillar-summit">
-            <div class="pillar-number">02</div>
-            <div class="pillar-tag">Once a year</div>
-            <h3 class="pillar-title">The Annual Summit</h3>
-            <p class="pillar-desc">
-              One day where a year of reading becomes a written plan for the next twelve months.
-            </p>
-            <ul class="pillar-list" aria-label="What the Summit provides">
-              <li>Where the openings are.</li>
-              <li>A plan with your name on it.</li>
-            </ul>
-            <p class="pillar-hands">Hands on <strong>the plan</strong></p>
-            <a href="/summit/" class="pillar-link">Explore the Summit</a>
-          </li>
-
-          <li class="pillar-card reveal" id="pillar-community">
-            <div class="pillar-number">03</div>
-            <div class="pillar-tag">Every two weeks</div>
-            <h3 class="pillar-title">The Live Network</h3>
-            <p class="pillar-desc">
-              A cell of five, matched to your stage, asking what you said you would do.
-            </p>
-            <ul class="pillar-list" aria-label="What the Live Network provides">
-              <li>One standing commitment.</li>
-              <li>Peer run. You own the outcome.</li>
-            </ul>
-            <p class="pillar-hands">Hands on <strong>the result</strong></p>
-            <a href="/community/" class="pillar-link">Explore the Network</a>
-          </li>
-
-        </ol>
+        <header class="pub-system-head"><p class="pub-section-label">The publication system</p><h2 id="system-heading" class="pub-heading">A position. The updates. The plan. The follow-through.</h2></header>
+        <div class="pub-system-list">
+          <article class="pub-system-item"><h3 class="pub-system-title"><a href="/annual-outlook/">Annual Outlook</a></h3><p class="pub-system-copy">The editorial anchor. It grades the year that passed before setting a position for the twelve months ahead.</p><p class="pub-system-meta">Once a year</p></article>
+          <article class="pub-system-item"><h3 class="pub-system-title"><a href="/signals/">Weekly Signals</a></h3><p class="pub-system-copy">The live update. One material shift, its African consequences and the next move it creates.</p><p class="pub-system-meta">Every week · Free</p></article>
+          <article class="pub-system-item"><h3 class="pub-system-title"><a href="/summit/">Annual Summit</a></h3><p class="pub-system-copy">The conversion point. One focused day to turn the Outlook and a year of Signals into your written plan.</p><p class="pub-system-meta">One day · Virtual</p></article>
+          <article class="pub-system-item"><h3 class="pub-system-title"><a href="/community/">Live Network</a></h3><p class="pub-system-copy">The execution layer. A cell of five at your stage reviews what you promised and what shipped.</p><p class="pub-system-meta">Every two weeks</p></article>
         </div>
       </div>
     </section>
 
-    <section id="summit-section" class="summit-section" aria-labelledby="summit-heading">
-      <div class="container">
-        <div class="summit-inner">
-          <p class="section-eyebrow">02 &middot; Summit</p>
-          <div class="summit-content reveal">
-            <h2 id="summit-heading" class="section-heading">
-              One day.<br />
-              One year&rsquo;s worth<br />
-              of direction.
-            </h2>
-            <p class="section-sub">
-              You arrive having read the <a href="/annual-outlook/" class="convener-link">Annual Outlook</a>. You leave with twelve months of direction written down in your own words, for your own situation.
-            </p>
-            <p class="summit-leave"><strong>The plan is the deliverable.</strong> Not notes, not a recording.</p>
-            <div class="section-actions">
-              <a href="/summit/" class="btn-primary">Read about the Summit</a>
-              <button type="button" class="btn-ghost join-cta-trigger" id="summit-notify-btn" data-intent="summit">
-                Join the waitlist
-              </button>
-            </div>
-          </div>
-
-          <div class="summit-visual reveal">
-            <div class="summit-card is-inverted">
-              <p class="summit-card-tag">ZeroToAct Summit</p>
-              <h3 class="summit-card-heading">Global Eyes.<br />African Stakes.</h3>
-              <dl class="sig-facts">
-                <div><dt>When</dt><dd>2027</dd></div>
-                <div><dt>Format</dt><dd>One day, virtual</dd></div>
-                <div><dt>For</dt><dd>Anyone building a career, a company or a portfolio</dd></div>
-                <div><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="convener-link">Tolu Adetuyi</a></dd></div>
-              </dl>
-            </div>
-          </div>
-        </div>
+    <section class="pub-method" aria-labelledby="method-heading">
+      <div class="container"><p class="pub-section-label">How the intelligence works</p><h2 id="method-heading" class="pub-heading" style="margin-top:22px;max-width:820px;">No news pile. A chain of consequence.</h2>
+        <div class="pub-method-flow"><div class="pub-method-row"><span class="pub-method-num">01</span><h3 class="pub-method-title">Find the shift</h3><p class="pub-method-copy">Track the decisions and price movements in capital, government policy and technology that can alter where opportunity sits.</p></div><div class="pub-method-row"><span class="pub-method-num">02</span><h3 class="pub-method-title">Trace the transmission</h3><p class="pub-method-copy">Follow how that shift reaches currencies, funding, regulation, employment, operating costs and demand across African markets.</p></div><div class="pub-method-row"><span class="pub-method-num">03</span><h3 class="pub-method-title">Name the move</h3><p class="pub-method-copy">Separate what matters for a professional, an operator and an investor, then state what would prove the reading wrong.</p></div></div>
       </div>
     </section>
 
-    <section id="community-section" class="community-section" aria-labelledby="community-heading">
-      <div class="container">
-        <div class="community-inner">
-          <p class="section-eyebrow">03 · Community</p>
-            <div class="community-top reveal">
-            <h2 id="community-heading" class="section-heading">
-              Where execution lives<br />between signals and summits.
-            </h2>
-            <p class="section-sub">
-              Five people at your stage. One standing commitment. A review every two weeks.
-            </p>
-          </div>
-          <div class="community-grid">
-            <div class="community-card reveal">
-              <div class="community-card-num" aria-hidden="true">01</div>
-              <h3 class="community-card-title">You Apply</h3>
-              <p class="community-card-desc">The form asks who you are and what stage you are at. Not a filter on ambition, a way of placing you with four people whose next problem looks like yours.</p>
-            </div>
-            <div class="community-card reveal">
-              <div class="community-card-num" aria-hidden="true">02</div>
-              <h3 class="community-card-title">You Set Your Goals</h3>
-              <p class="community-card-desc">Your cell starts as soon as you are in. The Summit is where you lock the full twelve months.</p>
-            </div>
-            <div class="community-card is-inverted reveal">
-              <div class="community-card-num" aria-hidden="true">03</div>
-              <h3 class="community-card-title">Your Cell of Five Holds You To It</h3>
-              <p class="community-card-desc">Every two weeks the cell reviews what you promised, what shipped, and what happens next.</p>
-            </div>
-          </div>
-          <div class="community-cta reveal">
-            <div class="community-cta-inner">
-              <div class="community-cta-text">
-                <h3 class="community-cta-heading">The community is live.</h3>
-                <p class="community-cta-sub">Cells meet on WhatsApp, review progress, and trade openings with the wider network. Cells are peer run. Moderators check in, they do not run the meeting. You own the outcome.</p>
-              </div>
-              <div class="community-cta-action">
-                <button type="button" class="btn-whatsapp join-cta-trigger" id="whatsapp-join-btn" data-intent="community">
-                  Apply to the Network
-                </button>
-                <p class="community-cta-disclaimer">Open to anyone ready to commit to the cadence.</p>
-                <p class="community-cta-more"><a href="/community/">How a cell works &rarr;</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="pub-record" aria-labelledby="record-heading"><div class="container pub-record-grid"><div class="pub-record-copy"><p class="pub-section-label">Proof, not posture</p><h2 id="record-heading" class="pub-heading">The work stays on the record.</h2><p class="pub-copy">Every Signal is dated, sourced and preserved. Previous calls are graded in the archive, away from the reading flow but never out of sight.</p><div class="pub-record-actions"><a class="pub-button pub-button--quiet" href="/signals/">Open the archive</a><a class="pub-inline-link" href="/signals/feed.xml">Follow by RSS</a></div></div><ol class="pub-record-points"><li><span>01</span><div><strong>Sources you can inspect.</strong><br />Primary releases and named reporting sit beneath each edition.</div></li><li><span>02</span><div><strong>A thesis that can fail.</strong><br />Each edition states what would invalidate its reading.</div></li><li><span>03</span><div><strong>Calls that get graded.</strong><br />Right, wrong, early and incomplete all remain visible.</div></li></ol></div></section>
 
-    <section class="promise-section surface-light" aria-labelledby="promise-heading">
-      <div class="container">
-        <div class="promise-inner reveal">
-          <p class="section-eyebrow">The commitment</p>
-          <blockquote class="promise-quote" id="promise-heading">
-            &ldquo;My commitment to you is that you will leave ZeroToAct with more than insight. You will leave with a
-            plan, a commitment, and a cell of five who hold you to it.&rdquo;
-          </blockquote>
-          <div class="promise-founder-meta">
-            <img src="tolu-320.jpg" alt="Tolu Adetuyi, founder and convener of ZeroToAct" class="promise-avatar" width="320" height="266" loading="lazy" decoding="async" />
-            <div class="promise-founder-details">
-              <span class="promise-author">Tolu Adetuyi</span>
-              <span class="promise-title">Founder and Convener, ZeroToAct</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="pub-offers" aria-label="Turn intelligence into execution"><div class="container pub-offer-grid"><article class="pub-offer"><p class="pub-section-label">Annual Summit</p><h3>Leave with the plan, not the notes.</h3><p>A focused virtual day for translating the year’s position into twelve months of decisions in your own words.</p><a class="pub-inline-link" href="/summit/">Explore the Summit</a></article><article class="pub-offer"><p class="pub-section-label">Live Network</p><h3>Execution needs a witness.</h3><p>Five people at your stage. One standing commitment. A review every two weeks, peer run and built around what shipped.</p><a class="pub-inline-link" href="/community/">See how a cell works</a></article></div></section>
 
-    <section class="instagram-section" id="instagram-section" aria-labelledby="instagram-heading">
-      <div class="container">
-        <div class="instagram-inner">
-          <p class="section-eyebrow">Follow along</p>
-          <div class="instagram-content reveal">
-            <div class="instagram-profile">
-              <svg class="instagram-profile-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-              </svg>
-              <span>@zerotoact</span>
-            </div>
-            <h2 id="instagram-heading" class="section-heading">
-              Weekly Signals continue on Instagram.
-            </h2>
-            <p class="section-sub">
-              Fast context, practical prompts, and stories from people already in motion.
-            </p>
-            <a href="https://instagram.com/zerotoact" class="instagram-follow-btn" target="_blank"
-              rel="noopener noreferrer" aria-label="Follow ZeroToAct on Instagram">
-              Follow @zerotoact
-            </a>
-            <p class="instagram-follow-note">Short. Useful. Built to move you forward.</p>
-          </div>
+    <section class="pub-founder" aria-labelledby="founder-quote"><div class="container pub-founder-grid"><img class="pub-founder-photo" src="/tolu-320.jpg" alt="Tolu Adetuyi, founder and convener of ZeroToAct" width="320" height="266" loading="lazy" decoding="async" /><div><blockquote id="founder-quote">“Insight is only useful when it changes what you do next.”</blockquote><cite>Tolu Adetuyi · Founder and Convener</cite><p class="pub-copy" style="margin-top:28px;">ZeroToAct is built for readers who need the world explained at the level of consequence, not spectacle.</p><a class="pub-inline-link" href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" style="margin-top:22px;">About the founder</a></div></div></section>
 
-          <ol class="instagram-list reveal" aria-label="What ZeroToAct shares on Instagram">
-            <li class="ig-item">
-              <span class="ig-item-num">01</span>
-              <h3 class="ig-item-name">The Shift</h3>
-              <span class="ig-item-kind">Reels</span>
-              <p class="ig-item-line">What changed in the world, and why it matters now.</p>
-            </li>
-            <li class="ig-item">
-              <span class="ig-item-num">02</span>
-              <h3 class="ig-item-name">African Stakes</h3>
-              <span class="ig-item-kind">Briefings</span>
-              <p class="ig-item-line">Global context, read through an African lens.</p>
-            </li>
-            <li class="ig-item">
-              <span class="ig-item-num">03</span>
-              <h3 class="ig-item-name">Next Move</h3>
-              <span class="ig-item-kind">Prompts</span>
-              <p class="ig-item-line">One practical move to make this week.</p>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
+    <section class="pub-social"><div class="container pub-social-inner"><p><strong>Follow the short form.</strong> Visual Signals and field notes between editions.</p><a class="pub-inline-link" href="https://instagram.com/zerotoact" target="_blank" rel="noopener noreferrer">@zerotoact on Instagram</a></div></section>
 
-    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
-      <div class="container">
-        <div class="faq-layout">
-          <p class="section-eyebrow">Before you join</p>
-          <div class="faq-intro reveal">
-            <h2 id="faq-heading" class="section-heading">Clear answers.<br />No fine print.</h2>
-            <p class="section-sub">Start with the free Signal. Go deeper when you are ready to commit.</p>
-          </div>
-          <div class="faq-list reveal">
-            <details>
-              <summary>What exactly is ZeroToAct?</summary>
-              <p>A weekly intelligence publication with two things attached. A yearly Summit that turns the context into a plan, and a screened community where cells of five hold each other to what they said they would do.</p>
-            </details>
-            <details>
-              <summary>Are Weekly Signals free?</summary>
-              <p>Yes. One sharp Signal by email each week, free, and every past edition stays archived at zerotoact.com/signals.</p>
-            </details>
-            <details>
-              <summary>What else do you publish?</summary>
-              <p>The Annual Outlook, once a year. It grades the year's calls before making new ones, then says where to position for the next twelve months.</p>
-            </details>
-            <details>
-              <summary>Who is the community for?</summary>
-              <p>Anyone willing to show up every two weeks and say what they actually did. Cells are matched by stage and by what you are building, so you land with four people at a similar point rather than a random five.</p>
-            </details>
-            <details>
-              <summary>I am a student, or I am early. Is this for me?</summary>
-              <p>Yes. The Signals are the same for everyone, and in the community you are matched with people at your stage, so the cell is useful to you and you are useful to it.</p>
-            </details>
-            <details>
-              <summary>Do I need to join everything at once?</summary>
-              <p>No. Start with the free Weekly Signals. They build the context you will use at the Summit and inside the community.</p>
-            </details>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="pub-faq" id="faq" aria-labelledby="faq-heading"><div class="pub-section-grid"><div><p class="pub-section-label">Before you subscribe</p><h2 id="faq-heading" class="pub-heading" style="margin-top:20px;">Clear answers.</h2></div><div class="pub-faq-list"><details><summary>What do I receive?</summary><p>One free Weekly Signal by email, written to be read in a sitting and used in a decision. Every edition is also kept in the archive.</p></details><details><summary>Who is it for?</summary><p>Professionals, operators and investors whose work or money is exposed to African markets and global decisions. You do not need to work in finance.</p></details><details><summary>Is the Signal free?</summary><p>Yes. Weekly Signals are free. Summit and Network details are separate, and you do not need either to read the publication.</p></details><details><summary>How is this different from a news recap?</summary><p>It does not try to cover the week. It selects one shift, traces how it transmits, states what it changes and names what would prove the reading wrong.</p></details></div></div></section>
 
-    <section id="content-section" class="subscribe-section" aria-labelledby="subscribe-heading">
-      <div class="container">
-        <div class="subscribe-inner">
-          <p class="section-eyebrow">Subscribe</p>
-          <div class="subscribe-main reveal">
-            <h2 id="subscribe-heading" class="section-heading">
-              One read a week.<br />
-              Free forever.
-            </h2>
-            <p class="section-sub">
-              One shift in money, government policy or the world economy, followed down to what it
-              changes for your work, your business or your money. A clear next move, nothing padded.
-            </p>
-            <div id="subscribe-section" class="subscribe-action">
-              <button type="button" class="btn-primary join-cta-trigger" id="intelligence-whatsapp-btn" data-intent="brief">
-                Get the Free Signal
-              </button>
-              <p class="subscribe-note">Straight to your inbox. Unsubscribe in one click.</p>
-            </div>
-          </div>
-          <dl class="subscribe-facts sig-facts">
-            <div class="fact"><dt>Cadence</dt><dd>One edition a week</dd></div>
-            <div class="fact"><dt>Price</dt><dd>Free, and free forever</dd></div>
-            <div class="fact"><dt>Archive</dt><dd>Every edition kept, dated and graded</dd></div>
-            <div class="fact"><dt>Written by</dt><dd><a href="https://adetuyi.com" rel="noopener">Tolu Adetuyi</a></dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
+    <section class="pub-final" aria-labelledby="final-heading"><div class="container pub-final-grid"><div><p class="pub-section-label">Weekly, free</p><h2 id="final-heading" class="pub-heading" style="margin-top:20px;">See the next shift before it becomes your next surprise.</h2><p>One email. No daily noise. Unsubscribe whenever you want.</p></div><button type="button" class="pub-button join-cta-trigger" data-intent="brief">Subscribe to the Signal</button></div></section>
   </main>
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="#hero" class="footer-logo" aria-label="ZeroToAct Home">
-            <img src="favicon-v2.png" alt="" width="48" height="48" loading="lazy" decoding="async" />
-          </a>
-          <p class="footer-tagline">
-            Intelligence that moves you<br />
-            from knowing to doing.
-          </p>
-        </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <div class="footer-nav-group">
-            <p class="footer-nav-label">Intelligence</p>
-            <a href="/signals/" class="footer-nav-link">Weekly Signals</a>
-            <a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a>
-          </div>
-          <div class="footer-nav-group">
-            <p class="footer-nav-label">Explore</p>
-            <a href="/why/" class="footer-nav-link">Why</a>
-            <a href="/summit/" class="footer-nav-link">Summit</a>
-            <a href="/community/" class="footer-nav-link">Community</a>
-            <a href="#faq" class="footer-nav-link">FAQ</a>
-            <a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Founder</a>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 ZeroToAct. All rights reserved.</p>
-        <a href="https://instagram.com/zerotoact" class="footer-instagram" target="_blank" rel="noopener noreferrer"
-          aria-label="ZeroToAct on Instagram">
-          <svg class="footer-insta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path
-              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-          </svg>
-          Follow @zerotoact on Instagram
-        </a>
-      </div>
-    </div>
-  </footer>
+  <footer class="footer" role="contentinfo"><div class="container"><div class="footer-inner"><div class="footer-brand"><a href="/" class="footer-logo" aria-label="ZeroToAct Home"><img src="/favicon-v2.png" alt="" width="48" height="48" loading="lazy" decoding="async" /></a><p class="footer-tagline">See the shift.<br />Make the move.</p></div><nav class="footer-nav" aria-label="Footer navigation"><div class="footer-nav-group"><p class="footer-nav-label">Publication</p><a href="/annual-outlook/" class="footer-nav-link">Annual Outlook</a><a href="/signals/" class="footer-nav-link">Signal Archive</a></div><div class="footer-nav-group"><p class="footer-nav-label">Explore</p><a href="/why/" class="footer-nav-link">Why</a><a href="/summit/" class="footer-nav-link">Summit</a><a href="/community/" class="footer-nav-link">Live Network</a><a href="#faq" class="footer-nav-link">FAQ</a><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Founder</a></div></nav></div><div class="footer-bottom"><p class="footer-copy">© 2026 ZeroToAct. All rights reserved.</p><a href="https://instagram.com/zerotoact" class="footer-instagram" target="_blank" rel="noopener noreferrer">@zerotoact</a></div></div></footer>
 
-  <!-- ═══════════════════════════════════════════
-       CINEMATIC VIDEO MODAL
-  ═══════════════════════════════════════════ -->
-  <div id="video-modal" class="video-modal" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Intro Video Player">
-    <div class="video-modal-overlay" id="video-modal-overlay"></div>
-    <div class="video-modal-container">
-      <button type="button" class="video-modal-close" id="video-modal-close" aria-label="Close video player">×</button>
-      <div class="video-modal-ratio">
-        <div id="video-player-container"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       APPLICATION FORM MODAL
-  ═══════════════════════════════════════════ -->
-  <div id="join-modal" class="join-modal" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Join ZeroToAct">
-    <div class="join-modal-overlay" id="join-modal-overlay"></div>
-    <div class="join-modal-container">
-      <button type="button" class="join-modal-close" id="join-modal-close" aria-label="Close application form">×</button>
-
-      <!-- Form Panel -->
-      <div class="join-modal-content" id="join-modal-form-panel">
-        <h3 class="join-modal-title" id="join-modal-title">Apply to the Community</h3>
-        <p class="join-modal-desc">Fill in your details below to request access to the community</p>
-
-        <form id="join-application-form" novalidate>
-          <div class="form-group" data-field="name">
-            <label for="join-name" class="form-label">Full Name</label>
-            <input type="text" id="join-name" name="name" class="form-input" placeholder="Your full name" required />
-            <span class="form-error" id="error-name"></span>
-          </div>
-
-          <div class="form-group" data-field="email">
-            <label for="join-email" class="form-label">Email Address</label>
-            <input type="email" id="join-email" name="email" class="form-input" placeholder="Your email address"
-              required />
-            <span class="form-error" id="error-email"></span>
-          </div>
-
-          <div class="form-group" data-field="phone">
-            <label for="join-phone" class="form-label">Phone Number</label>
-            <input type="tel" id="join-phone" name="phone" class="form-input" placeholder="Your phone number"
-              required />
-            <span class="phone-format-caption" id="phone-format-caption">Format +1 201 555 0123</span>
-            <span class="form-error" id="error-phone"></span>
-          </div>
-
-          <div class="form-group" data-field="description">
-            <label for="join-description" class="form-label">What you do, and what stage you are at</label>
-            <textarea id="join-description" name="description" class="form-textarea"
-              placeholder="What you are building, and how far along you are" required></textarea>
-            <span class="form-error" id="error-description"></span>
-          </div>
-
-          <button type="submit" class="btn-submit" id="join-submit-btn">
-            <span class="btn-text">Join Now</span>
-            <span class="btn-spinner"></span>
-          </button>
-        </form>
-      </div>
-
-      <!-- Success Panel -->
-      <div class="join-modal-content join-success-panel" id="join-modal-success-panel" style="display: none;">
-        <div class="success-icon-container">
-          <svg class="success-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-        <h3 class="join-modal-title">Application Submitted</h3>
-        <p class="join-modal-desc">Thank you for applying. A welcome email detailing what we do is on the way. Use the
-          button below to join the community.</p>
-
-        <a href="https://chat.whatsapp.com/L6NcsuQXSAs0dpbKbhhsil" class="btn-whatsapp-success"
-          id="join-whatsapp-success-btn" target="_blank" rel="noopener noreferrer">
-          Join the Community
-        </a>
-      </div>
-    </div>
-  </div>
-
+  <div id="join-modal" class="join-modal" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Join ZeroToAct"><div class="join-modal-overlay" id="join-modal-overlay"></div><div class="join-modal-container"><button type="button" class="join-modal-close" id="join-modal-close" aria-label="Close form">×</button><div class="join-modal-content" id="join-modal-form-panel"><h3 class="join-modal-title" id="join-modal-title">Get the Free Signal</h3><p class="join-modal-desc">One email is all it takes. Your first Weekly Signal is next.</p><form id="join-application-form" novalidate><div class="form-group" data-field="name" hidden><label for="join-name" class="form-label">Full Name</label><input type="text" id="join-name" name="name" class="form-input" placeholder="Your full name" /><span class="form-error" id="error-name"></span></div><div class="form-group" data-field="email"><label for="join-email" class="form-label">Email Address</label><input type="email" id="join-email" name="email" class="form-input" placeholder="Your email address" required /><span class="form-error" id="error-email"></span></div><div class="form-group" data-field="phone" hidden><label for="join-phone" class="form-label">Phone Number</label><input type="tel" id="join-phone" name="phone" class="form-input" placeholder="Your phone number" /><span class="phone-format-caption" id="phone-format-caption">Format +1 201 555 0123</span><span class="form-error" id="error-phone"></span></div><div class="form-group" data-field="description" hidden><label for="join-description" class="form-label">What do you do</label><textarea id="join-description" name="description" class="form-textarea" placeholder="A brief description of what you do"></textarea><span class="form-error" id="error-description"></span></div><button type="submit" class="btn-submit" id="join-submit-btn"><span class="btn-text">Subscribe Free</span><span class="btn-spinner"></span></button></form></div><div class="join-modal-content join-success-panel" id="join-modal-success-panel" style="display:none;"><div class="success-icon-container"><svg class="success-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h3 class="join-modal-title">You’re on the list</h3><p class="join-modal-desc">Your first Weekly Signal will be delivered by email.</p><a href="https://chat.whatsapp.com/L6NcsuQXSAs0dpbKbhhsil" class="btn-whatsapp-success" id="join-whatsapp-success-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Join the Community</a></div></div></div>
   <script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@20.0.0/build/js/intlTelInput.min.js"></script>
-  <script src="main.js"></script>
+  <script src="/main.js"></script>
 </body>
-
 </html>
