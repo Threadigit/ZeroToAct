@@ -795,7 +795,6 @@ function productShell({ slug, title, desc, kind = 'Intelligence', status, claim,
   <main id="main" class="product-page">
     <section class="product-hero">
       <div class="container">
-        <a href="/" class="sig-back">&larr; ZeroToAct</a>
         <div class="product-hero-grid">
           <p class="sig-eyebrow">${esc(kind)}</p>
           <div><h1 class="sig-title">${esc(title)}</h1><p class="sig-claim">${esc(claim)}</p></div>
@@ -1068,7 +1067,6 @@ function summitPage() {
         <div><dt>When</dt><dd>2027</dd></div>
         <div><dt>Format</dt><dd>One day, virtual</dd></div>
         <div><dt>Who it is for</dt><dd>Career builders, business builders and people investing money</dd></div>
-        <div><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer">Tolu Adetuyi</a></dd></div>
       </dl>
       <p class="sig-note">The waitlist is how the date reaches you. There is nothing to pay to join it.</p>
     </div>`;
@@ -1077,7 +1075,7 @@ function summitPage() {
     slug: 'summit',
     title: 'The Annual Summit',
     kind: 'One virtual day each year',
-    desc: 'One day a year where a year of reading becomes a written twelve-month plan with your name on it. Virtual, convened by Tolu Adetuyi.',
+    desc: 'One day a year where a year of reading becomes a written twelve-month plan with your name on it.',
     status: 'Annual',
     claim: 'The Outlook, the discussion and the activities happen in one day, ending with a written plan that belongs to you.',
     sections,
