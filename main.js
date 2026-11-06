@@ -504,4 +504,17 @@
     };
   }
 
+  const signalVideo = document.querySelector('.pub-video-facade[data-video-id]');
+  if (signalVideo) {
+    signalVideo.addEventListener('click', () => {
+      const videoId = signalVideo.dataset.videoId;
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      frame.title = 'A ZeroToAct Weekly Signal video';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      signalVideo.replaceWith(frame);
+    });
+  }
+
 })();
