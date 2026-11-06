@@ -12,6 +12,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const BASE = 'https://zerotoact.com';
 const OG_IMAGE = `${BASE}/og-image-v2.png`;
+// Every edition shared with the same picture, so sixteen different Signals
+// previewed identically. Each now has a card rendered from its own headline.
+const ogImagePath = (s) => `/og/${s.slug}.png`;
+const ogImageUrl = (s) => `${BASE}${ogImagePath(s)}`;
 const AUTHOR = { name: 'Tolu Adetuyi', url: 'https://adetuyi.com' };
 
 // Reusable schema.org entities for structured data.
@@ -65,6 +69,16 @@ const longDate = (iso) =>
   new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', {
     day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
   });
+
+// The archive index runs sixteen dates down a column, where the long form is
+// noise. Year is dropped within the current year and kept outside it.
+const shortDate = (iso) => {
+  const d = new Date(iso + 'T12:00:00Z');
+  const sameYear = iso.slice(0, 4) === new Date().getUTCFullYear().toString();
+  return d.toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'short', ...(sameYear ? {} : { year: 'numeric' }), timeZone: 'UTC',
+  });
+};
 
 const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
 const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
@@ -190,7 +204,7 @@ const JOIN_MODAL = `  <div id="join-modal" class="join-modal" aria-hidden="true"
     </div>
   </div>`;
 
-const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '', noindex = false }) => `<!DOCTYPE html>
+const shell = ({ title, desc, canonical, head = '', body, ogType = 'website', articleMeta = '', keywords = '', noindex = false, image = OG_IMAGE }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -209,7 +223,7 @@ ${canonical ? `  <link rel="canonical" href="${canonical}" />\n` : ''}
   <meta property="og:url" content="${canonical}" />
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(desc)}" />
-  <meta property="og:image" content="${OG_IMAGE}" />
+  <meta property="og:image" content="${image}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 ${articleMeta}  <meta name="twitter:card" content="summary_large_image" />
@@ -217,7 +231,7 @@ ${articleMeta}  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content="@zerotoact" />
   <meta name="twitter:title" content="${esc(title)}" />
   <meta name="twitter:description" content="${esc(desc)}" />
-  <meta name="twitter:image" content="${OG_IMAGE}" />
+  <meta name="twitter:image" content="${image}" />
   <link rel="alternate" type="application/rss+xml" title="ZeroToAct Signals" href="/signals/feed.xml" />
   <link rel="preload" href="/fonts/playfair-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
@@ -523,7 +537,7 @@ function editionPage(s) {
         datePublished: s.date,
         dateModified: s.revised || s.date,
         inLanguage: 'en',
-        image: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630 },
+        image: { '@type': 'ImageObject', url: ogImageUrl(s), width: 1200, height: 630 },
         articleSection: s.theme,
         keywords: kw,
         ...(wordCount ? { wordCount } : {}),
@@ -614,7 +628,7 @@ function editionPage(s) {
   return shell({
     title: `${s.seoTitle || s.title} | ZeroToAct ${label(s)}`,
     desc: s.seoDesc || s.headlineClaim, canonical: url, head: jsonLdScript(jsonLd), body,
-    ogType: 'article', articleMeta, keywords: kw,
+    ogType: 'article', articleMeta, keywords: kw, image: ogImageUrl(s),
   });
 }
 
@@ -624,15 +638,49 @@ function indexPage() {
     .concat(themes.map((t) => `<button class="sig-filter" data-theme="${esc(t)}" type="button">${esc(t)}</button>`))
     .join('\n        ');
 
-  const cards = signals.map((s, i) => `
-      <article class="sig-card${i === 0 ? ' sig-card--latest' : ''}" data-theme="${esc(s.theme)}">
-        <a class="sig-card-link" href="${editionPath(s)}">
-          <div class="sig-card-meta"><span>${i === 0 ? '<span class="sig-card-latest">Latest</span>' : ''}${s.number ? `Signal ${s.number} &middot; ` : ''}${esc(longDate(s.date))} &middot; ${readMinutes(s)} min</span><span class="sig-card-theme">${esc(s.theme)}</span></div>
-          <h2 class="sig-card-title">${esc(s.title)}</h2>
-          <p class="sig-card-claim">${esc(s.headlineClaim)}</p>
-          <span class="sig-card-cta">Read the Signal &rarr;</span>
+  // The newest edition leads. It gets the claim and the room; the rest of the
+  // archive is an index, which is what a reader scanning sixteen editions
+  // actually wants.
+  const [lead, ...rest] = signals;
+  const leadCard = `
+      <article class="arc-lead" data-theme="${esc(lead.theme)}">
+        <a class="arc-lead-link" href="${editionPath(lead)}">
+          <p class="arc-lead-meta"><span class="arc-latest">Latest</span><span>${esc(longDate(lead.date))}</span><span>${esc(lead.theme)}</span><span>${readMinutes(lead)} min</span></p>
+          <h2 class="arc-lead-title">${esc(lead.title)}</h2>
+          <p class="arc-lead-claim">${esc(lead.headlineClaim)}</p>
+          <span class="arc-lead-cta">Read this Signal &rarr;</span>
         </a>
-      </article>`).join('\n');
+      </article>`;
+
+  // A ruled index rather than a column of cards. Date, theme and length sit in
+  // their own columns so the eye can run down any one of them.
+  const rows = rest.map((s) => `
+        <li class="arc-row" data-theme="${esc(s.theme)}">
+          <a class="arc-row-link" href="${editionPath(s)}">
+            <span class="arc-row-date"><time datetime="${s.date}">${esc(shortDate(s.date))}</time></span>
+            <span class="arc-row-title">${esc(s.title)}</span>
+            <span class="arc-row-theme">${esc(s.theme)}</span>
+            <span class="arc-row-len">${readMinutes(s)} min</span>
+          </a>
+        </li>`).join('');
+
+  // Every edition grades the previous week's call. Published one at a time
+  // that record is invisible; collected, it is the most checkable thing here.
+  const graded = signals.filter((s) => s.lastTime && s.lastTime.of);
+  const bySlug = Object.fromEntries(signals.map((s) => [s.slug, s]));
+  const record = graded.map((s) => {
+    const of = bySlug[s.lastTime.of];
+    return `
+        <li class="arc-call">
+          <p class="arc-call-head">
+            <span class="arc-call-verdict">${esc(s.lastTime.verdict)}</span>
+            ${of ? `<a class="arc-call-of" href="${editionPath(of)}">${esc(of.title)}</a><span class="arc-call-date">${esc(shortDate(of.date))}</span>` : ''}
+          </p>
+          <p class="arc-call-said"><span class="arc-call-label">We said</span>${esc(s.lastTime.said)}</p>
+          <p class="arc-call-landed"><span class="arc-call-label">It landed</span>${esc(s.lastTime.landed)}</p>
+          <p class="arc-call-graded">Graded in <a href="${editionPath(s)}">${esc(s.title)}</a>, ${esc(shortDate(s.date))}</p>
+        </li>`;
+  }).join('');
 
   const body = `
   <main id="main" class="sig-wrap sig-index">
@@ -640,23 +688,41 @@ function indexPage() {
       <p class="sig-eyebrow">Weekly Signals, on the record</p>
       <h1 class="sig-index-title">The Signal Archive</h1>
       <p class="sig-index-sub">Every weekly Signal, kept as a dated, citable record. Money, government policy, technology, and the world-economy shifts that change your next move. <a href="/signals/feed.xml">Subscribe by RSS</a>.</p>
+      <dl class="arc-stats">
+        <div><dt>Editions</dt><dd>${signals.length}</dd></div>
+        <div><dt>Since</dt><dd>${esc(shortDate(signals[signals.length - 1].date))}</dd></div>
+        <div><dt>Calls graded</dt><dd>${graded.length}</dd></div>
+      </dl>
     </header>
+
     <div class="sig-filters" role="group" aria-label="Filter by theme">
         ${filters}
     </div>
-    <div class="sig-grid">${cards}
-    </div>
+
+    ${leadCard}
+
+    <h2 class="arc-section-head" id="every-edition">Every edition</h2>
+    <ol class="arc-index" role="list">${rows}
+    </ol>
+
+    <section class="arc-record" aria-labelledby="track-record">
+      <h2 class="arc-section-head" id="track-record">The record</h2>
+      <p class="arc-record-intro">Every Signal grades the previous week's call before making a new one, including the weeks it missed. ${graded.length} have been graded so far.</p>
+      <ol class="arc-calls" role="list">${record}
+      </ol>
+    </section>
   </main>
   <script>
     (function () {
       var btns = document.querySelectorAll('.sig-filter');
-      var cards = document.querySelectorAll('.sig-card');
+      var items = document.querySelectorAll('[data-theme]');
       btns.forEach(function (b) {
         b.addEventListener('click', function () {
           btns.forEach(function (x) { x.classList.remove('is-active'); });
           b.classList.add('is-active');
           var t = b.getAttribute('data-theme');
-          cards.forEach(function (c) {
+          items.forEach(function (c) {
+            if (c.classList.contains('sig-filter')) return;
             c.style.display = (t === 'all' || c.getAttribute('data-theme') === t) ? '' : 'none';
           });
         });
@@ -696,7 +762,6 @@ function indexPage() {
   });
 }
 
-// ── RSS ──
 function feed() {
   // Feed readers get the whole edition, not a teaser. CDATA carries the markup;
   // the guard keeps a stray terminator from closing the section early.

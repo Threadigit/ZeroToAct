@@ -1,6 +1,6 @@
 {
   "meta": {
-    "note": "Data source for the Signal archive. Edit this file, then run `node signals/build.mjs` to regenerate the index, per-edition pages, and feed.xml.",
+    "note": "Data source for the Signal archive. Edit this file, then run `node signals/build.mjs` to regenerate the index, per-edition pages, and feed.xml. Run `node signals/og.mjs` after it to render the per-edition share cards into /og; it needs playwright on NODE_PATH and only rewrites a card whose text changed.",
     "themes": [
       "Capital",
       "Policy",

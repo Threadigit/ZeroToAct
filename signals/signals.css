@@ -427,3 +427,211 @@
     margin: 0.75rem 0 0 auto;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE ARCHIVE
+   Sixteen editions were rendered as sixteen identical cards in a 760px
+   column, which used about 40 percent of the width and told a reader
+   scanning the body of work nothing it could not have told them in one.
+
+   Three parts now: the newest edition leads with its claim, the rest is a
+   ruled index with date, theme and length in their own columns, and the
+   calls this publication has graded are collected in one place. The record
+   is the most checkable thing on the site and it was only ever visible one
+   edition at a time.
+   ═══════════════════════════════════════════════════════════════════════ */
+.sig-index { max-width: 1100px; }
+
+/* ── Head ─────────────────────────────────────────────── */
+.arc-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 clamp(2rem, 5vw, 4rem);
+  margin: var(--space-lg) 0 0;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--rule);
+}
+.arc-stats div { display: flex; flex-direction: column; gap: 0.2rem; }
+.arc-stats dt {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.arc-stats dd {
+  margin: 0;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+/* ── The lead ─────────────────────────────────────────── */
+.arc-lead { margin-top: var(--space-xl); border-top: 2px solid var(--ink); }
+.arc-lead-link {
+  display: block;
+  padding: var(--space-md) 0 var(--space-lg);
+  text-decoration: none;
+  color: inherit;
+}
+.arc-lead-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 var(--space-sm);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.arc-latest {
+  padding: 0.15rem 0.45rem;
+  background: var(--ink);
+  color: var(--page);
+  letter-spacing: 0.12em;
+}
+.arc-lead-title {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--ff-serif);
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 48;
+  line-height: 1.06;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.arc-lead-claim {
+  margin: 0 0 var(--space-md);
+  max-width: 54ch;
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+.arc-lead-cta { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--ink); }
+.arc-lead-link:hover .arc-lead-title { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+
+/* ── Section heads ────────────────────────────────────── */
+.arc-section-head {
+  margin: var(--space-2xl) 0 var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--rule);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── The index ────────────────────────────────────────── */
+.arc-index { list-style: none; margin: 0; padding: 0; }
+.arc-row + .arc-row { border-top: 1px solid var(--rule-soft); }
+.arc-row-link {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr) 7rem 4rem;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: 0.95rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 180ms var(--ease-out);
+}
+.arc-row-link:hover { background-color: color-mix(in srgb, var(--mark) 4%, transparent); }
+.arc-row-date, .arc-row-theme, .arc-row-len {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  color: var(--ink-4);
+  font-variant-numeric: tabular-nums;
+}
+.arc-row-theme { text-transform: uppercase; }
+.arc-row-len { text-align: right; }
+.arc-row-title {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  font-optical-sizing: auto;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.arc-row-link:hover .arc-row-title { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ── The record ───────────────────────────────────────── */
+.arc-record-intro { max-width: 52ch; font-size: var(--fs-base); color: var(--ink-2); margin: 0 0 var(--space-lg); }
+.arc-calls {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+.arc-call {
+  padding: var(--space-md) var(--space-md) var(--space-lg) 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.arc-call + .arc-call { }
+.arc-call-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0 0 var(--space-sm);
+}
+.arc-call-verdict {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--page);
+  background: var(--ink);
+  padding: 0.15rem 0.45rem;
+}
+.arc-call-of { font-family: var(--ff-serif); font-size: var(--fs-base); color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.arc-call-of:hover { border-bottom-color: var(--ink); }
+.arc-call-date { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--ink-4); }
+.arc-call p { margin: 0 0 0.6rem; font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-2); text-wrap: pretty; }
+.arc-call-label {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 0.2rem;
+}
+.arc-call-graded { font-size: var(--fs-xs); color: var(--ink-4); margin-bottom: 0; }
+.arc-call-graded a { color: var(--ink-3); }
+
+@media (max-width: 760px) {
+  .arc-row-link { grid-template-columns: minmax(0, 1fr) auto; row-gap: 0.3rem; }
+  .arc-row-title { grid-column: 1 / -1; grid-row: 1; }
+  .arc-row-date { grid-column: 1; grid-row: 2; }
+  .arc-row-theme { grid-column: 2; grid-row: 2; text-align: right; }
+  .arc-row-len { display: none; }
+  .arc-call { padding-right: 0; }
+}
+
+/* The lead's own bottom padding and the next section head's top margin
+   stacked to about 144px of nothing. The head supplies the separation. */
+.arc-lead-link { padding-bottom: var(--space-sm); }
+.arc-lead + .arc-section-head { margin-top: var(--space-xl); }
+
+/* The record grid had no gutter, so two columns of prose ran into each
+   other. The rule between them is what makes them read as a table of
+   calls rather than as a wrapped paragraph. */
+.arc-calls { column-gap: 0; }
+.arc-call { padding-inline: var(--space-md); }
+.arc-call:nth-child(odd) { padding-left: 0; }
+@media (min-width: 60rem) {
+  .arc-call:nth-child(even) { border-left: 1px solid var(--rule-soft); }
+}
