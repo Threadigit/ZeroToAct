@@ -873,9 +873,9 @@ function whyPage() {
           <div><h2>A considered view, with the evidence attached.</h2><dl><div><dt>Selection</dt><dd>We cover the shift that changes a decision, not everything that happened.</dd></div><div><dt>Reasoning</dt><dd>We show the chain from event to consequence and name the assumptions inside it.</dd></div><div><dt>Accountability</dt><dd>Sources stay visible. Calls stay in the archive. What held and what failed can be inspected.</dd></div></dl></div>
         </section>
 
-        <section class="why-founder">
-          <img src="/tolu-320.jpg" alt="Tolu Adetuyi, founder of ZeroToAct" width="320" height="266" loading="lazy" decoding="async" />
-          <div><p class="why-section-label">The people behind it</p><h2>Built by people who use it.</h2><p>ZeroToAct is made by a small team of operators who use the same Signals to make decisions about their work, businesses and capital. The publication is not a view from the sidelines. It is the intelligence practice the team had always wanted and finally committed to building in public.</p><p>Every edition has to be useful enough for the team to act on before it asks the reader to do the same. <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a> founded ZeroToAct and remains publicly accountable for its editorial position.</p><a class="pub-inline-link" href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer">About Tolu Adetuyi</a></div>
+        <section class="why-team">
+          <p class="why-section-label">The ZeroToAct team</p>
+          <div><h2>Built by people who use it.</h2><p>ZeroToAct is made by a small team of operators who use the same Signals to make decisions about their work, businesses and capital. The publication is not a view from the sidelines. It is the intelligence practice the team had always wanted and finally committed to building in public.</p><p>Every edition has to be useful enough for the team to act on before it asks the reader to do the same. The reasoning, sources and record remain public so readers can judge the work for themselves.</p></div>
         </section>
 
         <div class="why-cta"><div><h2>Read one Signal. Judge the work.</h2><p>The Weekly Signal is free, sourced and kept in the public archive.</p></div>${briefCta('Get the Free Signal')}</div>
