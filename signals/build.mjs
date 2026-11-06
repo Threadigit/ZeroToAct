@@ -84,12 +84,6 @@ const rfc822 = (iso) => new Date(iso + 'T12:00:00Z').toUTCString();
 const editionPath = (s) => `/signals/${s.slug}/`;        // root-relative, for on-site links
 const editionUrl = (s) => `${BASE}${editionPath(s)}`;    // absolute, for canonical/OG/RSS/sitemap/citation
 const label = (s) => (s.number ? `Signal ${s.number}` : 'Signal');
-// Counts the prose a reader actually reads, at 230 wpm, rounded to the nearest minute.
-const readMinutes = (s) => {
-  const parts = [...(s.written || []).map((x) => (typeof x === 'string' ? x : x.h || '')),
-                 s.method || '', s.proveWrong || '', ...(s.nextMove || []).map((m) => m.do)];
-  return Math.max(1, Math.round(parts.join(' ').trim().split(/\s+/).length / 230));
-};
 // Titles may end in a full stop, which would read as "Nigeria., 13 September" in a citation.
 const citeTitle = (s) => s.title.replace(/\.$/, '');
 const citation = (s) =>
@@ -473,7 +467,9 @@ const videoWatch = (s) => `https://www.youtube.com/watch?v=${s.videoId}`;
 // ── Per-edition page ──
 function editionPage(s) {
   const url = editionUrl(s);
-  const eyebrowBits = [s.theme, longDate(s.date), `${readMinutes(s)} min read`];
+  // A minute count is a blog device, not a publication's. The archive dropped
+  // it; the edition header keeps the two facts that place the piece.
+  const eyebrowBits = [s.theme, longDate(s.date)];
   if (s.number) eyebrowBits.unshift(`Signal ${s.number}`);
 
   // A written item is a paragraph (string) or a section subheading ({ h: '...' }).
@@ -1202,14 +1198,63 @@ function latestSignalsBand(n = 3) {
     </section>`;
 }
 
-function writeLatestSignals() {
+// The strongest thing this publication can say about itself is that it grades
+// its own calls, including the ones it got wrong. That belongs on the homepage
+// and it belongs generated, so it cannot drift from the editions. Four graded
+// calls: enough to show the practice, short enough to stay a band.
+function recordBand(n = 4) {
+  const rows = signals
+    .filter((s) => s.lastTime && s.lastTime.of)
+    .slice(0, n)
+    .map((s) => {
+      const of = signals.find((x) => x.slug === s.lastTime.of);
+      return `
+            <li class="rec-row">
+              <p class="rec-row-head">
+                <span class="rec-row-verdict">${esc(s.lastTime.verdict)}</span>
+                <span class="rec-row-of">${of
+                  ? `<a href="${editionPath(of)}">${esc(of.title)}</a>, ${esc(shortDate(of.date))}`
+                  : esc(s.lastTime.of)}</span>
+              </p>
+              <p class="rec-row-said">${esc(s.lastTime.said)}</p>
+              <p class="rec-row-landed">${esc(s.lastTime.landed)}</p>
+            </li>`;
+    })
+    .join('');
+
+  return `<section id="record" class="record-section" aria-labelledby="record-heading">
+      <div class="container">
+        <div class="record-inner">
+          <p class="section-eyebrow">The record</p>
+          <div class="record-main reveal">
+            <h2 id="record-heading" class="section-heading">We grade our own calls.</h2>
+            <p class="section-sub">
+              Every Signal scores the previous week's call before it makes a new one, in the same
+              words it used at the time, including the weeks it missed.
+            </p>
+            <div class="rec-head" aria-hidden="true">
+              <span>The call</span>
+              <span>What happened</span>
+            </div>
+            <ol class="rec-rows" role="list">${rows}
+            </ol>
+            <p class="rec-foot"><a href="/signals/#track-record">The full record</a></p>
+          </div>
+        </div>
+      </div>
+    </section>`;
+}
+
+// Both homepage bands are written into marked regions of the hand-maintained
+// index.html, so the page carries live content without becoming a template.
+function writeBand(name, html) {
   const file = resolve(ROOT, 'index.html');
-  const html = readFileSync(file, 'utf8');
-  const start = '<!-- latest-signals:start -->', end = '<!-- latest-signals:end -->';
-  const a = html.indexOf(start), b = html.indexOf(end);
-  if (a === -1 || b === -1) { console.warn('index.html: latest-signals markers not found, skipped'); return; }
-  const next = html.slice(0, a + start.length) + '\n    ' + latestSignalsBand() + '\n    ' + html.slice(b);
-  if (next !== html) { writeFileSync(file, next); console.log('wrote index.html latest-signals band'); }
+  const src = readFileSync(file, 'utf8');
+  const start = `<!-- ${name}:start -->`, end = `<!-- ${name}:end -->`;
+  const a = src.indexOf(start), b = src.indexOf(end);
+  if (a === -1 || b === -1) { console.warn(`index.html: ${name} markers not found, skipped`); return; }
+  const next = src.slice(0, a + start.length) + '\n    ' + html + '\n    ' + src.slice(b);
+  if (next !== src) { writeFileSync(file, next); console.log(`wrote index.html ${name} band`); }
 }
 
 // A 404 is a page on the site, not an apology from the server. It keeps the
@@ -1256,6 +1301,7 @@ const STANDALONE = [
   ['community/index.html', communityPage],
 ];
 for (const [rel, fn] of STANDALONE) write(rel, fn());
-writeLatestSignals();
+writeBand('latest-signals', latestSignalsBand());
+writeBand('record', recordBand());
 
 console.log(`\nGenerated ${signals.length} editions and ${STANDALONE.length} standalone pages.`);

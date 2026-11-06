@@ -1,3 +1,7 @@
+/* Rounded corners are for overlays, form controls and buttons. Panels in the
+   content column are square and hairline-ruled, which is the idiom the rest
+   of the site already uses; seven of them had kept a radius from an earlier
+   pass and read as widgets dropped into the page. */
 /* Signal archive styles. Loaded after style.css, reuses its tokens. */
 
 .sig-wrap {
@@ -84,7 +88,7 @@
 .sig-filter:hover { color: var(--white); border-color: var(--grey-600); }
 .sig-filter.is-active { color: var(--black); background: var(--white); border-color: var(--white); }
 
-.sig-grid { display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-lg); overflow: hidden; }
+.sig-grid { display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); overflow: hidden; }
 .sig-card { background: var(--black); transition: background var(--transition-fast); }
 .sig-card:hover { background: var(--black-card); }
 .sig-card-link { display: block; padding: 1.75rem; }
@@ -107,7 +111,7 @@
 
 /* figure/figcaption so the caption is associated with the embed, not floating near it. */
 .sig-video { margin: 0 0 2.5rem; }
-.sig-video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--black-border); background: var(--black-soft); }
+.sig-video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--black-border); background: var(--black-soft); }
 .sig-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .sig-revised { margin-top: 0.85rem; font-size: var(--fs-sm); line-height: 1.55; color: var(--grey-500); border-left: 2px solid var(--black-border); padding-left: 0.9rem; }
 
@@ -121,8 +125,8 @@
 .sig-block p { font-size: var(--read-size); line-height: var(--read-leading); color: var(--grey-200); }
 .sig-block--move p { color: var(--white); }
 
-.sig-moves { list-style: none; display: flex; flex-direction: column; gap: 1px; background: var(--black-border); border: 1px solid var(--black-border); border-radius: var(--radius-md); overflow: hidden; }
-.sig-moves li { display: flex; flex-direction: column; gap: 0.45rem; padding: 1.15rem 1.25rem; background: var(--black); }
+.sig-moves { list-style: none; display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.sig-moves li { display: flex; flex-direction: column; gap: 0.45rem; padding: 1.15rem 0; border-bottom: 1px solid var(--rule-soft); }
 .sig-move-who { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-pure); }
 .sig-move-do { font-size: var(--fs-base); line-height: 1.65; color: var(--grey-200); }
 .sig-sources { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -130,7 +134,7 @@
 
 .sig-cite { border-top: 1px solid var(--black-border); padding-top: 1.5rem; margin-top: 2rem; }
 .sig-cite h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.6rem; }
-.sig-cite-text { font-family: var(--ff-mono); font-size: var(--fs-sm); line-height: 1.6; color: var(--grey-400); background: var(--black-soft); border: 1px solid var(--black-border); border-radius: var(--radius-md); padding: 0.9rem 1.1rem; word-break: break-word; }
+.sig-cite-text { font-family: var(--ff-mono); font-size: var(--fs-sm); line-height: 1.6; color: var(--grey-400); background: var(--black-soft); border: 1px solid var(--black-border); padding: 0.9rem 1.1rem; word-break: break-word; }
 
 .sig-byline { margin-top: 2rem; font-size: var(--fs-sm); color: var(--grey-500); }
 /* Top byline sits with the headline group: pulls up against .sig-claim's 2rem bottom margin. */
@@ -144,7 +148,7 @@
 
 /* ── Research product pages ── */
 
-.sig-cta-band { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem; padding: 2rem; background: var(--black-soft); border: 1px solid var(--black-border); border-radius: var(--radius-lg); }
+.sig-cta-band { display: flex; align-items: start; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem; padding: var(--space-lg) 0 0; border-top: 2px solid var(--ink); }
 .sig-cta-band h2 { font-family: var(--ff-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--white-pure); letter-spacing: -0.01em; margin-bottom: 0.35rem; }
 .sig-cta-band p { color: var(--grey-400); font-size: var(--fs-sm); line-height: 1.5; max-width: 46ch; }
 .sig-cta-btn { flex-shrink: 0; font-size: var(--fs-sm); font-weight: 500; color: var(--black); background: var(--white); padding: 0.7rem 1.4rem; border-radius: var(--radius-full); transition: transform var(--transition-fast), background var(--transition-fast); }
@@ -297,7 +301,10 @@
 }
 
 /* Last time we said. The scorecard that makes a weekly call worth trusting. */
-.sig-lasttime { border: 1px solid var(--black-border); border-radius: var(--radius-md); padding: 1.25rem 1.4rem; margin-bottom: 2.5rem; background: var(--black-soft); }
+/* Was a rounded, bordered, filled box -- the only one left on the site, and it
+   read as a widget dropped into the article. It is a standing section of the
+   edition, so it is ruled like one. */
+.sig-lasttime { border-top: 2px solid var(--ink); padding-top: var(--space-md); margin-bottom: 2.5rem; }
 .sig-lasttime h2 { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.7rem; }
 .sig-lasttime p { font-size: var(--fs-base); line-height: 1.65; color: var(--grey-300); }
 .sig-lasttime-verdict { margin-top: 0.7rem; color: var(--white); }
@@ -338,7 +345,7 @@
 .sig-chart-key i { width: 10px; height: 10px; border-radius: 2px; flex: none; }
 .sig-chart-key i.is-line { height: 2px; width: 14px; border-radius: 2px; }
 
-.sig-chart-plot { position: relative; border: var(--hairline); border-radius: var(--radius-md); background: var(--black-soft); padding: var(--space-xs); }
+.sig-chart-plot { position: relative; border: var(--hairline); background: var(--black-soft); padding: var(--space-xs); }
 .sig-chart-plot svg { width: 100%; height: auto; display: block; overflow: visible; }
 
 .sig-chart-grid { stroke: var(--black-border); stroke-width: 1; }
@@ -594,3 +601,36 @@
 .sig-filter { border: 0; }
 .sig-filter.is-active { color: var(--ink); box-shadow: inset 0 -1px 0 var(--ink); }
 .sig-filter:hover { color: var(--ink-2); }
+
+/* ── ONE SPINE ACROSS THE SITE ───────────────────────────
+   The homepage runs a label column and starts its content at the main column,
+   352px in at 1440. These pages ran their own centred measure instead, so
+   moving from the homepage to an edition shifted every line 64px right, and to
+   the archive 128px left: three content edges on one site.
+
+   .sig-wrap is the same element as .sig-article / .sig-index / .why-page, so
+   the offset is padding on that element rather than a margin, which would move
+   the container itself. The reading measure then caps the children. Below the
+   homepage's own 1024px breakpoint its label column collapses, so this does
+   too and the pages go back to a plain centred column.
+   ──────────────────────────────────────────────────────── */
+.sig-wrap {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (min-width: 1025px) {
+  .sig-article,
+  .why-page,
+  .sig-index {
+    max-width: var(--max-w);
+    padding-left: calc(var(--gutter) + var(--grid-label) + var(--grid-gap));
+  }
+  /* Prose keeps its measure; it is the column that moved, not the line length. */
+  .sig-article > *,
+  .why-page > * { max-width: var(--read-measure); }
+  /* The archive index is a register, not prose: three-part rows need the full
+     span from the spine to the page's right edge, as on the homepage. */
+  .sig-index > * { max-width: none; }
+}
