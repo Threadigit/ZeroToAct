@@ -792,21 +792,27 @@ const briefCta = (label = 'Get the Free Signal') =>
 function productShell({ slug, title, desc, kind = 'Intelligence', status, claim, sections, cta }) {
   const url = `${BASE}/${slug}/`;
   const body = `
-  <main id="main" class="sig-wrap sig-article">
-    <a href="/" class="sig-back">&larr; ZeroToAct</a>
-    <p class="sig-eyebrow">${esc(kind)} &middot; ${esc(status)}</p>
-    <h1 class="sig-title">${esc(title)}</h1>
-    <p class="sig-claim">${esc(claim)}</p>
-    ${sections}
-    <div class="sig-cta-band">
-      <div>
-        <h2>${esc(cta.heading)}</h2>
-        <p>${esc(cta.sub)}</p>
+  <main id="main" class="product-page">
+    <section class="product-hero">
+      <div class="container">
+        <a href="/" class="sig-back">&larr; ZeroToAct</a>
+        <div class="product-hero-grid">
+          <p class="sig-eyebrow">${esc(kind)}</p>
+          <div><h1 class="sig-title">${esc(title)}</h1><p class="sig-claim">${esc(claim)}</p></div>
+        </div>
       </div>
-      ${cta.intent && cta.intent !== 'brief'
-        ? `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="${esc(cta.intent)}">${esc(cta.label)}</button>`
-        : briefCta(cta.label)}
-    </div>
+    </section>
+    <section class="product-body">
+      <div class="product-body-inner">
+${sections}
+        <div class="sig-cta-band">
+          <div><h2>${esc(cta.heading)}</h2><p>${esc(cta.sub)}</p></div>
+          ${cta.intent && cta.intent !== 'brief'
+            ? `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="${esc(cta.intent)}">${esc(cta.label)}</button>`
+            : briefCta(cta.label)}
+        </div>
+      </div>
+    </section>
   </main>
   ${READING_PROGRESS}`;
   const ld = {
@@ -910,14 +916,14 @@ function whyPage() {
 
     <h2>So this is what we publish</h2>
     <p>Every week we take one thing that moved near the top of the chain and follow it down, step by step, until it reaches your work, your business or your money. That is the <a href="/signals/"><strong>Weekly Signal</strong></a>. It is free and it stays free, because the read should not be the part that is rationed.</p>
-    <p>Then once a year we set out where the next twelve months are heading and where to position for them. Before any of that, we publish how last year's calls actually turned out, because a forecast nobody grades is entertainment. That is the <a href="/annual-outlook/"><strong>Annual Outlook</strong></a>.</p>
+    <p>Then once a year, at the Summit, we present the <a href="/annual-outlook/"><strong>Annual Outlook</strong></a>. It grades how the previous year&rsquo;s calls turned out before setting out our position for the next twelve months. The Outlook becomes the working text for the day, and the other sessions and activities help you turn it into your own plan.</p>
 
     <h2>The harder half</h2>
     <p>Most people who understand the chain still do nothing with it.</p>
     <p>Not because they are slow, and not because they missed the signal. Because nobody was expecting them to act, and a private intention with no witness quietly expires.</p>
     <p class="why-turn">So we built the other half.</p>
     <p>A cell of five, matched to your stage, meeting every two weeks. You say what you are going to do. The other four ask you about it next time. Matching matters, because a founder raising money and four first year students in one room helps nobody. The cells are peer run, so nobody chairs them for you. You own the outcome.</p>
-    <p>Once a year, at the <a href="/summit/">Summit</a>, a year of reading becomes one written plan for the next twelve months with your name on it.</p>
+    <p>Once a year, at the <a href="/summit/">Summit</a>, the Annual Outlook and a year of reading become one written plan for the next twelve months with your name on it.</p>
     <p>That is the whole design. See the chain clearly, then sit in a room where somebody expects you to move on it.</p>
 
     <h2>Who is behind this</h2>
@@ -961,12 +967,13 @@ function annualOutlookPage() {
     ['Where the money is going', 'Rates, currencies and credit for the year ahead, and what each one does to the cost of borrowing where you are.'],
     ['Where the openings are', 'The sectors and markets the year\u2019s reporting kept returning to, and the ones it stopped returning to.'],
     ['What would break it', 'The assumptions the position rests on, named, so you can watch the ones that matter instead of all of them.'],
-    ['The move, by position', 'What it means if you are building a career, running a company, or putting money to work. Three answers, not one.'],
+    ['What it means for you', 'A separate reading for career builders, business builders and people investing money, because the same year does not create the same decision for everyone.'],
   ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
 
   const sections = `
     <div class="sig-body">
-      <p>Once a year, one publication reviews the year of Signals and tells you where to position for the next. It is the point where twelve months of weekly intelligence becomes a single, considered stance.</p>
+      <p>The Annual Outlook is delivered at the Annual Summit. It reviews the year of Signals, grades what held and what did not, and sets out our considered view of the twelve months ahead.</p>
+      <p>It is not a separate report you are expected to interpret alone before the event. It is the working text for the day. The Summit gives you the discussion, activities and time needed to decide what the Outlook means for your own position.</p>
     </div>
     <div class="sig-block sig-block--move">
       <h2>It grades its own calls first</h2>
@@ -990,18 +997,19 @@ function annualOutlookPage() {
       <p>The Outlook is assembled, not invented. It draws on the year\u2019s Signals, the outcomes recorded inside the accountability cells, and the openings the reporting kept returning to. It is the compounding of everything already published, which is why it can be graded at all.</p>
     </div>
     <div class="sig-block">
-      <h2>It sets up the Summit</h2>
-      <p>The Outlook is where the year\u2019s intelligence becomes a position. The <a href="/summit/">Annual Summit</a> is where you turn that position into a personal 12-month plan. The first Outlook lands alongside the New Year Summit.</p>
+      <h2>It is part of the Summit</h2>
+      <p>The Outlook and the <a href="/summit/">Annual Summit</a> happen on the same day. We present the Outlook, work through the assumptions behind it and use the rest of the day to help you turn its conclusions into a personal twelve-month plan.</p>
     </div>`;
 
   return productShell({
     slug: 'annual-outlook',
     title: 'The Annual Outlook',
-    desc: 'The year-ahead publication that grades last year’s calls before making new ones, built from the year’s Signals and the outcomes recorded inside the cells.',
+    kind: 'Presented at the Annual Summit',
+    desc: 'The year-ahead publication delivered at the Annual Summit, grading the previous year’s calls before setting out the position for the next.',
     status: 'Annual',
-    claim: "One publication a year that grades last year's calls, then tells you where to position for the next.",
+    claim: "Delivered at the Annual Summit, it grades the previous year's calls before setting out our position for the next.",
     sections,
-    cta: { heading: 'Be there for the first one.', sub: 'The first Annual Outlook lands with the New Year Summit. Subscribe to Weekly Signals to get it.', label: 'Get the Free Signal' },
+    cta: { heading: 'Read it in the room where it becomes useful.', sub: 'The first Annual Outlook is delivered at the Annual Summit. Subscribe to receive the date and the Weekly Signals that build towards it.', label: 'Get the Free Signal' },
   });
 }
 
@@ -1013,25 +1021,26 @@ function annualOutlookPage() {
 // programme is invented to fill the page.
 function summitPage() {
   const tracks = [
-    ['No skill yet', 'Which skills survive where the economy is heading, matched to what you can realistically learn and stay with.'],
-    ['Building or running something', 'Where the openings are in the year ahead, and how to take them from where you actually stand.'],
-    ['Putting money to work', 'Where to be looking next, and what the cost of borrowing does to the case for waiting.'],
+    ['Career builders', 'Which skills and roles fit the direction of the year, and what you should start, stop or strengthen from where you are now.'],
+    ['Business builders', 'Where demand, capital and policy are creating openings, and which assumptions in your current plan need to change.'],
+    ['People investing money', 'Where to look next, what the cost of money changes and which risks would invalidate the position.'],
   ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
 
   const sections = `
     <div class="sig-body">
       <p>Most of the year is reading. One day of it is deciding.</p>
-      <p>The Summit is the day the year&rsquo;s intelligence stops being context and becomes a position you have written down. You arrive having read the <a href="/annual-outlook/">Annual Outlook</a>. You leave with twelve months of direction in your own words, for your own situation.</p>
+      <p>The <a href="/annual-outlook/">Annual Outlook</a> is delivered at the Summit and becomes the working text for the day. We present the position, work through the reasoning behind it and use the other sessions and activities to help you decide what it changes for you.</p>
+      <p>You leave with twelve months of direction written in your own words, for your own situation.</p>
     </div>
 
     <div class="sig-block sig-block--move">
-      <h2>Global Eyes. African Stakes.</h2>
-      <p>The decisions that reprice a skill or cancel a project are mostly taken somewhere else. The consequences land here. The Summit reads the world the way it is actually ordered, from where the rules are written down to what it changes for the work you do, and it does not pretend that order runs the other way.</p>
+      <h2>The day is built around your decision</h2>
+      <p>The Outlook gives everyone the same reading of the year. The work of the Summit is to make that reading specific. What should you learn or negotiate next? What needs to change in the business you are building? What deserves your money, and what no longer does?</p>
     </div>
 
     <div class="sig-block">
       <h2>The shape of the day</h2>
-      <p>One day, virtual, with the Outlook as the text. The morning establishes where the economy is heading and why. The afternoon turns that into your plan, because a forecast you did not write anything down against is entertainment.</p>
+      <p>One virtual day, with the Outlook as the text. We establish where the year may be heading, test the assumptions behind that position and work through activities that turn it into a plan you can use. A forecast you do not decide anything against is only something you read.</p>
     </div>
 
     <div class="sig-block">
@@ -1050,7 +1059,7 @@ function summitPage() {
 
     <div class="sig-block">
       <h2>Where it sits</h2>
-      <p>The <a href="/signals/">Weekly Signals</a> build the context, free, all year. The <a href="/annual-outlook/">Annual Outlook</a> grades the year&rsquo;s calls and sets a position. The Summit turns that position into your plan. The <a href="/community/">Live Network</a> holds you to it. Each one is useful alone and they compound in that order.</p>
+      <p>The <a href="/signals/">Weekly Signals</a> build the context throughout the year. At the Summit, the <a href="/annual-outlook/">Annual Outlook</a> grades the calls, sets the position and becomes the basis for the day&rsquo;s work. The <a href="/community/">Live Network</a> helps you keep moving after the event.</p>
     </div>
 
     <div class="sig-block">
@@ -1058,7 +1067,7 @@ function summitPage() {
       <dl class="sig-facts">
         <div><dt>When</dt><dd>2027</dd></div>
         <div><dt>Format</dt><dd>One day, virtual</dd></div>
-        <div><dt>Who it is for</dt><dd>Anyone building a career, a company or a portfolio</dd></div>
+        <div><dt>Who it is for</dt><dd>Career builders, business builders and people investing money</dd></div>
         <div><dt>Convener</dt><dd><a href="https://adetuyi.com" target="_blank" rel="noopener noreferrer">Tolu Adetuyi</a></dd></div>
       </dl>
       <p class="sig-note">The waitlist is how the date reaches you. There is nothing to pay to join it.</p>
@@ -1067,10 +1076,10 @@ function summitPage() {
   return productShell({
     slug: 'summit',
     title: 'The Annual Summit',
-    kind: 'Summit',
+    kind: 'One virtual day each year',
     desc: 'One day a year where a year of reading becomes a written twelve-month plan with your name on it. Virtual, convened by Tolu Adetuyi.',
     status: 'Annual',
-    claim: 'One day a year where a year of reading becomes one written plan with your name on it.',
+    claim: 'The Outlook, the discussion and the activities happen in one day, ending with a written plan that belongs to you.',
     sections,
     cta: { heading: 'Be in the room.', sub: 'The waitlist is how the date reaches you. Nothing to pay to join it.', label: 'Join the Summit Waitlist', intent: 'summit' },
   });
@@ -1079,7 +1088,7 @@ function summitPage() {
 // ── Community page ──
 function communityPage() {
   const steps = [
-    ['You apply', 'The form asks who you are and what stage you are at. That is not a filter on ambition, it is how you get placed. A founder raising money does not belong in a room with four first-year students, and neither of them is served by pretending otherwise.'],
+    ['You apply', 'The form asks whether you are building a career, building a business or investing money, what stage you are at and what you are trying to move. That is how we place you with people who can be useful to you.'],
     ['You set your goals', 'Your cell starts as soon as you are in. You say what you are going to do and by when. At the Summit you lock the full twelve months.'],
     ['Your cell of five holds you to it', 'Every two weeks the cell reviews what you promised, what shipped, and what happens next. You own the outcome. The cell keeps the record.'],
   ].map(([h, p]) => `<li><span class="sig-move-who">${esc(h)}</span><span class="sig-move-do">${esc(p)}</span></li>`).join('\n        ');
@@ -1112,6 +1121,15 @@ function communityPage() {
       <p>The cell is useful because of who is in it. Stage and substance decide the match, so you land with four people whose next problem looks like yours. That is also why the application asks what it asks, and why a random five would not do.</p>
     </div>
 
+    <div class="sig-block">
+      <h2>Useful to different kinds of builders</h2>
+      <ul class="sig-moves">
+        <li><span class="sig-move-who">Career builders</span><span class="sig-move-do">Use the cell to keep a learning plan, job search, negotiation or professional move from becoming a private intention with no deadline.</span></li>
+        <li><span class="sig-move-who">Business builders</span><span class="sig-move-do">Use it to review the operating commitment that matters now, from revenue and hiring to a launch, a raise or a change in direction.</span></li>
+        <li><span class="sig-move-who">People investing money</span><span class="sig-move-do">Use it to make the reasoning behind an allocation explicit, set the condition that would change your mind and review whether the thesis still holds.</span></li>
+      </ul>
+    </div>
+
     <div class="sig-lasttime">
       <h2>What it is not</h2>
       <p>It is not a content drop, a paid mastermind, or a channel where links get posted.</p>
@@ -1126,7 +1144,7 @@ function communityPage() {
   return productShell({
     slug: 'community',
     title: 'The Live Network',
-    kind: 'Community',
+    kind: 'Peer groups of five',
     desc: 'Cells of five, matched to your stage, reviewing what you promised every two weeks. Peer run, on WhatsApp, open to anyone ready to commit to the cadence.',
     status: 'Live',
     claim: 'Five people at your stage. One standing commitment. A review every two weeks.',
