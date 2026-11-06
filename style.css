@@ -2666,11 +2666,18 @@ body > * { position: relative; z-index: 1; }
 /* These cells carry no fill, only hairlines, so their padding was pushing the
    first column's text 32px inside the page spine and the last column's text
    32px short of the right edge. A ruled table is flush at both ends; only the
-   gutters between cells need the space. */
-.pillars-grid > :first-child,
-.community-grid > :first-child { padding-left: 0; }
-.pillars-grid > :last-child,
-.community-grid > :last-child { padding-right: 0; }
+   gutters between cells need the space. Once the grid stacks every cell is its
+   own full-width row, so every one is flush -- otherwise card 01 sits on the
+   gutter and cards 02 and 03 sit 24px inside it. */
+.pillars-grid > *,
+.community-grid > * { padding-left: 0; padding-right: 0; }
+
+@media (min-width: 1025px) {
+  .pillars-grid > :not(:first-child),
+  .community-grid > :not(:first-child) { padding-left: clamp(1.5rem, 2.2vw, 2rem); }
+  .pillars-grid > :not(:last-child),
+  .community-grid > :not(:last-child) { padding-right: clamp(1.5rem, 2.2vw, 2rem); }
+}
 .pillar-card + .pillar-card,
 .community-card + .community-card { border-left: 1px solid var(--rule); }
 
