@@ -942,7 +942,7 @@ function annualOutlookPage() {
     status: 'Annual',
     claim: "Delivered at the Annual Summit, it grades the previous year's calls before setting out our position for the next.",
     sections,
-    cta: { heading: 'Read it in the room where it becomes useful.', sub: 'The first Annual Outlook is delivered at the Annual Summit. Subscribe to receive the date and the Weekly Signals that build towards it.', label: 'Get the Free Signal' },
+    cta: { heading: 'Receive the Outlook at the Summit.', sub: 'Join the waitlist to receive the date and be in the room where the Outlook becomes a plan.', label: 'Join the Summit Waitlist', intent: 'summit' },
   });
 }
 
