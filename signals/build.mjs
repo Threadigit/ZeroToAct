@@ -483,7 +483,7 @@ function editionPage(s) {
     ? `<div class="sig-block"><h2>What would prove this wrong</h2><p>${esc(s.proveWrong)}</p></div>` : '';
   // Next move is either one paragraph, or per-audience actions [{ who, do }].
   const nextMove = s.nextMove
-    ? `<div class="sig-block sig-block--move"><h2>Next move</h2>${
+    ? `<div class="sig-block sig-block--move" id="next-move"><h2>Next move</h2>${
         Array.isArray(s.nextMove)
           ? `<ul class="sig-moves">${s.nextMove.map((m) =>
               `<li><span class="sig-move-who">${esc(m.who)}</span><span class="sig-move-do">${esc(m.do)}</span></li>`).join('')}</ul>`
@@ -875,7 +875,7 @@ function whyPage() {
 
         <section class="why-founder">
           <img src="/tolu-320.jpg" alt="Tolu Adetuyi, founder of ZeroToAct" width="320" height="266" loading="lazy" decoding="async" />
-          <div><p class="why-section-label">Founder</p><h2>Built from operating experience.</h2><p>ZeroToAct is founded by <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a>. He builds identity and cross-border payments infrastructure and has advised companies across North America, the United Kingdom and Africa.</p><p>Policy, currency, regulation and the cost of capital are operating conditions in his work. ZeroToAct brings that same practical reading to every edition.</p><a class="pub-inline-link" href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer">About Tolu Adetuyi</a></div>
+          <div><p class="why-section-label">The people behind it</p><h2>Built by people who use it.</h2><p>ZeroToAct is made by a small team of operators who use the same Signals to make decisions about their work, businesses and capital. The publication is not a view from the sidelines. It is the intelligence practice the team had always wanted and finally committed to building in public.</p><p>Every edition has to be useful enough for the team to act on before it asks the reader to do the same. <a href="${AUTHOR.url}" target="_blank" rel="author noopener noreferrer">Tolu Adetuyi</a> founded ZeroToAct and remains publicly accountable for its editorial position.</p><a class="pub-inline-link" href="${AUTHOR.url}" target="_blank" rel="noopener noreferrer">About Tolu Adetuyi</a></div>
         </section>
 
         <div class="why-cta"><div><h2>Read one Signal. Judge the work.</h2><p>The Weekly Signal is free, sourced and kept in the public archive.</p></div>${briefCta('Get the Free Signal')}</div>
