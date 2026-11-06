@@ -854,7 +854,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 }
 
 
-
 .card-status-text {
   font-weight: 600;
 }
@@ -1043,8 +1042,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
 .instagram-section {
   padding-block: clamp(5.5rem, 10vw, 9rem);
   border-bottom: 1px solid var(--black-border);
-  background:
-    radial-gradient(circle at 72% 35%, rgba(255,255,255,.035), transparent 30%);
 }
 
 
@@ -1079,27 +1076,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
   margin-top: .85rem;
   color: var(--grey-600);
   font-size: var(--fs-xs);
-}
-
-
-.instagram-card:nth-child(2) {
-  border-bottom: 1px solid var(--black-border);
-}
-
-.instagram-card--featured {
-  grid-row: 1 / 3;
-  min-height: 420px;
-  border-left: 0;
-  padding: 2rem;
-}
-
-.instagram-card:hover {
-  background-color: rgba(255,255,255,.025);
-}
-
-
-.instagram-card--featured h3 {
-  font-size: clamp(1.6rem, 3vw, 2.35rem);
 }
 
 
@@ -1458,23 +1434,6 @@ button.nav-cta { cursor: pointer; font-family: inherit; }
     justify-content: center;
   }
 
-  .instagram-preview {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-  }
-
-  .instagram-card,
-  .instagram-card--featured {
-    grid-row: auto;
-    min-height: 230px;
-    padding: 1.5rem;
-    border-left: 0;
-    border-bottom: 1px solid var(--black-border);
-  }
-
-  .instagram-card:last-child {
-    border-bottom: 0;
-  }
 
   .instagram-follow-btn {
     width: 100%;
@@ -2345,7 +2304,6 @@ body > * { position: relative; z-index: 1; }
 .section-heading,
 .subscribe-heading,
 .community-cta-heading,
-.instagram-card h3,
 .faq-list summary,
 .promise-quote,
 .final-cta-heading,
@@ -2469,7 +2427,6 @@ body > * { position: relative; z-index: 1; }
      the body
      a foot      -- separated by a hairline, with a travelling arrow
    ═══════════════════════════════════════════════════════════════════════ */
-.instagram-card,
 .sig-card {
   position: relative;
   background: var(--card-bg);
@@ -2489,7 +2446,6 @@ body > * { position: relative; z-index: 1; }
 /* The mark. A 2px stub at the card's top-left that runs the full width when
    the card is pointed at -- the one piece of motion that makes a grid of
    cards feel responsive rather than printed. */
-.instagram-card::before,
 .sig-card::before {
   content: '';
   position: absolute;
@@ -2501,7 +2457,6 @@ body > * { position: relative; z-index: 1; }
   opacity: 0.85;
   transition: width 420ms var(--ease-out), opacity 240ms var(--ease-out);
 }
-.instagram-card:hover::before,
 .sig-card:hover::before,
 .sig-card:focus-within::before { width: 100%; opacity: 1; }
 
@@ -2509,7 +2464,6 @@ body > * { position: relative; z-index: 1; }
    two separate blocks; on one row they read as a masthead slug. */
 
 
-.instagram-card h3,
 .sig-card-title { grid-column: 1 / -1; color: var(--ink); margin-bottom: 0.75rem; }
 
 .sig-card-claim { grid-column: 1 / -1; color: var(--ink-2); }
@@ -2538,41 +2492,12 @@ body > * { position: relative; z-index: 1; }
 .sig-card:hover .sig-card-cta::after { transform: translateX(0.3rem); }
 
 /* Hover is a change of surface, not a swapped-in grey. */
-.instagram-card:hover,
 .sig-card:hover { background-color: color-mix(in srgb, var(--mark) 5%, var(--card-bg)); }
 
 /* The grids drew their own dividers with a background showing through a gap.
    That only works when every cell is the same colour, and an inverted card
    breaks it, so the cells carry their own hairlines instead. */
 
-
-.instagram-card-kicker {
-  margin-bottom: .65rem;
-  color: var(--ink-3);
-  font-size: var(--fs-xs);
-}
-.instagram-card-handle {
-  color: var(--ink-4);
-  font-size: .65rem;
-  letter-spacing: .08em;
-}
-.instagram-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--ink-4);
-  font-family: var(--ff-mono);
-  font-size: .6rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.instagram-card-format {
-  padding: .25rem .5rem;
-  border: 1px solid var(--black-border);
-  border-radius: var(--radius-full);
-  border-color: var(--rule);
-}
 
 .convener-link {
   color: var(--ink);
@@ -2618,7 +2543,6 @@ body > * { position: relative; z-index: 1; }
    the ordinary cards transparent, the inverted one is the only filled object
    in the group, so the black-and-white pairing is the thing you see.
    ═══════════════════════════════════════════════════════════════════════ */
-.instagram-card,
 .sig-card {
   background: none;
   background-color: transparent;
@@ -2627,7 +2551,6 @@ body > * { position: relative; z-index: 1; }
 /* Only the inverted card takes a fill. */
 
 /* Hover is then a wash rather than a lift. */
-.instagram-card:hover,
 .sig-card:hover { background-color: color-mix(in srgb, var(--mark) 4%, transparent); }
 
 /* The group frame goes too. Hairlines between the cells, and one rule under
@@ -2635,7 +2558,6 @@ body > * { position: relative; z-index: 1; }
 
 
 /* The mark now sits on the cell's own top rule rather than on a box edge. */
-.instagram-card::before,
 .sig-card::before { top: -1px; }
 
 /* Without a fill the cards need their own breathing room, not a box's
@@ -2712,45 +2634,10 @@ body > * { position: relative; z-index: 1; }
    headline into a narrow second column and pushed it out of the card. They
    keep their own stacked layout and take only the polarity.
    ═══════════════════════════════════════════════════════════════════════ */
-.instagram-card {
-  position: relative;
-  min-width: 0;
-  padding: clamp(1.25rem, 1.8vw, 1.75rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-left: 1px solid var(--rule);
-  background-image: linear-gradient(var(--black-border-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--black-border-soft) 1px, transparent 1px),
-    linear-gradient(145deg, rgba(255,255,255,.025), transparent 50%);
-  background-size: 40px 40px, 40px 40px, 100% 100%;
-  transition: background-color var(--transition-base);
-  gap: var(--space-md);
-  border-top: 1px solid var(--rule);
-}
-.instagram-card::before { display: none; }
-.instagram-card h3 {
-  font-family: var(--ff-serif);
-  font-size: clamp(1.05rem, 1.5vw, 1.4rem);
-  line-height: 1.25;
-  grid-column: auto;
-  margin: 0;
-}
-.instagram-card-body {
-  max-width: 24ch;
-}
 
-.instagram-preview {
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  grid-template-rows: repeat(2, minmax(13rem, auto));
-  border: 0;
-  border-radius: 0;
-  overflow: hidden;
-  background: none;
-}
+
 /* The lead post spans the full left column, as it does in a profile grid. */
-.instagram-preview > .is-inverted { grid-row: 1 / span 2; }
+
 
 /* The left column carried a label column of its own inside a 470px box, which
    left about 310px for a 60px headline -- one word per line. The label goes
@@ -2758,11 +2645,6 @@ body > * { position: relative; z-index: 1; }
 
 .instagram-content .section-heading { font-size: clamp(1.75rem, 3vw, 2.75rem); }
 
-
-@media (max-width: 900px) {
-  .instagram-preview { grid-template-columns: minmax(0, 1fr); }
-  .instagram-preview > .is-inverted { grid-row: auto; }
-}
 
 /* The handle and the section label ended up on one line once the column
    became a plain block. */
@@ -2951,7 +2833,10 @@ body > * { position: relative; z-index: 1; }
 
 /* Two-column blocks: copy in main, the object in aside. */
 .newsletter-left, .summit-content, .community-top, .instagram-content, .faq-intro { grid-column: main; grid-row: 1; }
-.newsletter-right, .summit-visual, .instagram-preview, .faq-list { grid-column: aside; grid-row: 1; }
+.newsletter-right,
+.summit-visual,
+.instagram-list,
+.faq-list { grid-column: aside; grid-row: 1; }
 
 /* Blocks whose content spans both. */
 .community-top  { grid-column: main / -1; }
@@ -2993,7 +2878,7 @@ body > * { position: relative; z-index: 1; }
   .newsletter-left, .newsletter-right,
   .summit-content, .summit-visual,
   .community-top, .community-grid, .community-cta,
-  .instagram-content, .instagram-preview,
+  .instagram-content, .instagram-list,
   .faq-intro, .faq-list { grid-column: 1; grid-row: auto; margin-top: 0; }
   .section-eyebrow { grid-column: 1; grid-row: auto; justify-self: start; }
 }
@@ -3427,4 +3312,75 @@ body > * { position: relative; z-index: 1; }
   .latest-row-title { grid-column: 1 / -1; grid-row: 1; }
   .latest-row-date { grid-column: 1; grid-row: 2; }
   .latest-row-theme { grid-column: 2; grid-row: 2; }
+}
+
+/* ── Instagram: what the feed carries ────────────────────
+   Three strands, set as a ruled list in the aside column, on the .latest-rows
+   pattern: mono index, serif name, mono format, one line of prose. It replaced
+   three mock post cards, which were a picture of Instagram rather than a
+   statement of what we publish there. */
+.instagram-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+.ig-item {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+  column-gap: var(--space-sm);
+  align-items: baseline;
+  padding: 1.15rem 0;
+}
+.ig-item + .ig-item { border-top: 1px solid var(--rule-soft); }
+.ig-item-num {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  font-variant-numeric: tabular-nums;
+}
+.ig-item-name {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  font-optical-sizing: auto;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.ig-item-kind {
+  grid-column: 3;
+  grid-row: 1;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  white-space: nowrap;
+}
+.ig-item-line {
+  grid-column: 2 / -1;
+  grid-row: 2;
+  margin: 0.4rem 0 0;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* Once the block stops being a column and runs the page width, a right-aligned
+   format label ends up 800px from the name it belongs to. It drops under the
+   name instead, and the list keeps the reading measure, so the strand still
+   reads name / format / what it is. */
+@media (max-width: 1024px) {
+  .instagram-list { max-width: var(--measure); }
+  .ig-item { grid-template-columns: 2.25rem minmax(0, 1fr); }
+  .ig-item-kind { grid-column: 2; grid-row: 2; margin-top: 0.4rem; }
+  .ig-item-line { grid-column: 2; grid-row: 3; }
 }
