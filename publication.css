@@ -89,3 +89,9 @@ html,body{background:var(--pb);color:var(--pw)}body{margin:0;font-family:var(--p
 
 /* A method or disclosure note can run to several paragraphs; set solid they read as one block. Scoped to adjacent siblings, so single-paragraph notes are unchanged. */
 .sig-block p+p,.sig-cite p+p,.sig-disclosure p+p,.sig-lasttime p+p{margin-top:1.15em}
+
+/* The standing commitment leads the Method block and is the same on every
+   edition; the note under it is this week's own. Setting it a notch brighter
+   than the note marks which is which without another heading. */
+.sig-method-pledge{color:var(--pb);max-width:720px}
+.product-body .sig-method-pledge{color:#242421}
