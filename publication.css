@@ -86,3 +86,6 @@ html,body{background:var(--pb);color:var(--pw)}body{margin:0;font-family:var(--p
 .pub-founder--compact .pub-founder-attribution{font:500 15px/1 var(--ps);letter-spacing:.01em;text-transform:none}
 .why-action-links{display:flex;flex-wrap:wrap;gap:16px 28px;margin-top:24px}.why-action-section .pub-inline-link{color:var(--pb);border-color:var(--pb)}
 @media(max-width:640px){.why-action-links{align-items:flex-start;flex-direction:column;gap:14px;margin-top:20px}}
+
+/* A method or disclosure note can run to several paragraphs; set solid they read as one block. Scoped to adjacent siblings, so single-paragraph notes are unchanged. */
+.sig-block p+p,.sig-cite p+p,.sig-disclosure p+p,.sig-lasttime p+p{margin-top:1.15em}

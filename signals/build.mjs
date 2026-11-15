@@ -491,8 +491,12 @@ function editionPage(s) {
     ? `<p class="sig-draft-note" role="note">Draft for review. Not yet published.</p>`
     : '';
 
+  // A method note runs from 90 to 400 words depending on how many jurisdictions
+  // an edition touches. Set as one paragraph the long ones are a wall, so a
+  // blank line in the source starts a new paragraph, as it does in prose.
+  const paras = (t) => t.split(/\n\s*\n/).map((x) => x.trim()).filter(Boolean);
   const method = s.method
-    ? `<div class="sig-block"><h2>Method</h2><p>${esc(s.method)}</p></div>` : '';
+    ? `<div class="sig-block"><h2>Method</h2>${paras(s.method).map((x) => `<p>${esc(x)}</p>`).join('')}</div>` : '';
   const sources = s.sources || [];
   const source = s.written
     ? `<div class="sig-block"><h2>Sources</h2>${
