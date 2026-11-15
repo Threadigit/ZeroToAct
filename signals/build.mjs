@@ -491,12 +491,21 @@ function editionPage(s) {
     ? `<p class="sig-draft-note" role="note">Draft for review. Not yet published.</p>`
     : '';
 
-  // A method note runs from 90 to 400 words depending on how many jurisdictions
-  // an edition touches. Set as one paragraph the long ones are a wall, so a
-  // blank line in the source starts a new paragraph, as it does in prose.
+  // Method is a standing commitment first and a per-edition note second. The
+  // commitment is the same every week and is rendered, not retyped, so it
+  // cannot drift; it says the same thing as the editorial standard on /why/.
+  // Most of what the per-edition notes used to carry was source attribution in
+  // prose, which the linked Sources list below already gives, so a note now
+  // carries only what a reader cannot get there: the dateline, figures we
+  // derived, numbers the sources disagree on, and what is deliberately absent.
+  const METHOD_PLEDGE = 'Every figure comes from a primary release or a named report, linked below. '
+    + 'Where sources disagree we give the range and say why. Where a number will not stand up we leave '
+    + 'it out. Every call is dated, and the next edition grades it.';
   const paras = (t) => t.split(/\n\s*\n/).map((x) => x.trim()).filter(Boolean);
-  const method = s.method
-    ? `<div class="sig-block"><h2>Method</h2>${paras(s.method).map((x) => `<p>${esc(x)}</p>`).join('')}</div>` : '';
+  const method = `<div class="sig-block"><h2>Method</h2>`
+    + `<p class="sig-method-pledge">${esc(METHOD_PLEDGE)}</p>`
+    + (s.method ? paras(s.method).map((x) => `<p>${esc(x)}</p>`).join('') : '')
+    + `</div>`;
   const sources = s.sources || [];
   const source = s.written
     ? `<div class="sig-block"><h2>Sources</h2>${
