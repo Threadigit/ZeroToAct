@@ -849,9 +849,11 @@ function productShell({ slug, title, desc, kind = 'Intelligence', status, claim,
 ${sections}
         <div class="sig-cta-band">
           <div><h2>${esc(cta.heading)}</h2><p>${esc(cta.sub)}</p></div>
-          ${cta.intent && cta.intent !== 'brief'
-            ? `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="${esc(cta.intent)}">${esc(cta.label)}</button>`
-            : briefCta(cta.label)}
+          ${cta.href
+            ? `<a class="sig-cta-btn" href="${esc(cta.href)}" target="_blank" rel="noopener noreferrer">${esc(cta.label)}</a>`
+            : cta.intent && cta.intent !== 'brief'
+              ? `<button type="button" class="sig-cta-btn join-cta-trigger" data-intent="${esc(cta.intent)}">${esc(cta.label)}</button>`
+              : briefCta(cta.label)}
         </div>
       </div>
     </section>
@@ -983,7 +985,7 @@ function annualOutlookPage() {
     status: 'Annual',
     claim: "Delivered at the Annual Summit, it grades the previous year's calls before setting out our position for the next.",
     sections,
-    cta: { heading: 'Receive the Outlook at the Summit.', sub: 'Join the waitlist to receive the date and be in the room where the Outlook becomes a plan.', label: 'Join the Summit Waitlist', intent: 'summit' },
+    cta: { heading: 'Receive the Outlook at the Summit.', sub: 'The Outlook is presented on 7 January 2027. Registration is at the Summit\u2019s own site.', label: 'Register for the Summit', href: 'https://globalbuildersummit.com/' },
   });
 }
 
@@ -1024,7 +1026,7 @@ function summitPage() {
     </section>
 
     <dl class="interior-details">
-      <div><dt>When</dt><dd>2027</dd></div>
+      <div><dt>When</dt><dd>Thursday 7 January 2027</dd></div>
       <div><dt>Format</dt><dd>One virtual day</dd></div>
       <div><dt>For</dt><dd>Career builders, business builders and people investing money</dd></div>
     </dl>`;
@@ -1037,7 +1039,7 @@ function summitPage() {
     status: 'Annual',
     claim: 'The Outlook, the discussion and the activities happen in one day, ending with a written plan that belongs to you.',
     sections,
-    cta: { heading: 'Be in the room.', sub: 'The waitlist is how the date reaches you. Nothing to pay to join it.', label: 'Join the Summit Waitlist', intent: 'summit' },
+    cta: { heading: 'Be in the room.', sub: 'Registration and the full programme are at the Summit\u2019s own site.', label: 'Register for the Summit', href: 'https://globalbuildersummit.com/' },
   });
 }
 
